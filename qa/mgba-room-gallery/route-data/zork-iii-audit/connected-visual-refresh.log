@@ -1,0 +1,80 @@
+
+SHOT route-6-connected room=6 scene=z3_beam_room title=Beam Room dark=0 pages=1 room targets= 202:Sword; 27:Red beam of light;
+
+SHOT route-8-connected room=8 scene=z3_narrow_mirror title=Narrow Room dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+
+SHOT route-12-connected room=12 scene=z3_underwater title=Underwater dark=0 pages=1 room targets= 129:Shiny object; 144:Plants and algae; 114:Sand; 223:Lake; 94:Fish;
+
+SHOT route-15-connected room=15 scene=z3_timber_room title=Timber Room dark=0 pages=1 room targets= 158:Broken timber;
+
+SHOT route-19-connected room=19 scene=z3_marble_hall title=North Corridor dark=0 pages=1 room targets= 1:Dungeon master; 183:Cell door; 206:Parapet; 4:Flaming pit;
+
+SHOT route-28-connected room=28 scene=museum_entrance_open title=Museum Entrance dark=0 pages=1 room targets= 82:Wooden door; 205:Stone door; 199:Iron door; 79:Robot;
+
+SHOT route-36-connected room=36 scene=z3_parapet title=Parapet dark=0 pages=1 room targets= 1:Dungeon master; 88:Sundial; 60:Large button; 206:Parapet; 4:Flaming pit;
+
+SHOT route-45-connected room=45 scene=z3_prison_cell_open title=Prison Cell dark=0 pages=1 room targets= 11:Dungeon master; 209:Bronze door; 183:Cell door; 206:Parapet; 4:Flaming pit;
+
+SHOT route-46-connected room=46 scene=z3_treasury title=Treasury of Zork dark=0 pages=1 room targets=
+
+SHOT route-64-connected room=64 scene=z3_foggy_room title=Foggy Room dark=0 pages=1 room targets=
+
+SHOT route-66-connected room=66 scene=z3_technology_unfinished title=Technology Museum dark=0 pages=1 room targets= 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door; 79:Robot;
+
+SHOT route-75-connected room=75 scene=z3_aqueduct_view title=Aqueduct View dark=0 pages=1 room targets= 156:Aqueduct; 154:Stairs;
+
+SHOT route-81-connected room=81 scene=z3_crystal_grotto title=Crystal Grotto dark=0 pages=1 room targets= 50:Rock structure; 198:Moss and lichen;
+
+SHOT route-93-connected room=93 scene=z3_damp_passage title=Damp Passage dark=0 pages=1 room targets= 18:Torch; 198:Moss and lichen; 14:Rubble; 71:Channel;
+
+SHOT route-98-connected room=98 scene=z3_button_room title=Button Room dark=0 pages=1 room targets= 191:Red button; 222:Secret door; 154:Stairs;
+
+SHOT route-100-connected room=100 scene=z3_narrow_mirror title=Narrow Room dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+
+SHOT route-103-connected room=103 scene=jewel_room title=Jewel Room dark=0 pages=1 room targets= 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 10:Steel cage; 131:Bronze plaque; 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door;
+
+SHOT route-105-connected room=105 scene=dungeon_entrance title=Dungeon Entrance dark=0 pages=1 room targets= 207:Wooden door; 147:Panel; 80:Wooden wall;
+
+SHOT route-116-connected room=116 scene=z3_royal_hall title=Royal Hall dark=0 pages=1 room targets= 38:Royal Seal of Dimwit Flathead;
+
+SHOT route-124-connected room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 3:Indicator; 17:Viewing table;
+
+SHOT route-136-connected room=136 scene=z3_great_door title=Great Door dark=0 pages=1 room targets= 199:Iron door; 89:Cleft;
+
+SHOT route-140-connected room=140 scene=z3_west_shore title=Western Shore dark=0 pages=1 room targets= 67:Reeds; 223:Lake;
+
+SHOT route-143-connected room=143 scene=z3_royal_puzzle_entrance title=Royal Puzzle Entrance dark=0 pages=1 room targets= 215:Hole; 171:Warning note; 154:Stairs;
+
+SHOT route-160-connected room=160 scene=mirror_room title=Inside Mirror dark=0 pages=1 room targets= 157:Wooden bar; 52:White panel; 212:Yellow panel; 2:Short pole; 197:Red panel; 62:Pine panel; 37:Mahogany panel; 196:Long pole; 127:Compass arrow; 87:Black panel; 175:T-bar; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork;
+
+SHOT route-163-connected room=163 scene=z3_water_slide title=Water Slide dark=0 pages=1 room targets= 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+
+SHOT route-169-connected room=169 scene=z3_mirror_hall title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+
+SHOT route-172-connected room=172 scene=engravings title=Engravings Room dark=0 pages=1 room targets= 97:Old man; 32:Runes; 222:Secret door; 154:Stairs;
+
+SHOT route-176-connected room=176 scene=technology_museum title=Technology Museum dark=0 pages=1 room targets= 219:Plaque; 132:Black machine; 92:Grey machine; 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 82:Wooden door;
+
+SHOT route-179-connected room=179 scene=z3_jewel_unfinished title=Jewel Room dark=0 pages=1 room targets= 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door; 79:Robot;
+
+SHOT route-182-connected room=182 scene=z3_high_arch title=High Arch dark=0 pages=1 room targets= 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+
+SHOT route-184-connected room=184 scene=z3_lake_surface title=On the Lake dark=0 pages=1 room targets= 223:Lake; 94:Fish;
+
+SHOT route-192-connected room=192 scene=z3_room8 title=Room 8 dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent;
+
+SHOT route-203-connected room=203 scene=z3_aqueduct title=Aqueduct dark=0 pages=1 room targets= 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+
+SHOT route-204-connected room=204 scene=z3_prison_cell_closed title=Prison Cell dark=0 pages=1 room targets= 153:Cell door; 11:Dungeon master; 209:Bronze door; 4:Flaming pit;
+
+SHOT route-211-connected room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=1 room targets= 126:Brass lantern; 154:Stairs;
+
+SHOT route-216-connected room=216 scene=z3_south_shore title=Southern Shore dark=0 pages=1 room targets= 223:Lake;
+
+SHOT route-218-connected room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=1 room targets= 65:Chest; 14:Rubble; 137:Rope; 31:Ledge; 220:Cliff;
+
+SHOT route-221-connected room=221 scene=z3_narrow_mirror title=Narrow Room dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=221 score=7 moves=312

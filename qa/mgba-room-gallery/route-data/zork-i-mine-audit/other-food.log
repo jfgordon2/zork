@@ -1,0 +1,13 @@
+
+>>>> open sack [room #27 score 10 turn 4]
+Opening the brown sack reveals a clove of garlic, and a lunch.
+
+SHOT garlic-on-table room=27 scene=kitchen title=Kitchen dark=0 pages=1 room targets= 169:Kitchen table; 138:Glass bottle; 186:Quantity of water; 99:Brown sack; 217:Clove of garlic; 14:Lunch; 243:Kitchen window; 43:Chimney; 177:Stairs;
+
+>>>> take garlic [room #27 score 10 turn 5]
+Taken.
+
+SHOT garlic-carried room=27 scene=kitchen title=Kitchen dark=0 pages=1 room targets= 169:Kitchen table; 138:Glass bottle; 186:Quantity of water; 99:Brown sack; 14:Lunch; 243:Kitchen window; 43:Chimney; 177:Stairs;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=27 score=10 moves=6

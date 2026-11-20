@@ -1,0 +1,55 @@
+
+>>>> eat red cake [room #190 score 30 turn 30]
+That was delicious, but your dying memory is of feeling horribly dehydrated and thirsty.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see a small room with a sign on the wall, but it is too blurry to read.
+
+SHOT red-cake-outcome room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=4 room targets= 188:Sphere;
+
+>>>> eat orange cake [room #190 score 30 turn 30]
+You have been blasted to smithereens (wherever they are).
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see a small room with a sign on the wall, but it is too blurry to read.
+
+SHOT orange-cake-outcome room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=4 room targets= 188:Sphere;
+
+>>>> eat green cake [room #190 score 30 turn 30]
+Suddenly, the room appears to have become very large (although everything you are carrying seems to be its normal size).
+
+Posts Room
+This is an enormous room, in the center of which are four wooden posts delineating a rectangular area, above which is what appears to be a wooden roof. In fact, all objects in this room appear to be abnormally large. To the east is a passageway. There are large gaping chasms to the west and northwest.
+
+>>>> west [room #122 score 30 turn 31]
+A great chasm blocks your way.
+
+SHOT posts-west-outcome room=122 scene=z2_posts title=Posts Room dark=0 pages=1 room targets= 195:Group of wooden posts; 105:Chasm;
+
+>>>> drink flask [room #82 score 30 turn 33]
+I don't think that the stoppered glass flask filled with liquid would agree with you.
+
+SHOT flask-outcome room=82 scene=z2_pool title=Pool Room dark=0 pages=1 room targets= 35:Cake frosted with orange letters; 39:Pool of tears; 47:Leak; 42:Stoppered glass flask filled with liquid;
+
+>>>> eat blue cake [room #122 score 30 turn 31]
+The room around you seems to be getting smaller.
+
+Tea Room
+There is a large oblong table here.
+
+SHOT blue-cake-outcome room=190 scene=tea title=Tea Room dark=0 pages=1 room targets= 155:Large oblong table;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=190 score=30 moves=32

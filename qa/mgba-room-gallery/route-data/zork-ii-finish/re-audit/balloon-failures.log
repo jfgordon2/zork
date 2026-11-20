@@ -1,0 +1,84 @@
+
+>>>> up [room #176 score 200 turn 201]
+You can't go that way.
+The lamp appears a bit dimmer.
+
+>>>> land [room #176 score 200 turn 202]
+You can't go that way.
+
+>>>> stand [room #176 score 200 turn 202]
+You are on your own feet again.
+
+SHOT balloon-exit-ground room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=1 room targets= 169:Basket; 126:Receptacle; 93:Cloth bag; 170:Braided wire;
+
+>>>> stand [room #113 score 200 turn 211]
+You realize that getting out here would be fatal.
+
+SHOT balloon-exit-air room=113 scene=z2_volcano_small title=Volcano Near Small Ledge dark=0 pages=1 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire;
+
+>>>> stand [room #13 score 200 turn 212]
+You are on your own feet again.
+
+>>>> south [room #13 score 200 turn 213]
+Library
+This must have been a large library, probably for the royal family. All of the shelves have been gnawed to pieces by unfriendly gnomes. To the north is an exit.
+Right beside the purple book sits a white one.
+Worn and battered in one corner of the room is a blue book.
+A handsome book, bound in green leather, sits in the center of the room.
+Lying in the dust, and covered with mold, is a purple book.
+
+>>>> wait [room #136 score 200 turn 214]
+Time passes...
+
+>>>> north [room #136 score 200 turn 217]
+Narrow Ledge
+On the floor is a priceless gold zorkmid (a valuable collector's item).
+There is a small hook attached to the rock here.
+
+SHOT balloon-unmoored-return room=13 scene=z2_narrow_ledge title=Narrow Ledge dark=0 pages=1 room targets= 246:Priceless zorkmid; 88:Hook;
+
+>>>> burn string with match [room #182 score 230 turn 236]
+The string starts to burn.
+The match has gone out.
+
+>>>> wait [room #182 score 230 turn 237]
+Time passes...
+Now you've done it. It seems that the brick has other properties than weight, namely the ability to blow you to smithereens.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see only darkness.
+
+>>>> wait [room #224 score 220 turn 238]
+Time passes...
+
+>>>> wait [room #224 score 220 turn 241]
+Time passes...
+
+SHOT bomb-stayed room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=1 room targets= 188:Sphere;
+
+>>>> wait [room #182 score 230 turn 237]
+Time passes...
+Now you've done it. It seems that the brick has other properties than weight, namely the ability to blow you to smithereens.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see only darkness.
+
+>>>> wait [room #224 score 220 turn 238]
+Time passes...
+
+SHOT bomb-detonated-here room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=1 room targets= 188:Sphere;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=224 score=220 moves=241

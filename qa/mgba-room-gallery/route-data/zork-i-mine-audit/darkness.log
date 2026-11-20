@@ -1,0 +1,53 @@
+
+>>>> turn off lamp [room #75 score 10 turn 10]
+The brass lantern is now off.
+
+>>>> down [room #75 score 10 turn 11]
+You have moved into a dark place.
+The trap door crashes shut, and you hear someone barring it.
+
+It is pitch black. You are likely to be eaten by a grue.
+Your sword is glowing with a faint blue glow.
+
+SHOT cellar-dark room=33 scene=z1_cellar_hatch title=Cellar dark=1 pages=2 room targets=
+
+>>>> north [room #33 score 35 turn 12]
+Oh, no! A lurking grue slithered into the room and devoured you!
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Forest
+This is a forest, with trees in all directions. To the east, there appears to be sunlight.
+
+>>>> s [room #87 score 25 turn 13]
+Forest
+This is a dimly lit forest, with large trees all around.
+
+>>>> e [room #221 score 25 turn 14]
+The rank undergrowth prevents eastward movement.
+
+>>>> n [room #221 score 25 turn 15]
+Clearing
+You are in a small clearing in a well marked forest path that extends to the east and west.
+
+SHOT grue-end room=128 scene=forest title=Clearing dark=0 pages=1 room targets= 107:Tree; 56:Songbird; 65:White house; 1:Forest;
+
+>>>> down [room #75 score 10 turn 10]
+The trap door crashes shut, and you hear someone barring it.
+
+Cellar
+You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.
+Your sword is glowing with a faint blue glow.
+
+>>>> north [room #33 score 35 turn 11]
+The Troll Room
+This is a small room with passages to the east and south and a forbidding hole leading west. Bloodstains and deep scratches (perhaps made by an axe) mar the walls.
+A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.
+Your sword has begun to glow very brightly.
+
+SHOT troll-safe room=127 scene=troll_room title=The Troll Room dark=0 pages=2 room targets= 150:Troll; 36:Bloody axe;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=127 score=35 moves=12

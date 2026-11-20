@@ -1,0 +1,45 @@
+
+SHOT hood-fighting room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=1 room targets= 110:Hooded figure; 59:Cloak; 148:Hood;
+
+>>>> take cloak [room #30 score 7 turn 265]
+The cloak is fastened around the neck of the hooded figure. It would be difficult to remove.
+The hooded figure tries to sneak past your guard, but you twist away.
+
+>>>> east [room #30 score 7 turn 266]
+Creepy Crawl
+
+SHOT hood-escape room=55 scene=cavern title=Creepy Crawl dark=0 pages=1 room targets=
+
+SHOT hood-wounded room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=1 room targets= 110:Hooded figure; 59:Cloak; 148:Hood;
+
+>>>> take hood [room #30 score 7 turn 269]
+You slowly remove the hood from your badly wounded opponent and recoil in horror at the sight of your own face, weary and wounded. A faint smile comes to the lips and then the face starts to change, very slowly, into that of an old, wizened person. The image fades and with it the body of your hooded opponent. The cloak remains on the ground.
+
+>>>> take cloak [room #30 score 7 turn 270]
+You are now wearing the cloak.
+
+SHOT hood-mercy room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=1 room targets=
+
+>>>> look [room #30 score 7 turn 271]
+Land of Shadow
+You are at the eastern end of a dark, featureless landscape of shallow hills. Paths to the east and southeast reenter the rock.
+
+SHOT hood-mercy-after room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=1 room targets=
+
+>>>> attack figure with sword [room #30 score 7 turn 269]
+The hooded figure, fatally wounded, slumps to the ground. It gazes up at you once, and you catch a brief glimpse of deep and sorrowful eyes. Before you can react, the figure vanishes in a cloud of fetid vapor.
+
+>>>> attack figure with sword [room #30 score 7 turn 270]
+You can't see any figure here!
+
+SHOT hood-killed room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=1 room targets=
+
+>>>> look [room #30 score 7 turn 271]
+Land of Shadow
+You are at the eastern end of a dark, featureless landscape of shallow hills. Paths to the east and southeast reenter the rock.
+
+SHOT hood-killed-after room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=1 room targets=
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=30 score=7 moves=272

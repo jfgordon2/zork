@@ -1,0 +1,45 @@
+
+>>>> take clear sphere [room #233 score 135 turn 184]
+You can't see any clear sphere here!
+
+>>>> open aquarium [room #233 score 135 turn 185]
+It is already open.
+
+>>>> attack serpent with sword [room #233 score 135 turn 186]
+He swims towards you with a powerful stroke of his flippers, dagger-like teeth dripping. Fortunately, he doesn't want to crash into the aquarium wall, and contents himself with splashing you with water.
+
+SHOT aquarium-refusals room=233 scene=aquarium title=Aquarium Room dark=0 pages=2 room targets= 250:Aquarium; 32:Baby sea serpent;
+
+SHOT serpent-after-break room=233 scene=aquarium_broken title=Aquarium Room dark=0 pages=1 room targets= 17:Dead sea serpent; 223:Elvish sword; 250:Aquarium; 31:Clear crystal sphere;
+
+>>>> take red sphere [room #94 score 155 turn 190]
+Taken.
+
+>>>> put red sphere on sapphire stand [room #94 score 155 turn 191]
+Done.
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard draws forth his wand and waves it in your direction. It begins to glow with a faint blue glow.
+There is a loud crackling noise. Blue smoke rises from out of the Wizard's sleeve. He sighs and disappears.
+
+>>>> put blue sphere on ruby stand [room #94 score 155 turn 192]
+Done.
+
+SHOT spheres-swapped room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 31:Clear crystal sphere; 219:Sapphire stand; 29:Red crystal sphere; 89:Ruby stand; 33:Blue crystal sphere; 203:Arcane item;
+
+>>>> take clear sphere [room #94 score 155 turn 193]
+Taken.
+
+>>>> put clear sphere on ruby stand [room #94 score 155 turn 194]
+Done.
+
+SHOT spheres-stacked room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 219:Sapphire stand; 29:Red crystal sphere; 89:Ruby stand; 31:Clear crystal sphere; 33:Blue crystal sphere; 203:Arcane item;
+
+>>>> take black sphere [room #94 score 155 turn 191]
+Taken.
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard notices that you carry the Black Crystal, and with an unseemly haste, he disappears.
+
+SHOT fused-removed room=94 scene=workroom title=Wizard's Workroom dark=0 pages=2 room targets= 76:Wizard's workbench; 197:Black obsidian stand; 99:Diamond stand; 219:Sapphire stand; 89:Ruby stand; 203:Arcane item;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=94 score=185 moves=192

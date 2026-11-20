@@ -1,0 +1,439 @@
+# Deterministic replay checkpoints: expected room and score before each command.
+64	0	south
+209	0	east
+85	0	open window
+85	0	enter window
+27	10	west
+75	10	take lamp
+75	10	take sword
+75	10	turn on lamp
+75	10	move rug
+75	10	open trap door
+75	10	open case
+75	10	east
+27	10	east
+85	10	north
+137	10	north
+238	10	up
+5	10	take egg
+5	15	down
+238	15	south
+137	15	east
+85	15	west
+27	15	up
+187	15	take knife
+187	15	take rope
+187	15	down
+27	15	west
+75	15	open trap door
+75	15	down
+33	40	north
+127	40	kill troll with sword
+127	40	kill troll with sword
+127	40	kill troll with sword
+127	40	kill troll with sword
+127	40	kill troll with sword
+127	40	west
+104	40	west
+193	40	west
+54	40	up
+218	40	take coins
+218	50	take key
+218	50	sw
+134	50	east
+158	50	south
+170	50	se
+78	50	ulysses
+78	50	up
+82	75	give egg to thief
+82	75	down
+78	75	east
+117	75	east
+75	75	put coins in case
+75	80	drop sword
+75	80	drop key
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	wait
+75	80	open trap door
+75	80	down
+33	80	north
+127	80	east
+130	85	east
+15	85	north
+175	85	north
+106	85	northeast
+123	85	east
+178	85	north
+120	85	take matches
+120	85	north
+224	85	take wrench
+224	85	press yellow button
+224	85	south
+120	85	south
+178	85	turn bolt with wrench
+178	85	drop wrench
+178	85	west
+123	85	wait
+123	85	wait
+123	85	wait
+123	85	north
+95	85	take trunk
+95	100	north
+191	100	take pump
+191	100	north
+4	100	take trident
+4	104	south
+191	104	south
+95	104	south
+123	104	southwest
+106	104	south
+175	104	south
+15	104	west
+130	104	west
+127	104	west
+104	104	west
+193	104	west
+54	104	up
+218	104	sw
+134	104	east
+158	104	south
+170	104	se
+78	104	east
+117	104	east
+75	104	put trunk in case
+75	109	put trident in case
+75	120	down
+33	120	north
+127	120	west
+104	120	west
+193	120	west
+54	120	up
+218	120	sw
+134	120	east
+158	120	south
+170	120	se
+78	120	up
+82	120	kill thief with knife
+82	120	kill thief with knife
+82	120	kill thief with knife
+82	120	kill thief with knife
+82	120	kill thief with knife
+82	120	kill thief with knife
+82	120	kill thief with knife
+82	120	take chalice
+82	130	take egg
+82	130	take canary
+82	136	down
+78	136	east
+117	136	east
+75	136	put chalice in case
+75	141	put egg in case
+75	146	east
+27	146	east
+85	146	north
+137	146	north
+238	146	wind canary
+238	146	take bauble
+238	147	south
+137	147	east
+85	147	west
+27	147	west
+75	147	put canary in case
+75	151	put bauble in case
+75	152	drop knife
+75	152	open trap door
+75	152	down
+33	152	north
+127	152	east
+130	152	east
+15	152	southeast
+69	152	east
+11	152	tie rope to railing
+11	152	down
+18	152	take torch
+18	166	turn off lamp
+18	166	south
+2	166	take bell
+2	166	east
+241	166	open coffin
+241	166	take sceptre
+241	170	west
+2	170	south
+129	170	take book
+129	170	take candles
+129	170	down
+176	170	down
+38	170	ring bell
+38	170	take candles
+38	170	light match
+38	170	light candles with match
+38	170	read book
+38	170	drop book
+38	170	drop candles
+38	170	south
+13	170	take skull
+13	180	north
+38	180	up
+176	180	north
+52	180	north
+228	180	north
+15	180	west
+130	180	west
+127	180	south
+33	180	up
+75	180	put skull in case
+75	190	down
+33	190	south
+247	190	east
+122	190	take painting
+122	194	west
+247	194	north
+33	194	up
+75	194	put painting in case
+75	200	down
+33	200	north
+127	200	east
+130	200	east
+15	200	east
+205	200	echo
+205	200	take bar
+205	210	west
+15	210	west
+130	210	west
+127	210	south
+33	210	up
+75	210	put bar in case
+75	215	east
+27	215	east
+85	215	east
+128	215	east
+22	215	down
+21	215	down
+74	215	north
+125	215	wave sceptre
+125	215	take pot
+125	225	southwest
+74	225	up
+21	225	up
+22	225	northwest
+128	225	west
+85	225	west
+27	225	west
+75	225	put pot in case
+75	235	put sceptre in case
+75	241	drop pump
+75	241	open trap door
+75	241	down
+33	241	north
+127	241	east
+130	241	east
+15	241	southeast
+69	241	east
+11	241	down
+18	241	south
+2	241	east
+241	241	take coffin
+241	251	west
+2	251	south
+129	251	pray
+87	251	east
+238	251	south
+137	251	east
+85	251	west
+27	251	west
+75	251	put coffin in case
+75	266	take pump
+75	266	drop pump
+75	266	east
+27	266	take sack
+27	266	open sack
+27	266	take garlic
+27	266	drop sack
+27	266	west
+75	266	open trap door
+75	266	down
+33	266	north
+127	266	east
+130	266	east
+15	266	north
+175	266	north
+106	266	northeast
+123	266	east
+178	266	north
+120	266	north
+224	266	take screwdriver
+224	266	south
+120	266	south
+178	266	west
+123	266	north
+95	266	north
+191	266	north
+4	266	up
+62	266	north
+110	266	north
+139	266	west
+31	266	north
+188	266	west
+171	266	north
+235	266	take figurine
+235	271	east
+245	271	turn on lamp
+245	271	put torch in basket
+245	271	put screwdriver in basket
+245	271	north
+93	271	down
+46	271	take bracelet
+46	276	east
+173	276	northeast
+90	276	southeast
+112	276	southwest
+3	276	down
+16	276	down
+72	276	south
+156	276	take coal
+156	276	north
+72	276	up
+16	276	up
+3	276	north
+112	276	east
+90	276	south
+173	276	north
+46	276	up
+93	276	south
+245	276	put coal in basket
+245	276	lower basket
+245	276	north
+93	276	down
+46	276	east
+173	276	northeast
+90	276	southeast
+112	276	southwest
+3	276	down
+16	276	down
+72	276	west
+8	276	drop all
+8	276	west
+249	276	take torch
+249	289	take coal
+249	289	take screwdriver
+249	289	south
+89	289	open lid
+89	289	put coal in machine
+89	289	close lid
+89	289	turn switch with screwdriver
+89	289	open lid
+89	289	take diamond
+89	299	north
+249	299	put diamond in basket
+249	299	put torch in basket
+249	299	put screwdriver in basket
+249	299	east
+8	299	take lamp
+8	299	take garlic
+8	299	take figurine
+8	299	take bracelet
+8	299	east
+72	299	up
+16	299	up
+3	299	north
+112	299	east
+90	299	south
+173	299	north
+46	299	up
+93	299	south
+245	299	raise basket
+245	299	take diamond
+245	299	take torch
+245	299	west
+235	299	south
+171	299	east
+188	299	south
+31	299	down
+33	299	up
+75	299	put diamond in case
+75	309	put figurine in case
+75	314	put bracelet in case
+75	319	take pump
+75	319	open trap door
+75	319	down
+33	319	north
+127	319	east
+130	319	east
+15	319	north
+175	319	north
+106	319	northeast
+123	319	east
+178	319	down
+111	319	inflate plastic with pump
+111	319	drop pump
+111	319	enter boat
+111	319	launch
+37	319	wait
+174	319	wait
+174	319	take buoy
+45	319	wait
+182	319	take buoy
+182	319	east
+30	319	get out of boat
+30	319	open buoy
+30	324	take emerald
+30	324	drop buoy
+30	324	take shovel
+30	324	northeast
+155	324	dig sand with shovel
+155	324	dig sand with shovel
+155	324	dig sand with shovel
+155	324	dig sand with shovel
+155	324	take scarab
+155	329	drop shovel
+155	329	southwest
+30	329	south
+40	329	south
+47	329	west
+202	329	west
+125	329	southwest
+74	329	up
+21	329	up
+22	329	northwest
+128	329	west
+85	329	west
+27	329	west
+75	329	put emerald in case
+75	339	put scarab in case
+75	344	put torch in case
+75	350	score
+75	350	take map
+75	350	east
+27	350	east
+85	350	south
+209	350	west
+64	350	southwest
+244	350	enter barrow

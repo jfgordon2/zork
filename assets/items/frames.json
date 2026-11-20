@@ -1,0 +1,1394 @@
+{
+  "lantern": {
+    "cells": [
+      {
+        "pose": "Off",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 22
+      },
+      {
+        "pose": "On",
+        "x": 15,
+        "y": 0,
+        "width": 13,
+        "height": 22
+      }
+    ]
+  },
+  "sword": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 34,
+        "height": 11
+      }
+    ]
+  },
+  "axe": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 12
+      }
+    ]
+  },
+  "matchbook": {
+    "cells": [
+      {
+        "pose": "Folded",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 8
+      }
+    ]
+  },
+  "coffin": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 8,
+        "width": 69,
+        "height": 24
+      },
+      {
+        "pose": "Open",
+        "x": 71,
+        "y": 0,
+        "width": 65,
+        "height": 32
+      }
+    ]
+  },
+  "chalice": {
+    "cells": [
+      {
+        "pose": "Silver",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 17
+      }
+    ]
+  },
+  "trident": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 14
+      }
+    ]
+  },
+  "pot_of_gold": {
+    "cells": [
+      {
+        "pose": "Full",
+        "x": 0,
+        "y": 0,
+        "width": 20,
+        "height": 16
+      }
+    ]
+  },
+  "teapot": {
+    "cells": [
+      {
+        "pose": "China",
+        "x": 0,
+        "y": 0,
+        "width": 19,
+        "height": 14
+      }
+    ]
+  },
+  "newspaper": {
+    "cells": [
+      {
+        "pose": "Folded",
+        "x": 0,
+        "y": 0,
+        "width": 17,
+        "height": 9
+      }
+    ]
+  },
+  "leaflet": {
+    "cells": [
+      {
+        "pose": "Folded",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 9
+      },
+      {
+        "pose": "Inside",
+        "x": 15,
+        "y": 6,
+        "width": 4,
+        "height": 3
+      }
+    ]
+  },
+  "cake": {
+    "cells": [
+      {
+        "pose": "Green",
+        "x": 0,
+        "y": 0,
+        "width": 14,
+        "height": 11
+      },
+      {
+        "pose": "Blue",
+        "x": 16,
+        "y": 0,
+        "width": 14,
+        "height": 11
+      },
+      {
+        "pose": "Orange",
+        "x": 32,
+        "y": 0,
+        "width": 14,
+        "height": 11
+      },
+      {
+        "pose": "Red",
+        "x": 48,
+        "y": 0,
+        "width": 14,
+        "height": 11
+      }
+    ]
+  },
+  "waybread": {
+    "cells": [
+      {
+        "pose": "Piece",
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 8
+      }
+    ]
+  },
+  "sphere": {
+    "cells": [
+      {
+        "pose": "Clear",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 13
+      },
+      {
+        "pose": "Red",
+        "x": 15,
+        "y": 0,
+        "width": 13,
+        "height": 13
+      },
+      {
+        "pose": "Blue",
+        "x": 30,
+        "y": 0,
+        "width": 13,
+        "height": 13
+      },
+      {
+        "pose": "Black",
+        "x": 45,
+        "y": 0,
+        "width": 13,
+        "height": 13
+      }
+    ]
+  },
+  "stand": {
+    "cells": [
+      {
+        "pose": "Obsidian",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 13
+      },
+      {
+        "pose": "Ruby",
+        "x": 17,
+        "y": 2,
+        "width": 12,
+        "height": 11
+      },
+      {
+        "pose": "Sapphire",
+        "x": 31,
+        "y": 2,
+        "width": 12,
+        "height": 11
+      },
+      {
+        "pose": "Diamond",
+        "x": 45,
+        "y": 2,
+        "width": 12,
+        "height": 11
+      }
+    ]
+  },
+  "wand": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 18,
+        "height": 6
+      }
+    ]
+  },
+  "key": {
+    "cells": [
+      {
+        "pose": "Gold",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 8
+      }
+    ]
+  },
+  "chest": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "height": 24
+      },
+      {
+        "pose": "Open",
+        "x": 32,
+        "y": 0,
+        "width": 25,
+        "height": 24
+      }
+    ]
+  },
+  "cloak": {
+    "cells": [
+      {
+        "pose": "Discarded",
+        "x": 0,
+        "y": 0,
+        "width": 21,
+        "height": 13
+      }
+    ]
+  },
+  "vial": {
+    "cells": [
+      {
+        "pose": "Clear",
+        "x": 0,
+        "y": 0,
+        "width": 5,
+        "height": 13
+      }
+    ]
+  },
+  "machine": {
+    "cells": [
+      {
+        "pose": "Gold",
+        "x": 0,
+        "y": 0,
+        "width": 54,
+        "height": 25
+      }
+    ]
+  },
+  "mailbox": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 23
+      },
+      {
+        "pose": "Open",
+        "x": 14,
+        "y": 0,
+        "width": 14,
+        "height": 23
+      }
+    ]
+  },
+  "egg": {
+    "cells": [
+      {
+        "pose": "Jewelled",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 15
+      }
+    ]
+  },
+  "skull": {
+    "cells": [
+      {
+        "pose": "Crystal",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 15
+      }
+    ]
+  },
+  "statuette": {
+    "cells": [
+      {
+        "pose": "Gold",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 19
+      }
+    ]
+  },
+  "bell": {
+    "cells": [
+      {
+        "pose": "Brass",
+        "x": 0,
+        "y": 0,
+        "width": 10,
+        "height": 17
+      }
+    ]
+  },
+  "bills": {
+    "cells": [
+      {
+        "pose": "Stack",
+        "x": 0,
+        "y": 0,
+        "width": 14,
+        "height": 9
+      }
+    ]
+  },
+  "bolt": {
+    "cells": [
+      {
+        "pose": "Mounted",
+        "x": 0,
+        "y": 0,
+        "width": 9,
+        "height": 8
+      }
+    ]
+  },
+  "menhir": {
+    "cells": [
+      {
+        "pose": "Upright",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 46
+      },
+      {
+        "pose": "Fallen",
+        "x": 27,
+        "y": 28,
+        "width": 44,
+        "height": 18
+      }
+    ]
+  },
+  "staff": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 32,
+        "height": 6
+      }
+    ]
+  },
+  "torch": {
+    "cells": [
+      {
+        "pose": "Flame",
+        "x": 0,
+        "y": 0,
+        "width": 14,
+        "height": 13
+      }
+    ]
+  },
+  "sword_rock": {
+    "cells": [
+      {
+        "pose": "Embedded",
+        "x": 0,
+        "y": 0,
+        "width": 49,
+        "height": 55
+      },
+      {
+        "pose": "Empty",
+        "x": 51,
+        "y": 27,
+        "width": 49,
+        "height": 28
+      }
+    ]
+  },
+  "bottle": {
+    "cells": [
+      {
+        "pose": "Full",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 18
+      },
+      {
+        "pose": "Empty",
+        "x": 15,
+        "y": 0,
+        "width": 13,
+        "height": 18
+      }
+    ]
+  },
+  "sack": {
+    "cells": [
+      {
+        "pose": "Tied",
+        "x": 0,
+        "y": 0,
+        "width": 22,
+        "height": 11
+      }
+    ]
+  },
+  "boat": {
+    "cells": [
+      {
+        "pose": "Folded",
+        "x": 0,
+        "y": 12,
+        "width": 24,
+        "height": 12
+      },
+      {
+        "pose": "Inflated",
+        "x": 26,
+        "y": 0,
+        "width": 39,
+        "height": 24
+      },
+      {
+        "pose": "Punctured",
+        "x": 67,
+        "y": 6,
+        "width": 39,
+        "height": 18
+      }
+    ]
+  },
+  "boat_interior": {
+    "cells": [
+      {
+        "pose": "View",
+        "x": 0,
+        "y": 0,
+        "width": 240,
+        "height": 28
+      }
+    ]
+  },
+  "buoy": {
+    "cells": [
+      {
+        "pose": "Red",
+        "x": 0,
+        "y": 0,
+        "width": 11,
+        "height": 13
+      }
+    ]
+  },
+  "shovel": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 27,
+        "height": 9
+      }
+    ]
+  },
+  "nest": {
+    "cells": [
+      {
+        "pose": "Woven",
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 9
+      }
+    ]
+  },
+  "rope": {
+    "cells": [
+      {
+        "pose": "Coiled",
+        "x": 0,
+        "y": 16,
+        "width": 23,
+        "height": 14
+      },
+      {
+        "pose": "Hanging",
+        "x": 25,
+        "y": 0,
+        "width": 5,
+        "height": 30
+      }
+    ]
+  },
+  "knife": {
+    "cells": [
+      {
+        "pose": "Old",
+        "x": 0,
+        "y": 0,
+        "width": 19,
+        "height": 5
+      }
+    ]
+  },
+  "knife_nasty": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 5
+      }
+    ]
+  },
+  "knife_jewelled": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 7
+      }
+    ]
+  },
+  "skeleton": {
+    "cells": [
+      {
+        "pose": "Seated",
+        "x": 0,
+        "y": 0,
+        "width": 31,
+        "height": 30
+      }
+    ]
+  },
+  "coins": {
+    "cells": [
+      {
+        "pose": "Bag",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 13
+      }
+    ]
+  },
+  "sceptre": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 9
+      },
+      {
+        "pose": "Inside",
+        "x": 26,
+        "y": 4,
+        "width": 23,
+        "height": 5
+      }
+    ]
+  },
+  "candles": {
+    "cells": [
+      {
+        "pose": "Off",
+        "x": 0,
+        "y": 3,
+        "width": 12,
+        "height": 14
+      },
+      {
+        "pose": "On",
+        "x": 14,
+        "y": 0,
+        "width": 12,
+        "height": 17
+      }
+    ]
+  },
+  "bell_hot": {
+    "cells": [
+      {
+        "pose": "Red",
+        "x": 0,
+        "y": 0,
+        "width": 14,
+        "height": 10
+      }
+    ]
+  },
+  "ritual_book": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 2,
+        "width": 15,
+        "height": 11
+      },
+      {
+        "pose": "Open",
+        "x": 17,
+        "y": 0,
+        "width": 18,
+        "height": 13
+      }
+    ]
+  },
+  "pump": {
+    "cells": [
+      {
+        "pose": "Handheld",
+        "x": 0,
+        "y": 0,
+        "width": 19,
+        "height": 9
+      }
+    ]
+  },
+  "wrench": {
+    "cells": [
+      {
+        "pose": "Steel",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 10
+      }
+    ]
+  },
+  "screwdriver": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 16,
+        "height": 4
+      }
+    ]
+  },
+  "tube": {
+    "cells": [
+      {
+        "pose": "Folded",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 7
+      }
+    ]
+  },
+  "brochure": {
+    "cells": [
+      {
+        "pose": "Dam",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 10
+      }
+    ]
+  },
+  "basket": {
+    "cells": [
+      {
+        "pose": "Wicker",
+        "x": 0,
+        "y": 0,
+        "width": 21,
+        "height": 19
+      }
+    ]
+  },
+  "leaves": {
+    "cells": [
+      {
+        "pose": "Pile",
+        "x": 0,
+        "y": 0,
+        "width": 27,
+        "height": 13
+      }
+    ]
+  },
+  "trunk": {
+    "cells": [
+      {
+        "pose": "Jewels",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 19
+      }
+    ]
+  },
+  "egg_broken": {
+    "cells": [
+      {
+        "pose": "Open",
+        "x": 0,
+        "y": 0,
+        "width": 13,
+        "height": 9
+      }
+    ]
+  },
+  "boat_label": {
+    "cells": [
+      {
+        "pose": "Tan",
+        "x": 0,
+        "y": 0,
+        "width": 5,
+        "height": 3
+      }
+    ]
+  },
+  "blue_label": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 16,
+        "height": 9
+      }
+    ]
+  },
+  "tool_chests": {
+    "cells": [
+      {
+        "pose": "Corroded",
+        "x": 0,
+        "y": 0,
+        "width": 30,
+        "height": 20
+      }
+    ]
+  },
+  "bracelet": {
+    "cells": [
+      {
+        "pose": "Sapphire",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 6
+      }
+    ]
+  },
+  "bucket": {
+    "cells": [
+      {
+        "pose": "Wooden",
+        "x": 0,
+        "y": 0,
+        "width": 42,
+        "height": 34
+      }
+    ]
+  },
+  "rusty_key": {
+    "cells": [
+      {
+        "pose": "Iron",
+        "x": 0,
+        "y": 0,
+        "width": 22,
+        "height": 10
+      }
+    ]
+  },
+  "strange_key": {
+    "cells": [
+      {
+        "pose": "Old",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 10
+      }
+    ]
+  },
+  "place_mat": {
+    "cells": [
+      {
+        "pose": "Woven",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 9
+      }
+    ]
+  },
+  "letter_opener": {
+    "cells": [
+      {
+        "pose": "Steel",
+        "x": 0,
+        "y": 0,
+        "width": 28,
+        "height": 9
+      }
+    ]
+  },
+  "steel_box_closed": {
+    "cells": [
+      {
+        "pose": "Rest",
+        "x": 0,
+        "y": 0,
+        "width": 34,
+        "height": 23
+      }
+    ]
+  },
+  "book_blue": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 13
+      }
+    ]
+  },
+  "book_white": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 13
+      }
+    ]
+  },
+  "book_green": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 13
+      }
+    ]
+  },
+  "dead_serpent": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 50,
+        "height": 13
+      }
+    ],
+    "entity_id": "zork2.aquarium_serpent",
+    "story_object": 17,
+    "state": "dead",
+    "identity_source": "../encounter-options/imagegen-sprites/serpent.png"
+  },
+  "book_purple": {
+    "cells": [
+      {
+        "pose": "Closed",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 13
+      }
+    ]
+  },
+  "portrait": {
+    "cells": [
+      {
+        "pose": "Banker",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 30
+      }
+    ]
+  },
+  "stamp": {
+    "cells": [
+      {
+        "pose": "Flathead",
+        "x": 0,
+        "y": 0,
+        "width": 9,
+        "height": 10
+      }
+    ]
+  },
+  "club": {
+    "cells": [
+      {
+        "pose": "Wooden",
+        "x": 0,
+        "y": 0,
+        "width": 31,
+        "height": 11
+      }
+    ]
+  },
+  "collar": {
+    "cells": [
+      {
+        "pose": "Leather",
+        "x": 0,
+        "y": 0,
+        "width": 35,
+        "height": 14
+      }
+    ]
+  },
+  "rose": {
+    "cells": [
+      {
+        "pose": "Fresh",
+        "x": 0,
+        "y": 0,
+        "width": 23,
+        "height": 13
+      }
+    ]
+  },
+  "necklace": {
+    "cells": [
+      {
+        "pose": "Pearl",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 12
+      }
+    ]
+  },
+  "ruby": {
+    "cells": [
+      {
+        "pose": "Gem",
+        "x": 0,
+        "y": 0,
+        "width": 17,
+        "height": 13
+      }
+    ]
+  },
+  "candy": {
+    "cells": [
+      {
+        "pose": "Package",
+        "x": 0,
+        "y": 0,
+        "width": 21,
+        "height": 13
+      }
+    ]
+  },
+  "violin": {
+    "cells": [
+      {
+        "pose": "Stradivarius",
+        "x": 0,
+        "y": 0,
+        "width": 34,
+        "height": 15
+      }
+    ]
+  },
+  "crown": {
+    "cells": [
+      {
+        "pose": "Gaudy",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 18
+      }
+    ]
+  },
+  "broken_lantern": {
+    "cells": [
+      {
+        "pose": "Floor",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 17
+      }
+    ]
+  },
+  "fuse": {
+    "cells": [
+      {
+        "pose": "Coiled",
+        "x": 0,
+        "y": 0,
+        "width": 24,
+        "height": 12
+      }
+    ]
+  },
+  "repellent": {
+    "cells": [
+      {
+        "pose": "Can",
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 21
+      }
+    ]
+  },
+  "brick": {
+    "cells": [
+      {
+        "pose": "Clay",
+        "x": 0,
+        "y": 0,
+        "width": 25,
+        "height": 13
+      }
+    ]
+  },
+  "cage": {
+    "cells": [
+      {
+        "pose": "Mangled",
+        "x": 0,
+        "y": 0,
+        "width": 49,
+        "height": 19
+      }
+    ]
+  },
+  "green_note": {
+    "cells": [
+      {
+        "pose": "Paper",
+        "x": 0,
+        "y": 0,
+        "width": 12,
+        "height": 11
+      }
+    ]
+  },
+  "lizard_head_awake": {
+    "cells": [
+      {
+        "pose": "Embedded",
+        "x": 0,
+        "y": 0,
+        "width": 23,
+        "height": 18
+      }
+    ]
+  },
+  "coin": {
+    "cells": [
+      {
+        "pose": "Zorkmid",
+        "x": 0,
+        "y": 0,
+        "width": 15,
+        "height": 10
+      }
+    ]
+  },
+  "balloon_basket": {
+    "cells": [
+      {
+        "pose": "Pov",
+        "x": 0,
+        "y": 0,
+        "width": 176,
+        "height": 28
+      }
+    ]
+  },
+  "balloon_deflated": {
+    "cells": [
+      {
+        "pose": "Vehicle",
+        "x": 0,
+        "y": 0,
+        "width": 65,
+        "height": 39
+      }
+    ]
+  },
+  "portrait_floor": {
+    "cells": [
+      {
+        "pose": "Rest",
+        "x": 0,
+        "y": 0,
+        "width": 29,
+        "height": 15
+      }
+    ]
+  },
+  "balloon_inflated": {
+    "cells": [
+      {
+        "pose": "Vehicle",
+        "x": 0,
+        "y": 0,
+        "width": 67,
+        "height": 72
+      }
+    ]
+  },
+  "steel_box_open": {
+    "cells": [
+      {
+        "pose": "Rest",
+        "x": 0,
+        "y": 0,
+        "width": 36,
+        "height": 29
+      }
+    ]
+  },
+  "lizard_head_asleep": {
+    "cells": [
+      {
+        "pose": "Embedded",
+        "x": 0,
+        "y": 0,
+        "width": 23,
+        "height": 18
+      }
+    ]
+  },
+  "book_open": {
+    "cells": [
+      {
+        "pose": "Pages",
+        "x": 0,
+        "y": 0,
+        "width": 28,
+        "height": 15
+      }
+    ]
+  },
+  "bucket_pov": {
+    "cells": [
+      {
+        "pose": "Rim",
+        "x": 0,
+        "y": 0,
+        "width": 176,
+        "height": 24
+      }
+    ]
+  },
+  "z3_golden_ring": {
+    "cells": [
+      {
+        "pose": "Gold",
+        "x": 0,
+        "y": 0,
+        "width": 14,
+        "height": 10
+      }
+    ]
+  },
+  "z3_amulet": {
+    "cells": [
+      {
+        "pose": "Pendant",
+        "x": 0,
+        "y": 0,
+        "width": 16,
+        "height": 14
+      }
+    ]
+  },
+  "new_props": {
+    "cells": [
+      {
+        "pose": "Map",
+        "x": 6,
+        "y": 16,
+        "width": 20,
+        "height": 16
+      },
+      {
+        "pose": "Canary",
+        "x": 38,
+        "y": 16,
+        "width": 19,
+        "height": 16
+      },
+      {
+        "pose": "BrokenCanary",
+        "x": 70,
+        "y": 16,
+        "width": 19,
+        "height": 16
+      },
+      {
+        "pose": "JadeIdol",
+        "x": 106,
+        "y": 11,
+        "width": 11,
+        "height": 21
+      },
+      {
+        "pose": "Painting",
+        "x": 134,
+        "y": 14,
+        "width": 20,
+        "height": 18
+      },
+      {
+        "pose": "Emerald",
+        "x": 168,
+        "y": 18,
+        "width": 15,
+        "height": 14
+      },
+      {
+        "pose": "Scarab",
+        "x": 201,
+        "y": 17,
+        "width": 14,
+        "height": 15
+      },
+      {
+        "pose": "Bauble",
+        "x": 234,
+        "y": 17,
+        "width": 12,
+        "height": 15
+      },
+      {
+        "pose": "Viscous",
+        "x": 263,
+        "y": 20,
+        "width": 18,
+        "height": 12
+      },
+      {
+        "pose": "Slag",
+        "x": 296,
+        "y": 18,
+        "width": 15,
+        "height": 14
+      },
+      {
+        "pose": "Diamond",
+        "x": 328,
+        "y": 20,
+        "width": 16,
+        "height": 12
+      },
+      {
+        "pose": "PlatinumBar",
+        "x": 360,
+        "y": 20,
+        "width": 15,
+        "height": 12
+      },
+      {
+        "pose": "Garlic",
+        "x": 394,
+        "y": 19,
+        "width": 12,
+        "height": 13
+      },
+      {
+        "pose": "Stiletto",
+        "x": 422,
+        "y": 23,
+        "width": 20,
+        "height": 9
+      },
+      {
+        "pose": "Water",
+        "x": 455,
+        "y": 24,
+        "width": 17,
+        "height": 8
+      },
+      {
+        "pose": "Valuables",
+        "x": 486,
+        "y": 17,
+        "width": 19,
+        "height": 15
+      }
+    ]
+  }
+}

@@ -1,0 +1,60 @@
+
+>>>> lift short pole [room #160 score 7 turn 294]
+The pole is now slightly above the floor.
+
+>>>> push white panel [room #160 score 7 turn 295]
+The structure rotates counterclockwise.
+The arrow on the compass rose now indicates southwest.
+
+>>>> push white panel [room #160 score 7 turn 296]
+The structure rotates counterclockwise.
+The arrow on the compass rose now indicates south.
+The mirror quietly swings shut.
+
+>>>> lower short pole [room #160 score 7 turn 297]
+The pole is lowered into the channel.
+
+>>>> push mahogany panel [room #160 score 7 turn 298]
+The structure slides south and stops over another compass rose.
+
+>>>> lift short pole [room #160 score 7 turn 299]
+The pole is now slightly above the floor.
+
+>>>> push red panel [room #160 score 7 turn 300]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates southwest.
+
+>>>> push red panel [room #160 score 7 turn 301]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates west.
+
+>>>> push red panel [room #160 score 7 turn 302]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates northwest.
+
+>>>> push red panel [room #160 score 7 turn 303]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates north.
+
+>>>> lower short pole [room #160 score 7 turn 304]
+The pole is lowered into the channel.
+
+>>>> push pine panel [room #160 score 7 turn 305]
+The pine wall swings open.
+
+>>>> out [room #160 score 7 turn 306]
+As you leave, the door swings shut.
+Beam Room
+There is a sword here.
+
+>>>> northwest [room #6 score 7 turn 307]
+Narrow Room
+You are in a narrow room, whose east wall is a large mirror.
+The opposite wall is solid rock.
+To the north is a large hallway.
+
+SHOT route-narrow-178 room=178 scene=z3_narrow_mirror title=Narrow Room dark=0 pages=2 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=178 score=7 moves=308

@@ -1,0 +1,10 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/states/boat-before-launch.png,captured,boat-before-launch,0,111,111
+zork-i/states/inside-boat.png,captured,inside-boat,0,111,111
+zork-ii/states/menhir-blocking.png,captured,menhir-blocking,1,159,159
+zork-ii/states/menhir-enchanted.png,captured,menhir-enchanted,1,159,159
+zork-ii/states/menhir-before-float.png,captured,menhir-before-float,1,159,159
+zork-ii/states/menhir-floated.png,captured,menhir-floated,1,159,159
+zork-ii/states/cage-entered.png,captured,cage-entered,1,106,106
+zork-ii/states/cage-poison.png,captured,cage-poison,1,106,106
+zork-ii/states/cage-trapped.png,captured,cage-trapped,1,106,106

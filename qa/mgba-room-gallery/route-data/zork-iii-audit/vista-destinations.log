@@ -1,0 +1,102 @@
+
+SHOT vista-mounted-torch room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 3:Indicator; 18:Torch; 17:Viewing table;
+
+>>>> touch table [room #124 score 1 turn 13]
+You touch the table and are instantly transported to another place!
+
+Sacrificial Altar
+This is the interior of a huge temple of primitive construction. A few flickering torches cast a sallow illumination over the altar, which is still drenched with the blood of human sacrifice. Behind the altar is an enormous statue of a demon which seems to reach towards you with dripping fangs and razor-sharp talons. A low noise begins behind you, and you turn to see hundreds of hunched and hairy shapes. A guttural chant issues from their throats. Near you stands a figure draped in a robe of deepest black, brandishing a huge sword. The chant grows louder as the robed figure approaches the altar. The large figure spots you and approaches menacingly. It reaches into its cloak and pulls out a great, glowing dagger. It pulls you onto the altar and, with a murmur of approval from the throng, slices you neatly across your abdomen.
+
+    ****  You have died  ****
+
+You find yourself deep within the earth in a barren prison cell. Outside the iron-barred window, you can see a great, fiery pit. Flames leap up and very nearly sear your flesh. After a while, footfalls can be heard in the distance, then closer and closer.... The door swings open, and in walks an old man.
+
+He is dressed simply in a hood and cloak, wearing an amulet and ring, carrying an old book under one arm, and leaning on a wooden staff. A single key, as if to a massive prison cell, hangs from his belt.
+
+He raises the staff toward you and you hear him speak, as if in a dream: "I await you, though your journey be long and full of peril. Go then, and let me not wait long!" You feel some great power well up inside you and you fall to the floor. The next moment, you are awakening, as if from a deep slumber.
+
+Endless Stair
+There is a lamp here (providing light).
+
+>>>> look [room #211 score 2 turn 14]
+Endless Stair
+You are at the bottom of a seemingly endless stair, winding its way upward beyond your vision. An eerie light, coming from all around you, casts strange shadows on the walls. To the south is a dark and winding trail.
+There is a lamp here (providing light).
+
+SHOT vista-IV room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=2 room targets= 126:Brass lantern; 154:Stairs;
+
+>>>> wait [room #211 score 2 turn 15]
+Time passes...
+
+>>>> wait [room #211 score 2 turn 18]
+Time passes...
+
+SHOT vista-IV-return room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=1 room targets= 126:Brass lantern; 154:Stairs;
+
+>>>> touch table [room #124 score 1 turn 16]
+You touch the table and are instantly transported to another place!
+
+Timber Room
+This is a long and narrow passage, which is cluttered with broken timbers. A wide passage comes from the east and turns at the west end of the room into a very narrow passageway. From the west comes a strong draft.
+There is a broken timber here.
+
+>>>> look [room #15 score 2 turn 17]
+Timber Room
+This is a long and narrow passage, which is cluttered with broken timbers. A wide passage comes from the east and turns at the west end of the room into a very narrow passageway. From the west comes a strong draft.
+There is a broken timber here.
+
+SHOT vista-I room=15 scene=z3_timber_room title=Timber Room dark=0 pages=2 room targets= 158:Broken timber;
+
+>>>> wait [room #15 score 2 turn 18]
+Time passes...
+You suddenly find yourself back in the viewing room!
+
+>>>> wait [room #124 score 2 turn 19]
+Time passes...
+The indicator above the table flickers briefly, then changes to "II".
+
+SHOT vista-I-return room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 3:Indicator; 17:Viewing table;
+
+>>>> touch table [room #124 score 1 turn 20]
+You touch the table and are instantly transported to another place!
+
+Room 8
+This is a small chamber carved out of the rock at the end of a short crawl. On the wall is crudely chiseled the number "8". The only apparent exit, to the east, seems to be a blur and a loud, whirring sound resounds through the rock.
+A spray can is in the corner. In large type is the legend "Frobozz Magic Grue Repellent."
+
+>>>> take can [room #192 score 2 turn 21]
+Taken.
+
+SHOT vista-II room=192 scene=z3_room8 title=Room 8 dark=0 pages=1 room targets=
+
+>>>> wait [room #192 score 2 turn 22]
+Time passes...
+You suddenly find yourself back in the viewing room!
+
+>>>> wait [room #124 score 2 turn 23]
+Time passes...
+The indicator above the table flickers briefly, then changes to "III".
+
+SHOT vista-II-return room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 3:Indicator; 17:Viewing table;
+
+>>>> touch table [room #124 score 2 turn 27]
+You touch the table and are instantly transported to another place!
+
+Damp Passage
+This is a particularly damp spot even by dungeon standards. You can see the junction to the west, and two similar passages to the east and northeast. A wide stone channel steeply descends into the room from the south. It is covered with slippery moss and lichen. The channel crosses the room, but the opening where it once continued north is now blocked by rubble.
+
+SHOT vista-III room=93 scene=z3_damp_passage title=Damp Passage dark=0 pages=3 room targets= 198:Moss and lichen; 14:Rubble; 71:Channel;
+
+>>>> wait [room #93 score 2 turn 28]
+Time passes...
+You suddenly find yourself back in the viewing room!
+
+>>>> wait [room #124 score 2 turn 30]
+Time passes...
+The indicator above the table flickers briefly, then changes to "I".
+
+SHOT vista-III-return room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 3:Indicator; 17:Viewing table;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=124 score=2 moves=32

@@ -1,0 +1,12 @@
+@build/zork-ii-art/re-audit/riddle-closed.sav
+turn off lamp
+look
+southeast
+!qa/mgba-room-gallery/checkpoints/zork-ii-mist-red.sav
+|mist-red 224
+west
+!qa/mgba-room-gallery/checkpoints/zork-ii-mist-blue.sav
+|mist-blue 227
+west
+!qa/mgba-room-gallery/checkpoints/zork-ii-mist-white.sav
+|mist-white 228

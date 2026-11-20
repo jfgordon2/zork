@@ -1,0 +1,1880 @@
+
+>>>> take lamp [room #51 score 0 turn 0]
+Taken.
+
+>>>> take sword [room #51 score 0 turn 1]
+Taken.
+
+>>>> turn on lamp [room #51 score 0 turn 2]
+The lamp is now on.
+
+>>>> south [room #51 score 0 turn 3]
+Narrow Tunnel
+You are standing at the southern end of a narrow tunnel where it opens into a wide cavern. The cavern is dimly illuminated by phosphorescent mosses clinging to its high ceiling. A deep ravine winds through the cavern, with a small stream at the bottom. The walls of the ravine are steep and crumbly. A foot bridge crosses the ravine to the south.
+
+>>>> south [room #168 score 0 turn 4]
+Foot Bridge
+You are standing on a crude but sturdy wooden foot bridge crossing a deep ravine. The path runs north and south from here.
+
+>>>> south [room #21 score 0 turn 5]
+Great Cavern
+This is the center of the great cavern, carved out of the limestone. Stalactites and stalagmites of many sizes are everywhere. The room glows with dim light provided by phosphorescent moss, and weird shadows move all around you. A narrow path winds southwest among the stalagmites, and another leads northeast.
+
+>>>> sw [room #183 score 0 turn 6]
+Shallow Ford
+You are at the southern edge of a great cavern. To the south across a shallow ford is a dark tunnel which looks like it was once enlarged and smoothed. To the north a narrow path winds among stalagmites. Dim light illuminates the cavern.
+
+>>>> south [room #53 score 0 turn 7]
+Dark Tunnel
+This is a dark tunnel with dim light to the northeast. The tunnel is smooth but dusty and filled with twigs and leaves, debris which becomes deeper as the tunnel branches into a wide corridor leading southwest and a narrower one leading southeast.
+
+>>>> se [room #158 score 0 turn 8]
+North End of Garden
+This is the northern end of a formal garden. Hedges hide the cavern walls, and if you don't look up, the illusion is of a cloudy day outside. The light comes from a large growth of glowing mosses on the roof of the cave. A break in the hedge is almost overgrown to the north. A carefully manicured path leads south. In the center of a rosebed is a small open structure, painted white. It appears to be a gazebo.
+
+>>>> enter gazebo [room #234 score 0 turn 9]
+Gazebo
+This is a gazebo in the midst of a formal garden. It is cool and restful here. A tea table adorns the center of the gazebo.
+Sitting on the table is: 
+  A china teapot
+  A place mat
+  A newspaper
+  A letter opener
+  A matchbook
+
+SHOT gazebo-table room=16 scene=z2_gazebo title=Gazebo dark=0 pages=3 room targets= 178:Table; 107:China teapot; 100:Place mat; 181:Newspaper; 247:Letter opener; 23:Matchbook; 154:Unicorn; 235:Gazebo;
+
+>>>> take teapot [room #16 score 0 turn 10]
+Taken.
+
+SHOT gazebo-teapot-taken room=16 scene=z2_gazebo title=Gazebo dark=0 pages=1 room targets= 178:Table; 100:Place mat; 181:Newspaper; 247:Letter opener; 23:Matchbook; 154:Unicorn; 235:Gazebo;
+
+>>>> exit [room #16 score 0 turn 11]
+North End of Garden
+
+>>>> north [room #234 score 0 turn 12]
+Dark Tunnel
+
+>>>> ne [room #158 score 0 turn 13]
+Shallow Ford
+
+>>>> fill teapot [room #53 score 0 turn 14]
+The teapot is now full of water.
+
+>>>> south [room #53 score 0 turn 15]
+Dark Tunnel
+
+>>>> sw [room #158 score 0 turn 16]
+Path Near Stream
+The path follows the south edge of a deep ravine and heads northeast. A tunnel heads southwest, narrowing to a rather tight crawl. A faint whirring sound can be heard in that direction. On the east is a ruined archway choked with vegetation.
+
+>>>> sw [room #212 score 0 turn 17]
+Carousel Room
+You are in a large circular room whose high ceiling is lost in gloom. Eight identical passages leave the room.
+A loud whirring sound comes from all around, and you feel sort of disoriented in here.
+
+>>>> southeast [room #144 score 0 turn 18]
+You're not sure which direction is which. This room is very disorienting.
+
+Riddle Room
+This is a room which is bare on all sides. There is an exit down in the northwest corner of the room. To the east is a great closed door made of stone. Above the stone, the following words are written: "No man shall pass this door without solving this riddle:
+
+  What is tall as a house,
+    round as a cup,
+      and all the king's horses
+        can't draw it up?"
+
+>>>> west [room #238 score 0 turn 19]
+You can't go that way.
+
+>>>> southeast [room #238 score 0 turn 20]
+You can't go that way.
+
+SHOT riddle-closed room=238 scene=riddle_room title=Riddle Room dark=0 pages=1 room targets= 7:Stone door;
+
+>>>> answer "well" [room #238 score 0 turn 21]
+There is a deafening clap of thunder and the stone door quietly swings open to reveal a passageway beyond.
+
+SHOT riddle-open room=238 scene=riddle_room_open title=Riddle Room dark=0 pages=1 room targets= 7:Stone door;
+
+>>>> east [room #238 score 5 turn 22]
+Pearl Room
+This is a former broom closet. The exits are to the east and west.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> take necklace [room #38 score 5 turn 23]
+Taken.
+
+>>>> east [room #38 score 20 turn 24]
+Circular Room
+This is a damp circular room, whose walls are made of brick and mortar. The roof of this room is not visible, but there appear to be some etchings on the walls. There is a passageway to the west.
+There is a wooden bucket here, 3 feet in diameter and 3 feet high.
+
+SHOT well-floor room=119 scene=z2_well_bottom title=Circular Room dark=0 pages=2 room targets= 52:Wooden bucket; 9:Wall with etchings; 6:Well;
+
+>>>> enter bucket [room #119 score 20 turn 25]
+You are now in the wooden bucket.
+
+SHOT bucket-entered room=119 scene=z2_well_bottom title=Circular Room dark=0 pages=1 room targets= 52:Wooden bucket; 9:Wall with etchings; 6:Well;
+
+SHOT bucket-before-rise room=119 scene=z2_well_bottom title=Circular Room dark=0 pages=1 room targets= 52:Wooden bucket; 9:Wall with etchings; 6:Well;
+
+>>>> pour water in bucket [room #119 score 20 turn 26]
+There is now a puddle in the bottom of the wooden bucket.
+The bucket rises and comes to a stop.
+
+Top of Well, in the wooden bucket
+You are at the top of the well. Well done. There are etchings on the side of the well. There is a small crack across the floor at the entrance to a room on the east, but it can be crossed easily.
+The wooden bucket contains:
+  A quantity of water
+
+SHOT bucket-at-top room=8 scene=z2_well_top title=Top of Well dark=0 pages=3 room targets= 52:Wooden bucket; 186:Quantity of water; 191:Wall with etchings; 6:Well;
+
+>>>> stand [room #8 score 30 turn 27]
+You are on your own feet again.
+
+>>>> east [room #8 score 30 turn 28]
+Tea Room
+This is a small room containing a large oblong table, no doubt set for afternoon tea. It is clear from the objects on the table that the users were indeed mad. In the eastern corner of the room is a small hole (no more than four inches high). There are passageways leading away to the west and the northwest.
+There is a large oblong table here.
+Sitting on the large oblong table is: 
+  A cake frosted with red letters
+  A cake frosted with orange letters
+  A cake frosted with blue letters
+  A cake frosted with green letters
+
+>>>> take all [room #190 score 30 turn 29]
+cake frosted with red letters: Taken.
+cake frosted with orange letters: Taken.
+cake frosted with blue letters: Taken.
+cake frosted with green letters: Taken.
+
+SHOT tea-normal room=190 scene=tea title=Tea Room dark=0 pages=1 room targets= 155:Large oblong table;
+
+>>>> eat green cake [room #190 score 30 turn 30]
+Suddenly, the room appears to have become very large (although everything you are carrying seems to be its normal size).
+
+Posts Room
+This is an enormous room, in the center of which are four wooden posts delineating a rectangular area, above which is what appears to be a wooden roof. In fact, all objects in this room appear to be abnormally large. To the east is a passageway. There are large gaping chasms to the west and northwest.
+
+SHOT tea-small room=122 scene=z2_posts title=Posts Room dark=0 pages=3 room targets= 195:Group of wooden posts; 105:Chasm;
+
+>>>> east [room #122 score 30 turn 31]
+Pool Room
+This is a large room, one half of which is depressed. Salty water flows from a large leak in the ceiling. The only exit is to the west.
+The leak has submerged the depressed area in a pool of tears. There is a hazy something at the deepest part of the pool.
+A stoppered glass flask with a skull-and-crossbones marking is here. The flask is filled with some clear liquid.
+
+>>>> drop orange cake [room #82 score 30 turn 32]
+Dropped.
+
+SHOT pool-full room=82 scene=z2_pool title=Pool Room dark=0 pages=1 room targets= 35:Cake frosted with orange letters; 39:Pool of tears; 47:Leak; 42:Stoppered glass flask filled with liquid;
+
+>>>> throw red cake in pool [room #82 score 30 turn 33]
+Most of the pool evaporates, revealing a (slightly damp but still valuable) package of rare candies. The red cake must be pretty strong stuff, since it remains intact!
+
+SHOT pool-evaporated room=82 scene=z2_pool_dry title=Pool Room dark=0 pages=1 room targets= 147:Cake frosted with red letters; 35:Cake frosted with orange letters; 131:Package of candy; 47:Leak; 42:Stoppered glass flask filled with liquid;
+
+>>>> take candies [room #82 score 30 turn 34]
+Taken.
+
+>>>> west [room #82 score 45 turn 35]
+Posts Room
+
+SHOT posts-small room=122 scene=z2_posts title=Posts Room dark=0 pages=1 room targets= 195:Group of wooden posts; 105:Chasm;
+
+>>>> eat blue cake [room #122 score 45 turn 36]
+The room around you seems to be getting smaller.
+
+Tea Room
+There is a large oblong table here.
+
+SHOT tea-grown room=190 scene=tea title=Tea Room dark=0 pages=1 room targets= 155:Large oblong table;
+
+>>>> nw [room #190 score 45 turn 37]
+Low Room
+You are in a circular room with a low ceiling. There are exits to the east and southeast.
+There is a robot here.
+There is a green piece of paper here.
+
+>>>> read paper [room #187 score 45 turn 38]
+(Taken)
+!!  FROBOZZ MAGIC ROBOT COMPANY  !!
+
+ Hello, Master!
+
+   I am a late-model robot, trained at GUE Tech to perform various simple household functions.
+
+   To activate me, say the following:
+
+        >ROBOT, <things to do>
+
+At your service!
+
+>>>> drop paper [room #187 score 45 turn 39]
+Dropped.
+
+>>>> robot, go east [room #187 score 45 turn 40]
+"Buzz, click, whirr!"
+The robot leaves the room.
+
+>>>> east [room #187 score 45 turn 41]
+Machine Room
+This is a large room full of assorted heavy machinery, whirring noisily. The room smells of burned resistors. Along one wall are three buttons which are, respectively, round, triangular, and square. Naturally, above these buttons are instructions written in EBCDIC. A large sign in English above all the buttons says
+       "DANGER -- HIGH VOLTAGE"
+There are exits to the west and the south.
+There is a robot here.
+
+>>>> robot, go south [room #87 score 45 turn 42]
+"Whirr, buzz, click!"
+The robot leaves the room.
+
+>>>> south [room #87 score 45 turn 43]
+Dingy Closet
+This is a dingy closet adjacent to a larger room to the north. Chiselled into a wall are these words:
+
+     Protected by
+       FROBOZZ
+ Magic Alarm Company
+  (Hello, footpad!)
+
+There doesn't seem to be any footpad here, however.
+There is a robot here.
+There is a beautiful red crystal sphere here.
+
+SHOT cage-before room=54 scene=z2_closet title=Dingy Closet dark=0 pages=3 room targets= 98:Robot; 29:Red crystal sphere;
+
+>>>> take red sphere [room #54 score 45 turn 44]
+As you reach for the sphere, a solid steel cage falls from the ceiling to entrap you. To make matters worse, poisonous gas starts coming into the room.
+
+Cage
+You are trapped inside a solid steel cage.
+
+SHOT cage-trapped room=106 scene=z2_closet title=Cage dark=0 pages=2 room targets= 11:Solid steel cage; 98:Robot;
+
+SHOT cage-poison room=106 scene=z2_closet title=Cage dark=0 pages=2 room targets= 11:Solid steel cage; 98:Robot;
+
+>>>> robot, lift cage [room #106 score 45 turn 45]
+The cage shakes and is hurled across the room. It's hard to say, but the robot appears to be smiling.
+
+Dingy Closet
+There is a beautiful red crystal sphere here.
+
+SHOT cage-lifted room=54 scene=z2_closet title=Dingy Closet dark=0 pages=2 room targets= 98:Robot; 241:Mangled cage; 29:Red crystal sphere;
+
+>>>> take red sphere [room #54 score 45 turn 46]
+Taken.
+
+>>>> look in red sphere [room #54 score 65 turn 47]
+You see only darkness.
+
+>>>> robot, go north [room #54 score 65 turn 48]
+"Whirr, buzz, click!"
+The robot leaves the room.
+
+>>>> north [room #54 score 65 turn 49]
+Machine Room
+There is a robot here.
+
+SHOT machine-before room=87 scene=robot_machine title=Machine Room dark=0 pages=1 room targets= 98:Robot; 4:Triangular button; 27:Square button; 1:Round button;
+
+>>>> robot, push triangular button [room #87 score 65 turn 50]
+"Whirr, buzz, click!"
+A dull thump is heard in the distance.
+
+SHOT machine-triangle room=87 scene=robot_machine title=Machine Room dark=0 pages=1 room targets= 98:Robot; 4:Triangular button; 27:Square button; 1:Round button;
+
+>>>> west [room #87 score 65 turn 51]
+As you enter, your compass starts spinning wildly.
+What compass, you ask? The one which allows you to specify compass directions for movement.
+Low Room
+There is a green piece of paper here.
+
+>>>> southeast [room #187 score 65 turn 52]
+You cannot get your bearings...
+
+Tea Room
+There is a large oblong table here.
+
+>>>> west [room #190 score 65 turn 53]
+Top of Well
+There is a wooden bucket here, 3 feet in diameter and 3 feet high.
+The wooden bucket contains:
+  A quantity of water
+
+>>>> southeast [room #8 score 65 turn 54]
+You can't go that way.
+
+>>>> west [room #8 score 65 turn 55]
+You can't go that way.
+
+>>>> enter bucket [room #8 score 65 turn 56]
+You are now in the wooden bucket.
+
+>>>> fill teapot [room #8 score 65 turn 57]
+The teapot is now full of water.
+The bucket descends and comes to a stop.
+
+Circular Room, in the wooden bucket
+
+>>>> stand [room #119 score 65 turn 58]
+You are on your own feet again.
+
+>>>> drop teapot [room #119 score 65 turn 59]
+Dropped.
+The Wizard appears, floating nonchalantly in the air beside you. He grins sideways at you.
+The Wizard draws forth his wand and waves it in your direction. It begins to glow with a faint blue glow.
+There is a loud crackling noise. Blue smoke rises from out of the Wizard's sleeve. He sighs and disappears.
+
+>>>> west [room #119 score 65 turn 60]
+Pearl Room
+
+>>>> west [room #38 score 65 turn 61]
+Riddle Room
+
+>>>> nw [room #238 score 65 turn 62]
+Carousel Room
+You are in a large circular room whose high ceiling is lost in gloom. Eight identical passages leave the room.
+There is a dented steel box here.
+
+>>>> open steel box [room #144 score 65 turn 63]
+Opening the steel box reveals a fancy violin.
+
+>>>> take violin [room #144 score 65 turn 64]
+Taken.
+
+>>>> sw [room #144 score 85 turn 65]
+Cobwebby Corridor
+A winding corridor is filled with cobwebs. Some are broken and the dust on the floor is disturbed. The trend of the twists and turns is northeast to southwest. On the north side of one twist, high up, is a narrow crack.
+There is a coil of black, braided string here.
+
+>>>> take string [room #206 score 85 turn 66]
+Taken.
+
+>>>> sw [room #206 score 85 turn 67]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+Imbedded in the door is a nasty-looking lizard head, with sharp teeth and beady eyes. The lizard is sniffing at you.
+
+>>>> give candies to lizard [room #28 score 85 turn 68]
+The guardian greedily wolfs down the candy, including the package. (It seemed to enjoy the grasshoppers particularly.) It then becomes quiet and its eyes close. (Lizards are known to sleep a long time while digesting their meals.)
+
+>>>> drop necklace [room #28 score 85 turn 69]
+Dropped.
+
+>>>> drop violin [room #28 score 85 turn 70]
+Dropped.
+
+>>>> drop red sphere [room #28 score 85 turn 71]
+Dropped.
+
+>>>> north [room #28 score 85 turn 72]
+Cobwebby Corridor
+
+>>>> ne [room #206 score 85 turn 73]
+Carousel Room
+There is a dented steel box here.
+
+>>>> east [room #144 score 85 turn 74]
+Topiary
+This is the southern end of a formal garden. Hedges hide the cavern walls and mosses provide dim illumination. Fantastically shaped hedges and bushes are arrayed with geometric precision. They have not recently been clipped, but you can discern creatures in the shapes of the bushes: There is a dragon, a unicorn, a great serpent, a huge misshapen dog, and several human figures. On the west side of the garden the path leads through a rose arbor into a tunnel.
+
+>>>> north [room #218 score 85 turn 75]
+Formal Garden
+This is the middle part of a formal garden. Hedges hide the cavern walls and a dim illumination comes from mosses far above. The path is of small crushed white stones. It winds among bushes and flower beds from south to north. To the north a small structure can be seen. To the south are peculiarly shaped bushes. There is a small gap in the hedges to the west.
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+He mutters something (muffled by his beard) and disappears as suddenly as he came.
+
+>>>> north [room #157 score 85 turn 76]
+North End of Garden
+
+>>>> enter gazebo [room #234 score 85 turn 77]
+Gazebo
+Sitting on the table is: 
+  A place mat
+  A newspaper
+  A letter opener
+  A matchbook
+
+>>>> take all [room #16 score 85 turn 78]
+place mat: Taken.
+newspaper: Taken.
+letter opener: Taken.
+matchbook: Taken.
+
+>>>> exit [room #16 score 85 turn 79]
+North End of Garden
+A unicorn is cropping grass on the other side of the room. A gold key hangs from a ribbon around its neck.
+Your sword has begun to glow very brightly.
+
+>>>> south [room #234 score 85 turn 80]
+Formal Garden
+Your sword is glowing with a faint blue glow.
+
+>>>> west [room #157 score 85 turn 81]
+Path Near Stream
+Your sword is no longer glowing.
+
+>>>> sw [room #212 score 85 turn 82]
+Carousel Room
+There is a dented steel box here.
+
+>>>> north [room #144 score 85 turn 83]
+Marble Hall
+This is an arched hall of fine marble. The hall stops abruptly to the north at a ford across a stream, where the marble is cracked and broken. Perhaps a flood or collapse of the cave was responsible. To the south the hall opens into a large room. There is rather annoying whirring sound coming from that room.
+There is a square brick here which feels like clay.
+
+>>>> take brick [room #30 score 85 turn 84]
+Taken.
+
+>>>> north [room #30 score 85 turn 85]
+Deep Ford
+You are fording the stream at a deep but not impossible spot. The water is very cold. The walls of the ravine rise to east and west. There is a small ledge along the north wall of the ravine. To the south is the entrance to a well-constructed but somewhat ruined hall.
+
+>>>> north [room #231 score 85 turn 86]
+Ledge in Ravine
+You are on a narrow ledge near the bottom of a deep ravine. The ledge continues to the west. A precarious climb up to another tiny ledge is possible. A short scramble down the rock face leads to a stream.
+
+>>>> up [room #124 score 85 turn 87]
+Tiny Room
+This is a tiny room carved out of the wall of the ravine. There is an exit down a precarious climb. On the north side of the room is a massive wooden door, which has a small window barred with iron. A formidable bolt lock is set within the door frame. A keyhole covered by a thin metal lid lies within the lock.
+
+>>>> put mat under door [room #46 score 85 turn 88]
+The place mat fits easily under the door.
+
+SHOT keyhole-shut room=46 scene=z2_tiny_room title=Tiny Room dark=0 pages=1 room targets= 100:Place mat; 130:Keyhole; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+>>>> open lid [room #46 score 85 turn 89]
+The lid is now open.
+
+SHOT keyhole-open room=46 scene=z2_tiny_room title=Tiny Room dark=0 pages=1 room targets= 100:Place mat; 130:Keyhole; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+SHOT keyhole-opener-before room=46 scene=z2_tiny_room title=Tiny Room dark=0 pages=1 room targets= 100:Place mat; 130:Keyhole; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+>>>> put opener in keyhole [room #46 score 85 turn 90]
+There is a faint noise from behind the door and a small cloud of dust rises from beneath it.
+Done.
+
+SHOT keyhole-knocked room=46 scene=z2_tiny_room title=Tiny Room dark=0 pages=1 room targets= 100:Place mat; 130:Keyhole; 247:Letter opener; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+>>>> take opener [room #46 score 85 turn 91]
+Taken.
+
+>>>> drop opener [room #46 score 85 turn 92]
+Dropped.
+
+>>>> take mat [room #46 score 85 turn 93]
+As the place mat is moved, a rusty iron key falls from it and onto the floor.
+
+>>>> take key [room #46 score 85 turn 94]
+Taken.
+
+>>>> unlock door with key [room #46 score 85 turn 95]
+The door is now unlocked.
+
+SHOT wooden-door-shut room=46 scene=z2_tiny_room title=Tiny Room dark=0 pages=1 room targets= 100:Place mat; 247:Letter opener; 130:Keyhole; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+>>>> open door [room #46 score 85 turn 96]
+The door is now open.
+
+SHOT wooden-door-open room=46 scene=z2_tiny_open title=Tiny Room dark=0 pages=1 room targets= 100:Place mat; 247:Letter opener; 130:Keyhole; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+>>>> north [room #46 score 85 turn 97]
+Dreary Room
+This is a small and rather dreary room, eerily illuminated by a red glow emanating from a crack in one wall. The light falls upon a dusty wooden table in the center of the room. On the south side of the room is a massive wooden door, which has a small window barred with iron. A formidable bolt lock is set within the door frame. A keyhole lies within the lock.
+In the center of the table sits a blue crystal sphere.
+
+>>>> take blue sphere [room #59 score 85 turn 98]
+Taken.
+
+>>>> look in blue sphere [room #59 score 105 turn 99]
+You see only darkness.
+
+>>>> south [room #59 score 105 turn 100]
+Tiny Room
+There is a place mat here.
+There is a letter opener here.
+
+>>>> down [room #46 score 105 turn 101]
+Ledge in Ravine
+
+>>>> west [room #124 score 105 turn 102]
+End of Ledge
+A ledge from the east ends here, and a tunnel leads north into the wall. There is a rather odd smokey odor in the warm air of the tunnel.
+Your sword is glowing with a faint blue glow.
+
+>>>> north [room #171 score 105 turn 103]
+Dragon Room
+The room is a large cavern full of broken stone. The walls are scorched and there are deep scratches on the floor. A sooty dry smell is very strong here. A paved path winds from a large passage to the west, through the room, and across a huge stone bridge to the south. To the east a small crack is visible. A dark and smokey tunnel leads north.
+A huge red dragon is lying here, blocking the entrance to a tunnel leading north. Smoke curls from his nostrils and out between his teeth.
+Your sword has begun to glow very brightly.
+
+SHOT dragon-resting room=248 scene=dragon_room title=Dragon Room dark=0 pages=4 room targets= 192:Huge red dragon; 74:Bridge;
+
+>>>> attack dragon with sword [room #248 score 105 turn 104]
+Dragon hide is tough as steel, but you have succeeded in annoying him a bit. He looks at you as if deciding whether or not to eat you.
+The dragon continues to watch you carefully.
+
+SHOT dragon-provoked room=248 scene=dragon_room title=Dragon Room dark=0 pages=1 room targets= 192:Huge red dragon; 74:Bridge;
+
+>>>> south [room #248 score 105 turn 105]
+Stone Bridge
+This is the middle of a ruined but still impressive stone bridge spanning a deep chasm. Water flows far beneath. A paved path leads north into a large open space. To the south, the path leads into a misty tunnel.
+The dragon follows you, out of mingled curiosity and anger.
+
+>>>> attack dragon with sword [room #80 score 105 turn 106]
+The dragon is surprised and interested (for the moment).
+The dragon continues to watch you carefully.
+
+>>>> south [room #80 score 105 turn 107]
+Cool Room
+The room is cool and damp. The air is misty. A twisty path from the southeast splits here toward a wide northerly stone bridge, and a narrow westerly tunnel. It is from the latter that the mist and chill seem to originate.
+The dragon follows you, out of mingled curiosity and anger.
+
+>>>> attack dragon with sword [room #172 score 105 turn 108]
+That did no damage, but he turns his smoky yellow eyes in your direction and sighs.
+The dragon continues to watch you carefully.
+
+SHOT dragon-following room=172 scene=z2_cool_room title=Cool Room dark=0 pages=1 room targets= 192:Huge red dragon; 74:Bridge;
+
+>>>> west [room #172 score 105 turn 109]
+Ice Room
+This is a large hall of ancient lava, since worn smooth by the movement of a glacier. A large passage exits to the east and an upward lava tube is at the top of a jumble of fallen rocks.
+A mass of ice fills the western half of the room.
+
+As the dragon enters, he sees his reflection on the icy surface of the glacier at its western end. He becomes enraged: There is another dragon here, behind that glass, he thinks! Dragons are smart, but sometimes naive, and this one has never seen ice before. He rears up to his full height to challenge this intruder into his territory. He roars a challenge! The intruder responds! The dragon takes a deep breath, and out of his mouth pours a massive gout of flame. It washes over the ice, which melts rapidly, sending out torrents of water and a huge cloud of steam! You manage to clamber up to a small shelf, but the dragon is terrified! A huge splash goes down his throat! There is a muffled explosion and the dragon, a puzzled expression on his face, dies. He is carried away by the water.
+
+When the flood recedes you climb gingerly down. While no trace of the dragon can be found, the melting of the ice has revealed a passage leading west.
+Your sword is no longer glowing.
+
+SHOT ice-melted room=161 scene=z2_ice_melted title=Ice Room dark=0 pages=8 room targets=
+
+>>>> east [room #161 score 110 turn 110]
+Cool Room
+
+>>>> north [room #172 score 110 turn 111]
+Stone Bridge
+
+>>>> north [room #80 score 110 turn 112]
+Dragon Room
+Your sword is glowing with a faint blue glow.
+
+>>>> north [room #248 score 110 turn 113]
+Dragon's Lair
+You are in the dragon's lair, where the rock walls are scarred by flame. A blackened doorway leads to the south.
+A rotten old wooden chest is in one corner among the debris.
+A beautiful young woman, wearing a dirty and bedraggled gown, sits on a rock in the corner. Her hair is unkempt and she is oblivious to your presence, almost in a trance.
+Your sword has begun to glow very brightly.
+
+SHOT princess-seated room=201 scene=z2_dragons_lair title=Dragon's Lair dark=0 pages=3 room targets= 150:Beautiful princess; 81:Rotten wooden chest;
+
+>>>> kiss princess [room #201 score 110 turn 114]
+The princess (for she is obviously one) shakes herself awake, then notices you for the first time. She smiles. "Thank you for rescuing me from that horrid worm," she says. "I must depart. My parents will be worried about me." With that, she arises, looking purposefully out of the lair.
+
+SHOT princess-awake room=201 scene=z2_dragons_lair title=Dragon's Lair dark=0 pages=2 room targets= 150:Beautiful princess; 81:Rotten wooden chest;
+
+>>>> south [room #201 score 110 turn 115]
+Dragon Room
+The princess enters from the north. She seems surprised to see you.
+
+>>>> east [room #248 score 110 turn 116]
+End of Ledge
+The princess enters from the west. She seems surprised to see you.
+
+>>>> east [room #171 score 110 turn 117]
+Ledge in Ravine
+The princess enters from the west. She seems surprised to see you.
+
+>>>> down [room #124 score 110 turn 118]
+Deep Ford
+A huge dead dragon is lying half blocking the stream.
+The princess climbs down the rock wall onto the beach.
+
+>>>> south [room #231 score 110 turn 119]
+Marble Hall
+Your sword is glowing with a faint blue glow.
+
+>>>> east [room #30 score 110 turn 120]
+That's a wall there.
+The princess enters from the north. She seems surprised to see you.
+Your sword has begun to glow very brightly.
+
+SHOT marble-before room=30 scene=z2_marble_hall title=Marble Hall dark=0 pages=1 room targets= 150:Beautiful princess; 104:Stream;
+
+>>>> wait [room #30 score 110 turn 121]
+Time passes...
+The princess presses a loose piece of marble in the wall and a large section of the wall slides away, revealing a passage to the east. She enters it.
+Your sword is glowing with a faint blue glow.
+
+SHOT marble-open room=30 scene=z2_marble_open title=Marble Hall dark=0 pages=2 room targets= 104:Stream;
+
+>>>> east [room #30 score 110 turn 123]
+Path Near Stream
+There is a dishevelled and slightly unkempt princess here.
+Your sword has begun to glow very brightly.
+
+>>>> wait [room #212 score 110 turn 124]
+Time passes...
+The princess walks east. She glances back at you as she goes.
+Your sword is glowing with a faint blue glow.
+
+>>>> east [room #212 score 110 turn 125]
+Formal Garden
+There is a dishevelled and slightly unkempt princess here.
+The princess walks north. She glances back at you as she goes.
+
+>>>> east [room #157 score 110 turn 126]
+You can't go that way.
+Your sword is no longer glowing.
+
+>>>> north [room #157 score 110 turn 127]
+North End of Garden
+Your sword is glowing with a faint blue glow.
+
+>>>> in [room #234 score 110 turn 128]
+Gazebo
+There is a dishevelled and slightly unkempt princess here.
+Your sword has begun to glow very brightly.
+
+>>>> wait [room #16 score 110 turn 129]
+Time passes...
+
+>>>> wait [room #16 score 110 turn 132]
+Time passes...
+Shyly, a unicorn peeks out of the hedges. It notices the princess and seems captivated. It approaches her and bows its head as though curtseying to her. Around its neck is a red satin ribbon on which is strung a delicate gold key. The princess takes the ribbon and uses it to tie up her hair. She looks at you and then, smiling, hands you the key and a fresh rose which she plucks from the arbor. "You may have use of such a thing," she says. "It is the least I can do for one who rescued me from a fate I dare not contemplate." With that, she mounts the unicorn (side-saddle, of course) and rides off into the gloom.
+Your sword is no longer glowing.
+
+>>>> wait [room #16 score 125 turn 133]
+Time passes...
+
+>>>> wait [room #16 score 125 turn 136]
+Time passes...
+
+>>>> wait [room #16 score 125 turn 139]
+Time passes...
+
+>>>> wait [room #16 score 125 turn 142]
+Time passes...
+
+>>>> wait [room #16 score 125 turn 145]
+Time passes...
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard draws forth his wand and waves it in your direction. It begins to glow with a faint blue glow.
+The Wizard, in a deep and resonant voice, speaks the word "Fear!" He then vanishes, cackling gleefully.
+You look at the Wizard in terror. You scramble away, trying to get as far as possible from him.
+
+North End of Garden
+
+>>>> wait [room #234 score 125 turn 148]
+Time passes...
+
+>>>> wait [room #234 score 125 turn 151]
+Time passes...
+
+>>>> wait [room #234 score 125 turn 154]
+Time passes...
+
+>>>> wait [room #234 score 125 turn 157]
+Time passes...
+You suddenly decide that the Wizard isn't that terrifying...
+
+>>>> wait [room #234 score 125 turn 160]
+Time passes...
+
+>>>> wait [room #234 score 125 turn 163]
+Time passes...
+
+>>>> wait [room #234 score 125 turn 166]
+Time passes...
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard draws forth his wand and waves it in your direction. It begins to glow with a faint blue glow.
+The Wizard seems about to say something, but thinks better of it, and peers at you from under his bushy eyebrows.
+
+>>>> wait [room #234 score 125 turn 168]
+Time passes...
+Your sword has begun to glow very brightly.
+
+>>>> exit [room #234 score 125 turn 169]
+You can't go that way.
+
+>>>> take key [room #234 score 125 turn 170]
+Which key do you mean, the delicate gold key or the rusty iron key?
+
+>>>> drop rose [room #234 score 125 turn 170]
+Dropped.
+
+>>>> drop orange cake [room #234 score 125 turn 171]
+You don't have that!
+
+>>>> drop rusty key [room #234 score 125 turn 171]
+Dropped.
+The Wizard vanishes.
+
+>>>> inventory [room #234 score 125 turn 172]
+You are carrying:
+  A delicate gold key
+  A blue crystal sphere
+  A brick
+  A matchbook
+  A newspaper
+  A black string
+  A elvish sword
+  A lamp (providing light)
+Your sword is no longer glowing.
+
+>>>> south [room #234 score 125 turn 173]
+Formal Garden
+
+>>>> south [room #157 score 125 turn 174]
+Topiary
+
+>>>> west [room #218 score 125 turn 175]
+Carousel Room
+There is a dented steel box here.
+
+>>>> sw [room #144 score 125 turn 176]
+Cobwebby Corridor
+
+>>>> sw [room #206 score 125 turn 177]
+Guarded Room
+There is a beautiful red crystal sphere here.
+There is a Stradivarius here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> take red sphere [room #28 score 125 turn 178]
+Taken.
+
+>>>> unlock door with gold key [room #28 score 125 turn 179]
+The key turns and the bolt clicks. The door is unlocked.
+
+>>>> open door [room #28 score 125 turn 180]
+The door creaks open.
+
+>>>> south [room #28 score 125 turn 181]
+Wizard's Workshop
+You are standing in the entry hall of the Wizard's Workshop. Dark corridors lead west and south from here. The corridor to the west smells slightly of incense or candle smoke. The workshop door is open.
+
+>>>> west [room #45 score 135 turn 182]
+Wizard's Workroom
+This room is the Wizard's workroom. A hall continues east and west, and a larger room lies to the south. There are many shelves and racks on the walls, but the Wizard's workbench dominates the room. It is made of dark, heavy wood bound with iron. The workbench is stained from many years of use, and is deeply gouged as though some huge clawed animal was imprisoned on it. There are burn marks and even notes written in a crabbed hand. Many arcane items are scattered about the bench; alembics, mortar and pestle, small knives of various sizes, odd scraps of vellum, wax candles, and much more. In the center of a relatively clear area of the bench are affixed three stands - ruby, sapphire, and diamond - which form a triangle.
+
+>>>> west [room #94 score 135 turn 183]
+Aquarium Room
+Here a dark hallway turns a corner. To the south is a dark room, to the east is fitful light.
+Filling the northern half of the room is a huge aquarium.
+The aquarium contains:
+  A baby sea serpent
+
+SHOT aquarium-intact room=233 scene=aquarium title=Aquarium Room dark=0 pages=2 room targets= 250:Aquarium; 32:Baby sea serpent;
+
+>>>> throw sword at aquarium [room #233 score 135 turn 184]
+The elvish sword shatters the glass wall of the aquarium, spilling out an impressive amount of salt water and wet sand. It also spills out an extremely annoyed sea serpent who bites angrily at the elvish sword, and then at you. He is having difficulty breathing, and he seems to hold you responsible for his current problem. He tries to slither across the stone floor towards you. Fortunately, he expires mere inches away from biting off your foot. A clear crystal sphere sits amid the sand and broken glass on the bottom of the aquarium.
+
+SHOT aquarium-broken room=233 scene=aquarium_broken title=Aquarium Room dark=0 pages=3 room targets= 17:Dead sea serpent; 223:Elvish sword; 250:Aquarium; 31:Clear crystal sphere;
+
+>>>> take clear sphere [room #233 score 135 turn 185]
+Taken.
+
+>>>> take sword [room #233 score 155 turn 186]
+You're holding too many things already!
+
+>>>> east [room #233 score 155 turn 187]
+Wizard's Workroom
+
+SHOT stands-empty room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 219:Sapphire stand; 89:Ruby stand; 203:Arcane item;
+
+>>>> put clear sphere on diamond stand [room #94 score 155 turn 188]
+Done.
+
+SHOT stand-clear room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 31:Clear crystal sphere; 219:Sapphire stand; 89:Ruby stand; 203:Arcane item;
+
+SHOT stands-one room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 31:Clear crystal sphere; 219:Sapphire stand; 89:Ruby stand; 203:Arcane item;
+
+>>>> put red sphere on ruby stand [room #94 score 155 turn 189]
+Done.
+
+SHOT stands-two room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 31:Clear crystal sphere; 219:Sapphire stand; 89:Ruby stand; 29:Red crystal sphere; 203:Arcane item;
+
+SHOT stands-before-fuse room=94 scene=workroom title=Wizard's Workroom dark=0 pages=1 room targets= 76:Wizard's workbench; 99:Diamond stand; 31:Clear crystal sphere; 219:Sapphire stand; 89:Ruby stand; 29:Red crystal sphere; 203:Arcane item;
+
+>>>> put blue sphere on sapphire stand [room #94 score 155 turn 190]
+Done.
+As you place the blue crystal sphere in the sapphire stand, a low humming noise begins, and you can feel the hairs on the back of your neck begin to stand up. The three spheres begin to vibrate, faster and faster, as the noise becomes higher and higher pitched. Three puffs of smoke, one red, one blue, one white, rise up from empty stands. The spheres are gone! But in the center of the triangle formed by the stands is now a black stand of obsidian in which rests a strange black sphere.
+
+SHOT stands-fused room=94 scene=workroom title=Wizard's Workroom dark=0 pages=3 room targets= 76:Wizard's workbench; 197:Black obsidian stand; 36:Black crystal sphere; 99:Diamond stand; 219:Sapphire stand; 89:Ruby stand; 203:Arcane item;
+
+>>>> take black sphere [room #94 score 155 turn 191]
+Taken.
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard notices that you carry the Black Crystal, and with an unseemly haste, he disappears.
+
+>>>> look in black sphere [room #94 score 185 turn 192]
+As you peer into the sphere, a strange vision takes shape...a huge and fearful face with yellow eyes. The face peers out at you expectantly.
+
+>>>> east [room #94 score 185 turn 193]
+Wizard's Workshop
+
+>>>> north [room #45 score 185 turn 194]
+Guarded Room
+There is a Stradivarius here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> north [room #28 score 185 turn 195]
+Cobwebby Corridor
+
+>>>> north [room #206 score 185 turn 196]
+Lava Tube
+You are in a tight chimney of solidified lava. It extends up at least another hundred feet and down to a large room far below. A large crack opens to the south, probably the result of a shift in the rock strata.
+
+>>>> down [room #184 score 185 turn 197]
+Ice Room
+
+>>>> west [room #161 score 185 turn 198]
+Lava Room
+This is a small room, whose walls are formed by an old lava flow. There are exits here to the east and the south.
+On the floor lies a moby ruby.
+
+>>>> take ruby [room #15 score 185 turn 199]
+Taken.
+
+>>>> south [room #15 score 200 turn 200]
+Volcano Bottom
+You are at the bottom of a large dormant volcano. High above you light enters from the cone of the volcano. The only exit is to the north.
+There is a large and extremely heavy wicker basket here. An enormous cloth bag is draped over the side and is firmly attached to the basket. A metal receptacle is fastened to the center of the basket. Dangling from the basket is a piece of braided wire.
+
+SHOT balloon-ground room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=3 room targets= 169:Basket; 126:Receptacle; 93:Cloth bag; 170:Braided wire;
+
+>>>> enter basket [room #176 score 200 turn 201]
+You are now in the basket.
+The lamp appears a bit dimmer.
+
+SHOT balloon-boarded room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=1 room targets= 169:Basket; 126:Receptacle; 93:Cloth bag; 170:Braided wire;
+
+>>>> open receptacle [room #176 score 200 turn 202]
+Opened.
+
+>>>> put newspaper in receptacle [room #176 score 200 turn 203]
+Done.
+
+>>>> light match [room #176 score 200 turn 204]
+One of the matches starts to burn.
+
+SHOT balloon-unlit room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=1 room targets= 169:Basket; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire;
+
+>>>> burn newspaper with match [room #176 score 200 turn 205]
+The newspaper burns inside the receptacle.
+The cloth bag inflates as it fills with hot air.
+A small label drops from the bag into the basket.
+The match has gone out.
+
+SHOT balloon-inflated room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=1 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire;
+
+>>>> read label [room #176 score 200 turn 206]
+(Taken)
+ !! FROBOZZ MAGIC BALLOON COMPANY !!
+
+Hello, Aviator!
+
+To land your balloon, say LAND
+Otherwise, you're on your own!
+
+No warranty expressed or implied.
+
+>>>> drop label [room #176 score 200 turn 207]
+Dropped.
+The balloon rises slowly from the ground.
+
+Volcano Core, in the basket
+You are about one hundred feet above the bottom of the volcano. The top of the volcano is clearly visible here.
+The cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #34 score 200 turn 208]
+Time passes...
+The balloon ascends.
+
+Volcano Near Small Ledge, in the basket
+You are about two hundred feet above the volcano floor. Looming above is the rim of the volcano. There is a small ledge on the west side.
+The cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+SHOT balloon-air room=113 scene=z2_volcano_small title=Volcano Near Small Ledge dark=0 pages=3 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire;
+
+>>>> land [room #113 score 200 turn 211]
+The balloon lands.
+Narrow Ledge, in the basket
+You are on a narrow ledge within an old dormant volcano. This ledge is about halfway between the floor below and the rim above. There is an exit to the south.
+The cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.
+On the floor is a priceless gold zorkmid (a valuable collector's item).
+There is a small hook attached to the rock here. (outside the basket)
+  The basket contains:
+    A blue label
+
+SHOT balloon-landed room=13 scene=z2_narrow_ledge title=Narrow Ledge dark=0 pages=4 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire; 246:Priceless zorkmid; 88:Hook;
+
+SHOT balloon-unmoored room=13 scene=z2_narrow_ledge title=Narrow Ledge dark=0 pages=4 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire; 246:Priceless zorkmid; 88:Hook;
+
+>>>> tie wire to hook [room #13 score 200 turn 212]
+The balloon is fastened to the hook.
+
+SHOT balloon-moored room=13 scene=z2_narrow_ledge title=Narrow Ledge dark=0 pages=1 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire; 246:Priceless zorkmid; 88:Hook;
+
+>>>> stand [room #13 score 200 turn 213]
+You are on your own feet again.
+
+>>>> take coin [room #13 score 200 turn 214]
+Taken.
+
+>>>> south [room #13 score 220 turn 215]
+Library
+This must have been a large library, probably for the royal family. All of the shelves have been gnawed to pieces by unfriendly gnomes. To the north is an exit.
+Right beside the purple book sits a white one.
+Worn and battered in one corner of the room is a blue book.
+A handsome book, bound in green leather, sits in the center of the room.
+Lying in the dust, and covered with mold, is a purple book.
+
+>>>> open purple book [room #136 score 220 turn 216]
+Opening the purple book reveals a Flathead stamp.
+
+>>>> take stamp [room #136 score 220 turn 217]
+Taken.
+
+>>>> north [room #136 score 230 turn 218]
+Narrow Ledge
+There is a large and extremely heavy wicker basket here. An enormous cloth bag attached to the basket is inflated. A metal receptacle is fastened to the center of the basket. In it is a burning newspaper. A piece of wire tied to a hook holds the balloon in place.
+
+>>>> enter basket [room #13 score 230 turn 219]
+You are now in the basket.
+
+>>>> untie wire [room #13 score 230 turn 220]
+The wire falls off of the hook.
+
+>>>> wait [room #13 score 230 turn 221]
+Time passes...
+The balloon leaves the ledge.
+
+Volcano Near Small Ledge, in the basket
+The cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #113 score 230 turn 223]
+Time passes...
+The balloon ascends.
+
+Volcano by Viewing Ledge, in the basket
+You are high above the floor of the volcano. The rim of the volcano looks very narrow and you are very near it. To the east is what appears to be a viewing ledge, too thin to land on.
+The cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #86 score 230 turn 226]
+Time passes...
+The balloon ascends.
+
+Volcano Near Wide Ledge, in the basket
+You are near the rim of the volcano. Above you it is open to the sky. To the west, there is a place to land on a wide ledge.
+The cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> land [room #177 score 230 turn 229]
+The balloon lands.
+Wide Ledge, in the basket
+You are on a wide ledge high in the volcano. The rim of the volcano is about 200 feet above and there is a precipitous drop to the bottom. There is a small door to the south.
+There is a small hook attached to the rock here. (outside the basket)
+  The basket contains:
+    A blue label
+
+>>>> tie wire to hook [room #143 score 230 turn 230]
+The balloon is fastened to the hook.
+
+>>>> stand [room #143 score 230 turn 231]
+You are on your own feet again.
+
+SHOT dusty-before-return room=143 scene=z2_wide_ledge title=Wide Ledge dark=0 pages=1 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire; 65:Hook;
+
+>>>> south [room #143 score 230 turn 232]
+Dusty Room
+You are in a dusty old room which is featureless, except for an exit on the north side.
+Imbedded in the far wall is a rusty box. It appears to be somewhat damaged, since an oblong hole has been chipped out of the front of it.
+
+SHOT dusty-open-safe room=182 scene=z2_dusty_room title=Dusty Room dark=0 pages=2 room targets= 163:Hole; 132:Box;
+
+>>>> put brick in hole [room #182 score 230 turn 233]
+Done.
+
+>>>> put string in brick [room #182 score 230 turn 234]
+Done.
+
+>>>> light match [room #182 score 230 turn 235]
+One of the matches starts to burn.
+
+SHOT bomb-ready room=182 scene=z2_dusty_room title=Dusty Room dark=0 pages=1 room targets= 163:Hole; 225:Brick; 213:Black string; 132:Box;
+
+>>>> burn string with match [room #182 score 230 turn 236]
+The string starts to burn.
+The match has gone out.
+
+SHOT fuse-burning room=182 scene=z2_dusty_room title=Dusty Room dark=0 pages=1 room targets= 163:Hole; 225:Brick; 213:Black string; 132:Box;
+
+>>>> north [room #182 score 230 turn 237]
+Wide Ledge
+There is a large and extremely heavy wicker basket here. An enormous cloth bag attached to the basket is inflated. A metal receptacle is fastened to the center of the basket. In it is a burning newspaper. A piece of wire tied to a hook holds the balloon in place.
+There is an explosion nearby.
+
+>>>> south [room #143 score 230 turn 238]
+Dusty Room
+You are in a dusty old room which is featureless, except for an exit on the north side.
+On the far wall is a rusty box, whose door has been blown off.
+The room is cluttered with debris from an explosion. The walls seem ready to collapse.
+The excessively gaudy crown of Lord Dimwit Flathead sits in the safe.
+  The box contains:
+    A card
+
+>>>> take crown [room #182 score 230 turn 239]
+You are now wearing the gaudy crown.
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard notices that you carry the Black Crystal, and with an unseemly haste, he disappears.
+
+>>>> read card [room #182 score 250 turn 240]
+(Taken)
+ Warning:
+    This room was constructed over very weak rock strata. Detonation of explosives in this room is strictly prohibited!
+         Frobozz Magic Cave Company
+         per M. Agrippa, foreman
+
+>>>> north [room #182 score 250 turn 241]
+Wide Ledge
+There is a large and extremely heavy wicker basket here. An enormous cloth bag attached to the basket is inflated. A metal receptacle is fastened to the center of the basket. In it is a burning newspaper. A piece of wire tied to a hook holds the balloon in place.
+
+>>>> enter basket [room #143 score 250 turn 242]
+You are now in the basket.
+You may recall that recent explosion. Probably as a result of it, you hear an ominous rumbling, as if a nearby room had collapsed.
+
+>>>> untie wire [room #143 score 250 turn 243]
+The wire falls off of the hook.
+
+>>>> close receptacle [room #143 score 250 turn 244]
+Closed.
+
+>>>> wait [room #143 score 250 turn 245]
+Time passes...
+The balloon leaves the ledge.
+
+Volcano Near Wide Ledge, in the basket
+The cloth bag is inflated and some smoke is leaking out of the closed receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #177 score 250 turn 246]
+Time passes...
+The balloon descends.
+
+Volcano by Viewing Ledge, in the basket
+The cloth bag is inflated and some smoke is leaking out of the closed receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #86 score 250 turn 249]
+Time passes...
+The ledge collapses. (That was a narrow escape!)
+
+>>>> wait [room #86 score 250 turn 251]
+Time passes...
+The balloon descends.
+
+Volcano Near Small Ledge, in the basket
+The cloth bag is inflated and some smoke is leaking out of the closed receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #113 score 250 turn 252]
+Time passes...
+The balloon descends.
+
+Volcano Core, in the basket
+The cloth bag is inflated and some smoke is leaking out of the closed receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> wait [room #34 score 250 turn 255]
+Time passes...
+The balloon has landed.
+
+The balloon lands.
+Volcano Bottom, in the basket
+The cloth bag is inflated and some smoke is leaking out of the closed receptacle. A braided wire is dangling over the side of the basket.
+The basket contains:
+  A blue label
+
+>>>> drop card [room #176 score 250 turn 258]
+Dropped.
+
+>>>> stand [room #176 score 250 turn 259]
+You are on your own feet again.
+
+>>>> north [room #176 score 250 turn 260]
+Lava Room
+
+>>>> east [room #15 score 250 turn 261]
+Ice Room
+
+>>>> east [room #161 score 250 turn 262]
+Cool Room
+
+>>>> se [room #172 score 250 turn 263]
+Carousel Room
+There is a dented steel box here.
+
+>>>> sw [room #144 score 250 turn 264]
+Cobwebby Corridor
+
+>>>> sw [room #206 score 250 turn 265]
+Guarded Room
+There is a Stradivarius here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> take off crown [room #28 score 250 turn 266]
+That sentence isn't one I recognize.
+
+>>>> drop crown [room #28 score 250 turn 266]
+Dropped.
+
+>>>> drop stamp [room #28 score 250 turn 267]
+Dropped.
+
+>>>> drop coin [room #28 score 250 turn 268]
+Dropped.
+
+>>>> drop ruby [room #28 score 250 turn 269]
+Dropped.
+
+>>>> north [room #28 score 250 turn 270]
+Cobwebby Corridor
+
+>>>> ne [room #206 score 250 turn 271]
+Carousel Room
+There is a dented steel box here.
+
+>>>> north [room #144 score 250 turn 272]
+Marble Hall
+
+>>>> north [room #30 score 250 turn 273]
+Deep Ford
+A huge dead dragon is lying half blocking the stream.
+
+>>>> north [room #231 score 250 turn 274]
+Ledge in Ravine
+
+>>>> west [room #124 score 250 turn 275]
+End of Ledge
+
+>>>> north [room #171 score 250 turn 276]
+Dragon Room
+
+>>>> north [room #248 score 250 turn 277]
+Dragon's Lair
+A rotten old wooden chest is in one corner among the debris.
+
+>>>> open chest [room #201 score 250 turn 278]
+The hinges are very rusty, but they seem to be starting to give. You can probably open it if you try again. There is something bumping around inside.
+
+>>>> open chest [room #201 score 250 turn 279]
+The rotten wooden chest opens.
+Nestled in the chest is a wrought gold statuette of a dragon.
+
+>>>> take statuette [room #201 score 250 turn 280]
+Taken.
+
+>>>> south [room #201 score 270 turn 281]
+Dragon Room
+
+>>>> west [room #248 score 270 turn 282]
+Fresco Room
+A path leads east-west through a room decorated with beautiful frescoes of someone battling dragons and rescuing fair maidens. It is hard to tell who is doing this as those parts of the frescoes have been blackened and cracked by intense heat.
+
+>>>> west [room #141 score 270 turn 283]
+Bank Entrance
+This is the entrance hall of the Bank of Zork, the largest banking institution of the Great Underground Empire. A partial account of its history is in "The Lives of the Twelve Flatheads," in the chapter on J. Pierpont Flathead. A more detailed history (albeit less objective) may be found in Flathead's outrageous autobiography "I'm Rich and You Aren't - So There!". Most of the furniture has been ravaged by passing scavengers. All that remains are two signs at the northwest and northeast corners of the room, which say:
+
+    <--  VIEWING ROOMS  -->
+
+The way out (ornate but tasteful) is to the east.
+
+>>>> nw [room #92 score 270 turn 284]
+West Teller's Room
+You are in a small room, which was used by a bank officer who retrieved safety deposit boxes for the customer. On the north side of the room is a sign which reads  "Viewing Room". On the west side of the room, above an open door, is a sign reading:
+
+          BANK PERSONNEL ONLY
+
+>>>> west [room #152 score 270 turn 285]
+Safety Depository
+This is a large rectangular room. The east and west walls were used for storing safety deposit boxes, but all have been carefully removed by evil persons. To the east, west, and south of the room are large doorways. The northern "wall" of the room is a shimmering curtain of light. In the center of the room is a large stone cube, about 10 feet on a side. Engraved on the side of the cube is some lettering.
+On the ground is a small, worn piece of paper.
+
+>>>> south [room #200 score 270 turn 286]
+Chairman's Office
+This room was the office of the Chairman of the Bank of Zork. Like the other rooms here, it has been extensively vandalized. The lone exit is to the north.
+A portrait of J. Pierpont Flathead hangs on the wall.
+
+>>>> take portrait [room #49 score 270 turn 287]
+Taken.
+
+>>>> north [room #49 score 290 turn 288]
+Safety Depository
+On the ground is a small, worn piece of paper.
+
+SHOT depository-before room=200 scene=bank_depository title=Safety Depository dark=0 pages=1 room targets= 20:Shimmering curtain of light; 160:Large stone cube; 220:Bank brochure; 50:North wall;
+
+>>>> walk through north wall [room #200 score 290 turn 289]
+You feel somewhat disoriented as you pass through...
+
+Small Room
+This is a small, bare room with no distinguishing features. There are no exits from this room.
+
+SHOT bank-small-room room=64 scene=bank_small_room title=Small Room dark=0 pages=2 room targets= 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+
+>>>> walk through south wall [room #64 score 290 turn 290]
+You feel somewhat disoriented as you pass through...
+
+Safety Depository
+On the ground is a small, worn piece of paper.
+
+>>>> walk through north wall [room #200 score 290 turn 291]
+You feel somewhat disoriented as you pass through...
+
+Vault
+This is the Vault of the Bank of Zork, in which there are no doors.
+On the floor sit 200 neatly stacked zorkmid bills.
+
+SHOT vault-bills room=2 scene=bank_vault title=Vault dark=0 pages=2 room targets= 179:Stack of zorkmid bills; 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+
+>>>> take bills [room #2 score 290 turn 292]
+Taken.
+
+SHOT vault-empty room=2 scene=bank_vault title=Vault dark=0 pages=1 room targets= 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+
+>>>> walk through north wall [room #2 score 315 turn 293]
+You feel somewhat disoriented as you pass through...
+
+Safety Depository
+On the ground is a small, worn piece of paper.
+
+>>>> drop bills [room #200 score 315 turn 294]
+Dropped.
+
+>>>> drop portrait [room #200 score 315 turn 295]
+Dropped.
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard notices that you carry the Black Crystal, and with an unseemly haste, he disappears.
+
+>>>> east [room #200 score 315 turn 296]
+East Teller's Room
+You are in a small room, which was used by a bank officer who retrieved safety deposit boxes for the customer. On the north side of the room is a sign which reads  "Viewing Room". On the east side of the room, above an open door, is a sign reading:
+
+          BANK PERSONNEL ONLY
+
+>>>> east [room #243 score 315 turn 297]
+Safety Depository
+On the ground is a small, worn piece of paper.
+The portrait of J. Pierpont Flathead is here.
+200 neatly stacked zorkmid bills are here.
+
+>>>> take bills [room #200 score 315 turn 298]
+Taken.
+
+>>>> take portrait [room #200 score 315 turn 299]
+Taken.
+
+>>>> walk through north wall [room #200 score 315 turn 300]
+You feel somewhat disoriented as you pass through...
+
+East Viewing Room
+This room was used by holders of safety deposit boxes to view their contents. On the north side of the room is a sign which says
+
+"Remain here while the teller retrieves your safety deposit box. When you are finished, leave the box, and exit to the south. Safety deposit boxes cannot be removed from this room!
+
+Thank You for Banking at the Zork!"
+
+>>>> south [room #102 score 315 turn 301]
+Bank Entrance
+
+>>>> east [room #92 score 315 turn 302]
+Fresco Room
+
+>>>> east [room #141 score 315 turn 303]
+Dragon Room
+
+>>>> south [room #248 score 315 turn 304]
+Stone Bridge
+
+>>>> south [room #80 score 315 turn 305]
+Cool Room
+
+>>>> se [room #172 score 315 turn 306]
+Carousel Room
+There is a dented steel box here.
+
+>>>> west [room #144 score 315 turn 307]
+Room 8
+This is a small chamber carved out of the rock at the end of a short crawl. On the wall is crudely chiseled the number "8".
+A spray can is in the corner. In large type is the legend "Frobozz Magic Grue Repellent".
+
+>>>> take repellent [room #207 score 315 turn 308]
+Taken.
+
+>>>> east [room #207 score 315 turn 309]
+Carousel Room
+There is a dented steel box here.
+
+>>>> sw [room #144 score 315 turn 310]
+Cobwebby Corridor
+
+>>>> sw [room #206 score 315 turn 311]
+Guarded Room
+There is a moby ruby lying here.
+There is an engraved zorkmid here.
+There is a Flathead stamp here.
+Lord Dimwit's crown is here.
+There is a Stradivarius here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> take necklace [room #28 score 315 turn 312]
+Taken.
+
+>>>> south [room #28 score 315 turn 313]
+Wizard's Workshop
+
+>>>> west [room #45 score 315 turn 314]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> south [room #94 score 315 turn 315]
+Pentagram Room
+In this room, inscribed on the floor, is a great pentagram drawn with black chalk. In its center is a black circle.
+
+>>>> drop necklace [room #91 score 315 turn 316]
+Dropped.
+
+>>>> drop gold key [room #91 score 315 turn 317]
+Dropped.
+
+>>>> drop statuette [room #91 score 315 turn 318]
+Dropped.
+
+>>>> drop violin [room #91 score 315 turn 319]
+You don't have that!
+
+>>>> drop portrait [room #91 score 315 turn 319]
+Dropped.
+
+>>>> drop bills [room #91 score 315 turn 320]
+Dropped.
+
+>>>> drop ruby [room #91 score 315 turn 321]
+You don't have that!
+
+>>>> drop crown [room #91 score 315 turn 321]
+You don't have that!
+
+>>>> drop stamp [room #91 score 315 turn 321]
+You don't have that!
+
+>>>> drop coin [room #91 score 315 turn 321]
+You don't have that!
+
+>>>> north [room #91 score 315 turn 321]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> east [room #94 score 315 turn 322]
+Wizard's Workshop
+
+>>>> north [room #45 score 315 turn 323]
+Guarded Room
+There is a moby ruby lying here.
+There is an engraved zorkmid here.
+There is a Flathead stamp here.
+Lord Dimwit's crown is here.
+There is a Stradivarius here.
+
+>>>> look [room #28 score 315 turn 324]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+There is a moby ruby lying here.
+There is an engraved zorkmid here.
+There is a Flathead stamp here.
+Lord Dimwit's crown is here.
+There is a Stradivarius here.
+
+>>>> take necklace [room #28 score 315 turn 325]
+You can't see any necklace here!
+
+>>>> take gold key [room #28 score 315 turn 326]
+You can't see any gold key here!
+
+>>>> take statuette [room #28 score 315 turn 327]
+You can't see any statuette here!
+
+>>>> take violin [room #28 score 315 turn 328]
+Taken.
+
+>>>> take portrait [room #28 score 315 turn 329]
+You can't see any portrait here!
+
+>>>> take bills [room #28 score 315 turn 330]
+You can't see any bills here!
+
+>>>> take ruby [room #28 score 315 turn 331]
+Taken.
+
+>>>> take crown [room #28 score 315 turn 332]
+You are now wearing the gaudy crown.
+
+>>>> take stamp [room #28 score 315 turn 333]
+Taken.
+
+>>>> take coin [room #28 score 315 turn 334]
+Taken.
+
+>>>> south [room #28 score 315 turn 335]
+Wizard's Workshop
+
+>>>> west [room #45 score 315 turn 336]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> south [room #94 score 315 turn 337]
+Pentagram Room
+200 neatly stacked zorkmid bills are here.
+The portrait of J. Pierpont Flathead is here.
+There is a golden dragon statuette here.
+There is a delicate gold key here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> drop necklace [room #91 score 315 turn 338]
+You don't have the pearl necklace.
+
+>>>> drop gold key [room #91 score 315 turn 338]
+You don't have the delicate gold key.
+
+>>>> drop statuette [room #91 score 315 turn 338]
+You don't have the golden dragon statuette.
+
+>>>> drop violin [room #91 score 315 turn 338]
+Dropped.
+
+>>>> drop portrait [room #91 score 315 turn 339]
+You don't have the portrait of J. Pierpont Flathead.
+
+>>>> drop bills [room #91 score 315 turn 339]
+You don't have the stack of zorkmid bills.
+
+>>>> drop ruby [room #91 score 315 turn 339]
+Dropped.
+
+>>>> drop crown [room #91 score 315 turn 340]
+Dropped.
+
+>>>> drop stamp [room #91 score 315 turn 341]
+Dropped.
+
+>>>> drop coin [room #91 score 315 turn 342]
+Dropped.
+
+>>>> north [room #91 score 315 turn 343]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> east [room #94 score 315 turn 344]
+Wizard's Workshop
+
+>>>> north [room #45 score 315 turn 345]
+Guarded Room
+
+>>>> look [room #28 score 315 turn 346]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 347]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 348]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 349]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 350]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 351]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 352]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 353]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 354]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 355]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 356]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> look [room #28 score 315 turn 357]
+Guarded Room
+This room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.
+The door is open.
+A sleepy-looking lizard head is mounted on the door.
+
+>>>> south [room #28 score 315 turn 358]
+Wizard's Workshop
+
+>>>> west [room #45 score 315 turn 359]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> south [room #94 score 315 turn 360]
+Pentagram Room
+There is an engraved zorkmid here.
+There is a Flathead stamp here.
+Lord Dimwit's crown is here.
+There is a moby ruby lying here.
+There is a Stradivarius here.
+200 neatly stacked zorkmid bills are here.
+The portrait of J. Pierpont Flathead is here.
+There is a golden dragon statuette here.
+There is a delicate gold key here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> north [room #91 score 315 turn 361]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> east [room #94 score 315 turn 362]
+Wizard's Workshop
+
+>>>> north [room #45 score 315 turn 363]
+Guarded Room
+
+>>>> take coin [room #28 score 315 turn 364]
+You can't see any coin here!
+
+>>>> south [room #28 score 315 turn 365]
+Wizard's Workshop
+
+>>>> west [room #45 score 315 turn 366]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> south [room #94 score 315 turn 367]
+Pentagram Room
+There is an engraved zorkmid here.
+There is a Flathead stamp here.
+Lord Dimwit's crown is here.
+There is a moby ruby lying here.
+There is a Stradivarius here.
+200 neatly stacked zorkmid bills are here.
+The portrait of J. Pierpont Flathead is here.
+There is a golden dragon statuette here.
+There is a delicate gold key here.
+There is a pearl necklace here with hundreds of large pearls.
+
+>>>> drop coin [room #91 score 315 turn 368]
+You don't have the priceless zorkmid.
+
+SHOT demon-before room=91 scene=pentagram_room title=Pentagram Room dark=0 pages=1 room targets= 246:Priceless zorkmid; 78:Flathead stamp; 146:Gaudy crown; 97:Ruby; 140:Fancy violin; 179:Stack of zorkmid bills; 56:Portrait of J. Pierpont Flathead; 3:Golden dragon statuette; 127:Delicate gold key; 134:Pearl necklace; 209:Pentagram; 166:Enormous menhir; 208:Three-headed dog; 222:Wizard's trophy cabinet;
+
+>>>> put black sphere in pentagram [room #91 score 315 turn 368]
+A cold wind blows outward from the sphere. The candles flicker, and a low moan, almost inaudible, is heard. It rises in volume and pitch until it becomes a high-pitched keening. A dim shape becomes visible in the air above the sphere. The shape resolves into a large and somewhat formidable looking demon. He looks around, tests the walls of the pentagram experimentally, then sees you! "Hmm, a new master..." he says under his breath. "Greetings, oh master! Wouldst desire a service, as our contract stateth? For some pittance of wealth, some trifle, I will gratify thy desires to the utmost limit of my powers, and they are not inconsiderable." He makes a pass with his massive arms and the walls begin to shake a little. Another pass and the shaking stops. "A nice effect... I find it makes for a better relationship to give such a demonstration early on." He grins vilely.
+
+SHOT demon-present room=91 scene=pentagram_room title=Pentagram Room dark=0 pages=5 room targets= 229:Demon; 246:Priceless zorkmid; 78:Flathead stamp; 146:Gaudy crown; 97:Ruby; 140:Fancy violin; 179:Stack of zorkmid bills; 56:Portrait of J. Pierpont Flathead; 3:Golden dragon statuette; 127:Delicate gold key; 134:Pearl necklace; 209:Pentagram; 166:Enormous menhir; 208:Three-headed dog; 222:Wizard's trophy cabinet;
+
+>>>> take necklace [room #91 score 315 turn 369]
+Taken.
+
+>>>> give necklace to demon [room #91 score 315 turn 370]
+"Most fine, master! But 'tis not enough. I will do a great service, and are not great services bought at great price?"
+
+>>>> take gold key [room #91 score 317 turn 371]
+Taken.
+Suddenly the Wizard materializes in the room. He is astonished by what he sees: his servant in deep conversation with a common adventurer! He draws forth his wand, waves it frantically, and incants "Frobizz! Frobozzle! Frobnoid!" The demon laughs heartily. "You no longer control the Black Crystal, hedge-wizard! Your wand is powerless! Your doom is sealed!" The demon turns to you, expectantly.
+
+>>>> give gold key to demon [room #91 score 317 turn 372]
+"Very nice, but not enough!"
+
+>>>> take statuette [room #91 score 319 turn 373]
+Taken.
+
+>>>> give statuette to demon [room #91 score 319 turn 374]
+"Ah, truly magnificent! Keep them coming."
+
+>>>> take violin [room #91 score 321 turn 375]
+Taken.
+
+>>>> give violin to demon [room #91 score 321 turn 376]
+"Almost halfway there, oh worthy one!"
+
+>>>> take portrait [room #91 score 323 turn 377]
+Taken.
+
+>>>> give portrait to demon [room #91 score 323 turn 378]
+"Oh, such beauty! Your generosity almost overwhelms me!"
+
+>>>> take bills [room #91 score 325 turn 379]
+Taken.
+
+>>>> give bills to demon [room #91 score 325 turn 380]
+"Truly I shall do thee a wonderful service when thou hast finished!"
+
+>>>> take ruby [room #91 score 327 turn 381]
+Taken.
+
+>>>> give ruby to demon [room #91 score 327 turn 382]
+"Truly you are most generous! But still, this is yet not enough."
+
+>>>> take crown [room #91 score 329 turn 383]
+You are now wearing the gaudy crown.
+
+>>>> give crown to demon [room #91 score 329 turn 384]
+"A fine gift, mighty one, you have almost reached my fee."
+The Wizard looks at you as if you are a madman. He tears his beard and stares at you fearfully.
+
+>>>> take stamp [room #91 score 331 turn 385]
+Taken.
+
+>>>> give stamp to demon [room #91 score 331 turn 386]
+"Wondrous fine, master! But one treasure is yet to be given!"
+
+>>>> take coin [room #91 score 333 turn 387]
+Taken.
+
+>>>> give coin to demon [room #91 score 333 turn 388]
+"This will do for my fee. 'Tis a paltry hoard, but as you have done me a small service by loosing me from this wizard, it will suffice."
+
+SHOT demon-paid room=91 scene=pentagram_room title=Pentagram Room dark=0 pages=1 room targets= 18:Wizard of Frobozz; 24:Wizard's magic wand; 229:Demon; 209:Pentagram; 166:Enormous menhir; 208:Three-headed dog; 222:Wizard's trophy cabinet;
+
+>>>> demon, attack wizard [room #91 score 335 turn 389]
+The demon grins hideously. "This has been my desire e'er since this charlatan bent me to his service. I perform this deed with pleasure!" The demon forms himself back into a cloud of greasy smoke. The cloud envelops the Wizard, who waves his wand fruitlessly, mumbling various phrases which begin with "F". A horrible scream is heard, and the smoke begins to clear. Nothing remains of the Wizard but his wand.
+The genie departs, his agreement fulfilled.
+
+SHOT wizard-defeated room=91 scene=pentagram_room title=Pentagram Room dark=0 pages=3 room targets= 24:Wizard's magic wand; 209:Pentagram; 166:Enormous menhir; 208:Three-headed dog; 222:Wizard's trophy cabinet;
+
+>>>> take wand [room #91 score 335 turn 390]
+Taken.
+
+>>>> inventory [room #91 score 365 turn 391]
+You are carrying:
+  A Wizard's magic wand
+  A Frobozz Magic Grue Repellent
+  A matchbook
+  A lamp (providing light)
+
+>>>> north [room #91 score 365 turn 392]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> east [room #94 score 365 turn 393]
+Wizard's Workshop
+
+>>>> north [room #45 score 365 turn 394]
+Guarded Room
+
+>>>> north [room #28 score 365 turn 395]
+Cobwebby Corridor
+
+>>>> ne [room #206 score 365 turn 396]
+Carousel Room
+There is a dented steel box here.
+
+>>>> south [room #144 score 365 turn 397]
+Menhir Room
+This is a large room which was evidently used once as a quarry. Many large limestone chunks lie helter-skelter around the room. Some are rough-hewn and unworked, others smooth and well-finished. One side of the room appears to have been used to quarry building blocks, the other to produce menhirs (standing stones). Obvious passages lead north and south.
+One particularly large menhir, at least twenty feet tall and eight feet thick, is leaning against the wall blocking a dark opening leading southwest. On this side of the menhir is carved an ornate letter "F".
+
+SHOT menhir-blocking room=159 scene=menhir_room title=Menhir Room dark=0 pages=4 room targets= 84:Enormous menhir;
+
+>>>> wave wand at menhir [room #159 score 365 turn 398]
+The wand grows warm, the enormous menhir seems to glow dimly with magical essences, and you feel suffused with power.
+
+SHOT menhir-enchanted room=159 scene=menhir_room title=Menhir Room dark=0 pages=1 room targets= 84:Enormous menhir;
+
+SHOT menhir-before-float room=159 scene=menhir_room title=Menhir Room dark=0 pages=1 room targets= 84:Enormous menhir;
+
+>>>> say "float" [room #159 score 365 turn 399]
+The wand glows very brightly for a moment.
+The menhir floats majestically into the air, rising about ten feet. The passage beneath it beckons invitingly.
+
+SHOT menhir-floated room=159 scene=menhir_room title=Menhir Room dark=0 pages=1 room targets= 84:Enormous menhir;
+
+>>>> sw [room #159 score 365 turn 400]
+Kennel
+This room looks like it was once a kennel for a very large dog (some of the bones would fit a dinosaur). It apparently hasn't been used for a long time, as the dust is fairly thick all over. The only exit is northeast.
+A gigantic dog collar, large enough for three rhinoceros-sized dogs, is lying amidst the debris.
+
+>>>> take collar [room #128 score 365 turn 401]
+Taken.
+
+>>>> ne [room #128 score 380 turn 402]
+Menhir Room
+There is a huge menhir here.
+
+>>>> south [room #159 score 380 turn 403]
+Stairway
+A marble stairway leads down into the gloom and a passage leads north.
+
+>>>> down [room #240 score 380 turn 404]
+Oddly-angled Room
+This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+A marble stairway leads upward.
+
+>>>> west [room #19 score 380 turn 405]
+Oddly-angled Room
+This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+On the floor is a very small diamond shaped window which is flickering dimly.
+A long wooden club lies on the ground near the diamond-shaped window. The club is curiously burned at the thick end.
+
+>>>> se [room #202 score 380 turn 406]
+Oddly-angled Room
+This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+On the floor is a very small diamond shaped window which is dimly glowing.
+
+>>>> ne [room #121 score 380 turn 407]
+Oddly-angled Room
+This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+On the floor is a very small diamond shaped window which is glowing.
+
+>>>> nw [room #242 score 380 turn 408]
+Oddly-angled Room
+This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+On the floor is a very small diamond shaped window which is glowing brightly.
+
+>>>> sw [room #75 score 380 turn 409]
+You hear a strange rusty squeal echoing in the distance.
+Oddly-angled Room
+On the floor is a very small diamond shaped window which is glowing serenely.
+A long wooden club lies on the ground near the diamond-shaped window. The club is curiously burned at the thick end.
+
+>>>> west [room #202 score 385 turn 410]
+Oddly-angled Room
+This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+A marble stairway leads upward. The floor has swung down at the end of the stairway to reveal a secret passage leading down into unrelieved darkness.
+
+>>>> down [room #19 score 385 turn 411]
+Cerberus Room
+This is the entrance to a huge crypt or tomb. A marble stairway leads up from a gateway arch.
+There is a vicious-looking dog guarding the entrance. It is more or less your usual dog, except that it has three heads and is the size of an elephant.
+
+SHOT cerberus-guarding room=162 scene=cerberus_room title=Cerberus Room dark=0 pages=2 room targets= 58:Three-headed dog; 180:Stairs;
+
+>>>> put collar on cerberus [room #162 score 395 turn 412]
+The creature whines happily, then the center head licks your face (which is roughly like experiencing a sandpaper washcloth). The other two heads look about, as though the monster felt a sudden need to find a pair of slippers somewhere. Its huge tail wags enthusiastically, knocking small rocks around and almost blowing you over from the breeze it creates.
+
+SHOT cerberus-collared room=162 scene=cerberus_room title=Cerberus Room dark=0 pages=2 room targets= 58:Three-headed dog; 72:Gigantic dog collar; 180:Stairs;
+
+>>>> east [room #162 score 395 turn 413]
+Crypt Anteroom
+The anteroom is large and empty. Marble bas reliefs depict the stirring times and afterlife of the Flatheads (the latter a bit optimistically). The exit is to the west. A huge marble door stands to the south. The door is closed. Above the door is the cryptic inscription: "Feel Free".
+
+SHOT crypt-door-shut room=194 scene=crypt_anteroom title=Crypt Anteroom dark=0 pages=2 room targets= 245:Crypt door;
+
+>>>> open door [room #194 score 398 turn 414]
+The crypt door squeaks open.
+
+SHOT crypt-door-open room=194 scene=crypt_anteroom_open title=Crypt Anteroom dark=0 pages=1 room targets= 245:Crypt door;
+
+>>>> south [room #194 score 398 turn 415]
+Crypt
+The room contains the earthly remains of the mighty Flatheads, twelve somewhat flat heads mounted securely on poles. While the room might be expected to contain funerary urns or other evidence of the ritual practices of the ancient Zorkers, it is empty of all such objects. There is writing carved on the crypt. The only apparent exit is to the north through the door to the anteroom. The door is open.
+
+>>>> apply repellent to me [room #125 score 400 turn 416]
+The spray smells like a mixture of old socks and burning rubber. If I were a grue I'd sure stay clear!
+
+SHOT crypt-lit room=125 scene=z2_crypt title=Crypt dark=0 pages=1 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door;
+
+>>>> turn off lamp [room #125 score 400 turn 417]
+The lamp is now off.
+It is dark, but on the south wall is a faint outline of a rectangle, as though light were shining around a doorway. You can also make out a faintly glowing letter in the center of this area. It might be an "F".
+
+SHOT crypt-dark room=125 scene=z2_crypt_dark title=Crypt dark=0 pages=2 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+
+SHOT secret-shut room=125 scene=z2_crypt_dark title=Crypt dark=0 pages=2 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+
+>>>> open secret door [room #125 score 400 turn 418]
+The secret door opens noiselessly.
+
+SHOT secret-open room=125 scene=z2_crypt_secret_open title=Crypt dark=0 pages=1 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+
+SHOT landing-before room=125 scene=z2_crypt_secret_open title=Crypt dark=0 pages=1 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+
+>>>> south [room #125 score 400 turn 419]
+Landing
+Beyond the door is a roughly hewn staircase leading down into darkness. The landing on which you stand is covered with carefully drawn magical runes like those sketched upon the workbench of the Wizard of Frobozz. These have been overlaid with sweeping green lines of enormous power, which undulate back and forth across the landing. The wand begins to vibrate in harmony with the motion of the lines. You feel yourself compelled downward, and you yield, stepping onto the staircase. As you pass the green lines, they flare and disappear with a burst of light, and you tumble down the staircase!
+
+At the bottom, a vast red-lit hall stretches off into the distance. Sinister statues guard the entrance to a dimly visible room far ahead. With courage and cunning you have conquered the Wizard of Frobozz and become the master of his domain, but the final challenge awaits!
+
+(The ultimate adventure concludes in "Zork III: The Dungeon Master".)
+
+Your score would be 400 (total of 400 points), in 419 moves.
+This score gives you the rank of Master Adventurer.
+
+Would you like to restart the game from the beginning, restore a saved game position, or end this session of the game?
+(Type RESTART, RESTORE, or QUIT):
+
+SHOT ending room=230 scene=z2_landing title=Landing dark=0 pages=8 room targets=
+
+>>>> quit [room #230 score 400 turn 419]
+
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=24 room=230 score=400 moves=419

@@ -1,0 +1,6 @@
+screenshot,status,label,chapter,expected_room,actual_room
+well-support-preview/bucket-at-top.png,captured,zork-ii-story-state-8-bucket-at-top,1,8,8
+well-support-preview/well-top-outside.png,captured,zork-ii-story-state-8-well-top-outside,1,8,8
+well-support-preview/bucket-before-rise.png,captured,zork-ii-story-state-119-bucket-before-rise,1,119,119
+well-support-preview/bucket-entered.png,captured,zork-ii-story-state-119-bucket-entered,1,119,119
+well-support-preview/well-bottom-return.png,captured,zork-ii-story-state-119-well-bottom-return,1,119,119

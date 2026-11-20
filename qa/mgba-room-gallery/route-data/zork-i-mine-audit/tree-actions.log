@@ -1,0 +1,16 @@
+
+SHOT egg-in-nest room=5 scene=z1_tree_canopy title=Up a Tree dark=0 pages=1 room targets= 135:Bird's nest; 105:Jewel-encrusted egg; 107:Tree; 1:Forest; 56:Songbird; 65:White house;
+
+>>>> take egg [room #5 score 10 turn 16]
+Taken.
+
+>>>> open egg [room #5 score 15 turn 17]
+You have neither the tools nor the expertise.
+
+>>>> drop egg [room #5 score 15 turn 18]
+The egg falls to the ground and springs open, seriously damaged. There is a golden clockwork canary nestled in the egg. It seems to have recently had a bad experience. The mountings for its jewel-like eyes are empty, and its silver beak is crumpled. Through a cracked crystal window below its left wing you can see the remains of intricate machinery. It is not clear what result winding it would have, as the mainspring seems sprung.
+
+SHOT egg-dropped room=5 scene=z1_tree_canopy title=Up a Tree dark=0 pages=3 room targets= 135:Bird's nest; 107:Tree; 1:Forest; 56:Songbird; 65:White house;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=5 score=15 moves=19

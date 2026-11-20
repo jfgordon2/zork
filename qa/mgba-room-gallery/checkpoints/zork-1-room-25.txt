@@ -1,0 +1,9 @@
+# Zork 1 room 25: winning-route fixture steps 1-87 (seed 7), then:
+e
+e
+e
+# Arrived lit at room 25. Story text on arrival:
+#   Damp Cave
+#   This cave has exits to the west and east, and narrows to a crack toward the south. The earth is particularly damp here.
+#   
+#   >

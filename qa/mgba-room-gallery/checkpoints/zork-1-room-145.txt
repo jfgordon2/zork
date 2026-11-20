@@ -1,0 +1,10 @@
+# Zork 1 room 145: winning-route fixture steps 1-87 (seed 7), then:
+e
+s
+s
+w
+# Arrived lit at room 145. Story text on arrival:
+#   Winding Passage
+#   This is a winding passage. It seems that there are only exits on the east and north.
+#   
+#   >

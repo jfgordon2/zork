@@ -1,0 +1,13 @@
+# Zork 1 room 153: winning-route fixture steps 1-35 (seed 7), then:
+s
+e
+up
+sw
+up
+w
+n
+# Arrived lit at room 153. Story text on arrival:
+#   Dead End
+#   You have come to a dead end in the maze.
+#   
+#   >

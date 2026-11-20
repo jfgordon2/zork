@@ -1,0 +1,11 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-ii/room-224.png,captured,zork-ii-death-route-224-room-224,1,224,224
+zork-ii/states/bomb-detonated-here.png,captured,zork-ii-story-state-224-bomb-detonated-here,1,224,224
+zork-ii/states/bomb-stayed.png,captured,zork-ii-story-state-224-bomb-stayed,1,224,224
+zork-ii/states/cage-timeout.png,captured,zork-ii-story-state-224-cage-timeout,1,224,224
+zork-ii/states/cage-without-robot.png,captured,zork-ii-story-state-224-cage-without-robot,1,224,224
+zork-ii/states/dragon-attack-outcome.png,captured,zork-ii-story-state-224-dragon-attack-outcome,1,224,224
+zork-ii/states/orange-cake-outcome.png,captured,zork-ii-story-state-224-orange-cake-outcome,1,224,224
+zork-ii/states/red-cake-outcome.png,captured,zork-ii-story-state-224-red-cake-outcome,1,224,224
+zork-ii/states/round-button-outcome.png,captured,zork-ii-story-state-224-round-button-outcome,1,224,224
+zork-ii/states/square-button-outcome.png,captured,zork-ii-story-state-224-square-button-outcome,1,224,224

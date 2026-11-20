@@ -1,0 +1,12 @@
+# Zork 1 room 34: winning-route fixture steps 1-35 (seed 7), then:
+s
+e
+up
+sw
+up
+e
+# Arrived lit at room 34. Story text on arrival:
+#   Maze
+#   This is part of a maze of twisty little passages, all alike.
+#   
+#   >

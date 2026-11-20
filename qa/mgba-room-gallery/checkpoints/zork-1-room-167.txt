@@ -1,0 +1,10 @@
+# Zork 1 room 167: winning-route fixture steps 1-0 (seed 7), then:
+n
+n
+e
+e
+# Arrived lit at room 167. Story text on arrival:
+#   Forest
+#   The forest thins out, revealing impassable mountains.
+#   
+#   >

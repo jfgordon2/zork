@@ -1,0 +1,39 @@
+# Run from the repository root with:
+# build/zork-iii-audit/audit 7 qa/mgba-room-gallery/checkpoints/visual-state-refresh.txt
+# This records stable frames for story moments that the full route gallery misses.
+
+@build/zork-iii-audit/main-steps/step-050.sav
+hello sailor
+wait
+wait
+wait
+wait
+wait
+wait
+wait
+|sailor-visible
+!build/zork-iii-audit/sailor-visible.sav
+wait
+wait
+wait
+|sailor-passed
+
+@build/zork-iii-audit/guardians-before-potion.sav
+|guardians-before-potion 152
+drink from vial
+|guardians-after-potion 152
+!build/zork-iii-audit/guardians-after-potion.sav
+
+@build/zork-iii-audit/beam-before.sav
+|beam-before
+break beam with sword
+|beam-after
+!build/zork-iii-audit/beam-after.sav
+
+@build/zork-iii-audit/main-steps/step-200.sav
+take hood
+take cloak
+east
+north
+|junction-sword-taken
+!build/zork-iii-audit/junction-sword-taken.sav

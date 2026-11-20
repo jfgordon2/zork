@@ -1,0 +1,38 @@
+
+>>>> south [room #38 score 170 turn 256]
+Some invisible force prevents you from passing through the gate.
+
+>>>> read book [room #38 score 170 turn 257]
+Commandment #12592
+
+Oh ye who go about saying unto each:  "Hello sailor":
+Dost thou know the magnitude of thy sin before the gods?
+Yea, verily, thou shalt be ground between two stones.
+Shall the angry gods cast thy body into the whirlpool?
+Surely, thy eye shall be put out with a sharp stick!
+Even unto the ends of the earth shalt thou wander and
+Unto the land of the dead shalt thou be sent at last.
+Surely thou shalt repent of thy cunning.
+
+>>>> south [room #38 score 170 turn 258]
+Some invisible force prevents you from passing through the gate.
+
+>>>> ring bell [room #38 score 170 turn 256]
+The bell suddenly becomes red hot and falls to the ground. The wraiths, as if paralyzed, stop their jeering and slowly turn to face you. On their ashen faces, the expression of a long-forgotten terror takes shape.
+In your confusion, the candles drop to the ground (and they are out).
+
+>>>> south [room #38 score 170 turn 257]
+Some invisible force prevents you from passing through the gate.
+
+>>>> south [room #38 score 170 turn 261]
+Land of the Dead
+You have entered the Land of the Living Dead. Thousands of lost souls can be heard weeping and moaning. In the corner are stacked the remains of dozens of previous adventurers less fortunate than yourself. A passage exits to the north.
+Lying in one corner of the room is a beautifully carved crystal skull. It appears to be grinning at you rather nastily.
+
+SHOT skull-focused room=13 scene=hades_inside title=Land of the Dead dark=0 pages=3 room targets= 140:Crystal skull; 144:Pile of bodies;
+
+>>>> take skull [room #13 score 170 turn 262]
+Taken.
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=13 score=180 moves=263

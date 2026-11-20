@@ -1,0 +1,52 @@
+
+>>>> east [room #64 score 290 turn 290]
+You can't go that way.
+
+>>>> west [room #64 score 290 turn 291]
+You can't go that way.
+
+>>>> south [room #64 score 290 turn 292]
+You can't go that way.
+
+>>>> north [room #64 score 290 turn 293]
+You can't go that way.
+
+>>>> wait [room #64 score 290 turn 294]
+Time passes...
+A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+The Wizard notices that you carry the Black Crystal, and with an unseemly haste, he disappears.
+
+SHOT banker-appeared room=64 scene=bank_small_room title=Small Room dark=0 pages=2 room targets= 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+
+>>>> give lamp to gnome [room #64 score 290 turn 296]
+You can't see any gnome here!
+
+>>>> wait [room #64 score 290 turn 297]
+Time passes...
+
+>>>> wait [room #64 score 290 turn 300]
+Time passes...
+You hear a faint voice say "Curtain Door Closed."
+
+>>>> wait [room #64 score 290 turn 301]
+Time passes...
+An epicene gnome of Zurich wearing a three-piece suit and carrying a safety deposit box materializes in the room. "You seem to have forgotten to deposit your valuables," he says, tapping the lid of the box impatiently. "We don't usually allow customers to use the boxes here, but we can make this ONE exception, I suppose..." He looks askance at you over his wire-rimmed bifocals.
+
+SHOT banker-timeout room=64 scene=bank_small_room title=Small Room dark=0 pages=3 room targets= 133:Gnome of Zurich; 115:Safety deposit box; 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+
+>>>> north [room #2 score 290 turn 292]
+You can't go that way.
+
+>>>> take bills [room #2 score 290 turn 293]
+Taken.
+
+>>>> walk through north wall [room #2 score 315 turn 294]
+You feel somewhat disoriented as you pass through...
+
+Safety Depository
+On the ground is a small, worn piece of paper.
+
+SHOT vault-exit-bills room=200 scene=bank_depository title=Safety Depository dark=0 pages=2 room targets= 20:Shimmering curtain of light; 160:Large stone cube; 220:Bank brochure; 50:North wall;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=200 score=315 moves=295

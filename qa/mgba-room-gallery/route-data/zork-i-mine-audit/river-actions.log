@@ -1,0 +1,64 @@
+
+>>>> launch [room #111 score 319 turn 458]
+What do you want to launch?
+
+>>>> swim [room #111 score 319 turn 458]
+Swimming isn't usually allowed in the dungeon.
+
+SHOT swim-response room=111 scene=z1_dam_base title=Dam Base dark=0 pages=1 room targets= 219:Pile of plastic; 6:Water; 226:River;
+
+>>>> launch [room #111 score 319 turn 461]
+(magic boat)
+Frigid River, in the magic boat
+You are on the Frigid River in the vicinity of the Dam. The river flows quietly here. There is a landing on the west shore.
+The magic boat contains:
+  A tan label
+
+SHOT river-launched room=37 scene=z1_dam_base title=Frigid River dark=0 pages=2 room targets= 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+>>>> wait [room #182 score 319 turn 472]
+Time passes...
+The flow of the river carries you downstream.
+
+Frigid River, in the magic boat
+The sound of rushing water is nearly unbearable here. On the east shore is a large landing area.
+The magic boat contains:
+  A tan label
+
+>>>> wait [room #53 score 319 turn 474]
+Time passes...
+Unfortunately, the magic boat doesn't provide protection from the rocks and boulders one meets at the bottom of waterfalls. Including this one.
+ 
+    ****  You have died  **** 
+
+As you take your last breath, you feel relieved of your burdens. The feeling passes as you find yourself before the gates of Hell, where the spirits jeer at you and deny you entry. Your senses are disturbed. The objects in the dungeon appear indistinct, bleached of color, even unreal.
+
+Entrance to Hades
+There is a brass bell here.
+There is a pair of candles here.
+There is a black book here.
+
+>>>> wait [room #38 score 309 turn 475]
+Might as well. You've got an eternity.
+
+>>>> wait [room #38 score 309 turn 476]
+Might as well. You've got an eternity.
+
+SHOT river-over-falls room=38 scene=hades title=Entrance to Hades dark=0 pages=1 room targets= 83:Brass bell; 26:Pair of candles; 196:Black book; 144:Pile of bodies;
+
+>>>> east [room #182 score 319 turn 472]
+The magic boat comes to a rest on the shore.
+
+Sandy Beach, in the magic boat
+You are on a large sandy beach on the east shore of the river, which is flowing quickly by. A path runs beside the river to the south here, and a passage is partially buried in sand to the northeast.
+There is a shovel here. (outside the magic boat)
+  The magic boat contains:
+    A tan label
+
+>>>> get out of boat [room #30 score 319 turn 473]
+You are on your own feet again.
+
+SHOT boat-beached room=30 scene=z1_sandy_beach title=Sandy Beach dark=0 pages=1 room targets= 208:Magic boat; 180:Tan label; 132:Shovel; 6:Water; 226:River;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=30 score=319 moves=474

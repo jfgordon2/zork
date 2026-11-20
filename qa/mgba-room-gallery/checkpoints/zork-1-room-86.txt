@@ -1,0 +1,17 @@
+# Zork 1 room 86: winning-route fixture steps 1-394 (seed 7), then:
+get out of boat
+take boat
+n
+w
+w
+drop boat
+board boat
+launch
+# Arrived lit at room 86. Story text on arrival:
+#   (magic boat)
+#   Stream, in the magic boat
+#   You are on the gently flowing stream. The upstream route is too narrow to navigate, and the downstream route is invisible due to twisting walls. There is a narrow beach to land on.
+#   The magic boat contains:
+#     A tan label
+#   
+#   >

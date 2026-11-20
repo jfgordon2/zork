@@ -1,0 +1,12 @@
+# Zork 1 room 53: winning-route fixture steps 1-402 (seed 7), then:
+down
+# Arrived lit at room 53. Story text on arrival:
+#   Read the label for the boat's instructions.
+#   The flow of the river carries you downstream.
+#   
+#   Frigid River, in the magic boat
+#   The sound of rushing water is nearly unbearable here. On the east shore is a large landing area.
+#   The magic boat contains:
+#     A tan label
+#   
+#   >

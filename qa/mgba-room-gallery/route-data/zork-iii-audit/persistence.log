@@ -1,0 +1,49 @@
+
+SHOT lamp-return room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=1 room targets= 126:Brass lantern; 154:Stairs;
+
+SHOT lamp-restored room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=1 room targets= 126:Brass lantern; 154:Stairs;
+
+SHOT lamp-continued room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=1 room targets= 126:Brass lantern; 154:Stairs;
+PERSISTENCE lantern floor drop, leave/return, Restore, Continue passed.
+
+SHOT machine-entrance room=227 scene=museum_entrance title=Museum Entrance dark=0 pages=1 room targets= 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 199:Iron door; 205:Stone door; 82:Wooden door; 154:Stairs; 89:Cleft;
+
+SHOT machine-jewel room=103 scene=jewel_room title=Jewel Room dark=0 pages=3 room targets= 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 10:Steel cage; 131:Bronze plaque; 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door;
+
+SHOT machine-restored room=176 scene=technology_museum title=Technology Museum dark=0 pages=1 room targets= 219:Plaque; 132:Black machine; 92:Grey machine; 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 82:Wooden door;
+PERSISTENCE machine pushes between three rooms, Restore and crop passed.
+RING hidden parent=0
+
+SHOT ring-hidden room=66 scene=z3_technology_unfinished title=Technology Museum dark=0 pages=1 room targets= 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door; 79:Robot;
+
+SHOT ring-hidden-restored room=66 scene=z3_technology_unfinished title=Technology Museum dark=0 pages=1 room targets= 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door; 79:Robot;
+PERSISTENCE concealed ring, actual time travel, recovery and Restore passed.
+
+SHOT engravings-open room=172 scene=engravings title=Engravings Room dark=0 pages=1 room targets= 32:Runes; 222:Secret door; 154:Stairs;
+
+SHOT engravings-return room=172 scene=engravings title=Engravings Room dark=0 pages=1 room targets= 32:Runes; 222:Secret door; 154:Stairs;
+
+SHOT engravings-restored room=172 scene=engravings title=Engravings Room dark=0 pages=1 room targets= 32:Runes; 222:Secret door; 154:Stairs;
+PERSISTENCE fed old man departure, opened secret door, return and Restore passed.
+
+SHOT bronze-open room=204 scene=z3_prison_cell_closed title=Prison Cell dark=0 pages=1 room targets= 153:Cell door; 11:Dungeon master; 209:Bronze door; 4:Flaming pit;
+
+SHOT bronze-restored-open room=204 scene=z3_prison_cell_closed title=Prison Cell dark=0 pages=1 room targets= 153:Cell door; 11:Dungeon master; 209:Bronze door; 4:Flaming pit;
+PERSISTENCE bronze door close/Restore passed.
+
+SHOT puzzle-before-save room=194 scene=hall title=Room in a Puzzle dark=0 pages=1 room targets= 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+
+SHOT puzzle-after-push room=194 scene=hall title=Room in a Puzzle dark=0 pages=1 room targets= 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+PUZZLE-RESTORE stale=1 valid=0
+
+SHOT puzzle-restored-stale room=194 scene=hall title=Room in a Puzzle dark=0 pages=1 room targets= 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+PUZZLE-LOOK matches-before=1
+
+SHOT puzzle-restored-look room=194 scene=hall title=Room in a Puzzle dark=0 pages=1 room targets= 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+PUZZLE-CONTINUE valid=0
+
+SHOT puzzle-continued room=194 scene=hall title=Room in a Puzzle dark=0 pages=1 room targets= 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 8 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 4 matching room crops
+AUDIT RESULT screen=2 room=194 score=4 moves=200

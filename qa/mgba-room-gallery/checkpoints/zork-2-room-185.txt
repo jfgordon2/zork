@@ -1,0 +1,12 @@
+# Zork 2 room 185: winning-route fixture steps 1-227 (seed 4372), then:
+ne
+s
+s
+down
+nw
+# Arrived lit at room 185. Story text on arrival:
+#   Oddly-angled Room
+#   This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+#   On the floor is a very small diamond shaped window which is dark.
+#   
+#   >

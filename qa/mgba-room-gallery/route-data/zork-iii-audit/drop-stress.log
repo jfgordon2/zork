@@ -1,0 +1,148 @@
+
+SHOT drops-102 room=102 scene=lake_shore title=Lake Shore dark=0 pages=1 room targets= 126:Brass lantern; 223:Lake; 154:Stairs;
+DROP checked room=102 result=102 objects=1 no browse turns
+
+SHOT drops-103 room=103 scene=jewel_room title=Jewel Room dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 10:Steel cage; 131:Bronze plaque; 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door;
+DROP checked room=103 result=103 objects=5 no browse turns
+
+SHOT drops-105 room=105 scene=dungeon_entrance title=Dungeon Entrance dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 213:Wooden staff; 77:Very ancient book; 207:Wooden door; 147:Panel; 80:Wooden wall;
+DROP checked room=105 result=105 objects=6 no browse turns
+
+SHOT drops-109 room=109 scene=cliff_top title=Cliff dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 95:Tree; 47:Rope; 99:Piece of waybread; 14:Rubble; 193:Stone wall; 220:Cliff;
+DROP checked room=109 result=109 objects=4 no browse turns
+
+SHOT drops-112 room=112 scene=hall title=Barren Area dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 14:Rubble; 193:Stone wall;
+DROP checked room=112 result=112 objects=3 no browse turns
+
+SHOT drops-116 room=116 scene=z3_royal_hall title=Royal Hall dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 38:Royal Seal of Dimwit Flathead;
+DROP checked room=116 result=116 objects=5 no browse turns
+
+SHOT drops-12 room=12 scene=z3_underwater title=Underwater dark=0 pages=1 room targets= 129:Shiny object; 144:Plants and algae; 114:Sand; 223:Lake; 94:Fish;
+DROP checked room=12 result=12 objects=0 no browse turns
+
+SHOT drops-124 room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 90:Golden amulet; 18:Torch; 3:Indicator; 17:Viewing table;
+DROP checked room=124 result=124 objects=2 no browse turns
+
+SHOT drops-136 room=136 scene=z3_great_door title=Great Door dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 199:Iron door; 89:Cleft;
+DROP checked room=136 result=136 objects=5 no browse turns
+
+SHOT drops-140 room=140 scene=z3_west_shore title=Western Shore dark=0 pages=1 room targets= 67:Reeds; 223:Lake;
+DROP checked room=140 result=140 objects=0 no browse turns
+
+SHOT drops-143 room=143 scene=z3_royal_puzzle_entrance title=Royal Puzzle Entrance dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 215:Hole; 171:Warning note; 154:Stairs;
+DROP checked room=143 result=143 objects=7 no browse turns
+
+SHOT drops-159 room=159 scene=hall title=Narrow Corridor dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 1:Dungeon master; 207:Wooden door; 147:Panel;
+DROP checked room=159 result=159 objects=10 no browse turns
+
+SHOT drops-160 room=160 scene=mirror_room title=Inside Mirror dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 213:Wooden staff; 77:Very ancient book; 157:Wooden bar; 52:White panel; 212:Yellow panel; 2:Short pole; 197:Red panel; 62:Pine panel; 37:Mahogany panel; 196:Long pole; 127:Compass arrow; 87:Black panel; 175:T-bar; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork;
+DROP checked room=160 result=160 objects=6 no browse turns
+
+SHOT drops-163 room=163 scene=z3_water_slide title=Water Slide dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+DROP checked room=163 result=163 objects=2 no browse turns
+
+SHOT drops-169 room=169 scene=z3_mirror_hall title=Hallway dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+DROP checked room=169 result=169 objects=10 no browse turns
+
+SHOT drops-172 room=172 scene=engravings title=Engravings Room dark=0 pages=3 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 77:Very ancient book; 202:Sword; 148:Hood; 59:Cloak; 32:Runes; 222:Secret door; 154:Stairs;
+DROP checked room=172 result=172 objects=10 no browse turns
+
+SHOT drops-176 room=176 scene=technology_museum title=Technology Museum dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 219:Plaque; 132:Black machine; 92:Grey machine; 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 82:Wooden door;
+DROP checked room=176 result=176 objects=5 no browse turns
+
+SHOT drops-179 room=179 scene=z3_jewel_unfinished title=Jewel Room dark=0 pages=1 room targets= 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door; 79:Robot;
+DROP checked room=179 result=179 objects=0 no browse turns
+
+SHOT drops-181 room=181 scene=flathead_ocean title=Flathead Ocean dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch;
+DROP checked room=181 result=181 objects=3 no browse turns
+
+SHOT drops-182 room=182 scene=z3_high_arch title=High Arch dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+DROP checked room=182 result=182 objects=2 no browse turns
+
+SHOT drops-184 room=184 scene=z3_lake_surface title=On the Lake dark=0 pages=1 room targets= 223:Lake; 94:Fish;
+DROP checked room=184 result=184 objects=0 no browse turns
+
+SHOT drops-19 room=19 scene=z3_marble_hall title=North Corridor dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 1:Dungeon master; 183:Cell door; 206:Parapet; 4:Flaming pit;
+DROP checked room=19 result=19 objects=10 no browse turns
+
+SHOT drops-190 room=190 scene=hall title=South Corridor dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 1:Dungeon master; 209:Bronze door;
+DROP checked room=190 result=190 objects=10 no browse turns
+
+SHOT drops-192 room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=1 room targets= 3:Indicator; 17:Viewing table;
+DROP checked room=192 result=124 objects=0 no browse turns
+
+SHOT drops-194 room=194 scene=hall title=Room in a Puzzle dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+DROP checked room=194 result=194 objects=6 no browse turns
+
+SHOT drops-203 room=203 scene=z3_aqueduct title=Aqueduct dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+DROP checked room=203 result=203 objects=2 no browse turns
+
+SHOT drops-204 room=204 scene=z3_prison_cell_closed title=Prison Cell dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 153:Cell door; 11:Dungeon master; 209:Bronze door; 4:Flaming pit;
+DROP checked room=204 result=204 objects=10 no browse turns
+
+SHOT drops-211 room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=1 room targets= 126:Brass lantern; 154:Stairs;
+DROP checked room=211 result=211 objects=1 no browse turns
+
+SHOT drops-216 room=216 scene=z3_south_shore title=Southern Shore dark=0 pages=1 room targets= 223:Lake;
+DROP checked room=216 result=216 objects=0 no browse turns
+
+SHOT drops-217 room=217 scene=junction title=Junction dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 146:Great rock; 202:Sword;
+DROP checked room=217 result=217 objects=3 no browse turns
+
+SHOT drops-218 room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 65:Chest; 14:Rubble; 137:Rope; 31:Ledge; 220:Cliff;
+DROP checked room=218 result=218 objects=4 no browse turns
+
+SHOT drops-227 room=227 scene=museum_entrance_open title=Museum Entrance dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 199:Iron door; 205:Stone door; 82:Wooden door; 154:Stairs; 89:Cleft;
+DROP checked room=227 result=227 objects=5 no browse turns
+
+SHOT drops-28 room=28 scene=museum_entrance_open title=Museum Entrance dark=0 pages=1 room targets= 111:Golden ring; 82:Wooden door; 205:Stone door; 199:Iron door; 79:Robot;
+DROP checked room=28 result=28 objects=1 no browse turns
+
+SHOT drops-30 room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 77:Very ancient book;
+DROP checked room=30 result=30 objects=7 no browse turns
+
+SHOT drops-36 room=36 scene=z3_parapet title=Parapet dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 1:Dungeon master; 88:Sundial; 60:Large button; 206:Parapet; 4:Flaming pit;
+DROP checked room=36 result=36 objects=10 no browse turns
+
+SHOT drops-39 room=39 scene=hall title=Key Room dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 135:Manhole cover;
+DROP checked room=39 result=39 objects=2 no browse turns
+
+SHOT drops-40 room=40 scene=hall title=Tight Squeeze dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff;
+DROP checked room=40 result=40 objects=5 no browse turns
+
+SHOT drops-43 room=43 scene=hall title=East Corridor dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 1:Dungeon master;
+DROP checked room=43 result=43 objects=10 no browse turns
+
+SHOT drops-45 room=45 scene=z3_prison_cell_open title=Prison Cell dark=0 pages=3 room targets= 111:Golden ring; 90:Golden amulet; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 22:Vial; 213:Wooden staff; 77:Very ancient book; 148:Hood; 59:Cloak; 11:Dungeon master; 209:Bronze door; 183:Cell door; 206:Parapet; 4:Flaming pit;
+DROP checked room=45 result=45 objects=10 no browse turns
+
+SHOT drops-55 room=55 scene=cavern title=Creepy Crawl dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch;
+DROP checked room=55 result=55 objects=3 no browse turns
+
+SHOT drops-6 room=6 scene=z3_beam_room title=Beam Room dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 213:Wooden staff; 77:Very ancient book; 202:Sword; 27:Red beam of light;
+DROP checked room=6 result=6 objects=7 no browse turns
+
+SHOT drops-64 room=64 scene=z3_foggy_room title=Foggy Room dark=0 pages=1 room targets= 126:Brass lantern;
+DROP checked room=64 result=64 objects=1 no browse turns
+
+SHOT drops-66 room=66 scene=z3_technology_unfinished title=Technology Museum dark=0 pages=1 room targets= 111:Golden ring; 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door; 79:Robot;
+DROP checked room=66 result=66 objects=1 no browse turns
+
+SHOT drops-73 room=73 scene=cliff_base title=Cliff Base dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 31:Ledge;
+DROP checked room=73 result=73 objects=3 no browse turns
+
+SHOT drops-78 room=78 scene=hall title=Hairpin Loop dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 14:Rubble;
+DROP checked room=78 result=78 objects=3 no browse turns
+
+SHOT drops-81 room=81 scene=z3_crystal_grotto title=Crystal Grotto dark=0 pages=2 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 99:Piece of waybread; 213:Wooden staff; 50:Rock structure; 198:Moss and lichen;
+DROP checked room=81 result=81 objects=5 no browse turns
+
+SHOT drops-93 room=93 scene=z3_damp_passage title=Damp Passage dark=0 pages=1 room targets= 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 198:Moss and lichen; 14:Rubble; 71:Channel;
+DROP checked room=93 result=93 objects=3 no browse turns
+
+SHOT drops-98 room=98 scene=z3_button_room title=Button Room dark=0 pages=2 room targets= 111:Golden ring; 195:Frobozz Magic Grue Repellent; 13:Strange key; 18:Torch; 213:Wooden staff; 77:Very ancient book; 191:Red button; 222:Secret door; 154:Stairs;
+DROP checked room=98 result=98 objects=6 no browse turns
+VISUAL 214 selection checks, 0 absent markers, 0 clipped markers, 48 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=98 score=7 moves=303

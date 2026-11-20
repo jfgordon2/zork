@@ -1,0 +1,259 @@
+# Deterministic replay checkpoints: expected room and score before each command.
+211	0	take lamp
+211	0	turn on lamp
+211	0	south
+217	0	south
+55	0	south
+64	0	south
+102	0	drop lamp
+102	0	enter lake
+184	1	down
+12	1	get object
+12	1	up
+184	1	west
+140	1	south
+124	1	take torch
+124	1	wait
+124	1	wait
+124	1	wait
+124	1	touch table
+192	2	take can
+192	2	wait
+124	2	wait
+124	2	wait
+124	2	touch table
+93	2	drop torch
+93	2	wait
+124	2	wait
+124	2	north
+140	2	enter lake
+184	2	down
+12	2	get can
+12	2	get can
+184	2	up
+184	2	south
+216	2	south
+177	2	spray can on me
+177	2	south
+155	2	east
+39	2	take key
+39	2	open manhole
+39	2	down
+203	2	north
+182	2	north
+163	2	down
+93	2	take torch
+93	2	west
+217	2	west
+112	2	northwest
+78	2	southwest
+73	2	south
+181	2	wait
+181	2	wait
+181	2	wait
+181	2	wait
+181	2	hello sailor
+181	2	hello sailor
+181	2	take vial
+181	2	north
+73	2	northeast
+78	2	southeast
+112	2	west
+109	2	take bread
+109	2	down
+218	3	wait
+218	3	wait
+218	3	tie rope to chest
+218	3	wait
+218	3	wait
+218	3	wait
+218	3	grab rope
+109	3	east
+112	3	east
+217	3	south
+55	3	east
+40	3	east
+81	3	south
+116	3	south
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	wait
+136	3	east
+227	3	open wooden door
+227	3	north
+176	3	push gold machine south
+227	3	open stone door
+227	3	push gold machine east
+103	3	enter gold machine
+103	3	set dial to 776
+103	3	push button
+179	4	take ring
+179	4	wait
+179	4	wait
+179	4	wait
+179	4	wait
+179	4	open door
+179	4	open door
+179	4	west
+28	4	open wooden door
+28	4	north
+66	4	put ring under seat
+66	4	enter gold machine
+66	4	set dial to 948
+66	4	push button
+176	4	get out of gold machine
+176	4	look under seat
+176	4	open wooden door
+176	4	south
+227	4	open stone door
+227	4	east
+103	4	take all
+103	4	read plaque
+103	4	west
+227	4	south
+143	4	down
+194	4	push east wall
+194	5	south
+194	5	southwest
+194	5	push south wall
+194	5	east
+194	5	east
+194	5	push south wall
+194	5	north
+194	5	north
+194	5	east
+194	5	push south wall
+194	5	take book
+194	5	push south wall
+194	5	east
+194	5	northeast
+194	5	push west wall
+194	5	push west wall
+194	5	push west wall
+194	5	push west wall
+194	5	northeast
+194	5	northeast
+194	5	north
+194	5	push east wall
+194	5	southwest
+194	5	south
+194	5	southeast
+194	5	northeast
+194	5	north
+194	5	push west wall
+194	5	northwest
+194	5	push south wall
+194	5	push south wall
+194	5	west
+194	5	northwest
+194	5	northwest
+194	5	push south wall
+194	5	southeast
+194	5	southeast
+194	5	southeast
+194	5	northeast
+194	5	push west wall
+194	5	push west wall
+194	5	southwest
+194	5	push north wall
+194	5	push north wall
+194	5	push north wall
+194	5	northwest
+194	5	up
+143	5	north
+227	5	west
+136	5	north
+116	5	north
+81	5	west
+40	5	west
+55	5	south
+64	5	west
+30	5	wait
+30	5	wait
+30	5	attack figure with sword
+30	5	take hood
+30	5	attack figure with sword
+30	5	take hood
+30	5	attack figure with sword
+30	5	take hood
+30	6	attack figure with sword
+30	7	take hood
+30	7	attack figure with sword
+30	7	take hood
+30	7	attack figure with sword
+30	7	take hood
+30	7	take cloak
+30	7	east
+55	7	north
+217	7	east
+93	7	northeast
+172	7	southwest
+93	7	northeast
+172	7	southwest
+93	7	northeast
+172	7	southwest
+93	7	northeast
+172	7	southwest
+93	7	northeast
+172	7	wake man
+172	7	give bread to man
+172	7	open door
+172	7	down
+98	7	north
+6	7	break beam with sword
+6	7	south
+98	7	push button
+98	7	north
+6	7	north
+169	7	north
+160	7	lift short pole
+160	7	push red panel
+160	7	push red panel
+160	7	lower short pole
+160	7	push mahogany panel
+160	7	push mahogany panel
+160	7	push mahogany panel
+160	7	lift short pole
+160	7	push red panel
+160	7	push red panel
+160	7	push red panel
+160	7	push red panel
+160	7	lower short pole
+160	7	push pine panel
+160	7	out
+105	7	look
+105	7	inventory
+105	7	knock on door
+159	7	north
+190	7	east
+43	7	north
+19	7	north
+36	7	turn dial to 4
+36	7	press button
+36	7	south
+19	7	open cell door
+19	7	south
+45	7	master, close door
+45	7	master, go north
+45	7	master, turn dial to 6
+45	7	master, push button
+204	7	unlock bronze door with key
+204	7	open bronze door
+204	7	south

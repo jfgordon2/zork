@@ -1,0 +1,9 @@
+# Zork 2 room 226: winning-route fixture steps 1-384 (seed 4372), then:
+w
+sw
+# Arrived lit at room 226. Story text on arrival:
+#   Oddly-angled Room
+#   This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+#   On the floor is a very small diamond shaped window which is glowing serenely.
+#   
+#   >

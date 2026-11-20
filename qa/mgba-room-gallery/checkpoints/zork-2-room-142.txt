@@ -1,0 +1,23 @@
+# Zork 2 room 142: winning-route fixture steps 1-125 (seed 4372), then:
+s
+w
+s
+s
+down
+ne
+# Arrived lit at room 142. Story text on arrival:
+#   Oddly-angled Room
+#   This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+#   On the floor is a very small diamond shaped window which is flickering dimly.
+#   A long wooden club lies on the ground near the diamond-shaped window. The club is curiously burned at the thick end.
+#   Your sword is no longer glowing.
+#   A strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.
+#   The Wizard draws forth his wand and waves it in your direction. It begins to glow with a faint blue glow.
+#   The Wizard, in a deep and resonant voice, speaks the word "Fear!" He then vanishes, cackling gleefully.
+#   You look at the Wizard in terror. You scramble away, trying to get as far as possible from him.
+#   
+#   Oddly-angled Room
+#   This is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.
+#   On the floor is a very small diamond shaped window which is flickering dimly.
+#   
+#   >

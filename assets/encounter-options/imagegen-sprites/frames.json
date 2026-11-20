@@ -1,0 +1,373 @@
+{
+  "troll": {
+    "character": "Troll",
+    "room_reference": "troll_room",
+    "cells": [
+      {
+        "pose": "Armed",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 46
+      },
+      {
+        "pose": "Unarmed",
+        "x": 50,
+        "y": 0,
+        "width": 48,
+        "height": 46
+      },
+      {
+        "pose": "Down",
+        "x": 100,
+        "y": 20,
+        "width": 56,
+        "height": 26
+      }
+    ]
+  },
+  "thief": {
+    "character": "Thief",
+    "room_reference": "treasure_room",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "bat": {
+    "character": "Bat",
+    "room_reference": "cavern",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 66,
+        "height": 32
+      },
+      {
+        "pose": "Hanging",
+        "x": 68,
+        "y": 7,
+        "width": 32,
+        "height": 25
+      }
+    ]
+  },
+  "cyclops": {
+    "character": "Cyclops",
+    "room_reference": "cyclops_room",
+    "cells": [
+      {
+        "pose": "Awake",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 52
+      },
+      {
+        "pose": "Asleep",
+        "x": 50,
+        "y": 22,
+        "width": 56,
+        "height": 30
+      }
+    ]
+  },
+  "ghosts": {
+    "character": "Ghosts",
+    "room_reference": "hades",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 76,
+        "height": 48
+      }
+    ]
+  },
+  "wizard": {
+    "character": "Wizard of Frobozz",
+    "room_reference": "pentagram_room",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "unicorn": {
+    "character": "Unicorn",
+    "room_reference": "forest",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 68,
+        "height": 50
+      }
+    ]
+  },
+  "serpent": {
+    "character": "Baby sea serpent",
+    "room_reference": "aquarium",
+    "cells": [
+      {
+        "pose": "Swimming",
+        "x": 0,
+        "y": 0,
+        "width": 47,
+        "height": 26
+      }
+    ],
+    "entity_id": "zork2.aquarium_serpent",
+    "story_object": 32,
+    "state": "swimming",
+    "identity_source": "serpent.png"
+  },
+  "dragon": {
+    "character": "Red dragon",
+    "room_reference": "dragon_room",
+    "cells": [
+      {
+        "pose": "Standing",
+        "x": 0,
+        "y": 0,
+        "width": 64,
+        "height": 46
+      },
+      {
+        "pose": "Fallen",
+        "x": 66,
+        "y": 0,
+        "width": 64,
+        "height": 46
+      },
+      {
+        "pose": "Resting",
+        "x": 132,
+        "y": 0,
+        "width": 64,
+        "height": 46
+      }
+    ]
+  },
+  "cerberus": {
+    "character": "Cerberus",
+    "room_reference": "cerberus_room",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 78,
+        "height": 48
+      }
+    ],
+    "entity_id": "zork2.cerberus",
+    "state": "guarding",
+    "identity_source": "cerberus.png"
+  },
+  "robot": {
+    "character": "Robot",
+    "room_reference": "robot_machine",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 40,
+        "height": 48
+      }
+    ]
+  },
+  "banker": {
+    "character": "Gnome of Zurich",
+    "room_reference": "bank_vault",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "princess": {
+    "character": "Princess",
+    "room_reference": "dragon_room",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      },
+      {
+        "pose": "Seated",
+        "x": 50,
+        "y": 15,
+        "width": 36,
+        "height": 35
+      }
+    ]
+  },
+  "demon": {
+    "character": "Demon",
+    "room_reference": "pentagram_room",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "volcano_gnome": {
+    "character": "Volcano gnome",
+    "room_reference": "great_cavern",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "master": {
+    "character": "Dungeon Master",
+    "room_reference": "dungeon_entrance",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "old_man": {
+    "character": "Old man",
+    "room_reference": "engravings",
+    "cells": [
+      {
+        "pose": "Awake",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 36
+      },
+      {
+        "pose": "Asleep",
+        "x": 50,
+        "y": 0,
+        "width": 48,
+        "height": 36
+      }
+    ]
+  },
+  "hooded": {
+    "character": "Hooded figure",
+    "room_reference": "land_of_shadow",
+    "cells": [
+      {
+        "pose": "Standing",
+        "x": 0,
+        "y": 0,
+        "width": 44,
+        "height": 46
+      },
+      {
+        "pose": "Kneeling",
+        "x": 46,
+        "y": 10,
+        "width": 46,
+        "height": 36
+      }
+    ]
+  },
+  "cliff_man": {
+    "character": "Man at the cliff",
+    "room_reference": "cliff_ledge",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      },
+      {
+        "pose": "LookingDown",
+        "x": 50,
+        "y": 32,
+        "width": 19,
+        "height": 18
+      }
+    ]
+  },
+  "sailor": {
+    "character": "Viking sailor",
+    "room_reference": "flathead_ship",
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 50
+      }
+    ]
+  },
+  "guardians": {
+    "character": "Guardians of Zork",
+    "room_reference": "guardians",
+    "cells": [
+      {
+        "pose": "Left",
+        "x": 0,
+        "y": 0,
+        "width": 40,
+        "height": 60
+      },
+      {
+        "pose": "Right",
+        "x": 42,
+        "y": 0,
+        "width": 40,
+        "height": 60
+      }
+    ]
+  },
+  "cerberus_friendly": {
+    "cells": [
+      {
+        "pose": "Encounter",
+        "x": 0,
+        "y": 0,
+        "width": 58,
+        "height": 56
+      }
+    ],
+    "entity_id": "zork2.cerberus",
+    "state": "friendly",
+    "identity_source": "cerberus.png"
+  }
+}

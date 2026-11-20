@@ -1,0 +1,10 @@
+# Zork 1 room 32: winning-route fixture steps 1-0 (seed 7), then:
+n
+n
+e
+# Arrived lit at room 32. Story text on arrival:
+#   Forest
+#   This is a dimly lit forest, with large trees all around.
+#   You hear in the distance the chirping of a song bird.
+#   
+#   >

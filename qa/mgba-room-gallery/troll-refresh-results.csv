@@ -1,0 +1,2 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/states/troll-defeated.png,captured,zork-i-story-state-127-troll-defeated,0,127,127

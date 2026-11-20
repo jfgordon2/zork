@@ -1,0 +1,17 @@
+@build/zork-iii-audit/route-160-lit.sav
+lift short pole
+push white panel
+push white panel
+lower short pole
+push mahogany panel
+lift short pole
+push red panel
+push red panel
+push red panel
+push red panel
+lower short pole
+push pine panel
+out
+northeast
+!qa/mgba-room-gallery/checkpoints/zork-iii-narrow-51.sav
+|narrow-51 51

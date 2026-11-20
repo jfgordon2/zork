@@ -1,0 +1,48 @@
+
+>>>> set dial to 947 [room #103 score 3 turn 163]
+The dial is set to 947.
+
+>>>> push button [room #103 score 3 turn 164]
+You experience a brief period of disorientation. When your vision returns, your surroundings appear somewhat altered.
+You notice that everything in the machine is gone: come to mention it, everything you were holding has vanished too!
+You notice that the golden machine has disappeared!
+
+SHOT route-16-lit room=16 scene=jewel_room title=Jewel Room dark=0 pages=2 room targets= 10:Steel cage; 131:Bronze plaque; 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door;
+MISSING-VISUAL room=16 object=111 parent=61 name=Golden ring
+MISSING-VISUAL room=16 object=174 parent=61 name=Jewelled knife
+MISSING-VISUAL room=16 object=180 parent=61 name=Sceptre
+
+>>>> west [room #16 score 3 turn 166]
+The stone door is closed.
+
+>>>> north [room #16 score 3 turn 167]
+You can't go that way.
+
+>>>> look [room #16 score 3 turn 168]
+Jewel Room
+You are in a high-ceilinged chamber in the middle of which sits a tall, round steel cage, which is securely locked. In the middle of the cage is a pedestal on which sit the Crown Jewels of the Great Underground Empire: a sceptre, a jewelled knife, and a golden ring. A small bronze plaque, now tarnished, is on the cage.
+
+SHOT museum-947 room=16 scene=jewel_room title=Jewel Room dark=0 pages=2 room targets= 10:Steel cage; 131:Bronze plaque; 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door;
+
+>>>> touch table [room #124 score 1 turn 16]
+You touch the table and are instantly transported to another place!
+
+Timber Room
+This is a long and narrow passage, which is cluttered with broken timbers. A wide passage comes from the east and turns at the west end of the room into a very narrow passageway. From the west comes a strong draft.
+There is a broken timber here.
+
+SHOT route-15-lit room=15 scene=z3_timber_room title=Timber Room dark=0 pages=3 room targets= 158:Broken timber;
+
+>>>> west [room #15 score 2 turn 17]
+You cannot fit through this passage with that load.
+
+>>>> east [room #15 score 2 turn 18]
+Ladder Bottom
+This is a rather wide room. On one side is the bottom of a narrow wooden ladder. To the west and the south are passages leaving the room.
+You suddenly find yourself back in the viewing room!
+
+SHOT route-124-lit room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=2 room targets= 3:Indicator; 17:Viewing table;
+VISUAL 4 selection checks, 3 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 230 reachable argument pickers
+ACCESS 3 room states, 10 focus targets, 4 bag entries, 2025 traversed menu rows, 263 matching room crops
+AUDIT RESULT screen=2 room=124 score=2 moves=19

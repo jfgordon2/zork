@@ -1,0 +1,2 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-ii/states/guarded-open.png,captured,zork-ii-story-state-28-guarded-open,1,28,28

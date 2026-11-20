@@ -1,0 +1,46 @@
+
+>>>> north [room #248 score 105 turn 104]
+The dragon hisses at you and blocks your way.
+
+>>>> attack dragon with sword [room #248 score 105 turn 105]
+Dragon hide is tough as steel, but you have succeeded in annoying him a bit. He looks at you as if deciding whether or not to eat you.
+The dragon continues to watch you carefully.
+
+>>>> attack dragon with sword [room #248 score 105 turn 106]
+The dragon is surprised and interested (for the moment).
+The dragon continues to watch you carefully.
+
+>>>> attack dragon with sword [room #248 score 105 turn 107]
+That did no damage, but he turns his smoky yellow eyes in your direction and sighs.
+The dragon tires of this game. With an almost bored yawn, he opens his mouth and incinerates you in a blast of white-hot dragon fire.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see only darkness.
+
+SHOT dragon-attack-outcome room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=5 room targets= 188:Sphere;
+
+>>>> open chest [room #201 score 110 turn 114]
+The rotten wooden chest opens.
+Nestled in the chest is a wrought gold statuette of a dragon.
+The opening of the squeaky lid startles the young woman.
+The princess (for she is obviously one) shakes herself awake, then notices you for the first time. She smiles. "Thank you for rescuing me from that horrid worm," she says. "I must depart. My parents will be worried about me." With that, she arises, looking purposefully out of the lair.
+
+SHOT chest-closed-lair room=201 scene=z2_dragons_lair title=Dragon's Lair dark=0 pages=3 room targets= 150:Beautiful princess; 81:Rotten wooden chest; 3:Golden dragon statuette;
+
+>>>> kiss princess [room #201 score 110 turn 115]
+The princess ignores you. She looks about the room, but her eyes fix on the south.
+The princess walks south. She glances back at you as she goes.
+Your sword is glowing with a faint blue glow.
+
+SHOT princess-alert room=201 scene=z2_dragons_lair title=Dragon's Lair dark=0 pages=2 room targets= 81:Rotten wooden chest; 3:Golden dragon statuette;
+
+SHOT dead-dragon-ford room=231 scene=z2_deep_ford title=Deep Ford dark=0 pages=1 room targets= 5:Water; 105:Chasm; 104:Stream;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=231 score=85 moves=86

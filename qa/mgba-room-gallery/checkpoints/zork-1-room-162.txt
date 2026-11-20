@@ -1,0 +1,9 @@
+# Zork 1 room 162: winning-route fixture steps 1-87 (seed 7), then:
+n
+s
+ne
+# Arrived lit at room 162. Story text on arrival:
+#   Deep Canyon
+#   You are on the south edge of a deep canyon. Passages lead off to the east, northwest and southwest. A stairway leads down. You can hear the sound of flowing water from below.
+#   
+#   >

@@ -1,0 +1,1079 @@
+
+SHOT route-211-lit room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=7 room targets= 126:Brass lantern; 154:Stairs;
+
+>>>> take lamp [room #211 score 0 turn 0]
+Taken.
+
+>>>> turn on lamp [room #211 score 0 turn 1]
+The lamp is now on.
+
+>>>> south [room #211 score 0 turn 2]
+Junction
+You are at the junction of a north-south passage and an east-west passage. To the north, you can make out the bottom of a stairway. The ways to the east and south are relatively cramped, but a wider trail leads to the west.
+Standing before you is a great rock. Imbedded within it is an Elvish sword.
+
+SHOT route-217-lit room=217 scene=junction title=Junction dark=0 pages=2 room targets= 146:Great rock; 202:Sword;
+
+>>>> south [room #217 score 0 turn 3]
+Creepy Crawl
+You are in a dark and quite creepy crawlway with passages leaving to the north, east, south, and southwest.
+
+SHOT route-55-lit room=55 scene=cavern title=Creepy Crawl dark=0 pages=1 room targets=
+
+>>>> south [room #55 score 0 turn 4]
+Foggy Room
+You are in a dank passage filled with a wispy fog. A spooky passageway leads north and a wider path heads off to the south. To the west, the path leaves the rock and enters an eerie, shadowy land.
+
+SHOT route-64-lit room=64 scene=z3_foggy_room title=Foggy Room dark=0 pages=2 room targets=
+
+>>>> south [room #64 score 0 turn 5]
+Lake Shore
+You are in a wide cavern on the north shore of a small lake. Some polished stone steps lead to the southeast and a sheer rock face prevents any movement around the lake to the southwest. The cavern is dimly lit from above.
+
+SHOT route-102-lit room=102 scene=lake_shore title=Lake Shore dark=0 pages=2 room targets= 223:Lake; 154:Stairs;
+
+>>>> drop lamp [room #102 score 0 turn 6]
+Dropped.
+
+>>>> enter lake [room #102 score 0 turn 7]
+You are nearly paralyzed by the icy waters as you swim into the center of the lake.
+
+On the Lake
+You are floating on the surface of the lake. The water is ice cold and your ability to survive here for long is very questionable. A swim north puts you at your starting point. Conditions to the east are poor where the lake turns into swamp. The west and south shores are suitable for walking, however.
+
+SHOT route-184-lit room=184 scene=z3_lake_surface title=On the Lake dark=0 pages=3 room targets= 223:Lake; 94:Fish;
+
+>>>> down [room #184 score 1 turn 8]
+Underwater
+You are below the surface of the lake. It turns out that the lake is quite shallow and the bottom is only a few feet below you. Considering the frigid temperature of the water, you should probably not plan an extended stay. The lake bottom is sandy and a few hearty plants and algae live there.
+You catch a brief glimpse of something shiny in the sand.
+
+SHOT route-12-lit room=12 scene=z3_underwater title=Underwater dark=0 pages=3 room targets= 129:Shiny object; 144:Plants and algae; 114:Sand; 223:Lake; 94:Fish;
+
+>>>> get object [room #12 score 1 turn 9]
+The shiny object slips from your grasp and back onto the floor of the lake, where it is covered in sand.
+Something sparkling in the sand catches your eye for a moment.
+
+>>>> up [room #12 score 1 turn 10]
+On the Lake
+The icy waters are taking their toll. You will not be able to hold out much longer.
+
+>>>> west [room #184 score 1 turn 11]
+Western Shore
+You are on the western shore of the lake. The ground here is quite hard, but a few sickly reeds manage to grow near the water's edge. The only path leads into the rock to the south.
+
+SHOT route-140-lit room=140 scene=z3_west_shore title=Western Shore dark=0 pages=2 room targets= 67:Reeds; 223:Lake;
+
+>>>> south [room #140 score 1 turn 12]
+Scenic Vista
+You are in a small chamber carved in the rock, with the sole exit to the north. Mounted on one wall is a table labelled "Scenic Vista," whose featureless surface is angled toward you. One might believe that the table was used to indicate points of interest in the view from this spot, like those found in many parks. On the other hand, your surroundings are far from spacious and by no stretch of the imagination could this spot be considered scenic. An indicator above the table reads "IV".
+Mounted on one wall is a flaming torch, which fills the room with a flickering light.
+
+SHOT route-124-lit room=124 scene=z3_scenic_vista title=Scenic Vista dark=0 pages=4 room targets= 3:Indicator; 18:Torch; 17:Viewing table;
+
+>>>> take torch [room #124 score 1 turn 13]
+Taken.
+
+>>>> wait [room #124 score 1 turn 14]
+Time passes...
+The indicator above the table flickers briefly, then changes to "I".
+
+>>>> wait [room #124 score 1 turn 16]
+Time passes...
+
+>>>> wait [room #124 score 1 turn 19]
+Time passes...
+The indicator above the table flickers briefly, then changes to "II".
+
+>>>> touch table [room #124 score 1 turn 20]
+You touch the table and are instantly transported to another place!
+
+Room 8
+This is a small chamber carved out of the rock at the end of a short crawl. On the wall is crudely chiseled the number "8". The only apparent exit, to the east, seems to be a blur and a loud, whirring sound resounds through the rock.
+A spray can is in the corner. In large type is the legend "Frobozz Magic Grue Repellent."
+
+SHOT route-192-lit room=192 scene=z3_room8 title=Room 8 dark=0 pages=3 room targets= 195:Frobozz Magic Grue Repellent;
+
+>>>> take can [room #192 score 2 turn 21]
+Taken.
+
+>>>> wait [room #192 score 2 turn 22]
+Time passes...
+You suddenly find yourself back in the viewing room!
+
+>>>> wait [room #124 score 2 turn 23]
+Time passes...
+The indicator above the table flickers briefly, then changes to "III".
+
+>>>> wait [room #124 score 2 turn 24]
+Time passes...
+
+>>>> touch table [room #124 score 2 turn 27]
+You touch the table and are instantly transported to another place!
+
+Damp Passage
+This is a particularly damp spot even by dungeon standards. You can see the junction to the west, and two similar passages to the east and northeast. A wide stone channel steeply descends into the room from the south. It is covered with slippery moss and lichen. The channel crosses the room, but the opening where it once continued north is now blocked by rubble.
+
+SHOT route-93-lit room=93 scene=z3_damp_passage title=Damp Passage dark=0 pages=3 room targets= 198:Moss and lichen; 14:Rubble; 71:Channel;
+
+>>>> drop torch [room #93 score 2 turn 28]
+Dropped.
+
+>>>> wait [room #93 score 2 turn 29]
+Time passes...
+You suddenly find yourself back in the viewing room!
+
+>>>> wait [room #124 score 2 turn 30]
+Time passes...
+The indicator above the table flickers briefly, then changes to "I".
+
+>>>> north [room #124 score 2 turn 32]
+Western Shore
+
+>>>> enter lake [room #140 score 2 turn 33]
+The shock of entering the frigid water has made you drop all your possessions into the lake!
+
+On the Lake
+
+>>>> down [room #184 score 2 turn 34]
+Underwater
+There is a Frobozz Magic Grue Repellent here.
+Something sparkling in the sand catches your eye for a moment.
+
+>>>> get can [room #12 score 2 turn 35]
+The Frobozz Magic Grue Repellent is yours for a moment, but drops from your grasp.
+You catch a brief glimpse of something shiny in the sand.
+
+>>>> get can [room #12 score 2 turn 36]
+Taken.
+You catch a brief glimpse of something shiny in the sand.
+The icy waters are taking their toll. You will not be able to hold out much longer.
+You run out of air and return to the surface.
+On the Lake
+
+>>>> up [room #184 score 2 turn 37]
+You can't go that way.
+
+>>>> south [room #184 score 2 turn 38]
+Southern Shore
+You are on the south shore of the lake. Rock formations prevent movement to the west and thickening swamp to the east makes the going all but impossible. To the south, where the beach meets a rock formation, you can make out a dark passage sloping steeply upward into the rock.
+
+SHOT route-216-lit room=216 scene=z3_south_shore title=Southern Shore dark=0 pages=2 room targets= 223:Lake;
+
+>>>> south [room #216 score 2 turn 39]
+You have moved into a dark place.
+It is pitch black. You are likely to be eaten by a grue.
+
+SHOT route-177-dark room=177 scene=hall title=Dark Place dark=1 pages=1 room targets=
+
+>>>> spray can on me [room #177 score 2 turn 40]
+The spray smells like a mixture of old socks and burning rubber. If I were a grue I'd sure stay clear!
+
+>>>> south [room #177 score 2 turn 41]
+There are sinister gurgling noises in the darkness all around you!
+You have moved into a dark place.
+It is pitch black.
+The ground continues to slope upwards away from the lake. You can barely detect a dim light from the east.
+
+SHOT route-155-dark room=155 scene=hall title=Dark Place dark=1 pages=2 room targets=
+
+>>>> east [room #155 score 2 turn 42]
+Key Room
+You are between some rock and a dark place. The room is lit dimly from above, revealing a lone, dark path sloping down to the west.
+To one side of the room is a large manhole cover.
+The light from above seems to be focused in the center of the room, where a single key is lying in the dust.
+
+SHOT route-39-lit room=39 scene=hall title=Key Room dark=0 pages=2 room targets= 13:Strange key; 135:Manhole cover;
+
+>>>> take key [room #39 score 2 turn 43]
+Taken.
+
+>>>> open manhole [room #39 score 2 turn 44]
+The cover is moved a bit to one side, revealing a small hole leading into darkness.
+That horrible smell is much less pungent now.
+
+>>>> down [room #39 score 2 turn 45]
+Aqueduct
+You are in a wide stone channel, part of the water supply system for the Great Underground Empire. The source of water was a waterfall to the south, which has long since dried up. Water flowed along the aqueduct to the north. This region is lit from above, although the source of light is not apparent.
+
+SHOT route-203-lit room=203 scene=z3_aqueduct title=Aqueduct dark=0 pages=2 room targets= 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+
+>>>> north [room #203 score 2 turn 46]
+High Arch
+You are now on one of the tallest arches of the aqueduct, hundreds of feet above a rocky chasm. The immensity of the aqueduct project is apparent from here. Stone supports rise from the rock floor to form massive arches, which traverse the region from north to south. The water-carrying channel here is wide and deep. To the west and far below, you can make out a balcony which must command a wide view of the aqueduct.
+
+SHOT route-182-lit room=182 scene=z3_high_arch title=High Arch dark=0 pages=3 room targets= 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+
+>>>> north [room #182 score 2 turn 47]
+Water Slide
+You are near the northern end of this segment of the aqueduct system. To the south and slightly uphill, the bulk of the aqueduct looms ominously, towering above a gorge. To the north, the water channel drops precipitously and enters a rocky hole. The damp moss and lichen would certainly make that a one-way trip.
+
+SHOT route-163-lit room=163 scene=z3_water_slide title=Water Slide dark=0 pages=2 room targets= 156:Aqueduct; 71:Channel; 198:Moss and lichen;
+
+>>>> down [room #163 score 2 turn 48]
+Damp Passage
+There is a torch here (providing light).
+
+>>>> take torch [room #93 score 2 turn 49]
+Taken.
+
+>>>> west [room #93 score 2 turn 50]
+Junction
+Standing before you is a great rock. Imbedded within it is an Elvish sword.
+
+>>>> west [room #217 score 2 turn 51]
+Barren Area
+You are west of the junction, where the rock-bound passage widens out into a large, flat area. Although the land here is barren, you can see vegetation to the west. South of here is a mighty wall of stone, ancient and crumbling. To the southwest the wall has decayed enough to form an opening, through which seeps a thin mist. A trail dips sharply into rocky terrain to the northwest.
+
+SHOT route-112-lit room=112 scene=hall title=Barren Area dark=0 pages=3 room targets= 14:Rubble; 193:Stone wall;
+
+>>>> northwest [room #112 score 2 turn 52]
+Hairpin Loop
+You are at a sharp turn on a narrow and steeply sloping path, strewn with boulders of various sizes. The path climbs sharply toward a desolate plain to the southeast. Southwest of here the path winds down to the base of a cliff.
+
+SHOT route-78-lit room=78 scene=hall title=Hairpin Loop dark=0 pages=2 room targets= 14:Rubble;
+
+>>>> southwest [room #78 score 2 turn 53]
+Cliff Base
+You are at the base of a steep cliff. Directly above you is a wide ledge and far above that some natural sunlight can be seen. To the northeast is a steeply climbing path and the ground becomes sandy toward the south.
+
+SHOT route-73-lit room=73 scene=cliff_base title=Cliff Base dark=0 pages=2 room targets= 31:Ledge;
+
+>>>> south [room #73 score 2 turn 54]
+Flathead Ocean
+You are at the shore of an amazing underground sea, the topic of many a legend among adventurers. Few were known to have arrived at this spot, and fewer to return. There is a heavy surf and a breeze is blowing onshore. The land rises steeply to the east and quicksand prevents movement to the south. A thick mist covers the ocean and extends over the hills to the east. A path heads north along the beach.
+
+SHOT route-181-lit room=181 scene=flathead_ocean title=Flathead Ocean dark=0 pages=3 room targets=
+
+>>>> wait [room #181 score 2 turn 55]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 58]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 61]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 64]
+Time passes...
+
+>>>> hello sailor [room #181 score 2 turn 67]
+Nothing happens yet.
+
+>>>> hello sailor [room #181 score 2 turn 68]
+Nothing happens yet.
+
+>>>> take vial [room #181 score 2 turn 69]
+You can't see any vial here!
+Passing alongside the shore now is an old boat, reminiscent of an ancient Viking ship. Standing on the prow of the ship is an old and crusty sailor, peering out over the misty ocean.
+
+>>>> north [room #181 score 2 turn 70]
+Cliff Base
+
+>>>> northeast [room #73 score 2 turn 71]
+Hairpin Loop
+
+>>>> southeast [room #78 score 2 turn 72]
+Barren Area
+
+>>>> west [room #112 score 2 turn 73]
+Cliff
+This is a remarkable spot in the dungeon. Perhaps two hundred feet above you is a gaping hole in the earth's surface through which pours bright sunshine! A few seedlings from the world above, nurtured by the sunlight and occasional rains, have grown into giant trees, making this a virtual oasis in the desert of the Underground Empire. To the west is a sheer precipice, dropping nearly fifty feet to jagged rocks below. The way south is barred by a forbidding stone wall, crumbling from age. There is a jagged opening in the wall to the southwest, through which leaks a fine mist. The land to the east looks lifeless and barren.
+A rope is tied to one of the large trees here and is dangling over the side of the cliff, reaching down to the shelf below.
+It seems as if somebody has been here recently, as there is some fresh bread lying beneath one of the other trees.
+You seem to hear, from the southwest, the sounds of the sea.
+
+SHOT route-109-lit room=109 scene=cliff_top title=Cliff dark=0 pages=6 room targets= 95:Tree; 47:Rope; 99:Piece of waybread; 14:Rubble; 193:Stone wall; 220:Cliff;
+
+>>>> take bread [room #109 score 2 turn 74]
+Taken.
+
+>>>> down [room #109 score 2 turn 75]
+Cliff Ledge
+This is a rock-strewn ledge near the base of a tall cliff. The bottom of the cliff is another fifteen feet below. You have little hope of climbing up the cliff face, but you might be able to scramble down from here (though it's doubtful you could return).
+A long piece of rope is dangling down from the top of the cliff and is within your reach.
+A large chest, closed and locked, is lying among the boulders.
+
+SHOT route-218-lit room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=3 room targets= 65:Chest; 14:Rubble; 137:Rope; 31:Ledge; 220:Cliff;
+
+>>>> wait [room #218 score 3 turn 76]
+Time passes...
+
+>>>> wait [room #218 score 3 turn 79]
+Time passes...
+At the edge of the cliff above you, a man appears. He looks down at you and speaks. "Hello, down there! You seem to have a problem. Maybe I can help you." He chuckles in an unsettling sort of way. "Perhaps if you tied that chest to the end of the rope I might be able to drag it up for you. Then, I'll be more than happy to help you up!" He laughs again.
+
+>>>> tie rope to chest [room #218 score 3 turn 80]
+The chest is now tied to the rope.
+The man above you looks pleased. "Now there's a good friend! Thank you very much, indeed!" He pulls on the rope and the chest is lifted to the top of the cliff and out of sight. With a short laugh, he disappears. "I'll be back in a short while!" are his last words.
+
+>>>> wait [room #218 score 3 turn 81]
+Time passes...
+
+>>>> wait [room #218 score 3 turn 84]
+Time passes...
+
+>>>> wait [room #218 score 3 turn 87]
+Time passes...
+A familiar voice calls down to you. "Are you still there?" he bellows with a coarse laugh. "Well, then, grab onto the rope and we'll see what we can do." The rope drops to within your reach.
+
+>>>> grab rope [room #218 score 3 turn 90]
+You grab securely on to the rope.
+The man starts to heave on the rope and within a few moments you arrive at the top of the cliff. The man removes the last few valuables from the chest and prepares to leave. "You've been a good sport! Here, take this, for whatever good it is! I can't see that I'll be needing one!" He hands you a plain wooden staff from the bottom of the chest and begins examining his valuables.
+The chest, open and empty, is at your feet.
+
+>>>> east [room #109 score 3 turn 91]
+Barren Area
+
+>>>> east [room #112 score 3 turn 92]
+Junction
+Standing before you is a great rock. Imbedded within it is an Elvish sword.
+
+>>>> south [room #217 score 3 turn 93]
+Creepy Crawl
+
+>>>> east [room #55 score 3 turn 94]
+Tight Squeeze
+This is a very low and narrow passage leading east to west.
+
+SHOT route-40-lit room=40 scene=hall title=Tight Squeeze dark=0 pages=1 room targets=
+
+>>>> east [room #40 score 3 turn 95]
+Crystal Grotto
+This is a chamber of breathtaking beauty. Mighty stalagmites form crystalline-encrusted rock formations. Phosphorescent mosses, fed by a trickle of water from above, make the crystals glow and sparkle with every color of the rainbow. There is an opening to the west, and a man-made passage heads south.
+
+SHOT route-81-lit room=81 scene=z3_crystal_grotto title=Crystal Grotto dark=0 pages=2 room targets= 50:Rock structure; 198:Moss and lichen;
+
+>>>> south [room #81 score 3 turn 96]
+Royal Hall
+This is the north end of a large hall with a vaulted ceiling. A long, tiled hallway leads north through a tall arch. Although the purpose of this room is unclear, there is a large rendering of the Royal Seal of Lord Dimwit Flathead carved on the wall.
+
+SHOT route-116-lit room=116 scene=z3_royal_hall title=Royal Hall dark=0 pages=2 room targets= 38:Royal Seal of Dimwit Flathead;
+
+>>>> south [room #116 score 3 turn 97]
+Great Door
+You are in the southern half of a monumental hall. To the east lies a tremendous iron door which appears to be rusted shut.
+There is a great tremor from within the earth. The entire dungeon shakes violently and loose debris falls from above you.
+To the east, next to the great iron door, a cleft opens up, revealing an open area behind!
+
+SHOT route-136-lit room=136 scene=z3_great_door title=Great Door dark=0 pages=3 room targets= 199:Iron door; 89:Cleft;
+
+>>>> wait [room #136 score 3 turn 98]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 101]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 104]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 107]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 110]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 113]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 116]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 119]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 122]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 125]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 128]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 131]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 134]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 137]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 140]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 143]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 146]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 149]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 152]
+Time passes...
+
+>>>> wait [room #136 score 3 turn 155]
+Time passes...
+
+>>>> east [room #136 score 3 turn 158]
+Museum Entrance
+This is the entrance to the Royal Museum, the finest and grandest in the Great Underground Empire. To the south, down a few steps, is the entrance to the Royal Puzzle and to the east, through a stone door, is the Royal Jewel Collection. A wooden door to the north is open and leads to the Museum of Technology. To the west is a great iron door, rusted shut. To its left, however, is a cleft in the rock providing an exit from the museum.
+
+SHOT route-227-lit room=227 scene=museum_entrance title=Museum Entrance dark=0 pages=3 room targets= 199:Iron door; 205:Stone door; 82:Wooden door; 154:Stairs; 89:Cleft;
+
+>>>> open wooden door [room #227 score 3 turn 159]
+It is already open.
+
+>>>> north [room #227 score 3 turn 160]
+Technology Museum
+This is a large hall which hosted the technological exhibits of the Great Underground Empire. A door to the south is open.
+A strange grey machine, shaped somewhat like a clothes dryer, is on one side of the room. On the other side of the hall is a powerful-looking black machine, a tight tangle of wires, pipes, and motors.
+A plaque is mounted near the door. The writing is faded, however, and cannot be made out clearly. The two machines seem to be in bad shape, rusting in many spots.
+Directly in front of you is a large golden machine, which has a seat with a console in front. On the console is a single button and a dial connected to a three-digit display which reads 948. The machine is suprisingly shiny and shows few signs of age.
+
+SHOT route-176-lit room=176 scene=technology_museum title=Technology Museum dark=0 pages=5 room targets= 219:Plaque; 132:Black machine; 92:Grey machine; 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 82:Wooden door;
+
+>>>> push gold machine south [room #176 score 3 turn 161]
+Museum Entrance
+With some effort, you push the machine into the room with you.
+
+>>>> open stone door [room #227 score 3 turn 162]
+The door is now open.
+
+>>>> push gold machine east [room #227 score 3 turn 163]
+Jewel Room
+You are in a high-ceilinged chamber in the middle of which sits a tall, round steel cage, which is securely locked. In the middle of the cage is a pedestal on which sit the Crown Jewels of the Great Underground Empire: a sceptre, a jewelled knife, and a golden ring. A small bronze plaque, now tarnished, is on the cage.
+With some effort, you push the machine into the room with you.
+
+SHOT route-103-lit room=103 scene=jewel_room title=Jewel Room dark=0 pages=3 room targets= 122:Gold machine; 76:Dial; 121:Seat; 25:Seat; 120:Button; 10:Steel cage; 131:Bronze plaque; 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door;
+
+>>>> enter gold machine [room #103 score 3 turn 164]
+You are now in the gold machine.
+
+>>>> set dial to 776 [room #103 score 3 turn 165]
+The dial is set to 776.
+
+>>>> push button [room #103 score 3 turn 166]
+You experience a brief period of disorientation. When your vision returns, your surroundings appear to have changed. From outside the door you hear the sounds of guards talking.
+You notice that everything in the machine is gone: come to mention it, everything you were holding has vanished too!
+You notice that the golden machine has disappeared!
+
+SHOT route-179-lit room=179 scene=z3_jewel_unfinished title=Jewel Room dark=0 pages=3 room targets= 61:Pedestal; 111:Golden ring; 174:Jewelled knife; 180:Sceptre; 205:Stone door; 79:Robot;
+MISSING-VISUAL room=179 object=111 parent=61 name=Golden ring
+MISSING-VISUAL room=179 object=174 parent=61 name=Jewelled knife
+MISSING-VISUAL room=179 object=180 parent=61 name=Sceptre
+MISSING-VISUAL room=179 object=79 parent=41 name=Robot
+
+>>>> take ring [room #179 score 4 turn 168]
+You are now wearing the golden ring.
+
+>>>> wait [room #179 score 4 turn 169]
+Time passes...
+
+>>>> wait [room #179 score 4 turn 172]
+Time passes...
+
+>>>> wait [room #179 score 4 turn 175]
+Time passes...
+You hear, from outside the door, guards marching away, their voices fading. After a few moments, a booming crash signals the close of what must be a tremendous door. Then there is silence.
+
+>>>> wait [room #179 score 4 turn 178]
+Time passes...
+
+>>>> open door [room #179 score 4 turn 181]
+The door is now open.
+
+>>>> open door [room #179 score 4 turn 182]
+It is already open.
+
+>>>> west [room #179 score 4 turn 183]
+Museum Entrance
+This appears to be an unfinished entranceway to the Royal Museum. There are doors to the east and north, and a blind stairway to the south. A heavy iron door to the west is closed and locked.
+
+SHOT route-28-lit room=28 scene=museum_entrance_open title=Museum Entrance dark=0 pages=2 room targets= 82:Wooden door; 205:Stone door; 199:Iron door; 79:Robot;
+MISSING-VISUAL room=28 object=79 parent=41 name=Robot
+
+>>>> open wooden door [room #28 score 4 turn 184]
+The wooden door opens.
+
+>>>> north [room #28 score 4 turn 185]
+Technology Museum
+You are in a large, unfinished room, probably intended to be a part of the Royal Museum.
+A strange grey machine, shaped somewhat like a clothes dryer, is on one side of the room. On the other side of the hall is a powerful-looking black machine, a tight tangle of wires, pipes, and motors.
+A plaque is mounted near the door. The grey machine, it turns out, is a Frobozz Magic Pressurizer, used in the coal mines of the Empire. The black machine is a Frobozz Magic Room Spinner. The golden machine is referred to as a Temporizer. All are nonworking models donated by Frobozzco president John D. Flathead.
+Directly in front of you is a large golden machine, which has a seat with a console in front. On the console is a single button and a dial connected to a three-digit display which reads 776. The machine is suprisingly shiny and shows few signs of age.
+
+SHOT route-66-lit room=66 scene=z3_technology_unfinished title=Technology Museum dark=0 pages=5 room targets= 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door; 79:Robot;
+MISSING-VISUAL room=66 object=79 parent=41 name=Robot
+
+>>>> put ring under seat [room #66 score 4 turn 186]
+The ring is concealed underneath the seat.
+
+>>>> enter gold machine [room #66 score 4 turn 187]
+You are now in the gold machine.
+
+>>>> set dial to 948 [room #66 score 4 turn 188]
+The dial is set to 948.
+
+>>>> push button [room #66 score 4 turn 189]
+You experience a brief period of disorientation. When your vision returns, your surroundings appear somewhat altered.
+
+>>>> get out of gold machine [room #176 score 4 turn 191]
+You are on your own feet again.
+
+>>>> look under seat [room #176 score 4 turn 192]
+You find the ring under the seat and put it on your finger.
+
+>>>> open wooden door [room #176 score 4 turn 193]
+The wooden door opens.
+
+>>>> south [room #176 score 4 turn 194]
+Museum Entrance
+
+>>>> open stone door [room #227 score 4 turn 195]
+The door is now open.
+
+>>>> east [room #227 score 4 turn 196]
+Jewel Room
+There is a Frobozz Magic Grue Repellent here.
+There is a strange key here.
+There is a torch here (providing light).
+A piece of bread is on the ground here.
+There is a wooden staff here.
+
+>>>> take all [room #103 score 4 turn 197]
+Frobozz Magic Grue Repellent: Taken.
+strange key: Taken.
+torch: Taken.
+piece of waybread: Taken.
+wooden staff: Taken.
+
+>>>> read plaque [room #103 score 4 turn 198]
+The plaque explains that this room was to be the home of the Crown Jewels of the Empire. However, following the unexplained disappearance of a priceless ring during the final stages of construction, Lord Flathead decided to place the remaining jewels in a safer location. Interestingly, he placed his most prized possesion, an incredibly gaudy crown, in a locked safe in a volcano specifically hollowed out for that purpose.
+
+>>>> west [room #103 score 4 turn 199]
+Museum Entrance
+
+>>>> south [room #227 score 4 turn 200]
+Royal Puzzle Entrance
+This is a small square room, in the middle of which is a round hole through which you can discern the floor some ten feet below. The area under the hole is dark, but it appears to be completely enclosed in rock. In any event, it doesn't seem likely that you could climb back up. Exits are west and, up a few steps, north.
+Lying on the ground is a small note of some kind.
+
+SHOT route-143-lit room=143 scene=z3_royal_puzzle_entrance title=Royal Puzzle Entrance dark=0 pages=3 room targets= 215:Hole; 171:Warning note; 154:Stairs;
+
+>>>> down [room #143 score 4 turn 201]
+Room in a Puzzle
+You are in a small square room bounded to the north and west with marble walls and to the east and south with sandstone walls.
+
+SHOT route-194-lit room=194 scene=hall title=Room in a Puzzle dark=0 pages=1 room targets= 85:Ladder; 117:Steel door; 257:North wall; 258:East wall; 259:South wall; 260:West wall;
+
+>>>> push east wall [room #194 score 4 turn 202]
+The wall slides forward and you follow it....
+Room in a Puzzle
+
+>>>> south [room #194 score 5 turn 203]
+Room in a Puzzle
+
+>>>> southwest [room #194 score 5 turn 204]
+Room in a Puzzle
+
+>>>> push south wall [room #194 score 5 turn 205]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> east [room #194 score 5 turn 206]
+Room in a Puzzle
+
+>>>> east [room #194 score 5 turn 207]
+Room in a Puzzle
+
+>>>> push south wall [room #194 score 5 turn 208]
+The wall slides forward and you follow it to this position:
+You hear a soft "snap" from behind the wall you were pushing.
+Room in a Puzzle
+
+>>>> north [room #194 score 5 turn 209]
+Room in a Puzzle
+
+>>>> north [room #194 score 5 turn 210]
+Room in a Puzzle
+
+>>>> east [room #194 score 5 turn 211]
+Room in a Puzzle
+
+>>>> push south wall [room #194 score 5 turn 212]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+The center of the floor here is noticeably depressed.
+Nestled inside the niche is an old and dusty book.
+
+>>>> take book [room #194 score 5 turn 213]
+Taken.
+
+>>>> push south wall [room #194 score 5 turn 214]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> east [room #194 score 5 turn 215]
+Room in a Puzzle
+
+>>>> northeast [room #194 score 5 turn 216]
+Room in a Puzzle
+
+>>>> push west wall [room #194 score 5 turn 217]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> push west wall [room #194 score 5 turn 218]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+The center of the floor here is noticeably depressed.
+
+>>>> push west wall [room #194 score 5 turn 219]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> push west wall [room #194 score 5 turn 220]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> northeast [room #194 score 5 turn 221]
+Room in a Puzzle
+
+>>>> northeast [room #194 score 5 turn 222]
+Room in a Puzzle
+There is a ladder here, firmly attached to the east wall.
+
+>>>> north [room #194 score 5 turn 223]
+Room in a Puzzle
+
+>>>> push east wall [room #194 score 5 turn 224]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> southwest [room #194 score 5 turn 225]
+Room in a Puzzle
+There is a ladder here, firmly attached to the east wall.
+
+>>>> south [room #194 score 5 turn 226]
+Room in a Puzzle
+
+>>>> southeast [room #194 score 5 turn 227]
+Room in a Puzzle
+
+>>>> northeast [room #194 score 5 turn 228]
+Room in a Puzzle
+
+>>>> north [room #194 score 5 turn 229]
+Room in a Puzzle
+
+>>>> push west wall [room #194 score 5 turn 230]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> northwest [room #194 score 5 turn 231]
+Room in a Puzzle
+
+>>>> push south wall [room #194 score 5 turn 232]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> push south wall [room #194 score 5 turn 233]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> west [room #194 score 5 turn 234]
+Room in a Puzzle
+
+>>>> northwest [room #194 score 5 turn 235]
+Room in a Puzzle
+
+>>>> northwest [room #194 score 5 turn 236]
+Room in a Puzzle
+In the ceiling above you is a large circular opening.
+
+>>>> push south wall [room #194 score 5 turn 237]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> southeast [room #194 score 5 turn 238]
+Room in a Puzzle
+
+>>>> southeast [room #194 score 5 turn 239]
+Room in a Puzzle
+There is a ladder here, firmly attached to the east wall.
+
+>>>> southeast [room #194 score 5 turn 240]
+Room in a Puzzle
+
+>>>> northeast [room #194 score 5 turn 241]
+Room in a Puzzle
+
+>>>> push west wall [room #194 score 5 turn 242]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+The center of the floor here is noticeably depressed.
+
+>>>> push west wall [room #194 score 5 turn 243]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> southwest [room #194 score 5 turn 244]
+Room in a Puzzle
+There is a ladder here, firmly attached to the west wall.
+
+>>>> push north wall [room #194 score 5 turn 245]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> push north wall [room #194 score 5 turn 246]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> push north wall [room #194 score 5 turn 247]
+The wall slides forward and you follow it to this position:
+Room in a Puzzle
+
+>>>> northwest [room #194 score 5 turn 248]
+Room in a Puzzle
+In the ceiling above you is a large circular opening.
+There is a ladder here, firmly attached to the east wall.
+
+>>>> up [room #194 score 5 turn 249]
+With the help of the ladder, you exit the puzzle.
+Royal Puzzle Entrance
+Lying on the ground is a small note of some kind.
+
+>>>> north [room #143 score 5 turn 250]
+Museum Entrance
+
+>>>> west [room #227 score 5 turn 251]
+Great Door
+
+>>>> north [room #136 score 5 turn 252]
+Royal Hall
+
+>>>> north [room #116 score 5 turn 253]
+Crystal Grotto
+
+>>>> west [room #81 score 5 turn 254]
+Tight Squeeze
+
+>>>> west [room #40 score 5 turn 255]
+Creepy Crawl
+
+>>>> south [room #55 score 5 turn 256]
+Foggy Room
+
+>>>> west [room #64 score 5 turn 257]
+Land of Shadow
+You are at the eastern end of a dark, featureless landscape of shallow hills. Paths to the east and southeast reenter the rock.
+Through the shadows, a cloaked and hooded figure appears before you, blocking the western exit from the room and carrying a brightly glowing sword.
+From nowhere, the sword from the junction appears in your hand, wildly glowing!
+
+SHOT route-30-lit room=30 scene=land_of_shadow title=Land of Shadow dark=0 pages=3 room targets= 110:Hooded figure; 59:Cloak; 148:Hood;
+MISSING-VISUAL room=30 object=59 parent=110 name=Cloak
+MISSING-VISUAL room=30 object=148 parent=110 name=Hood
+
+>>>> wait [room #30 score 6 turn 258]
+Time passes...
+
+>>>> wait [room #30 score 6 turn 261]
+Time passes...
+The hooded figure stabs nonchalantly with its sword and misses.
+
+>>>> attack figure with sword [room #30 score 6 turn 262]
+A sharp thrust and the hooded figure is badly wounded!
+The figure has some wounds and is probably not capable of hindering your movement.
+The hooded figure thrusts, but you fight back and send it flying to the ground!
+
+>>>> take hood [room #30 score 7 turn 263]
+You cannot get close enough to the hooded figure to remove the hood.
+The hooded figure tries to sneak past your guard, but you twist away.
+
+>>>> attack figure with sword [room #30 score 7 turn 264]
+A good parry! Your sword wounds the hooded figure!
+The figure is hurt, and its strength appears to be fading.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> take hood [room #30 score 7 turn 265]
+The hooded figure, though recovering from wounds, is strong enough to force you back.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> attack figure with sword [room #30 score 7 turn 266]
+A good slash, but it misses by a mile.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> take hood [room #30 score 7 turn 267]
+The hooded figure, though recovering from wounds, is strong enough to force you back.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> attack figure with sword [room #30 score 7 turn 268]
+A quick stroke, but the hooded figure is on guard.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> take hood [room #30 score 7 turn 269]
+The hooded figure, though recovering from wounds, is strong enough to force you back.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> attack figure with sword [room #30 score 7 turn 270]
+A quick stroke catches the hooded figure off guard! Blood trickles down the figure's arm!
+The figure appears to be badly hurt and defenseless.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> take hood [room #30 score 7 turn 271]
+The hooded figure, though recovering from wounds, is strong enough to force you back.
+Your quick reflexes cannot stop the hooded figure's stroke! You are hit!
+
+>>>> attack figure with sword [room #30 score 7 turn 272]
+A good stroke, but it's too slow.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> take hood [room #30 score 7 turn 273]
+The hooded figure, though recovering from wounds, is strong enough to force you back.
+The hooded figure attempts a thrust, but its weakened state prevents hitting you.
+
+>>>> take cloak [room #30 score 7 turn 274]
+The cloak is fastened around the neck of the hooded figure. It would be difficult to remove.
+A brilliant feint puts you off guard, and the hooded figure slips its sword between your ribs. You are hurt very badly.
+
+>>>> east [room #30 score 7 turn 275]
+Creepy Crawl
+
+>>>> north [room #55 score 7 turn 276]
+Junction
+Standing before you is a great rock.
+
+>>>> east [room #217 score 7 turn 277]
+Damp Passage
+
+>>>> northeast [room #93 score 7 turn 278]
+Engravings Room
+You are in a room with passages heading southwest and southeast. The north wall is ornately carved, filled with strange runes and writing in an unfamiliar language.
+
+SHOT route-172-lit room=172 scene=engravings title=Engravings Room dark=0 pages=2 room targets= 32:Runes; 222:Secret door; 154:Stairs;
+
+>>>> southwest [room #172 score 7 turn 279]
+Damp Passage
+
+>>>> northeast [room #93 score 7 turn 280]
+Engravings Room
+
+>>>> southwest [room #172 score 7 turn 281]
+Damp Passage
+
+>>>> northeast [room #93 score 7 turn 282]
+Engravings Room
+An old and wizened man is huddled, asleep, in the corner. He is snoring loudly, and looks quite weak and frail.
+
+>>>> southwest [room #172 score 7 turn 283]
+Damp Passage
+
+>>>> northeast [room #93 score 7 turn 284]
+Engravings Room
+An old and wizened man is huddled, asleep, in the corner. He is snoring loudly, and looks quite weak and frail.
+
+>>>> southwest [room #172 score 7 turn 285]
+Damp Passage
+
+>>>> northeast [room #93 score 7 turn 286]
+Engravings Room
+An old and wizened man is huddled, asleep, in the corner. He is snoring loudly, and looks quite weak and frail.
+
+>>>> wake man [room #172 score 7 turn 287]
+The old man is roused to consciousness. He peers at you through eyes which appear much younger and stronger than his frail body and waits, as if expecting something to happen.
+
+>>>> give bread to man [room #172 score 7 turn 288]
+He looks up at you and takes the waybread. Slowly, he eats the bread and pauses when he is finished. He starts to speak: "Perhaps what you seek is through there!" He points at the carved wall to the north, where you now notice the bare outline of a secret door. When you turn back, the old man is gone!
+
+>>>> open door [room #172 score 7 turn 289]
+The massive stone door opens noiselessly. Beyond the secret door are dark, forbidding stairs leading down to a passage below. Flickering torchlight illuminates the passage.
+
+>>>> down [room #172 score 7 turn 290]
+Button Room
+You are at the southern end of a long hall. To the south, stairs ascend into darkness. To the north the corridor is illuminated by torches set high in the walls, out of reach. On one wall is a red button.
+
+SHOT route-98-lit room=98 scene=z3_button_room title=Button Room dark=0 pages=2 room targets= 191:Red button; 222:Secret door; 154:Stairs;
+
+>>>> north [room #98 score 7 turn 291]
+Beam Room
+You are in the middle of a long north-south corridor whose walls are polished stone. A narrow red beam of light crosses the room at the north end, inches above the floor.
+The corridor continues north and south.
+
+SHOT route-6-lit room=6 scene=z3_beam_room title=Beam Room dark=0 pages=2 room targets= 27:Red beam of light;
+
+>>>> break beam with sword [room #6 score 7 turn 292]
+The beam is now interrupted by a sword lying on the floor.
+
+>>>> south [room #6 score 7 turn 293]
+Button Room
+
+>>>> push button [room #98 score 7 turn 294]
+Click. Snap!
+
+>>>> north [room #98 score 7 turn 295]
+Beam Room
+There is a sword here.
+
+>>>> north [room #6 score 7 turn 296]
+Hallway
+This is a part of the long hallway. The east and west walls are dressed stone. In the center of the hall is a shallow stone channel. In the center of the room the channel widens into a large hole around which is engraved a compass rose.
+The hallway continues to the south.
+A large mirror fills the north side of the hallway.
+The mirror is mounted on a panel which has been opened outward.
+
+SHOT route-169-lit room=169 scene=z3_mirror_hall title=Hallway dark=0 pages=3 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+
+>>>> north [room #169 score 7 turn 297]
+Inside Mirror
+You are inside a rectangular box of wood whose structure is rather complicated. Four sides and the roof are filled in, and the floor is open.
+
+As you face the side opposite the entrance, two short sides of carved and polished wood are to your left and right. The left panel is mahogany, the right pine. The wall you face is red on its left half and black on its right. On the entrance side, the wall is white opposite the red part of the wall it faces, and yellow opposite the black section. The painted walls are at least twice the length of the unpainted ones. The ceiling is painted blue.
+
+In the floor is a stone channel about six inches wide and a foot deep. The channel is oriented in a north-south direction. In the exact center of the room the channel widens into a circular depression perhaps two feet wide. Incised in the stone around this area is a compass rose.
+
+Running from one short wall to the other at about waist height is a wooden bar, carefully carved and drilled. This bar is pierced in two places. The first hole is in the center of the bar (and thus the center of the room). The second is at the left end of the room (as you face opposite the entrance). Through each hole runs a wooden pole.
+
+The pole at the left end of the bar is short, extending about a foot above the bar, and ends in a hand grip. The pole has been dropped into a hole carved in the stone floor.
+
+The long pole at the center of the bar extends from the ceiling through the bar to the circular area in the stone channel. This bottom end of the pole has a T-bar a bit less than two feet long attached to it, and on the T-bar is carved an arrow. The arrow and T-bar are pointing west.
+
+SHOT route-160-lit room=160 scene=mirror_room title=Inside Mirror dark=0 pages=10 room targets= 157:Wooden bar; 52:White panel; 212:Yellow panel; 2:Short pole; 197:Red panel; 62:Pine panel; 37:Mahogany panel; 196:Long pole; 127:Compass arrow; 87:Black panel; 175:T-bar; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork;
+MISSING-VISUAL room=160 object=152 parent=41 name=Guardians of Zork
+
+>>>> lift short pole [room #160 score 7 turn 298]
+The pole is now slightly above the floor.
+
+>>>> push red panel [room #160 score 7 turn 299]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates northwest.
+
+>>>> push red panel [room #160 score 7 turn 300]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates north.
+The mirror quietly swings shut.
+
+>>>> lower short pole [room #160 score 7 turn 301]
+The pole is lowered into the channel.
+
+>>>> push mahogany panel [room #160 score 7 turn 302]
+The structure slides north and stops over another compass rose.
+
+>>>> push mahogany panel [room #160 score 7 turn 303]
+The structure slides north and stops over another compass rose.
+
+>>>> push mahogany panel [room #160 score 7 turn 304]
+The structure slides north and stops over another compass rose.
+
+>>>> lift short pole [room #160 score 7 turn 305]
+The pole is now slightly above the floor.
+
+>>>> push red panel [room #160 score 7 turn 306]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates northeast.
+
+>>>> push red panel [room #160 score 7 turn 307]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates east.
+
+>>>> push red panel [room #160 score 7 turn 308]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates southeast.
+
+>>>> push red panel [room #160 score 7 turn 309]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates south.
+
+>>>> lower short pole [room #160 score 7 turn 310]
+The pole is lowered into the channel.
+
+>>>> push pine panel [room #160 score 7 turn 311]
+The pine wall swings open.
+
+>>>> out [room #160 score 7 turn 312]
+As you leave, the door swings shut.
+Dungeon Entrance
+You are in a north-south hallway which ends, to the north, at a large wooden door.
+The south side of the room is divided by a wooden wall into small hallways to the southeast and southwest.
+The wooden door has a barred panel in it at about head height. The door itself is closed.
+
+SHOT route-105-lit room=105 scene=dungeon_entrance title=Dungeon Entrance dark=0 pages=3 room targets= 207:Wooden door; 147:Panel; 80:Wooden wall;
+
+>>>> look [room #105 score 7 turn 313]
+Dungeon Entrance
+You are in a north-south hallway which ends, to the north, at a large wooden door.
+The south side of the room is divided by a wooden wall into small hallways to the southeast and southwest.
+The wooden door has a barred panel in it at about head height. The door itself is closed.
+
+>>>> inventory [room #105 score 7 turn 314]
+You are carrying:
+  A very ancient book
+  A wooden staff
+  A torch (providing light)
+  A strange key
+  A Frobozz Magic Grue Repellent
+  A golden ring (being worn)
+
+>>>> knock on door [room #105 score 7 turn 315]
+The knock reverberates along the hall. For a time it seems there will be no answer. Then you hear someone unlatching the small panel. Through the bars of the great door, the wrinkled face of an old man appears. He looks you over with a piercing gaze and then speaks gravely. "I have been waiting a long time for you, and you are nearing the end of your long quest! I will remain here. When you feel you are ready, go to the secret door and 'SAY "FROTZ OZMOO"'! Go, now!" He wags his finger in warning. "Do not forget the double quotes!" A moment later, you find yourself in the Button Room.
+
+>>>> north [room #98 score 7 turn 316]
+Beam Room
+There is a sword here.
+
+>>>> east [room #6 score 7 turn 317]
+You can't go that way.
+
+>>>> north [room #6 score 7 turn 318]
+Hallway
+
+>>>> north [room #169 score 7 turn 319]
+Hallway
+This is a part of the long hallway. The east and west walls are dressed stone. In the center of the hall is a shallow stone channel. In the center of the room the channel widens into a large hole around which is engraved a compass rose.
+The corridor continues north and south.
+
+SHOT route-113-lit room=113 scene=hall title=Hallway dark=0 pages=2 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+
+>>>> turn dial to 4 [room #113 score 7 turn 320]
+You can't see any dial here!
+
+>>>> press button [room #113 score 7 turn 321]
+You can't see any button here!
+
+>>>> south [room #113 score 7 turn 322]
+Hallway
+
+>>>> open cell door [room #169 score 7 turn 323]
+You can't see any cell door here!
+
+>>>> south [room #169 score 7 turn 324]
+Beam Room
+There is a sword here.
+
+>>>> master, close door [room #6 score 7 turn 325]
+You can't see any master here!
+
+>>>> master, go north [room #6 score 7 turn 325]
+You can't see any master here!
+
+>>>> master, turn dial to 6 [room #6 score 7 turn 325]
+You can't see any master here!
+
+>>>> master, push button [room #6 score 7 turn 325]
+You can't see any master here!
+
+>>>> unlock bronze door with key [room #6 score 7 turn 325]
+You can't see any bronze door here!
+
+>>>> open bronze door [room #6 score 7 turn 326]
+You can't see any bronze door here!
+
+>>>> south [room #6 score 7 turn 327]
+Button Room
+VISUAL 21 selection checks, 9 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 3346 reachable argument pickers
+ACCESS 42 room states, 145 focus targets, 137 bag entries, 41667 traversed menu rows, 3896 matching room crops
+AUDIT RESULT screen=2 room=98 score=7 moves=328

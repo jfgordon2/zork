@@ -1,0 +1,10 @@
+# Zork 1 room 102: winning-route fixture steps 1-106 (seed 7), then:
+n
+n
+up
+w
+# Arrived lit at room 102. Story text on arrival:
+#   Twisting Passage
+#   This is a winding passage. It seems that there are only exits on the east and north.
+#   
+#   >

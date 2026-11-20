@@ -1,0 +1,109 @@
+
+SHOT bottle-table room=27 scene=kitchen title=Kitchen dark=0 pages=1 room targets= 169:Kitchen table; 138:Glass bottle; 186:Quantity of water; 99:Brown sack; 243:Kitchen window; 43:Chimney; 177:Stairs;
+
+>>>> take bottle [room #27 score 10 turn 4]
+Taken.
+
+SHOT bottle-carried room=27 scene=kitchen title=Kitchen dark=0 pages=1 room targets= 169:Kitchen table; 99:Brown sack; 243:Kitchen window; 43:Chimney; 177:Stairs;
+
+>>>> drop bottle [room #27 score 10 turn 5]
+Dropped.
+
+SHOT bottle-floor room=27 scene=kitchen title=Kitchen dark=0 pages=1 room targets= 138:Glass bottle; 186:Quantity of water; 169:Kitchen table; 99:Brown sack; 243:Kitchen window; 43:Chimney; 177:Stairs;
+
+>>>> take lamp [room #75 score 10 turn 5]
+Taken.
+
+>>>> turn on lamp [room #75 score 10 turn 6]
+The brass lantern is now on.
+
+>>>> take sword [room #75 score 10 turn 7]
+Taken.
+
+>>>> drop lamp [room #75 score 10 turn 8]
+Dropped.
+
+>>>> drop sword [room #75 score 10 turn 9]
+Dropped.
+
+SHOT living-dropped room=75 scene=living title=Living Room dark=0 pages=1 room targets= 227:Sword; 146:Brass lantern; 100:Wooden door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> take torch [room #18 score 152 turn 243]
+Taken.
+
+>>>> drop torch [room #18 score 166 turn 244]
+Dropped.
+
+SHOT torch-floor room=18 scene=z1_torch_room title=Torch Room dark=0 pages=1 room targets= 12:Torch; 79:Pedestal; 177:Stairs;
+
+>>>> drop bell [room #241 score 166 turn 249]
+Dropped.
+
+>>>> drop pump [room #241 score 166 turn 250]
+Dropped.
+
+>>>> drop match [room #241 score 166 turn 251]
+Dropped.
+
+>>>> drop lamp [room #241 score 166 turn 252]
+Dropped.
+
+>>>> take coffin [room #241 score 166 turn 253]
+Taken.
+
+SHOT coffin-carried room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 146:Brass lantern; 17:Matchbook; 109:Hand-held air pump; 83:Brass bell; 177:Stairs;
+
+>>>> drop coffin [room #241 score 176 turn 254]
+Dropped.
+
+SHOT coffin-floor room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 179:Gold coffin; 204:Sceptre; 146:Brass lantern; 17:Matchbook; 109:Hand-held air pump; 83:Brass bell; 177:Stairs;
+
+SHOT coffin-restored room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 179:Gold coffin; 204:Sceptre; 146:Brass lantern; 17:Matchbook; 109:Hand-held air pump; 83:Brass bell; 177:Stairs;
+
+>>>> drop lamp [room #37 score 319 turn 462]
+Dropped.
+
+SHOT boat-with-lantern room=37 scene=z1_dam_base title=Frigid River dark=0 pages=1 room targets= 208:Magic boat; 146:Brass lantern; 180:Tan label; 6:Water; 226:River;
+
+>>>> wait [room #37 score 319 turn 463]
+Time passes...
+The flow of the river carries you downstream.
+
+Frigid River, in the magic boat
+The river turns a corner here making it impossible to see the Dam. The White Cliffs loom on the east bank and large rocks prevent landing on the west.
+The magic boat contains:
+  A brass lantern (providing light)
+  A tan label
+
+SHOT cargo-downstream room=174 scene=z1_river_bend title=Frigid River dark=0 pages=3 room targets= 208:Magic boat; 146:Brass lantern; 180:Tan label; 6:Water; 226:River;
+
+>>>> drop garlic [room #171 score 266 turn 368]
+Dropped.
+
+>>>> north [room #171 score 266 turn 369]
+Bat Room
+You are in a small room which has doors only to the east and south.
+There is an exquisite jade figurine here.
+A large vampire bat, hanging from the ceiling, swoops down at you!
+
+    Fweep!
+    Fweep!
+    Fweep!
+
+The bat grabs you by the scruff of your neck and lifts you away....
+
+Ladder Bottom
+This is a rather wide room. On one side is the bottom of a narrow wooden ladder. To the west and the south are passages leaving the room.
+
+SHOT bat-carryaway room=72 scene=z1_ladder_bottom title=Ladder Bottom dark=0 pages=5 room targets= 88:Wooden ladder;
+
+>>>> north [room #171 score 266 turn 368]
+Bat Room
+You are in a small room which has doors only to the east and south.
+There is an exquisite jade figurine here.
+In the corner of the room on the ceiling is a large vampire bat who is obviously deranged and holding his nose.
+
+SHOT bat-safe room=235 scene=cavern title=Bat Room dark=0 pages=2 room targets= 10:Jade figurine; 70:Bat;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=235 score=266 moves=369

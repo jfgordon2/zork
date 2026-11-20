@@ -1,0 +1,2040 @@
+
+SHOT route-64-lit room=64 scene=west title=West of House dark=0 pages=3 room targets= 230:Small mailbox; 121:Door; 65:White house; 77:Board; 1:Forest;
+
+>>>> south [room #64 score 0 turn 0]
+South of House
+You are facing the south side of a white house. There is no door here, and all the windows are boarded.
+
+SHOT route-209-lit room=209 scene=south title=South of House dark=0 pages=1 room targets= 213:Boarded window; 77:Board; 65:White house; 1:Forest;
+
+>>>> east [room #209 score 0 turn 1]
+Behind House
+You are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is slightly ajar.
+
+SHOT route-85-lit room=85 scene=rear title=Behind House dark=0 pages=2 room targets= 65:White house; 243:Kitchen window; 1:Forest;
+
+>>>> open window [room #85 score 0 turn 2]
+With great effort, you open the window far enough to allow entry.
+
+>>>> enter window [room #85 score 0 turn 3]
+Kitchen
+You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food. A passage leads to the west and a dark staircase can be seen leading upward. A dark chimney leads down and to the east is a small window which is open.
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+SHOT route-27-lit room=27 scene=kitchen title=Kitchen dark=0 pages=3 room targets= 169:Kitchen table; 138:Glass bottle; 186:Quantity of water; 99:Brown sack; 243:Kitchen window; 43:Chimney; 177:Stairs;
+
+>>>> west [room #27 score 10 turn 4]
+Living Room
+You are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and a large oriental rug in the center of the room.
+Above the trophy case hangs an elvish sword of great antiquity.
+A battery-powered brass lantern is on the trophy case.
+
+SHOT route-75-lit room=75 scene=living title=Living Room dark=0 pages=3 room targets= 227:Sword; 100:Wooden door; 146:Brass lantern; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> take lamp [room #75 score 10 turn 5]
+Taken.
+
+>>>> take sword [room #75 score 10 turn 6]
+Taken.
+
+>>>> turn on lamp [room #75 score 10 turn 7]
+The brass lantern is now on.
+
+SHOT living-intact room=75 scene=living title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> move rug [room #75 score 10 turn 8]
+With a great effort, the rug is moved to one side of the room, revealing the dusty cover of a closed trap door.
+
+SHOT hatch-closed room=75 scene=living_moved title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+SHOT hatch-closed room=75 scene=living_moved title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> open trap door [room #75 score 10 turn 9]
+The door reluctantly opens to reveal a rickety staircase descending into darkness.
+
+SHOT hatch-open room=75 scene=z1_hatch_open title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+SHOT case-closed room=75 scene=z1_hatch_open title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> open case [room #75 score 10 turn 10]
+Opened.
+
+SHOT case-open room=75 scene=z1_hatch_open title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> east [room #75 score 10 turn 11]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> east [room #27 score 10 turn 12]
+Behind House
+
+>>>> north [room #85 score 10 turn 13]
+North of House
+You are facing the north side of a white house. There is no door here, and all the windows are boarded up. To the north a narrow path winds through the trees.
+
+SHOT route-137-lit room=137 scene=north title=North of House dark=0 pages=2 room targets= 213:Boarded window; 77:Board; 65:White house; 1:Forest;
+
+>>>> north [room #137 score 10 turn 14]
+Forest Path
+This is a path winding through a dimly lit forest. The path heads north-south here. One particularly large tree with some low branches stands at the edge of the path.
+
+SHOT route-238-lit room=238 scene=forest title=Forest Path dark=0 pages=2 room targets= 107:Tree; 56:Songbird; 65:White house; 1:Forest;
+
+>>>> up [room #238 score 10 turn 15]
+Up a Tree
+You are about 10 feet above the ground nestled among some large branches. The nearest branch above you is above your reach.
+Beside you on the branch is a small bird's nest.
+In the bird's nest is a large egg encrusted with precious jewels, apparently scavenged by a childless songbird. The egg is covered with fine gold inlay, and ornamented in lapis lazuli and mother-of-pearl. Unlike most eggs, this one is hinged and closed with a delicate looking clasp. The egg appears extremely fragile.
+You hear in the distance the chirping of a song bird.
+
+SHOT route-5-lit room=5 scene=z1_tree_canopy title=Up a Tree dark=0 pages=4 room targets= 135:Bird's nest; 105:Jewel-encrusted egg; 107:Tree; 1:Forest; 56:Songbird; 65:White house;
+
+>>>> take egg [room #5 score 10 turn 16]
+Taken.
+
+>>>> down [room #5 score 15 turn 17]
+Forest Path
+
+>>>> south [room #238 score 15 turn 18]
+North of House
+
+>>>> east [room #137 score 15 turn 19]
+Behind House
+
+>>>> west [room #85 score 15 turn 20]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> up [room #27 score 15 turn 21]
+Attic
+This is the attic. The only exit is a stairway leading down.
+A large coil of rope is lying in the corner.
+On a table is a nasty-looking knife.
+
+SHOT route-187-lit room=187 scene=z1_attic title=Attic dark=0 pages=2 room targets= 58:Rope; 250:Table; 165:Nasty knife; 177:Stairs;
+
+>>>> take knife [room #187 score 15 turn 22]
+Taken.
+
+>>>> take rope [room #187 score 15 turn 23]
+Taken.
+
+>>>> down [room #187 score 15 turn 24]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> west [room #27 score 15 turn 25]
+Living Room
+
+>>>> open trap door [room #75 score 15 turn 26]
+Have your eyes checked.
+
+SHOT cellar-route room=75 scene=z1_hatch_open title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> down [room #75 score 15 turn 27]
+The trap door crashes shut, and you hear someone barring it.
+
+Cellar
+You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.
+Your sword is glowing with a faint blue glow.
+
+SHOT cellar room=33 scene=z1_cellar_hatch title=Cellar dark=0 pages=3 room targets= 240:Trap door; 231:Chute; 177:Stairs;
+
+SHOT route-33-lit room=33 scene=z1_cellar_hatch title=Cellar dark=0 pages=3 room targets= 240:Trap door; 231:Chute; 177:Stairs;
+
+>>>> north [room #33 score 40 turn 28]
+The Troll Room
+This is a small room with passages to the east and south and a forbidding hole leading west. Bloodstains and deep scratches (perhaps made by an axe) mar the walls.
+A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.
+Your sword has begun to glow very brightly.
+
+SHOT route-127-lit room=127 scene=troll_room title=The Troll Room dark=0 pages=2 room targets= 150:Troll; 36:Bloody axe;
+
+SHOT troll-armed room=127 scene=troll_room title=The Troll Room dark=0 pages=2 room targets= 150:Troll; 36:Bloody axe;
+
+>>>> kill troll with sword [room #127 score 40 turn 29]
+The troll is staggered, and drops to his knees.
+The troll slowly regains his feet.
+
+SHOT troll-after-attack room=127 scene=troll_room title=The Troll Room dark=0 pages=1 room targets= 150:Troll; 36:Bloody axe;
+
+>>>> kill troll with sword [room #127 score 40 turn 30]
+The haft of your sword knocks out the troll.
+
+>>>> kill troll with sword [room #127 score 40 turn 31]
+The unconscious troll cannot defend himself: He dies.
+Almost as soon as the troll breathes his last breath, a cloud of sinister black fog envelops him, and when the fog lifts, the carcass has disappeared.
+Your sword is no longer glowing.
+
+>>>> kill troll with sword [room #127 score 40 turn 32]
+You can't see any troll here!
+
+>>>> kill troll with sword [room #127 score 40 turn 33]
+You can't see any troll here!
+
+>>>> west [room #127 score 40 turn 34]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+SHOT route-104-lit room=104 scene=cavern title=Maze dark=0 pages=1 room targets=
+
+>>>> west [room #104 score 40 turn 35]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+SHOT route-193-lit room=193 scene=cavern title=Maze dark=0 pages=1 room targets=
+
+>>>> west [room #193 score 40 turn 36]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+SHOT route-54-lit room=54 scene=cavern title=Maze dark=0 pages=1 room targets=
+
+>>>> up [room #54 score 40 turn 37]
+Maze
+This is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.
+Beside the skeleton is a rusty knife.
+The deceased adventurer's useless lantern is here.
+There is a skeleton key here.
+An old leather bag, bulging with coins, is here.
+
+SHOT route-218-lit room=218 scene=z1_maze_skeleton title=Maze dark=0 pages=3 room targets= 96:Skeleton key; 232:Rusty knife; 97:Leather bag of coins; 91:Burned-out lantern; 206:Skeleton;
+
+>>>> take coins [room #218 score 40 turn 38]
+Taken.
+
+>>>> take key [room #218 score 50 turn 39]
+Taken.
+
+>>>> sw [room #218 score 50 turn 40]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+SHOT route-134-lit room=134 scene=cavern title=Maze dark=0 pages=1 room targets=
+
+>>>> east [room #134 score 50 turn 41]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+SHOT route-158-lit room=158 scene=cavern title=Maze dark=0 pages=1 room targets=
+
+>>>> south [room #158 score 50 turn 42]
+Maze
+This is part of a maze of twisty little passages, all alike.
+Your sword is glowing with a faint blue glow.
+
+SHOT route-170-lit room=170 scene=cavern title=Maze dark=0 pages=1 room targets=
+
+>>>> se [room #170 score 50 turn 43]
+Cyclops Room
+This room has an exit on the northwest, and a staircase leading up.
+A cyclops, who looks prepared to eat horses (much less mere adventurers), blocks the staircase. From his state of health, and the bloodstains on the walls, you gather that he is not very friendly, though he likes people.
+Your sword has begun to glow very brightly.
+
+SHOT route-78-lit room=78 scene=cyclops_room title=Cyclops Room dark=0 pages=3 room targets= 199:Cyclops; 177:Stairs;
+
+SHOT cyclops-awake room=78 scene=cyclops_room title=Cyclops Room dark=0 pages=3 room targets= 199:Cyclops; 177:Stairs;
+
+>>>> ulysses [room #78 score 50 turn 44]
+The cyclops, hearing the name of his father's deadly nemesis, flees the room by knocking down the wall on the east of the room.
+Your sword is no longer glowing.
+
+SHOT cyclops-ran room=78 scene=cyclops_room title=Cyclops Room dark=0 pages=1 room targets= 177:Stairs;
+
+>>>> up [room #78 score 50 turn 45]
+You hear a scream of anguish as you violate the robber's hideaway. Using passages unknown to you, he rushes to its defense.
+The thief gestures mysteriously, and the treasures in the room suddenly vanish.
+
+Treasure Room
+This is a large room, whose east wall is solid granite. A number of discarded bags, which crumble at your touch, are scattered about on the floor. There is an exit down a staircase.
+There is a suspicious-looking individual, holding a large bag, leaning against one wall. He is armed with a deadly stiletto.
+There is a silver chalice, intricately engraved, here.
+Your sword has begun to glow very brightly.
+The thief stabs a deep cut in your upper arm.
+
+SHOT route-82-lit room=82 scene=treasure_room title=Treasure Room dark=0 pages=5 room targets= 164:Thief; 246:Stiletto; 94:Large bag; 242:Chalice; 177:Stairs;
+
+SHOT thief-awake room=82 scene=treasure_room title=Treasure Room dark=0 pages=5 room targets= 164:Thief; 246:Stiletto; 94:Large bag; 242:Chalice; 177:Stairs;
+
+>>>> give egg to thief [room #82 score 75 turn 46]
+The thief is taken aback by your unexpected generosity, but accepts the jewel-encrusted egg and stops to admire its beauty.
+
+SHOT thief-egg room=82 scene=treasure_room title=Treasure Room dark=0 pages=1 room targets= 164:Thief; 105:Jewel-encrusted egg; 246:Stiletto; 94:Large bag; 242:Chalice; 177:Stairs;
+
+>>>> down [room #82 score 75 turn 47]
+Cyclops Room
+Your sword is no longer glowing.
+
+>>>> east [room #78 score 75 turn 48]
+Strange Passage
+This is a long passage. To the west is one entrance. On the east there is an old wooden door, with a large opening in it (about cyclops sized).
+Someone carrying a large bag is casually leaning against one of the walls here. He does not speak, but it is clear from his aspect that the bag will be taken only over his dead body.
+Your sword has begun to glow very brightly.
+
+SHOT route-117-lit room=117 scene=z1_strange_passage title=Strange Passage dark=0 pages=3 room targets= 164:Thief; 246:Stiletto; 94:Large bag;
+
+>>>> east [room #117 score 75 turn 49]
+Living Room
+Your sword is no longer glowing.
+
+>>>> put coins in case [room #75 score 75 turn 50]
+Done.
+
+>>>> drop sword [room #75 score 80 turn 51]
+Dropped.
+
+>>>> drop key [room #75 score 80 turn 52]
+Dropped.
+
+>>>> wait [room #75 score 80 turn 53]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 56]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 59]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 62]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 65]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 68]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 71]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 74]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 76]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 79]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 82]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 85]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 88]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 91]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 94]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 97]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 100]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 103]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 106]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 109]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 112]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 115]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 118]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 121]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 124]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 127]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 130]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 133]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 136]
+Time passes...
+
+>>>> wait [room #75 score 80 turn 139]
+Time passes...
+
+>>>> open trap door [room #75 score 80 turn 142]
+The door reluctantly opens to reveal a rickety staircase descending into darkness.
+
+>>>> down [room #75 score 80 turn 143]
+Cellar
+
+>>>> north [room #33 score 80 turn 144]
+The Troll Room
+There is a bloody axe here.
+
+>>>> east [room #127 score 80 turn 145]
+East-West Passage
+This is a narrow east-west passageway. There is a narrow stairway leading down at the north end of the room.
+
+SHOT route-130-lit room=130 scene=cavern title=East-West Passage dark=0 pages=1 room targets= 177:Stairs;
+
+>>>> east [room #130 score 85 turn 146]
+Round Room
+This is a circular stone room with passages in all directions. Several of them have unfortunately been blocked by cave-ins.
+
+SHOT route-15-lit room=15 scene=hall title=Round Room dark=0 pages=1 room targets=
+
+>>>> north [room #15 score 85 turn 147]
+North-South Passage
+This is a high north-south passage, which forks to the northeast.
+
+SHOT route-175-lit room=175 scene=cavern title=North-South Passage dark=0 pages=1 room targets=
+
+>>>> north [room #175 score 85 turn 148]
+Chasm
+A chasm runs southwest to northeast and the path follows it. You are on the south side of the chasm, where a crack opens into a passage.
+
+SHOT route-106-lit room=106 scene=cavern title=Chasm dark=0 pages=1 room targets= 222:Crack; 177:Stairs;
+
+>>>> northeast [room #106 score 85 turn 149]
+Reservoir South
+You are in a long room on the south shore of a large lake, far too deep and wide for crossing.
+There is a path along the stream to the east or west, a steep pathway climbing southwest along the edge of a chasm, and a path leading into a canyon to the southeast.
+
+SHOT route-123-lit room=123 scene=z1_reservoir_south title=Reservoir South dark=0 pages=2 room targets= 6:Water;
+
+>>>> east [room #123 score 85 turn 150]
+Dam
+You are standing on the top of the Flood Control Dam #3, which was quite a tourist attraction in times far distant. There are paths to the north, south, and west, and a scramble down.
+The sluice gates on the dam are closed. Behind the dam, there can be seen a wide reservoir. Water is pouring over the top of the now abandoned dam.
+There is a control panel here, on which a large metal bolt is mounted. Directly above the bolt is a small green plastic bubble.
+
+SHOT route-178-lit room=178 scene=dam title=Dam dark=0 pages=3 room targets= 9:Control panel; 223:Dam; 200:Green bubble; 210:Bolt; 6:Water;
+
+>>>> north [room #178 score 85 turn 151]
+Dam Lobby
+This room appears to have been the waiting room for groups touring the dam. There are open doorways here to the north and east marked "Private", and there is a path leading south over the top of the dam.
+Some guidebooks entitled "Flood Control Dam #3" are on the reception desk.
+There is a matchbook whose cover says "Visit Beautiful FCD#3" here.
+
+SHOT route-120-lit room=120 scene=z1_dam_lobby title=Dam Lobby dark=0 pages=3 room targets= 215:Tour guidebook; 17:Matchbook;
+
+>>>> take matches [room #120 score 85 turn 152]
+Taken.
+
+>>>> north [room #120 score 85 turn 153]
+Maintenance Room
+This is what appears to have been the maintenance room for Flood Control Dam #3. Apparently, this room has been ransacked recently, for most of the valuable equipment is gone. On the wall in front of you is a group of buttons colored blue, yellow, brown, and red. There are doorways to the west and south.
+There is a wrench here.
+There is an object which looks like a tube of toothpaste here.
+There is a screwdriver here.
+There is a group of tool chests here.
+
+SHOT route-224-lit room=224 scene=z1_maintenance title=Maintenance Room dark=0 pages=4 room targets= 236:Wrench; 195:Tube; 114:Screwdriver; 225:Blue button; 212:Red button; 151:Brown button; 63:Yellow button; 237:Group of tool chests;
+
+>>>> take wrench [room #224 score 85 turn 154]
+Taken.
+
+>>>> press yellow button [room #224 score 85 turn 155]
+Click.
+
+>>>> south [room #224 score 85 turn 156]
+Dam Lobby
+Some guidebooks entitled "Flood Control Dam #3" are on the reception desk.
+
+>>>> south [room #120 score 85 turn 157]
+Dam
+You are standing on the top of the Flood Control Dam #3, which was quite a tourist attraction in times far distant. There are paths to the north, south, and west, and a scramble down.
+The sluice gates on the dam are closed. Behind the dam, there can be seen a wide reservoir. Water is pouring over the top of the now abandoned dam.
+There is a control panel here, on which a large metal bolt is mounted. Directly above the bolt is a small green plastic bubble which is glowing serenely.
+
+SHOT dam-before room=178 scene=dam title=Dam dark=0 pages=4 room targets= 9:Control panel; 223:Dam; 200:Green bubble; 210:Bolt; 6:Water;
+
+>>>> turn bolt with wrench [room #178 score 85 turn 158]
+The sluice gates open and water pours through the dam.
+
+SHOT dam-after room=178 scene=z1_dam_open title=Dam dark=0 pages=1 room targets= 9:Control panel; 223:Dam; 200:Green bubble; 210:Bolt; 6:Water;
+
+>>>> drop wrench [room #178 score 85 turn 159]
+Dropped.
+
+>>>> west [room #178 score 85 turn 160]
+Reservoir South
+You are in a long room. To the north is a large lake, too deep to cross. You notice, however, that the water level appears to be dropping at a rapid rate. Before long, it might be possible to cross to the other side from here.
+There is a path along the stream to the east or west, a steep pathway climbing southwest along the edge of a chasm, and a path leading into a canyon to the southeast.
+
+>>>> wait [room #123 score 85 turn 161]
+Time passes...
+
+>>>> wait [room #123 score 85 turn 164]
+Time passes...
+The water level is now quite low here and you could easily cross over to the other side.
+
+>>>> wait [room #123 score 85 turn 166]
+Time passes...
+
+>>>> north [room #123 score 85 turn 169]
+Reservoir
+You are on what used to be a large lake, but which is now a large mud pile. There are "shores" to the north and south.
+Lying half buried in the mud is an old trunk, bulging with jewels.
+
+SHOT route-95-lit room=95 scene=z1_reservoir_drained title=Reservoir dark=0 pages=2 room targets= 229:Trunk of jewels; 6:Water;
+
+>>>> take trunk [room #95 score 85 turn 170]
+Taken.
+
+>>>> north [room #95 score 100 turn 171]
+Reservoir North
+You are in a large cavernous room, the south of which was formerly a lake. However, with the water level lowered, there is merely a wide stream running through there.
+There is a slimy stairway leaving the room to the north.
+There is a hand-held air pump here.
+
+SHOT route-191-lit room=191 scene=z1_reservoir_drained title=Reservoir North dark=0 pages=2 room targets= 109:Hand-held air pump; 6:Water; 177:Stairs;
+
+>>>> take pump [room #191 score 100 turn 172]
+Taken.
+
+>>>> north [room #191 score 100 turn 173]
+Atlantis Room
+This is an ancient room, long under water. There is an exit to the south and a staircase leading up.
+On the shore lies Poseidon's own crystal trident.
+
+SHOT route-4-lit room=4 scene=atlantis title=Atlantis Room dark=0 pages=1 room targets= 23:Crystal trident; 177:Stairs;
+
+>>>> take trident [room #4 score 100 turn 174]
+Taken.
+
+>>>> south [room #4 score 104 turn 175]
+Reservoir North
+
+>>>> south [room #191 score 104 turn 176]
+Reservoir
+
+>>>> south [room #95 score 104 turn 177]
+Reservoir South
+
+>>>> southwest [room #123 score 104 turn 178]
+Chasm
+
+>>>> south [room #106 score 104 turn 179]
+North-South Passage
+
+>>>> south [room #175 score 104 turn 180]
+Round Room
+
+>>>> west [room #15 score 104 turn 181]
+East-West Passage
+
+>>>> west [room #130 score 104 turn 182]
+The Troll Room
+There is a bloody axe here.
+
+>>>> west [room #127 score 104 turn 183]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> west [room #104 score 104 turn 184]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> west [room #193 score 104 turn 185]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> up [room #54 score 104 turn 186]
+Maze
+This is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.
+Beside the skeleton is a rusty knife.
+The deceased adventurer's useless lantern is here.
+
+>>>> sw [room #218 score 104 turn 187]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> east [room #134 score 104 turn 188]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> south [room #158 score 104 turn 189]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> se [room #170 score 104 turn 190]
+Cyclops Room
+
+>>>> east [room #78 score 104 turn 191]
+Strange Passage
+
+>>>> east [room #117 score 104 turn 192]
+Living Room
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A leather bag of coins
+
+>>>> put trunk in case [room #75 score 104 turn 193]
+Done.
+
+>>>> put trident in case [room #75 score 109 turn 194]
+Done.
+
+>>>> down [room #75 score 120 turn 195]
+Cellar
+
+>>>> north [room #33 score 120 turn 196]
+The Troll Room
+There is a bloody axe here.
+
+>>>> west [room #127 score 120 turn 197]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> west [room #104 score 120 turn 198]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> west [room #193 score 120 turn 199]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> up [room #54 score 120 turn 200]
+Maze
+This is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.
+Beside the skeleton is a rusty knife.
+The deceased adventurer's useless lantern is here.
+
+>>>> sw [room #218 score 120 turn 201]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> east [room #134 score 120 turn 202]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> south [room #158 score 120 turn 203]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> se [room #170 score 120 turn 204]
+Cyclops Room
+
+>>>> up [room #78 score 120 turn 205]
+You hear a scream of anguish as you violate the robber's hideaway. Using passages unknown to you, he rushes to its defense.
+The thief gestures mysteriously, and the treasures in the room suddenly vanish.
+
+Treasure Room
+There is a suspicious-looking individual, holding a large bag, leaning against one wall. He is armed with a deadly stiletto.
+There is a silver chalice, intricately engraved, here.
+The stiletto touches your forehead, and the blood obscures your vision.
+
+>>>> kill thief with knife [room #82 score 120 turn 206]
+The thief is staggered, and drops to his knees.
+The lamp appears a bit dimmer.
+The thief slowly regains his feet.
+
+>>>> kill thief with knife [room #82 score 120 turn 207]
+A quick stroke, but the thief is on guard.
+The thief tries to sneak past your guard, but you twist away.
+
+>>>> kill thief with knife [room #82 score 120 turn 208]
+The thief is struck on the arm; blood begins to trickle down.
+You parry a lightning thrust, and the thief salutes you with a grim nod.
+
+>>>> kill thief with knife [room #82 score 120 turn 209]
+You charge, but the thief jumps nimbly aside.
+You parry a lightning thrust, and the thief salutes you with a grim nod.
+
+>>>> kill thief with knife [room #82 score 120 turn 210]
+The fatal blow strikes the thief square in the heart: He dies.
+Almost as soon as the thief breathes his last breath, a cloud of sinister black fog envelops him, and when the fog lifts, the carcass has disappeared.
+As the thief dies, the power of his magic decreases, and his treasures reappear:
+  A stiletto
+  A jewel-encrusted egg, with a golden clockwork canary
+The chalice is now safe to take.
+
+>>>> kill thief with knife [room #82 score 120 turn 211]
+You can't see any thief here!
+
+>>>> kill thief with knife [room #82 score 120 turn 212]
+You can't see any thief here!
+
+>>>> take chalice [room #82 score 120 turn 213]
+Taken.
+
+>>>> take egg [room #82 score 130 turn 214]
+Taken.
+
+>>>> take canary [room #82 score 130 turn 215]
+Taken.
+
+>>>> down [room #82 score 136 turn 216]
+Cyclops Room
+
+>>>> east [room #78 score 136 turn 217]
+Strange Passage
+
+>>>> east [room #117 score 136 turn 218]
+Living Room
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put chalice in case [room #75 score 136 turn 219]
+Done.
+
+>>>> put egg in case [room #75 score 141 turn 220]
+Done.
+
+>>>> east [room #75 score 146 turn 221]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> east [room #27 score 146 turn 222]
+Behind House
+
+>>>> north [room #85 score 146 turn 223]
+North of House
+
+>>>> north [room #137 score 146 turn 224]
+Forest Path
+
+>>>> wind canary [room #238 score 146 turn 225]
+The canary chirps, slightly off-key, an aria from a forgotten opera. From out of the greenery flies a lovely songbird. It perches on a limb just over your head and opens its beak to sing. As it does so a beautiful brass bauble drops from its mouth, bounces off the top of your head, and lands glimmering in the grass. As the canary winds down, the songbird flies away.
+
+>>>> take bauble [room #238 score 146 turn 226]
+Taken.
+
+>>>> south [room #238 score 147 turn 227]
+North of House
+
+>>>> east [room #137 score 147 turn 228]
+Behind House
+
+>>>> west [room #85 score 147 turn 229]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> west [room #27 score 147 turn 230]
+Living Room
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put canary in case [room #75 score 147 turn 231]
+Done.
+
+>>>> put bauble in case [room #75 score 151 turn 232]
+Done.
+
+>>>> drop knife [room #75 score 152 turn 233]
+Dropped.
+
+>>>> open trap door [room #75 score 152 turn 234]
+Look around.
+
+>>>> down [room #75 score 152 turn 235]
+Cellar
+
+>>>> north [room #33 score 152 turn 236]
+The Troll Room
+There is a bloody axe here.
+
+>>>> east [room #127 score 152 turn 237]
+East-West Passage
+
+>>>> east [room #130 score 152 turn 238]
+Round Room
+
+>>>> southeast [room #15 score 152 turn 239]
+Engravings Cave
+You have entered a low cave with passages leading northwest and east.
+There are old engravings on the walls here.
+
+SHOT route-69-lit room=69 scene=cavern title=Engravings Cave dark=0 pages=1 room targets= 84:Wall with engravings;
+
+>>>> east [room #69 score 152 turn 240]
+Dome Room
+You are at the periphery of a large dome, which forms the ceiling of another room below. Protecting you from a precipitous drop is a wooden railing which circles the dome.
+
+SHOT route-11-lit room=11 scene=z1_dome title=Dome Room dark=0 pages=2 room targets= 57:Wooden railing;
+
+>>>> tie rope to railing [room #11 score 152 turn 241]
+The rope drops over the side and comes within ten feet of the floor.
+
+>>>> down [room #11 score 152 turn 242]
+Torch Room
+This is a large room with a prominent doorway leading to a down staircase. Above you is a large dome. Up around the edge of the dome (20 feet up) is a wooden railing. In the center of the room sits a white marble pedestal.
+A piece of rope descends from the railing above, ending some five feet above your head.
+Sitting on the pedestal is a flaming torch, made of ivory.
+
+SHOT route-18-lit room=18 scene=z1_torch_room title=Torch Room dark=0 pages=3 room targets= 79:Pedestal; 12:Torch; 177:Stairs;
+
+>>>> take torch [room #18 score 152 turn 243]
+Taken.
+
+>>>> turn off lamp [room #18 score 166 turn 244]
+The brass lantern is now off.
+
+>>>> south [room #18 score 166 turn 245]
+Temple
+This is the north end of a large temple. On the east wall is an ancient inscription, probably a prayer in a long-forgotten language. Below the prayer is a staircase leading down. The west wall is solid granite. The exit to the north end of the room is through huge marble pillars.
+There is a brass bell here.
+
+SHOT route-2-lit room=2 scene=hall title=Temple dark=0 pages=2 room targets= 71:Prayer; 83:Brass bell; 177:Stairs;
+
+>>>> take bell [room #2 score 166 turn 246]
+Taken.
+
+>>>> east [room #2 score 166 turn 247]
+Egyptian Room
+This is a room which looks like an Egyptian tomb. There is an ascending staircase to the west.
+The solid-gold coffin used for the burial of Ramses II is here.
+
+SHOT route-241-lit room=241 scene=egyptian title=Egyptian Room dark=0 pages=2 room targets= 179:Gold coffin; 177:Stairs;
+
+SHOT coffin-closed room=241 scene=egyptian title=Egyptian Room dark=0 pages=2 room targets= 179:Gold coffin; 177:Stairs;
+
+>>>> open coffin [room #241 score 166 turn 248]
+The gold coffin opens.
+A sceptre, possibly that of ancient Egypt itself, is in the coffin. The sceptre is ornamented with colored enamel, and tapers to a sharp point.
+
+SHOT coffin-open room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 179:Gold coffin; 204:Sceptre; 177:Stairs;
+
+>>>> take sceptre [room #241 score 166 turn 249]
+Taken.
+
+>>>> west [room #241 score 170 turn 250]
+Temple
+
+>>>> south [room #2 score 170 turn 251]
+Altar
+This is the south end of a large temple. In front of you is what appears to be an altar. In one corner is a small hole in the floor which leads into darkness. You probably could not get back up it.
+On the two ends of the altar are burning candles.
+On the altar is a large black book, open to page 569.
+
+SHOT route-129-lit room=129 scene=z1_altar title=Altar dark=0 pages=2 room targets= 26:Pair of candles; 35:Altar; 196:Black book;
+
+>>>> take book [room #129 score 170 turn 252]
+Taken.
+
+>>>> take candles [room #129 score 170 turn 253]
+Taken.
+
+>>>> down [room #129 score 170 turn 254]
+Cave
+This is a tiny cave with entrances west and north, and a dark, forbidding staircase leading down.
+A gust of wind blows out your candles!
+
+SHOT route-176-lit room=176 scene=cavern title=Cave dark=0 pages=1 room targets= 177:Stairs;
+
+>>>> down [room #176 score 170 turn 255]
+Entrance to Hades
+You are outside a large gateway, on which is inscribed
+
+  Abandon every hope all ye who enter here!
+
+The gate is open; through it you can see a desolation, with a pile of mangled bodies in one corner. Thousands of voices, lamenting some hideous fate, can be heard.
+The way through the gate is barred by evil spirits, who jeer at your attempts to pass.
+
+SHOT route-38-lit room=38 scene=hades title=Entrance to Hades dark=0 pages=3 room targets= 211:Number of ghosts; 144:Pile of bodies;
+
+SHOT hades-warded room=38 scene=hades title=Entrance to Hades dark=0 pages=3 room targets= 211:Number of ghosts; 144:Pile of bodies;
+
+>>>> ring bell [room #38 score 170 turn 256]
+The bell suddenly becomes red hot and falls to the ground. The wraiths, as if paralyzed, stop their jeering and slowly turn to face you. On their ashen faces, the expression of a long-forgotten terror takes shape.
+In your confusion, the candles drop to the ground (and they are out).
+
+SHOT bell-rung room=38 scene=hades title=Entrance to Hades dark=0 pages=2 room targets= 26:Pair of candles; 168:Red hot brass bell; 211:Number of ghosts; 144:Pile of bodies;
+
+>>>> take candles [room #38 score 170 turn 257]
+Taken.
+
+>>>> light match [room #38 score 170 turn 258]
+One of the matches starts to burn.
+
+>>>> light candles with match [room #38 score 170 turn 259]
+The candles are lit.
+The flames flicker wildly and appear to dance. The earth beneath your feet trembles, and your legs nearly buckle beneath you. The spirits cower at your unearthly power.
+The match has gone out.
+
+SHOT hades-ritual room=38 scene=hades title=Entrance to Hades dark=0 pages=2 room targets= 168:Red hot brass bell; 211:Number of ghosts; 144:Pile of bodies;
+
+>>>> read book [room #38 score 170 turn 260]
+Each word of the prayer reverberates through the hall in a deafening confusion. As the last word fades, a voice, loud and commanding, speaks: "Begone, fiends!" A heart-stopping scream fills the cavern, and the spirits, sensing a greater power, flee through the walls.
+
+SHOT hades-cleared room=38 scene=hades title=Entrance to Hades dark=0 pages=2 room targets= 168:Red hot brass bell; 144:Pile of bodies;
+
+>>>> drop book [room #38 score 170 turn 261]
+Dropped.
+
+>>>> drop candles [room #38 score 170 turn 262]
+Dropped.
+
+>>>> south [room #38 score 170 turn 263]
+Land of the Dead
+You have entered the Land of the Living Dead. Thousands of lost souls can be heard weeping and moaning. In the corner are stacked the remains of dozens of previous adventurers less fortunate than yourself. A passage exits to the north.
+Lying in one corner of the room is a beautifully carved crystal skull. It appears to be grinning at you rather nastily.
+
+SHOT route-13-lit room=13 scene=hades_inside title=Land of the Dead dark=0 pages=3 room targets= 140:Crystal skull; 144:Pile of bodies;
+
+>>>> take skull [room #13 score 170 turn 264]
+Taken.
+
+>>>> north [room #13 score 180 turn 265]
+Entrance to Hades
+There is a pair of candles here (providing light).
+There is a black book here.
+On the ground is a red hot bell.
+
+>>>> up [room #38 score 180 turn 266]
+Cave
+
+>>>> north [room #176 score 180 turn 267]
+Mirror Room
+You are in a large square room with tall ceilings. On the south wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room.
+
+SHOT route-52-lit room=52 scene=z1_mirror_north title=Mirror Room dark=0 pages=2 room targets= 183:Mirror;
+
+>>>> north [room #52 score 180 turn 268]
+Narrow Passage
+This is a long and narrow corridor where a long north-south passageway briefly narrows even further.
+
+SHOT route-228-lit room=228 scene=cavern title=Narrow Passage dark=0 pages=1 room targets=
+
+>>>> north [room #228 score 180 turn 269]
+Round Room
+
+>>>> west [room #15 score 180 turn 270]
+East-West Passage
+
+>>>> west [room #130 score 180 turn 271]
+The Troll Room
+There is a bloody axe here.
+
+>>>> south [room #127 score 180 turn 272]
+Cellar
+
+>>>> up [room #33 score 180 turn 273]
+Living Room
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put skull in case [room #75 score 180 turn 274]
+Done.
+
+>>>> down [room #75 score 190 turn 275]
+Cellar
+
+>>>> south [room #33 score 190 turn 276]
+East of Chasm
+You are on the east edge of a chasm, the bottom of which cannot be seen. A narrow passage goes north, and the path you are on continues to the east.
+
+SHOT route-247-lit room=247 scene=cavern title=East of Chasm dark=0 pages=2 room targets=
+
+>>>> east [room #247 score 190 turn 277]
+Gallery
+This is an art gallery. Most of the paintings have been stolen by vandals with exceptional taste. The vandals left through either the north or west exits.
+Fortunately, there is still one chance for you to be a vandal, for on the far wall is a painting of unparalleled beauty.
+
+SHOT route-122-lit room=122 scene=hall title=Gallery dark=0 pages=2 room targets= 92:Painting;
+
+>>>> take painting [room #122 score 190 turn 278]
+Taken.
+
+>>>> west [room #122 score 194 turn 279]
+East of Chasm
+
+>>>> north [room #247 score 194 turn 280]
+Cellar
+
+>>>> up [room #33 score 194 turn 281]
+Living Room
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put painting in case [room #75 score 194 turn 282]
+Done.
+
+>>>> down [room #75 score 200 turn 283]
+Cellar
+
+>>>> north [room #33 score 200 turn 284]
+The Troll Room
+There is a bloody axe here.
+
+>>>> east [room #127 score 200 turn 285]
+East-West Passage
+
+>>>> east [room #130 score 200 turn 286]
+Round Room
+
+>>>> east [room #15 score 200 turn 287]
+Loud Room
+This is a large room with a ceiling which cannot be detected from the ground. There is a narrow passage from east to west and a stone stairway leading upward. The room is deafeningly loud with an undetermined rushing sound. The sound seems to reverberate from all of the walls, making it difficult even to think.
+On the ground is a large platinum bar.
+
+SHOT route-205-lit room=205 scene=hall title=Loud Room dark=0 pages=3 room targets= 201:Platinum bar; 177:Stairs;
+
+>>>> echo [room #205 score 200 turn 287]
+The acoustics of the room change subtly.
+
+Loud Room
+On the ground is a large platinum bar.
+
+>>>> take bar [room #205 score 200 turn 288]
+Taken.
+
+>>>> west [room #205 score 210 turn 289]
+Round Room
+
+>>>> west [room #15 score 210 turn 290]
+East-West Passage
+
+>>>> west [room #130 score 210 turn 291]
+The Troll Room
+There is a bloody axe here.
+
+>>>> south [room #127 score 210 turn 292]
+Cellar
+
+>>>> up [room #33 score 210 turn 293]
+Living Room
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A painting
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put bar in case [room #75 score 210 turn 294]
+Done.
+
+>>>> east [room #75 score 215 turn 295]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> east [room #27 score 215 turn 296]
+Behind House
+
+>>>> east [room #85 score 215 turn 297]
+Clearing
+You are in a small clearing in a well marked forest path that extends to the east and west.
+
+SHOT route-128-lit room=128 scene=forest title=Clearing dark=0 pages=1 room targets= 107:Tree; 56:Songbird; 65:White house; 1:Forest;
+
+>>>> east [room #128 score 215 turn 298]
+Canyon View
+You are at the top of the Great Canyon on its west wall. From here there is a marvelous view of the canyon and parts of the Frigid River upstream. Across the canyon, the walls of the White Cliffs join the mighty ramparts of the Flathead Mountains to the east. Following the Canyon upstream to the north, Aragain Falls may be seen, complete with rainbow. The mighty Frigid River flows out from a great dark cavern. To the west and south can be seen an immense forest, stretching for miles around. A path leads northwest. It is possible to climb down into the canyon from here.
+
+SHOT route-22-lit room=22 scene=canyon title=Canyon View dark=0 pages=4 room targets= 98:Cliff; 226:River; 59:Rainbow;
+
+>>>> down [room #22 score 215 turn 299]
+Rocky Ledge
+You are on a ledge about halfway up the wall of the river canyon. You can see from here that the main flow from Aragain Falls twists along a passage which it is impossible for you to enter. Below you is the canyon bottom. Above you is more cliff, which appears climbable.
+
+SHOT route-21-lit room=21 scene=cavern title=Rocky Ledge dark=0 pages=2 room targets= 98:Cliff; 226:River;
+
+>>>> down [room #21 score 215 turn 300]
+Canyon Bottom
+You are beneath the walls of the river canyon which may be climbable here. The lesser part of the runoff of Aragain Falls flows by below. To the north is a narrow path.
+
+SHOT route-74-lit room=74 scene=cavern title=Canyon Bottom dark=0 pages=2 room targets= 6:Water; 98:Cliff; 226:River;
+
+>>>> north [room #74 score 215 turn 301]
+End of Rainbow
+You are on a small, rocky beach on the continuation of the Frigid River past the Falls. The beach is narrow due to the presence of the White Cliffs. The river canyon opens here and sunlight shines in from above. A rainbow crosses over the falls to the east and a narrow path continues to the southwest.
+
+SHOT route-125-lit room=125 scene=end_of_rainbow title=End of Rainbow dark=0 pages=2 room targets= 6:Water; 59:Rainbow; 226:River;
+
+SHOT rainbow-immaterial room=125 scene=end_of_rainbow title=End of Rainbow dark=0 pages=2 room targets= 6:Water; 59:Rainbow; 226:River;
+
+>>>> wave sceptre [room #125 score 215 turn 302]
+Suddenly, the rainbow appears to become solid and, I venture, walkable (I think the giveaway was the stairs and bannister).
+A shimmering pot of gold appears at the end of the rainbow.
+
+SHOT rainbow-solid room=125 scene=end_of_rainbow title=End of Rainbow dark=0 pages=2 room targets= 154:Pot of gold; 6:Water; 59:Rainbow; 226:River;
+
+SHOT rainbow-west room=125 scene=end_of_rainbow title=End of Rainbow dark=0 pages=2 room targets= 154:Pot of gold; 6:Water; 59:Rainbow; 226:River;
+
+>>>> cross rainbow [room #125 score 215 turn 303]
+Aragain Falls
+You are at the top of Aragain Falls, an enormous waterfall with a drop of about 450 feet. The only path here is on the north end.
+A solid rainbow spans the falls.
+
+SHOT rainbow-east room=47 scene=aragain_falls title=Aragain Falls dark=0 pages=2 room targets= 6:Water; 226:River; 59:Rainbow;
+
+SHOT route-47-lit room=47 scene=aragain_falls title=Aragain Falls dark=0 pages=2 room targets= 6:Water; 226:River; 59:Rainbow;
+
+>>>> cross rainbow [room #47 score 215 turn 304]
+End of Rainbow
+At the end of the rainbow is a pot of gold.
+
+>>>> take pot [room #125 score 215 turn 305]
+Taken.
+
+>>>> southwest [room #125 score 225 turn 306]
+Canyon Bottom
+
+>>>> up [room #74 score 225 turn 307]
+Rocky Ledge
+
+>>>> up [room #21 score 225 turn 308]
+Canyon View
+
+>>>> northwest [room #22 score 225 turn 309]
+Clearing
+
+>>>> west [room #128 score 225 turn 310]
+Behind House
+
+>>>> west [room #85 score 225 turn 311]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> west [room #27 score 225 turn 312]
+Living Room
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A platinum bar
+    A painting
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put pot in case [room #75 score 225 turn 313]
+Done.
+
+>>>> put sceptre in case [room #75 score 235 turn 314]
+Done.
+
+>>>> drop pump [room #75 score 241 turn 315]
+Dropped.
+
+>>>> open trap door [room #75 score 241 turn 316]
+Too late for that.
+
+>>>> down [room #75 score 241 turn 317]
+Cellar
+
+>>>> north [room #33 score 241 turn 318]
+The Troll Room
+There is a bloody axe here.
+
+>>>> east [room #127 score 241 turn 319]
+East-West Passage
+
+>>>> east [room #130 score 241 turn 320]
+Round Room
+
+>>>> southeast [room #15 score 241 turn 321]
+Engravings Cave
+There are old engravings on the walls here.
+
+>>>> east [room #69 score 241 turn 322]
+Dome Room
+
+>>>> down [room #11 score 241 turn 323]
+Torch Room
+
+>>>> south [room #18 score 241 turn 324]
+Temple
+
+>>>> east [room #2 score 241 turn 325]
+Egyptian Room
+The solid-gold coffin used for the burial of Ramses II is here.
+
+>>>> take coffin [room #241 score 241 turn 326]
+Taken.
+
+>>>> west [room #241 score 251 turn 327]
+Temple
+
+>>>> south [room #2 score 251 turn 328]
+Altar
+
+>>>> pray [room #129 score 251 turn 329]
+Forest
+This is a forest, with trees in all directions. To the east, there appears to be sunlight.
+
+SHOT route-87-lit room=87 scene=forest title=Forest dark=0 pages=1 room targets= 107:Tree; 56:Songbird; 65:White house; 1:Forest;
+
+>>>> east [room #87 score 251 turn 330]
+Forest Path
+
+>>>> south [room #238 score 251 turn 331]
+North of House
+
+>>>> east [room #137 score 251 turn 332]
+Behind House
+
+>>>> west [room #85 score 251 turn 333]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> west [room #27 score 251 turn 334]
+Living Room
+There is a hand-held air pump here.
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A sceptre
+    A pot of gold
+    A platinum bar
+    A painting
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put coffin in case [room #75 score 251 turn 335]
+Done.
+
+>>>> take pump [room #75 score 266 turn 336]
+Taken.
+
+>>>> drop pump [room #75 score 266 turn 337]
+Dropped.
+
+>>>> east [room #75 score 266 turn 338]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> take sack [room #27 score 266 turn 339]
+Taken.
+
+>>>> open sack [room #27 score 266 turn 340]
+Opening the brown sack reveals a clove of garlic, and a lunch.
+
+>>>> take garlic [room #27 score 266 turn 341]
+Taken.
+
+>>>> drop sack [room #27 score 266 turn 342]
+Dropped.
+
+>>>> west [room #27 score 266 turn 343]
+Living Room
+There is a hand-held air pump here.
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A gold coffin
+    A sceptre
+    A pot of gold
+    A platinum bar
+    A painting
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> open trap door [room #75 score 266 turn 344]
+Look around.
+
+>>>> down [room #75 score 266 turn 345]
+Cellar
+
+>>>> north [room #33 score 266 turn 346]
+The Troll Room
+There is a bloody axe here.
+
+>>>> east [room #127 score 266 turn 347]
+East-West Passage
+
+>>>> east [room #130 score 266 turn 348]
+Round Room
+
+>>>> north [room #15 score 266 turn 349]
+North-South Passage
+
+>>>> north [room #175 score 266 turn 350]
+Chasm
+
+>>>> northeast [room #106 score 266 turn 351]
+Reservoir South
+
+>>>> east [room #123 score 266 turn 352]
+Dam
+There is a wrench here.
+
+>>>> north [room #178 score 266 turn 353]
+Dam Lobby
+Some guidebooks entitled "Flood Control Dam #3" are on the reception desk.
+
+>>>> north [room #120 score 266 turn 354]
+Maintenance Room
+There is an object which looks like a tube of toothpaste here.
+There is a screwdriver here.
+There is a group of tool chests here.
+
+>>>> take screwdriver [room #224 score 266 turn 355]
+Taken.
+
+>>>> south [room #224 score 266 turn 356]
+Dam Lobby
+Some guidebooks entitled "Flood Control Dam #3" are on the reception desk.
+
+>>>> south [room #120 score 266 turn 357]
+Dam
+There is a wrench here.
+
+>>>> west [room #178 score 266 turn 358]
+Reservoir South
+
+>>>> north [room #123 score 266 turn 359]
+Reservoir
+
+>>>> north [room #95 score 266 turn 360]
+Reservoir North
+
+>>>> north [room #191 score 266 turn 361]
+Atlantis Room
+
+>>>> up [room #4 score 266 turn 362]
+Cave
+This is a tiny cave with entrances west and north, and a staircase leading down.
+
+SHOT route-62-lit room=62 scene=cavern title=Cave dark=0 pages=1 room targets= 177:Stairs;
+
+>>>> north [room #62 score 266 turn 363]
+Mirror Room
+You are in a large square room with tall ceilings. On the south wall is an enormous mirror which fills the entire wall. There are exits on the other three sides of the room.
+
+SHOT route-110-lit room=110 scene=z1_mirror_south title=Mirror Room dark=0 pages=2 room targets= 234:Mirror;
+
+>>>> north [room #110 score 266 turn 364]
+Cold Passage
+This is a cold and damp corridor where a long east-west passageway turns into a southward path.
+
+SHOT route-139-lit room=139 scene=cavern title=Cold Passage dark=0 pages=1 room targets=
+
+>>>> west [room #139 score 266 turn 365]
+Slide Room
+This is a small chamber, which appears to have been part of a coal mine. On the south wall of the chamber the letters "Granite Wall" are etched in the rock. To the east is a long passage, and there is a steep metal slide twisting downward. To the north is a small opening.
+
+SHOT route-31-lit room=31 scene=hall title=Slide Room dark=0 pages=2 room targets= 231:Chute;
+
+>>>> north [room #31 score 266 turn 366]
+Mine Entrance
+You are standing at the entrance of what might have been a coal mine. The shaft enters the west wall, and there is another exit on the south end of the room.
+
+SHOT route-188-lit room=188 scene=cavern title=Mine Entrance dark=0 pages=2 room targets=
+
+>>>> west [room #188 score 266 turn 367]
+Squeaky Room
+You are in a small room. Strange squeaky sounds may be heard coming from the passage at the north end. You may also escape to the east.
+
+SHOT route-171-lit room=171 scene=hall title=Squeaky Room dark=0 pages=1 room targets=
+
+>>>> north [room #171 score 266 turn 368]
+Bat Room
+You are in a small room which has doors only to the east and south.
+There is an exquisite jade figurine here.
+In the corner of the room on the ceiling is a large vampire bat who is obviously deranged and holding his nose.
+
+SHOT route-235-lit room=235 scene=cavern title=Bat Room dark=0 pages=2 room targets= 10:Jade figurine; 70:Bat;
+
+>>>> take figurine [room #235 score 266 turn 369]
+Taken.
+
+>>>> east [room #235 score 271 turn 370]
+Shaft Room
+This is a large room, in the middle of which is a small shaft descending through the floor into darkness below. To the west and the north are exits from this room. Constructed over the top of the shaft is a metal framework to which a heavy iron chain is attached.
+At the end of the chain is a basket.
+
+SHOT route-245-lit room=245 scene=z1_shaft title=Shaft Room dark=0 pages=2 room targets= 108:Basket;
+
+>>>> turn on lamp [room #245 score 271 turn 371]
+The brass lantern is now on.
+
+>>>> put torch in basket [room #245 score 271 turn 372]
+Done.
+
+>>>> put screwdriver in basket [room #245 score 271 turn 373]
+Done.
+
+>>>> north [room #245 score 271 turn 374]
+Smelly Room
+This is a small nondescript room. However, from the direction of a small descending staircase a foul odor can be detected. To the south is a narrow tunnel.
+
+SHOT route-93-lit room=93 scene=hall title=Smelly Room dark=0 pages=2 room targets= 177:Stairs;
+
+>>>> down [room #93 score 271 turn 375]
+Gas Room
+This is a small room which smells strongly of coal gas. There is a short climb up some stairs and a narrow tunnel leading east.
+There is a sapphire-encrusted bracelet here.
+
+SHOT route-46-lit room=46 scene=z1_gas_room title=Gas Room dark=0 pages=2 room targets= 214:Sapphire-encrusted bracelet; 177:Stairs;
+
+>>>> take bracelet [room #46 score 271 turn 376]
+Taken.
+
+>>>> east [room #46 score 276 turn 377]
+Coal Mine
+This is a nondescript part of a coal mine.
+
+SHOT route-173-lit room=173 scene=cavern title=Coal Mine dark=0 pages=1 room targets=
+
+>>>> northeast [room #173 score 276 turn 378]
+Coal Mine
+This is a nondescript part of a coal mine.
+
+SHOT route-90-lit room=90 scene=cavern title=Coal Mine dark=0 pages=1 room targets=
+
+>>>> southeast [room #90 score 276 turn 379]
+Coal Mine
+This is a nondescript part of a coal mine.
+
+SHOT route-112-lit room=112 scene=cavern title=Coal Mine dark=0 pages=1 room targets=
+
+>>>> southwest [room #112 score 276 turn 380]
+Coal Mine
+This is a nondescript part of a coal mine.
+
+SHOT route-3-lit room=3 scene=cavern title=Coal Mine dark=0 pages=1 room targets=
+
+>>>> down [room #3 score 276 turn 381]
+Ladder Top
+This is a very small room. In the corner is a rickety wooden ladder, leading downward. It might be safe to descend. There is also a staircase leading upward.
+
+SHOT route-16-lit room=16 scene=z1_ladder_top title=Ladder Top dark=0 pages=2 room targets= 88:Wooden ladder; 177:Stairs;
+
+>>>> down [room #16 score 276 turn 382]
+Ladder Bottom
+This is a rather wide room. On one side is the bottom of a narrow wooden ladder. To the west and the south are passages leaving the room.
+
+SHOT route-72-lit room=72 scene=z1_ladder_bottom title=Ladder Bottom dark=0 pages=1 room targets= 88:Wooden ladder;
+
+>>>> south [room #72 score 276 turn 383]
+Dead End
+You have come to a dead end in the mine.
+There is a small pile of coal here.
+
+SHOT route-156-lit room=156 scene=hall title=Dead End dark=0 pages=1 room targets= 60:Small pile of coal;
+
+>>>> take coal [room #156 score 276 turn 384]
+Taken.
+
+>>>> north [room #156 score 276 turn 385]
+Ladder Bottom
+
+>>>> up [room #72 score 276 turn 386]
+Ladder Top
+
+>>>> up [room #16 score 276 turn 387]
+Coal Mine
+
+>>>> north [room #3 score 276 turn 388]
+Coal Mine
+
+>>>> east [room #112 score 276 turn 389]
+Coal Mine
+
+>>>> south [room #90 score 276 turn 390]
+Coal Mine
+
+>>>> north [room #173 score 276 turn 391]
+Gas Room
+
+>>>> up [room #46 score 276 turn 392]
+Smelly Room
+
+>>>> south [room #93 score 276 turn 393]
+Shaft Room
+At the end of the chain is a basket.
+The basket contains:
+  A screwdriver
+  A torch (providing light)
+
+>>>> put coal in basket [room #245 score 276 turn 394]
+Done.
+
+>>>> lower basket [room #245 score 276 turn 395]
+The basket is lowered to the bottom of the shaft.
+
+>>>> north [room #245 score 276 turn 396]
+Smelly Room
+
+>>>> down [room #93 score 276 turn 397]
+Gas Room
+
+>>>> east [room #46 score 276 turn 398]
+Coal Mine
+
+>>>> northeast [room #173 score 276 turn 399]
+Coal Mine
+
+>>>> southeast [room #90 score 276 turn 400]
+Coal Mine
+
+>>>> southwest [room #112 score 276 turn 401]
+Coal Mine
+
+>>>> down [room #3 score 276 turn 402]
+Ladder Top
+
+>>>> down [room #16 score 276 turn 403]
+Ladder Bottom
+
+>>>> west [room #72 score 276 turn 404]
+Timber Room
+This is a long and narrow passage, which is cluttered with broken timbers. A wide passage comes from the east and turns at the west end of the room into a very narrow passageway. From the west comes a strong draft.
+There is a broken timber here.
+
+SHOT route-8-lit room=8 scene=hall title=Timber Room dark=0 pages=2 room targets= 181:Broken timber;
+
+>>>> drop all [room #8 score 276 turn 405]
+sapphire-encrusted bracelet: Dropped.
+jade figurine: Dropped.
+clove of garlic: Dropped.
+matchbook: Dropped.
+brass lantern: Dropped.
+
+>>>> west [room #8 score 276 turn 406]
+Drafty Room
+This is a small drafty room in which is the bottom of a long shaft. To the south is a passageway and to the east a very narrow passage. In the shaft can be seen a heavy iron chain.
+At the end of the chain is a basket.
+The basket contains:
+  A small pile of coal
+  A screwdriver
+  A torch (providing light)
+
+SHOT route-249-lit room=249 scene=z1_shaft_bottom title=Drafty Room dark=0 pages=3 room targets= 108:Basket; 60:Small pile of coal; 114:Screwdriver; 12:Torch;
+
+>>>> take torch [room #249 score 276 turn 407]
+Taken.
+
+>>>> take coal [room #249 score 289 turn 408]
+Taken.
+
+>>>> take screwdriver [room #249 score 289 turn 409]
+Taken.
+
+>>>> south [room #249 score 289 turn 410]
+Machine Room
+This is a large, cold room whose sole exit is to the north. In one corner there is a machine which is reminiscent of a clothes dryer. On its face is a switch which is labelled "START". The switch does not appear to be manipulable by any human hand (unless the fingers are about 1/16 by 1/4 inch). On the front of the machine is a large lid, which is closed.
+
+SHOT route-89-lit room=89 scene=hall title=Machine Room dark=0 pages=3 room targets= 101:Switch; 207:Machine;
+
+>>>> open lid [room #89 score 289 turn 411]
+The lid opens.
+
+>>>> put coal in machine [room #89 score 289 turn 412]
+Done.
+
+>>>> close lid [room #89 score 289 turn 413]
+The lid closes.
+
+>>>> turn switch with screwdriver [room #89 score 289 turn 414]
+The machine comes to life (figuratively) with a dazzling display of colored lights and bizarre noises. After a few moments, the excitement abates.
+
+>>>> open lid [room #89 score 289 turn 415]
+The lid opens, revealing a huge diamond.
+
+>>>> take diamond [room #89 score 289 turn 416]
+Taken.
+
+>>>> north [room #89 score 299 turn 417]
+Drafty Room
+At the end of the chain is a basket.
+
+>>>> put diamond in basket [room #249 score 299 turn 418]
+Done.
+
+>>>> put torch in basket [room #249 score 299 turn 419]
+Done.
+
+>>>> put screwdriver in basket [room #249 score 299 turn 420]
+Done.
+
+>>>> east [room #249 score 299 turn 421]
+Timber Room
+There is a brass lantern (battery-powered) here.
+There is a matchbook whose cover says "Visit Beautiful FCD#3" here.
+There is a clove of garlic here.
+There is an exquisite jade figurine here.
+There is a sapphire-encrusted bracelet here.
+There is a broken timber here.
+
+>>>> take lamp [room #8 score 299 turn 422]
+Taken.
+
+>>>> take garlic [room #8 score 299 turn 423]
+Taken.
+
+>>>> take figurine [room #8 score 299 turn 424]
+Taken.
+
+>>>> take bracelet [room #8 score 299 turn 425]
+Taken.
+
+>>>> east [room #8 score 299 turn 426]
+Ladder Bottom
+
+>>>> up [room #72 score 299 turn 427]
+Ladder Top
+
+>>>> up [room #16 score 299 turn 428]
+Coal Mine
+
+>>>> north [room #3 score 299 turn 429]
+Coal Mine
+
+>>>> east [room #112 score 299 turn 430]
+Coal Mine
+
+>>>> south [room #90 score 299 turn 431]
+Coal Mine
+
+>>>> north [room #173 score 299 turn 432]
+Gas Room
+
+>>>> up [room #46 score 299 turn 433]
+Smelly Room
+The lamp is definitely dimmer now.
+
+>>>> south [room #93 score 299 turn 434]
+Shaft Room
+From the chain is suspended a basket.
+
+>>>> raise basket [room #245 score 299 turn 435]
+The basket is raised to the top of the shaft.
+
+>>>> take diamond [room #245 score 299 turn 436]
+Taken.
+
+>>>> take torch [room #245 score 299 turn 437]
+Taken.
+
+>>>> west [room #245 score 299 turn 438]
+Bat Room
+In the corner of the room on the ceiling is a large vampire bat who is obviously deranged and holding his nose.
+
+>>>> south [room #235 score 299 turn 439]
+Squeaky Room
+
+>>>> east [room #171 score 299 turn 440]
+Mine Entrance
+
+>>>> south [room #188 score 299 turn 441]
+Slide Room
+
+>>>> down [room #31 score 299 turn 442]
+Cellar
+
+>>>> up [room #33 score 299 turn 443]
+Living Room
+There is a hand-held air pump here.
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A gold coffin
+    A sceptre
+    A pot of gold
+    A platinum bar
+    A painting
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put diamond in case [room #75 score 299 turn 444]
+Done.
+
+>>>> put figurine in case [room #75 score 309 turn 445]
+Done.
+
+>>>> put bracelet in case [room #75 score 314 turn 446]
+Done.
+
+>>>> take pump [room #75 score 319 turn 447]
+Taken.
+
+>>>> open trap door [room #75 score 319 turn 448]
+Too late for that.
+
+>>>> down [room #75 score 319 turn 449]
+Cellar
+
+>>>> north [room #33 score 319 turn 450]
+The Troll Room
+There is a bloody axe here.
+
+>>>> east [room #127 score 319 turn 451]
+East-West Passage
+
+>>>> east [room #130 score 319 turn 452]
+Round Room
+
+>>>> north [room #15 score 319 turn 453]
+North-South Passage
+
+>>>> north [room #175 score 319 turn 454]
+Chasm
+
+>>>> northeast [room #106 score 319 turn 455]
+Reservoir South
+
+>>>> east [room #123 score 319 turn 456]
+Dam
+There is a wrench here.
+
+>>>> down [room #178 score 319 turn 457]
+Dam Base
+You are at the base of Flood Control Dam #3, which looms above you and to the north. The river Frigid is flowing by here. Along the river are the White Cliffs which seem to form giant walls stretching from north to south along the shores of the river as it winds its way downstream.
+There is a folded pile of plastic here which has a small valve attached.
+
+SHOT route-111-lit room=111 scene=z1_dam_base title=Dam Base dark=0 pages=3 room targets= 219:Pile of plastic; 6:Water; 226:River;
+
+>>>> inflate plastic with pump [room #111 score 319 turn 458]
+The boat inflates and appears seaworthy.
+A tan label is lying inside the boat.
+
+>>>> drop pump [room #111 score 319 turn 459]
+Dropped.
+
+SHOT boat-on-land room=111 scene=z1_dam_base title=Dam Base dark=0 pages=1 room targets= 109:Hand-held air pump; 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+>>>> enter boat [room #111 score 319 turn 460]
+You are now in the magic boat.
+
+SHOT inside-boat room=111 scene=z1_dam_base title=Dam Base dark=0 pages=1 room targets= 109:Hand-held air pump; 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+SHOT boat-before-launch room=111 scene=z1_dam_base title=Dam Base dark=0 pages=1 room targets= 109:Hand-held air pump; 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+>>>> launch [room #111 score 319 turn 461]
+(magic boat)
+Frigid River, in the magic boat
+You are on the Frigid River in the vicinity of the Dam. The river flows quietly here. There is a landing on the west shore.
+The magic boat contains:
+  A tan label
+
+SHOT boat-afloat room=37 scene=z1_dam_base title=Frigid River dark=0 pages=2 room targets= 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+SHOT route-37-lit room=37 scene=z1_dam_base title=Frigid River dark=0 pages=2 room targets= 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+>>>> wait [room #37 score 319 turn 462]
+Time passes...
+The flow of the river carries you downstream.
+
+Frigid River, in the magic boat
+The river turns a corner here making it impossible to see the Dam. The White Cliffs loom on the east bank and large rocks prevent landing on the west.
+The magic boat contains:
+  A tan label
+
+SHOT route-174-lit room=174 scene=z1_river_bend title=Frigid River dark=0 pages=3 room targets= 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+>>>> wait [room #174 score 319 turn 465]
+Time passes...
+
+>>>> take buoy [room #174 score 319 turn 468]
+You can't see any buoy here!
+The flow of the river carries you downstream.
+
+Frigid River, in the magic boat
+The river descends here into a valley. There is a narrow beach on the west shore below the cliffs. In the distance a faint rumbling can be heard.
+The magic boat contains:
+  A tan label
+
+SHOT route-45-lit room=45 scene=z1_river_valley title=Frigid River dark=0 pages=3 room targets= 208:Magic boat; 180:Tan label; 6:Water; 226:River;
+
+>>>> wait [room #45 score 319 turn 469]
+Time passes...
+The flow of the river carries you downstream.
+
+Frigid River, in the magic boat
+The river is running faster here and the sound ahead appears to be that of rushing water. On the east shore is a sandy beach. A small area of beach can also be seen below the cliffs on the west shore.
+There is a red buoy here (probably a warning).
+The magic boat contains:
+  A tan label
+
+SHOT route-182-lit room=182 scene=z1_river_beach title=Frigid River dark=0 pages=3 room targets= 208:Magic boat; 180:Tan label; 185:Red buoy; 6:Water; 226:River;
+
+>>>> take buoy [room #182 score 319 turn 472]
+Taken.
+
+>>>> east [room #182 score 319 turn 473]
+The magic boat comes to a rest on the shore.
+
+Sandy Beach, in the magic boat
+You are on a large sandy beach on the east shore of the river, which is flowing quickly by. A path runs beside the river to the south here, and a passage is partially buried in sand to the northeast.
+There is a shovel here. (outside the magic boat)
+  The magic boat contains:
+    A tan label
+
+SHOT route-30-lit room=30 scene=z1_sandy_beach title=Sandy Beach dark=0 pages=3 room targets= 208:Magic boat; 180:Tan label; 132:Shovel; 6:Water; 226:River;
+
+>>>> get out of boat [room #30 score 319 turn 474]
+You are on your own feet again.
+
+>>>> open buoy [room #30 score 319 turn 475]
+Opening the red buoy reveals a large emerald.
+
+>>>> take emerald [room #30 score 324 turn 476]
+Taken.
+
+>>>> drop buoy [room #30 score 324 turn 477]
+Dropped.
+
+>>>> take shovel [room #30 score 324 turn 478]
+Taken.
+
+>>>> northeast [room #30 score 324 turn 479]
+Sandy Cave
+This is a sand-filled cave whose exit is to the southwest.
+
+SHOT route-155-lit room=155 scene=cavern title=Sandy Cave dark=0 pages=1 room targets= 131:Sand;
+
+>>>> dig sand with shovel [room #155 score 324 turn 480]
+You seem to be digging a hole here.
+
+>>>> dig sand with shovel [room #155 score 324 turn 481]
+The hole is getting deeper, but that's about it.
+
+>>>> dig sand with shovel [room #155 score 324 turn 482]
+You are surrounded by a wall of sand on all sides.
+
+>>>> dig sand with shovel [room #155 score 324 turn 483]
+You can see a scarab here in the sand.
+
+>>>> take scarab [room #155 score 324 turn 484]
+Taken.
+
+>>>> drop shovel [room #155 score 329 turn 485]
+Dropped.
+
+>>>> southwest [room #155 score 329 turn 486]
+Sandy Beach
+There is a red buoy here.
+There is a magic boat here.
+The magic boat contains:
+  A tan label
+
+>>>> south [room #30 score 329 turn 487]
+Shore
+You are on the east shore of the river. The water here seems somewhat treacherous. A path travels from north to south here, the south end quickly turning around a sharp corner.
+
+SHOT route-40-lit room=40 scene=water title=Shore dark=0 pages=2 room targets= 6:Water; 226:River;
+
+>>>> south [room #40 score 329 turn 488]
+Aragain Falls
+
+>>>> west [room #47 score 329 turn 489]
+On the Rainbow
+You are on top of a rainbow (I bet you never thought you would walk on a rainbow), with a magnificent view of the Falls. The rainbow travels east-west here.
+
+SHOT route-202-lit room=202 scene=hall title=On the Rainbow dark=0 pages=2 room targets= 59:Rainbow;
+
+>>>> west [room #202 score 329 turn 490]
+End of Rainbow
+
+>>>> southwest [room #125 score 329 turn 491]
+Canyon Bottom
+
+>>>> up [room #74 score 329 turn 492]
+Rocky Ledge
+
+>>>> up [room #21 score 329 turn 493]
+Canyon View
+
+>>>> northwest [room #22 score 329 turn 494]
+Clearing
+
+>>>> west [room #128 score 329 turn 495]
+Behind House
+
+>>>> west [room #85 score 329 turn 496]
+Kitchen
+There is a brown sack here.
+The brown sack contains:
+  A lunch
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+
+>>>> west [room #27 score 329 turn 497]
+Living Room
+There is a nasty knife here.
+There is a skeleton key here.
+There is a sword here.
+Your collection of treasures consists of:
+    A sapphire-encrusted bracelet
+    A jade figurine
+    A huge diamond
+    A gold coffin
+    A sceptre
+    A pot of gold
+    A platinum bar
+    A painting
+    A crystal skull
+    A beautiful brass bauble
+    A golden clockwork canary
+    A jewel-encrusted egg
+    A chalice
+    A crystal trident
+    A trunk of jewels
+    A leather bag of coins
+
+>>>> put emerald in case [room #75 score 329 turn 498]
+Done.
+
+>>>> put scarab in case [room #75 score 339 turn 499]
+Done.
+
+>>>> put torch in case [room #75 score 344 turn 500]
+Done.
+An almost inaudible voice whispers in your ear, "Look to your treasures for the final secret."
+
+>>>> score [room #75 score 350 turn 501]
+Your score is 350 (total of 350 points), in 501 moves.
+This gives you the rank of Master Adventurer.
+
+>>>> take map [room #75 score 350 turn 501]
+Taken.
+
+>>>> east [room #75 score 350 turn 502]
+Kitchen
+There is a brown sack here.
+The brown sack contains:
+  A lunch
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+
+>>>> east [room #27 score 350 turn 503]
+Behind House
+The lamp is nearly out.
+
+>>>> south [room #85 score 350 turn 504]
+South of House
+
+>>>> west [room #209 score 350 turn 505]
+West of House
+You are standing in an open field west of a white house, with a boarded front door. A secret path leads southwest into the forest.
+There is a small mailbox here.
+
+>>>> southwest [room #64 score 350 turn 506]
+Stone Barrow
+You are standing in front of a massive barrow of stone. In the east face is a huge stone door which is open. You cannot see into the dark of the tomb.
+
+SHOT route-244-lit room=244 scene=z1_barrow_outside title=Stone Barrow dark=0 pages=2 room targets= 113:Stone barrow; 190:Stone door;
+
+SHOT barrow-outside room=244 scene=z1_barrow_outside title=Stone Barrow dark=0 pages=2 room targets= 113:Stone barrow; 190:Stone door;
+
+>>>> enter barrow [room #244 score 350 turn 507]
+Inside the Barrow
+As you enter the barrow, the door closes inexorably behind you. Around you it is dark, but ahead is an enormous cavern, brightly lit. Through its center runs a wide stream. Spanning the stream is a small wooden footbridge, and beyond a path leads into a dark tunnel. Above the bridge, floating in the air, is a large sign. It reads:  All ye who stand before this bridge have completed a great and perilous adventure which has tested your wit and courage. You have mastered the first part of the ZORK trilogy. Those who pass over this bridge must be prepared to undertake an even greater adventure that will severely test your skill and bravery!
+
+The ZORK trilogy continues with "ZORK II: The Wizard of Frobozz" and is completed in "ZORK III: The Dungeon Master."
+Your score is 350 (total of 350 points), in 507 moves.
+This gives you the rank of Master Adventurer.
+
+Would you like to restart the game from the beginning, restore a saved game position, or end this session of the game?
+(Type RESTART, RESTORE, or QUIT):
+
+SHOT barrow-complete room=244 scene=z1_barrow_inside title=Stone Barrow dark=0 pages=7 room targets= 113:Stone barrow; 190:Stone door;
+
+>>>> quit [room #244 score 350 turn 507]
+
+PICKERS 4252 reachable argument pickers
+ACCESS 83 room states, 184 focus targets, 358 bag entries, 43684 traversed menu rows, 5227 matching room crops
+AUDIT RESULT screen=24 room=244 score=350 moves=507

@@ -1,0 +1,72 @@
+
+>>>> hello sailor [room #181 score 2 turn 55]
+Nothing happens yet.
+
+>>>> wait [room #181 score 2 turn 56]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 59]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 62]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 65]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 68]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 71]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 74]
+Time passes...
+Passing alongside the shore now is an old boat, reminiscent of an ancient Viking ship. Standing on the prow of the ship is an old and crusty sailor, peering out over the misty ocean.
+
+SHOT sailor-visible room=181 scene=flathead_ship title=Flathead Ocean dark=0 pages=2 room targets= 214:Viking Ship;
+
+>>>> wait [room #181 score 2 turn 77]
+Time passes...
+The boat sails silently through the mist and out of sight.
+
+>>>> wait [room #181 score 2 turn 79]
+Time passes...
+
+>>>> wait [room #181 score 2 turn 82]
+Time passes...
+
+SHOT sailor-passed room=181 scene=flathead_ocean title=Flathead Ocean dark=0 pages=1 room targets=
+
+SHOT guardians-before-potion room=54 scene=guardians_approach title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork; 80:Wooden wall;
+
+>>>> drink from vial [room #54 score 7 turn 307]
+You "drink" the contents in one gulp, but nothing unusual seems to have happened as a result.
+
+SHOT guardians-after-potion room=54 scene=guardians_approach title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork; 80:Wooden wall;
+
+SHOT beam-before room=6 scene=z3_beam_room title=Beam Room dark=0 pages=1 room targets= 27:Red beam of light;
+
+>>>> break beam with sword [room #6 score 7 turn 288]
+The beam is now interrupted by a sword lying on the floor.
+
+SHOT beam-after room=6 scene=z3_beam_room title=Beam Room dark=0 pages=1 room targets= 202:Sword; 27:Red beam of light;
+
+>>>> take hood [room #30 score 7 turn 269]
+You slowly remove the hood from your badly wounded opponent and recoil in horror at the sight of your own face, weary and wounded. A faint smile comes to the lips and then the face starts to change, very slowly, into that of an old, wizened person. The image fades and with it the body of your hooded opponent. The cloak remains on the ground.
+
+>>>> take cloak [room #30 score 7 turn 270]
+You are now wearing the cloak.
+
+>>>> east [room #30 score 7 turn 271]
+Creepy Crawl
+
+>>>> north [room #55 score 7 turn 272]
+Junction
+Standing before you is a great rock.
+
+SHOT junction-sword-taken room=217 scene=junction title=Junction dark=0 pages=1 room targets= 146:Great rock;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=217 score=7 moves=273

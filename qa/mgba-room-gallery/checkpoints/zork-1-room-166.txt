@@ -1,0 +1,11 @@
+# Zork 1 room 166: winning-route fixture steps 1-401 (seed 7), then:
+w
+# Arrived lit at room 166. Story text on arrival:
+#   The magic boat comes to a rest on the shore.
+#   
+#   White Cliffs Beach, in the magic boat
+#   You are on a rocky, narrow strip of beach beside the Cliffs. A narrow path leads north along the shore.
+#   The magic boat contains:
+#     A tan label
+#   
+#   >

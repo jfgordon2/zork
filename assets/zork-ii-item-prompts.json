@@ -1,0 +1,228 @@
+{
+  "generator": "Built-in ImageGen",
+  "rules": "SCENERY_RULES.md",
+  "items": [
+    {
+      "name": "balloon_basket",
+      "asset": "items/balloon_basket.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A FIRST-PERSON view from INSIDE a sturdy old wicker balloon basket. Only the low FRONT WICKER RIM and front wall curve across bottom of the image, both side rims recede outward, their TOPS form a shallow perspective trapezoid. Open transparent interior ABOVE the rim, small dark metal fuel receptacle bolted just inside front-right corner, braided tether wire over the right rim. No envelope, ropes upward, passengers, fuel, flame or background. Native 176x28. This is an overlay for the bottom of a first-person airborne scene, NOT an exterior view of the whole basket.",
+      "generated_source": "exec-96ab8841-8ffa-4552-b9bc-18920c7d786c.png"
+    },
+    {
+      "name": "balloon_deflated",
+      "asset": "items/balloon_deflated.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. An old fantasy HOT AIR BALLOON before heating. Large sturdy WICKER BASKET with a metal burner receptacle inside, an enormous empty tan cloth bag draped limp over its side and piled on the ground. Short braided tether wire attached. Entire stationary deflated vehicle only, no flame or paper, no propeller or modern gas cylinders. Shallow downward three-quarter floor view.",
+      "generated_source": "exec-62be6bce-d8be-404b-9b6e-3f79d6601eb4.png"
+    },
+    {
+      "name": "balloon_inflated",
+      "asset": "items/balloon_inflated.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. The reference is the EXACT object's appearance to preserve, changing only its state or floor angle. The SAME old fantasy HOT AIR BALLOON, now inflated: bulbous TAUPE TAN CLOTH ENVELOPE taut with hot air over stout rectangular wicker basket, short simple ropes/straps connect envelope to basket, small dark metal burner receptacle in basket, loose thin braided wire hanging over side. Entire single vehicle upright ready to fly. No passengers, modern burner tanks, flame or backdrop. Native 67x72, clear compact silhouette.",
+      "generated_source": "exec-a247a826-e28a-4e43-9713-058a2eb19007.png"
+    },
+    {
+      "name": "book_blue",
+      "asset": "items/book_blue.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A WORN and BATTERED old BLUE leather book, CLOSED, lying flat in shallow perspective. Scuffed faded blue cover, cream page edges, no title or words.",
+      "generated_source": "exec-8cb229bb-7807-4c3d-8098-4141d10a079e.png"
+    },
+    {
+      "name": "book_green",
+      "asset": "items/book_green.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A handsome old book bound in GREEN leather, CLOSED, laid flat with front cover visible in shallow perspective. Thick cream pages and worn dark green binding, no title or words.",
+      "generated_source": "exec-6eea10e7-8d07-40d0-b5ec-01c78ad42f2e.png"
+    },
+    {
+      "name": "book_open",
+      "asset": "items/book_open.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. The reference is the EXACT object's appearance to preserve, changing only its state or floor angle. An old leather book OPEN flat to two blank yellowed paper pages, gently curved spine and visible dark purple binding edge. Downward shallow three-quarter floor/table view, no stand, no title or text, no inserted stamp.",
+      "generated_source": "exec-d89842d7-bd83-4bbc-afa0-cdbf4b00df36.png"
+    },
+    {
+      "name": "book_purple",
+      "asset": "items/book_purple.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. An old PURPLE leather book, CLOSED, lying flat in shallow perspective, dusty and mold-spotted at edges. Deep subdued purple cover, warm cream page edges, no readable writing.",
+      "generated_source": "exec-1316f668-7ef0-4a96-b0e6-9f76e5591c9b.png"
+    },
+    {
+      "name": "book_white",
+      "asset": "items/book_white.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. An old book with a plain WHITE binding, CLOSED, laid flat at shallow three-quarter angle. Aged ivory-white cover with muted gray edge, cream pages, no title or words.",
+      "generated_source": "exec-6f938e1a-d033-45d1-a361-886562cccd20.png"
+    },
+    {
+      "name": "brick",
+      "asset": "items/brick.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A small SQUARE CLAY BRICK of explosive putty, dull reddish-brown, soft slightly irregular edges and a tiny dark recess to insert a fuse. Lying flat in three-quarter view, no fuse installed, no dynamite sticks, no letters.",
+      "generated_source": "exec-e8c91207-fe97-4c59-aaed-bc914031fb3c.png"
+    },
+    {
+      "name": "broken_lantern",
+      "asset": "items/broken_lantern.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A BROKEN BRASS LANTERN lying on its side. Same old upright brass Zork lamp body and loop handle, now bent and visibly crushed, cracked gray glass, no flame or glow. No separate shards or debris outside the compact sprite.",
+      "generated_source": "exec-c375f03f-05b2-492c-bf01-c58b443247cd.png"
+    },
+    {
+      "name": "bucket",
+      "asset": "items/bucket.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A sturdy THREE-FOOT wooden well bucket, cylindrical staves with two dark iron bands and a thick oval open rim, dark empty interior visible. Broad tub proportions, about as high as its diameter, a plain short iron bail handle folded against the side, no rope. Native 42x34 pixels.",
+      "generated_source": "exec-c0fbc573-b089-4f15-83da-9c5036685760.png"
+    },
+    {
+      "name": "cage",
+      "asset": "items/cage.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A MANGLED STEEL CAGE after a strong robot crushes and lifts it. A compact low heap of bent iron bars and a warped rectangular base, twisted but clearly one damaged cage, dull blue-gray steel with muted highlights. Lying on floor, no robot, gas or skull.",
+      "generated_source": "exec-88b192d5-550e-4397-beee-97493139a19d.png"
+    },
+    {
+      "name": "candy",
+      "asset": "items/candy.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A slightly DAMP but valuable small PACKAGE OF RARE CANDIES, folded old cream-and-muted-green waxed paper wrapper with a few colorful wrapped sweets peeking through a small open fold. Resting flat, no lettering, modern branding or giant loose candy.",
+      "generated_source": "exec-3b39bd28-c0fd-4537-9c83-3e338a2817d6.png"
+    },
+    {
+      "name": "club",
+      "asset": "items/club.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A LONG old WOODEN CLUB lying flat diagonally, thick blunt head CURIOUSLY BURNED BLACK at its end, narrowed simple handle. Natural dark oak with a single large scorched patch. No nails or spikes.",
+      "generated_source": "exec-273e9b9e-6245-40fe-9933-c42bed82fd73.png"
+    },
+    {
+      "name": "coin",
+      "asset": "items/coin.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A priceless engraved gold ZORKMID COIN, a single broad flat old gold coin on its side at shallow downward angle with a tiny simplified flat-headed profile and rim engraving. No readable letters, no pile of coins, no sparkle effect.",
+      "generated_source": "exec-522455f3-a65e-4249-bcf7-a72607c5a027.png"
+    },
+    {
+      "name": "collar",
+      "asset": "items/collar.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A GIGANTIC dog collar large enough for an elephant-sized three-headed dog. A wide worn dark red-brown leather band forming a low broad open oval loop on the floor, stout brass buckle and a few dull brass rivets, clearly hollow in the middle with real alpha. No dog, chain, tag or lettering.",
+      "generated_source": "exec-03dc78b9-d142-44f0-baac-43d1e0abae2d.png"
+    },
+    {
+      "name": "crown",
+      "asset": "items/crown.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. The EXCESSIVELY GAUDY crown of Lord Dimwit Flathead. An old oversized golden crown with several thick high points, absurdly showy large red green blue jewels and a dark crimson velvet cap. Resting flat on its band, no floating glow or pedestal.",
+      "generated_source": "exec-4fcb853b-c966-4c36-9579-1afa8b0b9597.png"
+    },
+    {
+      "name": "dead_serpent",
+      "asset": "items/dead_serpent.png",
+      "prompt": "Use case: identity-preserve. Create exactly ONE additional state sprite of this EXACT approved Zork II baby sea serpent. The reference is a nearest-neighbor enlargement of the canonical 47x26 pixel swimming sprite; follow its pixels and character design closely, not a new concept. STORY: this same creature spills from its shattered aquarium, bites the sword, tries to slither toward the player, cannot breathe, and dies. There is NO growth, species change or transformation.\nNew pose only: the SAME thin eel-like body lies dead on a wet floor, extended in a loose shallow sideways S, head resting on the ground toward lower-left, eye closed, tapering tail to right. No raised neck, upright coil, hovering body or disconnected segments. Preserve the short small head silhouette and olive/amber crest confined to its head, modest curved muzzle, thin continuous teal neck and body, pale cool underside, teal edge clusters and exact understated pixel-art material style. Relative to a 50px-wide silhouette its head should be only roughly 7-8 pixels wide, its slender body about 2-3 pixels thick: NO enlarged crocodile jaw, bulbous baby-dragon face, thick torso, added horns, fins along the back, legs or wings. Do not redesign it to be cute. Same actual creature size; allow the pose's overall bounding box to flatten to approximately 50x13 native pixels. Match the reference's small clustered 16-bit pixels and restrained colored edges. True transparent RGBA background, no ground, external cast shadow, water, props, gore, words, border or other pose.",
+      "generated_source": "exec-b23e6331-0e02-4482-a321-69abc8abed1f.png",
+      "identity_reference": "encounter-options/imagegen-sprites/serpent.png"
+    },
+    {
+      "name": "fuse",
+      "asset": "items/fuse.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A coil of BLACK BRAIDED STRING used as an explosive fuse. Dark charcoal braided cord in two flat loops on the ground, one short loose end, subtle gray fiber highlights. No rope-brown tint, no lit spark, no bomb.",
+      "generated_source": "exec-053db649-a8d6-41e6-951d-65aba0abad1d.png"
+    },
+    {
+      "name": "green_note",
+      "asset": "items/green_note.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A small folded GREEN PIECE OF PAPER with a few dark unreadable printed line marks, worn creased pale sage-green paper, lying flat on the floor. No readable words or logo.",
+      "generated_source": "exec-d7b17592-1bd7-4446-ac5c-587d7b72e728.png"
+    },
+    {
+      "name": "letter_opener",
+      "asset": "items/letter_opener.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. An antique LETTER OPENER lying flat, short narrow dull silver blade, tiny rounded point, simple worn ivory and brass handle, clearly a desk tool rather than a sword. Native 28x9 pixels.",
+      "generated_source": "exec-c060a47b-5a6e-4fe8-9b63-83812af2b326.png"
+    },
+    {
+      "name": "lizard_head_asleep",
+      "asset": "items/lizard_head_asleep.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. The reference is the EXACT object's appearance to preserve, changing only its state or floor angle. The SAME olive-scaled nasty-looking lizard HEAD embedded in a door, now asleep after eating candy: beady eyes CLOSED, mouth relaxed closed, nostrils still, no body, limbs, tail, plaque or wood background. Same view, outline, scales and short neck stump as awake pose.",
+      "generated_source": "exec-2173c73e-4550-4cbd-9402-1874fab2048d.png"
+    },
+    {
+      "name": "lizard_head_awake",
+      "asset": "items/lizard_head_awake.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. Only the HEAD of a nasty-looking LIZARD EMBEDDED in a wooden door, no body, limbs, tail, mount or wood background. Olive-scaled reptile head facing player, sharp small teeth, beady eyes OPEN, nostrils sniffing. A narrow neck stump ends cleanly for embedding into the door. Restrained menacing expression, not cartoon.",
+      "generated_source": "exec-62adf13e-52e0-465d-87b7-3bdf6b17e1ec.png"
+    },
+    {
+      "name": "necklace",
+      "asset": "items/necklace.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A PEARL NECKLACE with many small large white pearls, arranged as a loose long oval strand lying flat, warm ivory pearls with restrained tiny highlights, tiny old gold clasp. Real alpha inside the oval, no box, bust or jewelry stand.",
+      "generated_source": "exec-d166bfd3-a627-46ae-aae4-d6e528ffff6c.png"
+    },
+    {
+      "name": "place_mat",
+      "asset": "items/place_mat.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A thin rectangular old woven table PLACE MAT, flexible natural straw fibers and faded green border. Laid FLAT, clear shallow perspective rectangular shape, plain empty top. Native 25x9 pixels.",
+      "generated_source": "exec-d98264b6-e478-4553-aa07-b1c116af0f0e.png"
+    },
+    {
+      "name": "portrait",
+      "asset": "items/portrait.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A small rectangular WALL PORTRAIT of J. Pierpont Flathead, an ancient fictional underground banker. Bust of a severe broad flat-headed older human man in dark old formal coat, subtle tiny face, sepia painting in a plain worn gilded rectangular frame. Straight-on vertical frame, no wall, no stand, no words or plaque. Native 24x30, so simple broad readable features.",
+      "generated_source": "exec-8438f318-09a1-4c69-989a-05b197bd766b.png"
+    },
+    {
+      "name": "portrait_floor",
+      "asset": "items/portrait_floor.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. The reference is the EXACT object's appearance to preserve, changing only its state or floor angle. The same small old sepia banker portrait in a worn gilded rectangular frame, now LYING FLAT face-up on the dungeon floor, shallow downward three-quarter perspective, broad rectangular frame seen as foreshortened trapezoid. Severe broad flat-headed older man in dark old formal coat, tiny simplified face. No ground or shadow outside the frame.",
+      "generated_source": "exec-45fc13f9-935a-4ead-8872-9ae8dfb2d67f.png"
+    },
+    {
+      "name": "repellent",
+      "asset": "items/repellent.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A small old-fashioned metal SPRAY CAN of Frobozz Magic GRUE REPELLENT. Slender dull green-gray cylinder, plain muted cream band, simple small dark nozzle and cap. No readable label, no modern logo or poison symbol. Upright resting on its flat base.",
+      "generated_source": "exec-7f6eae0e-25b0-4cb9-8df1-d34119ffbc1f.png"
+    },
+    {
+      "name": "rose",
+      "asset": "items/rose.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A freshly picked single ROSE laid on its side: small pale blush-pink flower at left, slender green stem and two simple leaves extending right, no vase or ribbon. Readable silhouette at 23x13 pixels.",
+      "generated_source": "exec-ddfda375-9b99-473c-9c9f-b8877294f8bf.png"
+    },
+    {
+      "name": "ruby",
+      "asset": "items/ruby.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A single large brilliant RED RUBY gem resting on its side. Deep crimson faceted transparent stone, low oblong oval cut with a few restrained pale red facet glints, no metal setting, no stand or magical glow.",
+      "generated_source": "exec-e6d12d37-0f30-4464-95f3-7e08073dbbb7.png"
+    },
+    {
+      "name": "rusty_key",
+      "asset": "items/rusty_key.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A small rusty IRON skeleton key lying flat, dark oxidized iron with a round bow and single simple bit on a slender shaft. Old orange rust edge, no gold or jewels. Native 22x10 pixels.",
+      "generated_source": "exec-1bac2a27-fb7a-443e-8183-5561658db5ba.png"
+    },
+    {
+      "name": "stamp",
+      "asset": "items/stamp.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A tiny rare Flathead POSTAGE STAMP, aged cream paper with clearly PERFORATED edges and a simple sepia flat-headed human profile at center. Lying flat at a very shallow angle. Readable silhouette at just 9x10 pixels, no letters or numbers.",
+      "generated_source": "exec-262dba9d-6d1e-4fae-8f0b-a1ae53da8942.png"
+    },
+    {
+      "name": "steel_box_closed",
+      "asset": "items/steel_box_closed.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A dented rectangular STEEL BOX large enough to hold a violin. Old blue-gray sheet metal, a few small dents, simple hinged lid CLOSED, plain clasp at front. Lying flat on the ground in shallow three-quarter perspective. No lettering or contents.",
+      "generated_source": "exec-580ee636-207e-4ffc-a020-49f0c049843e.png"
+    },
+    {
+      "name": "steel_box_open",
+      "asset": "items/steel_box_open.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. The reference is the EXACT object's appearance to preserve, changing only its state or floor angle. Same dented blue-gray steel violin-sized box, hinged lid fully OPEN toward the rear, empty dark metal interior, worn plain clasp. Shallow downward three-quarter floor view. No contents.",
+      "generated_source": "exec-5325e408-318a-41e8-a806-f2492084d1ff.png"
+    },
+    {
+      "name": "violin",
+      "asset": "items/violin.png",
+      "prompt": "Use case: illustration-story. ONE transparent-background game item sprite for the established Zork II Game Boy Advance adventure. Match the attached detailed late 16-bit pixel item style: compact clear silhouette, purposeful pixel clusters, colored material shading, restrained warm highlights, NO thick black outlines. A shallow downward three-quarter camera compatible with items resting on a dungeon floor. The game will reduce this image to the specified small native pixel bounds, so emphasize readable material and shape, not tiny photographic texture. True transparent alpha around and through openings. No surrounding floor, backdrop, external cast shadow, hands, labels, UI or other items. A fine old Stradivarius VIOLIN laid on its back diagonally, warm amber varnished wood, elegant two-lobed body, thin neck, small scroll, four fine strings, no separate bow. Shallow downward three-quarter view, readable at 34x15 pixels.",
+      "generated_source": "exec-69d0ecda-8d3f-4659-b6c5-e39530623b1d.png"
+    },
+    {
+      "name": "bucket_pov",
+      "asset": "items/bucket_pov.png",
+      "prompt": "Production Zork GBA art. Native scene240x102 with source rows10..85 visible, or transparent sprite in stated bounds. Established detailed late16-bit pixel clusters, restrained colored edges and subdued earth/slate shadows. No text, UI, border or watermark. Use case: illustration-story. Exactly ONE transparent game sprite: INSIDE the same three-foot WOODEN BUCKET, player's first-person viewpoint. A broad shallow semicircular curved oak rim across bottom, inner wooden staves visible below rim, muted rusty iron hoop. Camera is inside looking out OVER the low rim; center above rim is transparent to show the room behind. Match the reference bucket's golden brown wood, colored edges and restrained detailed16-bit pixel clusters, same materials. Final native silhouette176x24 pixels, extremely wide and shallow. Bottom cropped deliberately as a POV foreground. No complete outside bucket silhouette, balloon, wicker, handle arch across top, floor, water, props, external shadow or background. Real transparent RGBA.",
+      "reference": "assets/items/bucket.png",
+      "generated_source": "exec-394f81e8-148a-4d6d-985e-7519421411af.png",
+      "native_bounds": [
+        176,
+        24
+      ]
+    }
+  ]
+}

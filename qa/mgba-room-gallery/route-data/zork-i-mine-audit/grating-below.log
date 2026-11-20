@@ -1,0 +1,228 @@
+
+>>>> south [room #64 score 0 turn 0]
+South of House
+You are facing the south side of a white house. There is no door here, and all the windows are boarded.
+
+>>>> east [room #209 score 0 turn 1]
+Behind House
+You are behind the white house. A path leads into the forest to the east. In one corner of the house there is a small window which is slightly ajar.
+
+>>>> open window [room #85 score 0 turn 2]
+With great effort, you open the window far enough to allow entry.
+
+>>>> enter window [room #85 score 0 turn 3]
+Kitchen
+You are in the kitchen of the white house. A table seems to have been used recently for the preparation of food. A passage leads to the west and a dark staircase can be seen leading upward. A dark chimney leads down and to the east is a small window which is open.
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> west [room #27 score 10 turn 4]
+Living Room
+You are in the living room. There is a doorway to the east, a wooden door with strange gothic lettering to the west, which appears to be nailed shut, a trophy case, and a large oriental rug in the center of the room.
+Above the trophy case hangs an elvish sword of great antiquity.
+A battery-powered brass lantern is on the trophy case.
+
+>>>> take lamp [room #75 score 10 turn 5]
+Taken.
+
+>>>> take sword [room #75 score 10 turn 6]
+Taken.
+
+>>>> turn on lamp [room #75 score 10 turn 7]
+The brass lantern is now on.
+
+>>>> move rug [room #75 score 10 turn 8]
+With a great effort, the rug is moved to one side of the room, revealing the dusty cover of a closed trap door.
+
+>>>> open trap door [room #75 score 10 turn 9]
+The door reluctantly opens to reveal a rickety staircase descending into darkness.
+
+>>>> open case [room #75 score 10 turn 10]
+Opened.
+
+>>>> east [room #75 score 10 turn 11]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> east [room #27 score 10 turn 12]
+Behind House
+
+>>>> north [room #85 score 10 turn 13]
+North of House
+You are facing the north side of a white house. There is no door here, and all the windows are boarded up. To the north a narrow path winds through the trees.
+
+>>>> north [room #137 score 10 turn 14]
+Forest Path
+This is a path winding through a dimly lit forest. The path heads north-south here. One particularly large tree with some low branches stands at the edge of the path.
+
+>>>> up [room #238 score 10 turn 15]
+Up a Tree
+You are about 10 feet above the ground nestled among some large branches. The nearest branch above you is above your reach.
+Beside you on the branch is a small bird's nest.
+In the bird's nest is a large egg encrusted with precious jewels, apparently scavenged by a childless songbird. The egg is covered with fine gold inlay, and ornamented in lapis lazuli and mother-of-pearl. Unlike most eggs, this one is hinged and closed with a delicate looking clasp. The egg appears extremely fragile.
+You hear in the distance the chirping of a song bird.
+
+>>>> take egg [room #5 score 10 turn 16]
+Taken.
+
+>>>> down [room #5 score 15 turn 17]
+Forest Path
+
+>>>> south [room #238 score 15 turn 18]
+North of House
+
+>>>> east [room #137 score 15 turn 19]
+Behind House
+
+>>>> west [room #85 score 15 turn 20]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> up [room #27 score 15 turn 21]
+Attic
+This is the attic. The only exit is a stairway leading down.
+A large coil of rope is lying in the corner.
+On a table is a nasty-looking knife.
+
+>>>> take knife [room #187 score 15 turn 22]
+Taken.
+
+>>>> take rope [room #187 score 15 turn 23]
+Taken.
+
+>>>> down [room #187 score 15 turn 24]
+Kitchen
+A bottle is sitting on the table.
+The glass bottle contains:
+  A quantity of water
+On the table is an elongated brown sack, smelling of hot peppers.
+
+>>>> west [room #27 score 15 turn 25]
+Living Room
+
+>>>> open trap door [room #75 score 15 turn 26]
+Have your eyes checked.
+
+>>>> down [room #75 score 15 turn 27]
+The trap door crashes shut, and you hear someone barring it.
+
+Cellar
+You are in a dark and damp cellar with a narrow passageway leading north, and a crawlway to the south. On the west is the bottom of a steep metal ramp which is unclimbable.
+Your sword is glowing with a faint blue glow.
+
+>>>> north [room #33 score 40 turn 28]
+The Troll Room
+This is a small room with passages to the east and south and a forbidding hole leading west. Bloodstains and deep scratches (perhaps made by an axe) mar the walls.
+A nasty-looking troll, brandishing a bloody axe, blocks all passages out of the room.
+Your sword has begun to glow very brightly.
+
+>>>> kill troll with sword [room #127 score 40 turn 29]
+The troll is staggered, and drops to his knees.
+The troll slowly regains his feet.
+
+>>>> kill troll with sword [room #127 score 40 turn 30]
+The haft of your sword knocks out the troll.
+
+>>>> kill troll with sword [room #127 score 40 turn 31]
+The unconscious troll cannot defend himself: He dies.
+Almost as soon as the troll breathes his last breath, a cloud of sinister black fog envelops him, and when the fog lifts, the carcass has disappeared.
+Your sword is no longer glowing.
+
+>>>> kill troll with sword [room #127 score 40 turn 32]
+You can't see any troll here!
+
+>>>> kill troll with sword [room #127 score 40 turn 33]
+You can't see any troll here!
+
+>>>> west [room #127 score 40 turn 34]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> west [room #104 score 40 turn 35]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> west [room #193 score 40 turn 36]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> up [room #54 score 40 turn 37]
+Maze
+This is part of a maze of twisty little passages, all alike. A skeleton, probably the remains of a luckless adventurer, lies here.
+Beside the skeleton is a rusty knife.
+The deceased adventurer's useless lantern is here.
+There is a skeleton key here.
+An old leather bag, bulging with coins, is here.
+
+>>>> take coins [room #218 score 40 turn 38]
+Taken.
+
+>>>> take key [room #218 score 50 turn 39]
+Taken.
+
+>>>> sw [room #218 score 50 turn 40]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> up [room #134 score 50 turn 41]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> e [room #81 score 50 turn 42]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> up [room #34 score 50 turn 43]
+Maze
+This is part of a maze of twisty little passages, all alike.
+
+>>>> ne [room #152 score 50 turn 44]
+Grating Room
+You are in a small room near the maze. There are twisty passages in the immediate vicinity.
+Above you is a grating locked with a skull-and-crossbones lock.
+
+>>>> look [room #216 score 50 turn 45]
+Grating Room
+You are in a small room near the maze. There are twisty passages in the immediate vicinity.
+Above you is a grating locked with a skull-and-crossbones lock.
+
+SHOT grating-locked-below room=216 scene=z1_grate_cellar title=Grating Room dark=0 pages=2 room targets= 29:Grating;
+
+>>>> open grating [room #216 score 50 turn 46]
+The grating is locked.
+
+>>>> up [room #216 score 50 turn 47]
+The grating is closed.
+
+>>>> unlock grating with key [room #216 score 50 turn 46]
+The grate is unlocked.
+
+>>>> open grating [room #216 score 50 turn 47]
+The grating opens to reveal trees above you.
+A pile of leaves falls onto your head and to the ground.
+
+SHOT grating-open-below room=216 scene=z1_grate_cellar title=Grating Room dark=0 pages=1 room targets= 157:Pile of leaves; 29:Grating;
+
+>>>> up [room #216 score 50 turn 48]
+Clearing
+You are in a clearing, with a forest surrounding you on all sides. A path leads south.
+There is an open grating, descending into darkness.
+
+SHOT grating-open-above room=160 scene=z1_grate_clearing title=Clearing dark=0 pages=2 room targets= 65:White house; 29:Grating;
+
+>>>> down [room #160 score 50 turn 49]
+Grating Room
+On the ground is a pile of leaves.
+
+SHOT grating-return room=216 scene=z1_grate_cellar title=Grating Room dark=0 pages=1 room targets= 157:Pile of leaves; 29:Grating;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=216 score=50 moves=50

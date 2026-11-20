@@ -1,0 +1,76 @@
+
+SHOT dungeon-closed room=105 scene=dungeon_entrance title=Dungeon Entrance dark=0 pages=1 room targets= 207:Wooden door; 147:Panel; 80:Wooden wall;
+
+>>>> open door [room #105 score 7 turn 309]
+The door won't budge.
+
+>>>> knock on door [room #105 score 7 turn 310]
+The knock reverberates along the hall. For a time it seems there will be no answer. Then you hear someone unlatching the small panel. Through the bars of the great door, the wrinkled face of an old man appears. He starts to smile broadly and opens the massive door without a sound. The old man motions and you feel yourself drawn toward him.
+"I am the Master of the Dungeon!" he booms. "I have been watching you closely during your journey through the Great Underground Empire. Yes!," he says, as if recalling some almost forgotten time, "we have met before, although I may not appear as I did then." You look closely into his deeply lined face and see the faces of the old man by the secret door, your "friend" at the cliff, and the hooded figure. "You have shown kindness to the old man, and compassion toward the hooded one. You displayed patience in the puzzle and trust at the cliff. You have demonstrated strength, ingenuity, and valor. However, one final test awaits you. Now! Command me as you will, and complete your quest!"
+
+Narrow Corridor
+You are in a narrow north-south corridor. At the south end is a door and at the north end is an east-west corridor. The door is closed.
+The dungeon master is quietly leaning on his staff here.
+
+SHOT dungeon-entry room=159 scene=hall title=Narrow Corridor dark=0 pages=8 room targets= 1:Dungeon master; 207:Wooden door; 147:Panel;
+
+>>>> north [room #159 score 7 turn 311]
+South Corridor
+You are in an east-west corridor which turns north at its eastern and western ends. The walls are made of the finest marble. Another hall leads south at the center of the corridor.
+The dungeon master follows you.
+
+SHOT master-greeting room=190 scene=hall title=South Corridor dark=0 pages=2 room targets= 1:Dungeon master; 209:Bronze door;
+
+>>>> open cell door [room #19 score 7 turn 319]
+The cell door opens.
+
+>>>> south [room #19 score 7 turn 320]
+Prison Cell
+You are in a featureless prison cell. You can see an east-west corridor outside the cell door. Your view also takes in the parapet and a large, fiery pit.
+Behind you, to the south, is a bronze door which is closed.
+You notice that the dungeon master doesn't follow you.
+
+>>>> open bronze door [room #45 score 7 turn 321]
+The bronze door is locked.
+
+>>>> unlock bronze door with staff [room #45 score 7 turn 322]
+It doesn't seem to work.
+
+SHOT bronze-refusals room=45 scene=z3_prison_cell_open title=Prison Cell dark=0 pages=1 room targets= 11:Dungeon master; 209:Bronze door; 183:Cell door; 206:Parapet; 4:Flaming pit;
+
+>>>> master, close door [room #45 score 7 turn 323]
+"If you wish," he replies.
+The cell door is now closed.
+
+>>>> master, go north [room #45 score 7 turn 324]
+"Very well. I am at the parapet!"
+
+>>>> master, turn dial to 6 [room #45 score 7 turn 325]
+"If you wish," he replies.
+
+>>>> master, push button [room #45 score 7 turn 326]
+"If you wish," he replies.
+Prison Cell
+You are in a bare prison cell. Its wooden door is securely fastened, and you can see only flames and smoke through its small window. On the south wall is a bronze door which seems to be closed.
+
+SHOT cell-six room=204 scene=z3_prison_cell_closed title=Prison Cell dark=0 pages=2 room targets= 153:Cell door; 11:Dungeon master; 209:Bronze door; 4:Flaming pit;
+
+>>>> set dial to 9 [room #36 score 7 turn 316]
+There is no such setting.
+
+>>>> push button [room #36 score 7 turn 317]
+The button depresses with a slight click, and pops back.
+
+SHOT dial-invalid room=36 scene=z3_parapet title=Parapet dark=0 pages=1 room targets= 1:Dungeon master; 88:Sundial; 60:Large button; 206:Parapet; 4:Flaming pit;
+
+>>>> turn dial to 1 [room #36 score 7 turn 318]
+The dial now points to 1.
+
+>>>> push button [room #36 score 7 turn 319]
+The button depresses with a slight click, and pops back.
+
+SHOT dial-one room=36 scene=z3_parapet title=Parapet dark=0 pages=1 room targets= 1:Dungeon master; 88:Sundial; 60:Large button; 206:Parapet; 4:Flaming pit;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=36 score=7 moves=320

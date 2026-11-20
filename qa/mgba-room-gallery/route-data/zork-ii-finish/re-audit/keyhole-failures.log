@@ -1,0 +1,27 @@
+
+>>>> open door [room #46 score 85 turn 88]
+The door is locked.
+
+>>>> unlock door with gold key [room #46 score 85 turn 89]
+You can't see any gold key here!
+
+>>>> put opener in keyhole [room #46 score 85 turn 90]
+The lid is in the way.
+
+SHOT lid-blocked room=46 scene=z2_tiny_room title=Tiny Room dark=0 pages=1 room targets= 130:Keyhole; 112:Metal lid; 137:Door made of oak; 173:Barred window; 105:Chasm;
+
+>>>> north [room #46 score 85 turn 96]
+The door made of oak is closed.
+
+>>>> open door [room #46 score 85 turn 97]
+The door is now open.
+
+>>>> north [room #46 score 85 turn 98]
+Dreary Room
+This is a small and rather dreary room, eerily illuminated by a red glow emanating from a crack in one wall. The light falls upon a dusty wooden table in the center of the room. On the south side of the room is a massive wooden door, which has a small window barred with iron. A formidable bolt lock is set within the door frame. A keyhole lies within the lock.
+In the center of the table sits a blue crystal sphere.
+
+SHOT wooden-door-entered room=59 scene=z2_dreary_open title=Dreary Room dark=0 pages=3 room targets= 33:Blue crystal sphere; 108:Keyhole; 77:Narrow crack; 251:Table; 109:Metal lid; 137:Door made of oak; 173:Barred window;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=59 score=85 moves=99

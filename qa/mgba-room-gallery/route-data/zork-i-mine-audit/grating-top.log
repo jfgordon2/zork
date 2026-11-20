@@ -1,0 +1,37 @@
+
+>>>> w [room #64 score 0 turn 0]
+Forest
+This is a forest, with trees in all directions. To the east, there appears to be sunlight.
+
+>>>> n [room #87 score 0 turn 1]
+Clearing
+You are in a clearing, with a forest surrounding you on all sides. A path leads south.
+On the ground is a pile of leaves.
+
+>>>> look [room #160 score 0 turn 2]
+Clearing
+You are in a clearing, with a forest surrounding you on all sides. A path leads south.
+On the ground is a pile of leaves.
+
+SHOT grating-buried room=160 scene=z1_grate_clearing title=Clearing dark=0 pages=1 room targets= 157:Pile of leaves; 65:White house;
+
+>>>> move leaves [room #160 score 0 turn 3]
+Done.
+In disturbing the pile of leaves, a grating is revealed.
+
+SHOT grating-exposed room=160 scene=z1_grate_clearing title=Clearing dark=0 pages=1 room targets= 157:Pile of leaves; 65:White house; 29:Grating;
+
+>>>> open grating [room #160 score 0 turn 4]
+The grating is locked.
+
+>>>> down [room #160 score 0 turn 5]
+The grating is closed!
+
+>>>> look [room #160 score 0 turn 6]
+Clearing
+You are in a clearing, with a forest surrounding you on all sides. A path leads south.
+There is a grating securely fastened into the ground.
+On the ground is a pile of leaves.
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=160 score=0 moves=7

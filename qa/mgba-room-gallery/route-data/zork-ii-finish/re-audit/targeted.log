@@ -1,0 +1,37 @@
+
+>>>> give candy to lizard [room #28 score 85 turn 68]
+The guardian greedily wolfs down the candy, including the package. (It seemed to enjoy the grasshoppers particularly.) It then becomes quiet and its eyes close. (Lizards are known to sleep a long time while digesting their meals.)
+
+>>>> open door [room #28 score 85 turn 69]
+The door is locked!
+
+SHOT guarded-open room=28 scene=z2_guarded_room title=Guarded Room dark=0 pages=1 room targets= 79:Lizard; 43:Door partly covered in cobwebs;
+
+>>>> south [room #28 score 85 turn 70]
+The door partly covered in cobwebs is closed.
+
+SHOT workshop-open room=28 scene=z2_guarded_room title=Guarded Room dark=0 pages=1 room targets= 79:Lizard; 43:Door partly covered in cobwebs;
+
+>>>> north [room #182 score 230 turn 237]
+Wide Ledge
+There is a large and extremely heavy wicker basket here. An enormous cloth bag attached to the basket is inflated. A metal receptacle is fastened to the center of the basket. In it is a burning newspaper. A piece of wire tied to a hook holds the balloon in place.
+There is an explosion nearby.
+
+>>>> south [room #143 score 230 turn 238]
+Dusty Room
+You are in a dusty old room which is featureless, except for an exit on the north side.
+On the far wall is a rusty box, whose door has been blown off.
+The room is cluttered with debris from an explosion. The walls seem ready to collapse.
+The excessively gaudy crown of Lord Dimwit Flathead sits in the safe.
+  The box contains:
+    A card
+
+SHOT safe-blown room=182 scene=z2_safe_blast title=Dusty Room dark=0 pages=3 room targets= 101:Debris from an explosion; 132:Box; 146:Gaudy crown; 55:Card;
+
+>>>> stand [room #176 score 200 turn 206]
+You are on your own feet again.
+
+SHOT balloon-inflated-outside room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=1 room targets= 169:Basket; 138:Blue label; 126:Receptacle; 181:Newspaper; 93:Cloth bag; 170:Braided wire;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=176 score=200 moves=207

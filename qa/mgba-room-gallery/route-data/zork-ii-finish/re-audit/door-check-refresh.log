@@ -1,0 +1,15 @@
+
+>>>> north [room #45 score 135 turn 182]
+Guarded Room
+There is a Stradivarius here.
+There is a pearl necklace here with hundreds of large pearls.
+
+SHOT guarded-open room=28 scene=z2_guarded_open title=Guarded Room dark=0 pages=1 room targets= 140:Fancy violin; 134:Pearl necklace; 79:Lizard; 43:Door partly covered in cobwebs;
+
+>>>> south [room #28 score 135 turn 183]
+Wizard's Workshop
+
+SHOT workshop-open room=45 scene=z2_workshop_open title=Wizard's Workshop dark=0 pages=1 room targets= 43:Door partly covered in cobwebs;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=45 score=135 moves=184

@@ -1,0 +1,8 @@
+# Zork 1 room 221: winning-route fixture steps 1-0 (seed 7), then:
+s
+s
+# Arrived lit at room 221. Story text on arrival:
+#   Forest
+#   This is a dimly lit forest, with large trees all around.
+#   
+#   >

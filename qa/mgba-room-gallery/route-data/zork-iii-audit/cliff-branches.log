@@ -1,0 +1,65 @@
+
+SHOT cliff-man room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=1 room targets= 65:Chest; 14:Rubble; 137:Rope; 189:Man; 31:Ledge; 220:Cliff;
+
+>>>> take chest [room #218 score 3 turn 80]
+Taken.
+A few small stones fall near your feet. You look up and see your friend waving. "I haven't got all day, fella. Be a pal and pass up the chest!"
+
+>>>> up [room #218 score 3 turn 81]
+You attempt the climb but slide back down.
+Your friend at the cliff top has started pacing nervously around.
+
+>>>> tie rope to sword [room #218 score 3 turn 82]
+You can't see any sword here!
+The man on the cliff waves at you. "It would just take a moment to tie that rope to the chest. I'd be much obliged, and there might even be something in it for you!"
+
+SHOT cliff-refusals room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=2 room targets= 14:Rubble; 137:Rope; 189:Man; 31:Ledge; 220:Cliff;
+
+>>>> tie rope to chest [room #218 score 3 turn 80]
+The chest is now tied to the rope.
+The man above you looks pleased. "Now there's a good friend! Thank you very much, indeed!" He pulls on the rope and the chest is lifted to the top of the cliff and out of sight. With a short laugh, he disappears. "I'll be back in a short while!" are his last words.
+
+SHOT cliff-chest-lifted room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=2 room targets= 14:Rubble; 137:Rope; 31:Ledge; 220:Cliff;
+
+>>>> wait [room #218 score 3 turn 81]
+Time passes...
+
+>>>> wait [room #218 score 3 turn 84]
+Time passes...
+
+>>>> wait [room #218 score 3 turn 87]
+Time passes...
+A familiar voice calls down to you. "Are you still there?" he bellows with a coarse laugh. "Well, then, grab onto the rope and we'll see what we can do." The rope drops to within your reach.
+
+SHOT cliff-rope-returned room=218 scene=cliff_ledge title=Cliff Ledge dark=0 pages=2 room targets= 14:Rubble; 137:Rope; 189:Man; 31:Ledge; 220:Cliff;
+
+>>>> grab rope [room #218 score 3 turn 90]
+You grab securely on to the rope.
+The man starts to heave on the rope and within a few moments you arrive at the top of the cliff. The man removes the last few valuables from the chest and prepares to leave. "You've been a good sport! Here, take this, for whatever good it is! I can't see that I'll be needing one!" He hands you a plain wooden staff from the bottom of the chest and begins examining his valuables.
+The chest, open and empty, is at your feet.
+
+SHOT cliff-reward room=109 scene=cliff_top title=Cliff dark=0 pages=3 room targets= 139:Man; 26:Pile of assorted valuables; 65:Chest; 95:Tree; 47:Rope; 14:Rubble; 193:Stone wall; 220:Cliff;
+
+>>>> look [room #109 score 3 turn 91]
+Cliff
+This is a remarkable spot in the dungeon. Perhaps two hundred feet above you is a gaping hole in the earth's surface through which pours bright sunshine! A few seedlings from the world above, nurtured by the sunlight and occasional rains, have grown into giant trees, making this a virtual oasis in the desert of the Underground Empire. To the west is a sheer precipice, dropping nearly fifty feet to jagged rocks below. The way south is barred by a forbidding stone wall, crumbling from age. There is a jagged opening in the wall to the southwest, through which leaks a fine mist. The land to the east looks lifeless and barren.
+A rope is tied to one of the large trees here and is dangling over the side of the cliff, reaching down to the shelf below.
+There is a man here.
+There is a chest here.
+Your "friend", moving quickly, dodges behind some trees and is lost from sight.
+
+SHOT cliff-man-reward-view room=109 scene=cliff_top title=Cliff dark=0 pages=6 room targets= 65:Chest; 95:Tree; 47:Rope; 14:Rubble; 193:Stone wall; 220:Cliff;
+
+>>>> down [room #218 score 3 turn 80]
+Cliff Base
+
+SHOT cliff-down-refusal room=73 scene=cliff_base title=Cliff Base dark=0 pages=1 room targets= 31:Ledge;
+
+>>>> jump [room #73 score 3 turn 81]
+Very good. Now you can go to the second grade.
+
+SHOT cliff-jump-outcome room=73 scene=cliff_base title=Cliff Base dark=0 pages=1 room targets= 31:Ledge;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=73 score=3 moves=82

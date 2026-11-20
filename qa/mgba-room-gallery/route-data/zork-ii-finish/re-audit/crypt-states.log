@@ -1,0 +1,18 @@
+
+>>>> open secret door [room #125 score 400 turn 417]
+You can't see any secret door here!
+
+>>>> wait [room #125 score 400 turn 418]
+Time passes...
+
+SHOT crypt-dark-wait room=125 scene=z2_crypt_dark title=Crypt dark=0 pages=1 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+
+SHOT crypt-secret-open room=125 scene=z2_crypt_secret_open title=Crypt dark=0 pages=1 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+
+>>>> turn on lamp [room #125 score 400 turn 419]
+The lamp is now on.
+
+SHOT crypt-relit room=125 scene=z2_crypt_open title=Crypt dark=0 pages=1 room targets= 116:Marble crypt; 118:Set of poled heads; 245:Crypt door; 151:Secret door;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=125 score=400 moves=420

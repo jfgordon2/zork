@@ -1,0 +1,86 @@
+
+>>>> n [room #119 score 7 turn 315]
+Hallway
+
+SHOT route-54-lit room=54 scene=guardians_approach title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork; 80:Wooden wall;
+
+>>>> e [room #119 score 7 turn 315]
+The structure blocks your way.
+
+SHOT route-119-lit room=119 scene=z3_narrow_mirror title=Narrow Room dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+MISSING-VISUAL room=119 object=152 parent=41 name=Guardians of Zork
+
+>>>> s [room #119 score 7 turn 316]
+Hallway
+
+SHOT route-169-lit room=169 scene=z3_mirror_hall title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+
+>>>> w [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> ne [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> se [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> sw [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> nw [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> up [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> down [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> in [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> out [room #119 score 7 turn 316]
+You can't go that way.
+
+>>>> n [room #221 score 7 turn 315]
+Hallway
+
+>>>> e [room #221 score 7 turn 315]
+You can't go that way.
+
+SHOT route-221-lit room=221 scene=z3_narrow_mirror title=Narrow Room dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+MISSING-VISUAL room=221 object=152 parent=41 name=Guardians of Zork
+
+>>>> s [room #221 score 7 turn 316]
+Hallway
+
+>>>> w [room #221 score 7 turn 316]
+The panel is closed.
+
+>>>> ne [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> se [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> sw [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> nw [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> up [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> down [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> in [room #221 score 7 turn 316]
+You can't go that way.
+
+>>>> out [room #221 score 7 turn 316]
+You can't go that way.
+VISUAL 3 selection checks, 2 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 397 reachable argument pickers
+ACCESS 4 room states, 17 focus targets, 40 bag entries, 6747 traversed menu rows, 483 matching room crops
+AUDIT RESULT screen=2 room=221 score=7 moves=317

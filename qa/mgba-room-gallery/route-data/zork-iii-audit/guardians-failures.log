@@ -1,0 +1,51 @@
+
+SHOT guardians-before-potion room=54 scene=guardians_approach title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork; 80:Wooden wall;
+
+>>>> north [room #54 score 7 turn 307]
+The Guardians awake, and in perfect unison, pulverize you with their bludgeons. Satisfied, they resume their posts.
+
+    ****  You have died  ****
+
+You find yourself deep within the earth in a barren prison cell. Outside the iron-barred window, you can see a great, fiery pit. Flames leap up and very nearly sear your flesh. After a while, footfalls can be heard in the distance, then closer and closer.... The door swings open, and in walks an old man.
+
+He is dressed simply in a hood and cloak, wearing an amulet and ring, carrying an old book under one arm, and leaning on a wooden staff. A single key, as if to a massive prison cell, hangs from his belt.
+
+He raises the staff toward you and you hear him speak, as if in a dream: "I await you, though your journey be long and full of peril. Go then, and let me not wait long!" You feel some great power well up inside you and you fall to the floor. The next moment, you are awakening, as if from a deep slumber.
+
+Endless Stair
+There is a lamp here (providing light).
+
+SHOT guardians-without-potion room=211 scene=z3_endless_stair title=Endless Stair dark=0 pages=8 room targets= 126:Brass lantern; 154:Stairs;
+
+>>>> drink from vial [room #54 score 7 turn 307]
+You "drink" the contents in one gulp, but nothing unusual seems to have happened as a result.
+
+SHOT guardians-potion-active room=54 scene=guardians_approach title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork; 80:Wooden wall;
+
+>>>> north [room #54 score 7 turn 308]
+Hallway
+This is a part of the long hallway. The east and west walls are dressed stone. In the center of the hall is a shallow stone channel. In the center of the room the channel widens into a large hole around which is engraved a compass rose.
+On either side of you are identical stone statues holding bludgeons. They appear ready to strike, though, for the moment, they remain impassive.
+The corridor continues north and south.
+
+SHOT guardians-passing room=44 scene=guardians title=Hallway dark=0 pages=3 room targets= 152:Guardians of Zork;
+
+>>>> north [room #44 score 7 turn 309]
+Hallway
+This is a part of the long hallway. The east and west walls are dressed stone. In the center of the hall is a shallow stone channel. In the center of the room the channel widens into a large hole around which is engraved a compass rose.
+Somewhat to the south, identical stone statues face each other from pedestals on opposite sides of the corridor. The statues represent Guardians of Zork, a military order of ancient lineage. They are portrayed as heavily armored warriors clasping formidable bludgeons.
+The corridor continues north.
+
+SHOT guardians-north room=224 scene=guardians_approach title=Hallway dark=0 pages=4 room targets= 96:Compass rose; 107:Stone channel; 152:Guardians of Zork; 80:Wooden wall;
+
+>>>> north [room #224 score 7 turn 310]
+Dungeon Entrance
+You are in a north-south hallway which ends, to the north, at a large wooden door.
+The corridor continues south.
+The wooden door has a barred panel in it at about head height. The door itself is closed.
+
+SHOT guardian-route-exit room=105 scene=dungeon_entrance title=Dungeon Entrance dark=0 pages=2 room targets= 207:Wooden door; 147:Panel; 80:Wooden wall;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=105 score=7 moves=311

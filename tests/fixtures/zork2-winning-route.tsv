@@ -1,0 +1,395 @@
+# Deterministic replay checkpoints: expected room and score before each command.
+51	0	take lamp
+51	0	take sword
+51	0	turn on lamp
+51	0	south
+168	0	south
+21	0	south
+183	0	sw
+53	0	south
+158	0	se
+234	0	enter gazebo
+16	0	take teapot
+16	0	exit
+234	0	north
+158	0	ne
+53	0	fill teapot
+53	0	south
+158	0	sw
+212	0	sw
+144	0	southeast
+238	0	west
+238	0	southeast
+238	0	answer "well"
+238	5	east
+38	5	take necklace
+38	20	east
+119	20	enter bucket
+119	20	pour water in bucket
+8	30	stand
+8	30	east
+190	30	take all
+190	30	eat green cake
+122	30	east
+82	30	drop orange cake
+82	30	throw red cake in pool
+82	30	take candies
+82	45	west
+122	45	eat blue cake
+190	45	nw
+187	45	read paper
+187	45	drop paper
+187	45	robot, go east
+187	45	east
+87	45	robot, go south
+87	45	south
+54	45	take red sphere
+106	45	robot, lift cage
+54	45	take red sphere
+54	65	look in red sphere
+54	65	robot, go north
+54	65	north
+87	65	robot, push triangular button
+87	65	west
+187	65	southeast
+190	65	west
+8	65	southeast
+8	65	west
+8	65	enter bucket
+8	65	fill teapot
+119	65	stand
+119	65	drop teapot
+119	65	west
+38	65	west
+238	65	nw
+144	65	open steel box
+144	65	take violin
+144	85	sw
+206	85	take string
+206	85	sw
+28	85	give candies to lizard
+28	85	drop necklace
+28	85	drop violin
+28	85	drop red sphere
+28	85	north
+206	85	ne
+144	85	east
+218	85	north
+157	85	north
+234	85	enter gazebo
+16	85	take all
+16	85	exit
+234	85	south
+157	85	west
+212	85	sw
+144	85	north
+30	85	take brick
+30	85	north
+231	85	north
+124	85	up
+46	85	put mat under door
+46	85	open lid
+46	85	put opener in keyhole
+46	85	take opener
+46	85	drop opener
+46	85	take mat
+46	85	take key
+46	85	unlock door with key
+46	85	open door
+46	85	north
+59	85	take blue sphere
+59	105	look in blue sphere
+59	105	south
+46	105	down
+124	105	west
+171	105	north
+248	105	attack dragon with sword
+248	105	south
+80	105	attack dragon with sword
+80	105	south
+172	105	attack dragon with sword
+172	105	west
+161	110	east
+172	110	north
+80	110	north
+248	110	north
+201	110	kiss princess
+201	110	south
+248	110	east
+171	110	east
+124	110	down
+231	110	south
+30	110	east
+30	110	wait
+30	110	east
+212	110	wait
+212	110	east
+157	110	east
+157	110	north
+234	110	in
+16	110	wait
+16	110	wait
+16	125	wait
+16	125	wait
+16	125	wait
+16	125	wait
+16	125	wait
+234	125	wait
+234	125	wait
+234	125	wait
+234	125	wait
+234	125	wait
+234	125	wait
+234	125	wait
+234	125	wait
+234	125	exit
+234	125	take key
+234	125	drop rose
+234	125	drop orange cake
+234	125	drop rusty key
+234	125	inventory
+234	125	south
+157	125	south
+218	125	west
+144	125	sw
+206	125	sw
+28	125	take red sphere
+28	125	unlock door with gold key
+28	125	open door
+28	125	south
+45	135	west
+94	135	west
+233	135	throw sword at aquarium
+233	135	take clear sphere
+233	155	take sword
+233	155	east
+94	155	put clear sphere on diamond stand
+94	155	put red sphere on ruby stand
+94	155	put blue sphere on sapphire stand
+94	155	take black sphere
+94	185	look in black sphere
+94	185	east
+45	185	north
+28	185	north
+206	185	north
+184	185	down
+161	185	west
+15	185	take ruby
+15	200	south
+176	200	enter basket
+176	200	open receptacle
+176	200	put newspaper in receptacle
+176	200	light match
+176	200	burn newspaper with match
+176	200	read label
+176	200	drop label
+34	200	wait
+113	200	land
+13	200	tie wire to hook
+13	200	stand
+13	200	take coin
+13	220	south
+136	220	open purple book
+136	220	take stamp
+136	230	north
+13	230	enter basket
+13	230	untie wire
+13	230	wait
+113	230	wait
+86	230	wait
+177	230	land
+143	230	tie wire to hook
+143	230	stand
+143	230	south
+182	230	put brick in hole
+182	230	put string in brick
+182	230	light match
+182	230	burn string with match
+182	230	north
+143	230	south
+182	230	take crown
+182	250	read card
+182	250	north
+143	250	enter basket
+143	250	untie wire
+143	250	close receptacle
+143	250	wait
+177	250	wait
+86	250	wait
+86	250	wait
+113	250	wait
+34	250	wait
+176	250	drop card
+176	250	stand
+176	250	north
+15	250	east
+161	250	east
+172	250	se
+144	250	sw
+206	250	sw
+28	250	take off crown
+28	250	drop crown
+28	250	drop stamp
+28	250	drop coin
+28	250	drop ruby
+28	250	north
+206	250	ne
+144	250	north
+30	250	north
+231	250	north
+124	250	west
+171	250	north
+248	250	north
+201	250	open chest
+201	250	open chest
+201	250	take statuette
+201	270	south
+248	270	west
+141	270	west
+92	270	nw
+152	270	west
+200	270	south
+49	270	take portrait
+49	290	north
+200	290	walk through north wall
+64	290	walk through south wall
+200	290	walk through north wall
+2	290	take bills
+2	315	walk through north wall
+200	315	drop bills
+200	315	drop portrait
+200	315	east
+243	315	east
+200	315	take bills
+200	315	take portrait
+200	315	walk through north wall
+102	315	south
+92	315	east
+141	315	east
+248	315	south
+80	315	south
+172	315	se
+144	315	west
+207	315	take repellent
+207	315	east
+144	315	sw
+206	315	sw
+28	315	take necklace
+28	315	south
+45	315	west
+94	315	south
+91	315	drop necklace
+91	315	drop gold key
+91	315	drop statuette
+91	315	drop violin
+91	315	drop portrait
+91	315	drop bills
+91	315	drop ruby
+91	315	drop crown
+91	315	drop stamp
+91	315	drop coin
+91	315	north
+94	315	east
+45	315	north
+28	315	look
+28	315	take necklace
+28	315	take gold key
+28	315	take statuette
+28	315	take violin
+28	315	take portrait
+28	315	take bills
+28	315	take ruby
+28	315	take crown
+28	315	take stamp
+28	315	take coin
+28	315	south
+45	315	west
+94	315	south
+91	315	drop necklace
+91	315	drop gold key
+91	315	drop statuette
+91	315	drop violin
+91	315	drop portrait
+91	315	drop bills
+91	315	drop ruby
+91	315	drop crown
+91	315	drop stamp
+91	315	drop coin
+91	315	north
+94	315	east
+45	315	north
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	look
+28	315	south
+45	315	west
+94	315	south
+91	315	north
+94	315	east
+45	315	north
+28	315	take coin
+28	315	south
+45	315	west
+94	315	south
+91	315	drop coin
+91	315	put black sphere in pentagram
+91	315	take necklace
+91	315	give necklace to demon
+91	317	take gold key
+91	317	give gold key to demon
+91	319	take statuette
+91	319	give statuette to demon
+91	321	take violin
+91	321	give violin to demon
+91	323	take portrait
+91	323	give portrait to demon
+91	325	take bills
+91	325	give bills to demon
+91	327	take ruby
+91	327	give ruby to demon
+91	329	take crown
+91	329	give crown to demon
+91	331	take stamp
+91	331	give stamp to demon
+91	333	take coin
+91	333	give coin to demon
+91	335	demon, give me wand
+91	335	take wand
+91	365	inventory
+91	365	north
+94	365	east
+45	365	north
+28	365	north
+206	365	ne
+144	365	south
+159	365	wave wand at menhir
+159	365	say "float"
+159	365	sw
+128	365	take collar
+128	380	ne
+159	380	south
+240	380	down
+19	380	west
+202	380	se
+121	380	ne
+242	380	nw
+75	380	sw
+202	385	west
+19	385	down
+162	395	put collar on cerberus
+162	395	east
+194	398	open door
+194	398	south
+125	400	apply repellent to me
+125	400	turn off lamp
+125	400	open secret door
+125	400	south

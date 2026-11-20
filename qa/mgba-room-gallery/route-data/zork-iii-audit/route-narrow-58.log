@@ -1,0 +1,40 @@
+
+>>>> lift short pole [room #160 score 7 turn 294]
+The pole is now slightly above the floor.
+
+>>>> push red panel [room #160 score 7 turn 295]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates northwest.
+
+>>>> push red panel [room #160 score 7 turn 296]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates north.
+The mirror quietly swings shut.
+
+>>>> lower short pole [room #160 score 7 turn 297]
+The pole is lowered into the channel.
+
+>>>> push mahogany panel [room #160 score 7 turn 298]
+The structure slides north and stops over another compass rose.
+
+>>>> push pine panel [room #160 score 7 turn 299]
+The pine wall swings open.
+
+>>>> out [room #160 score 7 turn 300]
+As you leave, the door swings shut.
+Hallway
+This is a part of the long hallway. The east and west walls are dressed stone. In the center of the hall is a shallow stone channel. In the center of the room the channel widens into a large hole around which is engraved a compass rose.
+The north side of the room is divided by a wooden wall into small hallways to the northeast and northwest.
+The corridor continues south.
+
+>>>> northwest [room #113 score 7 turn 301]
+Narrow Room
+You are in a narrow room, whose east wall is a large mirror.
+The opposite wall is solid rock.
+Somewhat to the north, identical stone statues face each other from pedestals on opposite sides of the corridor. The statues represent Guardians of Zork, a military order of ancient lineage. They are portrayed as heavily armored warriors clasping formidable bludgeons.
+
+SHOT route-narrow-58 room=58 scene=z3_narrow_mirror_guardians_north title=Narrow Room dark=0 pages=3 room targets= 106:Mirror; 29:Panel; 152:Guardians of Zork;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=58 score=7 moves=302

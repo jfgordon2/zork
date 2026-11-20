@@ -1,0 +1,16 @@
+
+>>>> enter gold machine [room #176 score 4 turn 166]
+You are now in the gold machine.
+
+>>>> set dial to 947 [room #176 score 4 turn 167]
+The dial is set to 947.
+
+>>>> push button [room #176 score 4 turn 168]
+You experience a brief period of disorientation. When your vision returns, your surroundings appear somewhat altered.
+You notice that everything in the machine is gone: come to mention it, everything you were holding has vanished too!
+
+SHOT result-947 room=5 scene=technology_museum title=Technology Museum dark=0 pages=2 room targets= 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=5 score=4 moves=170

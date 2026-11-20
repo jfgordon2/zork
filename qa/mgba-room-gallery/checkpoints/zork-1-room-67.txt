@@ -1,0 +1,9 @@
+# Zork 1 room 67: winning-route fixture steps 1-87 (seed 7), then:
+n
+ne
+w
+# Arrived lit at room 67. Story text on arrival:
+#   Stream View
+#   You are standing on a path beside a gently flowing stream. The path follows the stream, which flows from west to east.
+#   
+#   >

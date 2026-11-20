@@ -1,0 +1,19 @@
+
+>>>> cross rainbow [room #125 score 215 turn 302]
+Can you walk on water vapor?
+
+>>>> cross rainbow [room #125 score 215 turn 303]
+Aragain Falls
+You are at the top of Aragain Falls, an enormous waterfall with a drop of about 450 feet. The only path here is on the north end.
+A solid rainbow spans the falls.
+
+SHOT rainbow-crossed room=47 scene=aragain_falls title=Aragain Falls dark=0 pages=2 room targets= 6:Water; 226:River; 59:Rainbow;
+
+>>>> cross rainbow [room #47 score 215 turn 304]
+End of Rainbow
+At the end of the rainbow is a pot of gold.
+
+SHOT rainbow-return room=125 scene=end_of_rainbow title=End of Rainbow dark=0 pages=1 room targets= 154:Pot of gold; 6:Water; 59:Rainbow; 226:River;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=125 score=215 moves=305

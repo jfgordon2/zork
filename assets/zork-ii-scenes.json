@@ -1,0 +1,2397 @@
+{
+  "generator": "Built-in ImageGen",
+  "rules": "SCENERY_RULES.md",
+  "generation_policy": "Generate and review a small connected set before expanding. Correct failed architecture before integration.",
+  "backgrounds": [
+    {
+      "name": "crypt",
+      "rooms": [
+        125
+      ],
+      "asset": "z2_crypt.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "well_bottom",
+      "rooms": [
+        119
+      ],
+      "asset": "z2_well_bottom.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. One production background for Zork II, matching the references' late 16-bit hand-clustered pixel-art style, restrained colored edges without black ink outlines, atmospheric muted earth and slate tones, first-person camera. Single ultra-wide 2.35:1 scene, reduced to 240x102 in the game. Keep the important shapes between logical rows 10-85 and leave genuinely walkable foreground floor near rows 75-84 for dropped items. Strong readable landmarks at actual handheld scale. Lantern-compatible ambient illumination from the viewer outside frame unless stated otherwise. No HUD, borders, captions, logos, visible carried lamp, characters, creatures, or portable objects: these are drawn separately by the game. Bottom of a deep narrow circular brick-and-mortar WELL, not a grand hall. Camera inside its small round foot chamber. Damp curved brick wall and faint abstract etchings. The roof is lost in darkness above. A WEST opening at left. Leave the round floor center-right empty for a separate three-foot wooden bucket sprite. Glimpse dark shaft walls continuing up at top. Slate brick, damp amber-brown mortar.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-8c1a752a-dd55-465a-a43f-7f4c5a01e15f.png"
+    },
+    {
+      "name": "well_top",
+      "rooms": [
+        8
+      ],
+      "asset": "z2_well_top.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          180,
+          84
+        ],
+        [
+          212,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. One production background for Zork II, matching the references' late 16-bit hand-clustered pixel-art style, restrained colored edges without black ink outlines, atmospheric muted earth and slate tones, first-person camera. Single ultra-wide 2.35:1 scene, reduced to 240x102 in the game. Keep the important shapes between logical rows 10-85 and leave genuinely walkable foreground floor near rows 75-84 for dropped items. Strong readable landmarks at actual handheld scale. Lantern-compatible ambient illumination from the viewer outside frame unless stated otherwise. No HUD, borders, captions, logos, visible carried lamp, characters, creatures, or portable objects: these are drawn separately by the game. Top landing of the SAME narrow circular brick-and-mortar well. Camera on a compact upper brick landing looking obliquely DOWN into a round open shaft at left-center, brick courses continuing below; faint wall etchings. An EAST doorway at right toward a warm tea room. A SMALL shallow crack runs across that threshold, easily stepped over by a normal human. Walkable foreground stone on both sides, reserve clear near-right landing for items. A stout timber hoist spans the shaft: its two feet rest on the far leftmost and rightmost edges of the stone curb, with a level crossbeam, centered pulley, and rope descending into the opening. Do not show a bucket; the moving bucket is drawn separately.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-0e93bc37-6b59-4b15-8f0c-dc1b6a1c8796.png"
+    },
+    {
+      "name": "posts",
+      "rooms": [
+        122
+      ],
+      "asset": "z2_posts.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. One production background for Zork II, matching the references' late 16-bit hand-clustered pixel-art style, restrained colored edges without black ink outlines, atmospheric muted earth and slate tones, first-person camera. Single ultra-wide 2.35:1 scene, reduced to 240x102 in the game. Keep the important shapes between logical rows 10-85 and leave genuinely walkable foreground floor near rows 75-84 for dropped items. Strong readable landmarks at actual handheld scale. Lantern-compatible ambient illumination from the viewer outside frame unless stated otherwise. No HUD, borders, captions, logos, visible carried lamp, characters, creatures, or portable objects: these are drawn separately by the game. Shrunken first-person view UNDER the exact greenish oak oblong tea table in the style reference. Its FOUR enormous squared wooden legs now resemble tall wooden posts, the underside of the table forms a vast dark wooden ceiling, all furniture gigantic. The stone floor's normal cracks now form deep gaping narrow chasms toward WEST and NORTHWEST at left. At right a small mousehole in the masonry has become a walkable eastern tunnel. No normal-size table, chairs or household objects.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-86a8d2d0-7c88-4bdc-94e3-8eb3eeff8c78.png"
+    },
+    {
+      "name": "closet",
+      "rooms": [
+        54
+      ],
+      "asset": "z2_closet.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. One production background for Zork II, matching the references' late 16-bit hand-clustered pixel-art style, restrained colored edges without black ink outlines, atmospheric muted earth and slate tones, first-person camera. Single ultra-wide 2.35:1 scene, reduced to 240x102 in the game. Keep the important shapes between logical rows 10-85 and leave genuinely walkable foreground floor near rows 75-84 for dropped items. Strong readable landmarks at actual handheld scale. Lantern-compatible ambient illumination from the viewer outside frame unless stated otherwise. No HUD, borders, captions, logos, visible carried lamp, characters, creatures, or portable objects: these are drawn separately by the game. Dingy tiny brick storage closet adjoining an abandoned mechanical machine room. A single doorway leading SOUTH on the left rear, a scuffed low stone pedestal at right for a separate red crystal sphere. Plain unadorned low masonry ceiling and close-set walls. Keep a broad empty flat floor for a robust robot and a steel trap cage to be drawn by the game, centered around x=130. No robot, sphere or cage in this clean base scene.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-efa6e00c-4507-42b1-bfed-610874ce75b8.png"
+    },
+    {
+      "name": "narrow_tunnel",
+      "rooms": [
+        168
+      ],
+      "asset": "z2_narrow_tunnel.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          20,
+          85
+        ],
+        [
+          220,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Narrow Tunnel\nYou are standing at the southern end of a narrow tunnel where it opens into a wide cavern. The cavern is dimly illuminated by phosphorescent mosses clinging to its high ceiling. A deep ravine winds through the cavern, with a small stream at the bottom. The walls of the ravine are steep and crumbly. A foot bridge crosses the ravine to the south.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "foot_bridge",
+      "rooms": [
+        21
+      ],
+      "asset": "z2_foot_bridge.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          94,
+          85
+        ],
+        [
+          150,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Foot Bridge\nYou are standing on a crude but sturdy wooden foot bridge crossing a deep ravine. The path runs north and south from here.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "shallow_ford",
+      "rooms": [
+        53
+      ],
+      "asset": "z2_shallow_ford.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          45,
+          85
+        ],
+        [
+          194,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Shallow Ford\nYou are at the southern edge of a great cavern. To the south across a shallow ford is a dark tunnel which looks like it was once enlarged and smoothed. To the north a narrow path winds among stalagmites. Dim light illuminates the cavern.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "dark_tunnel",
+      "rooms": [
+        158
+      ],
+      "asset": "z2_dark_tunnel.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Dark Tunnel\nThis is a dark tunnel with dim light to the northeast. The tunnel is smooth but dusty and filled with twigs and leaves, debris which becomes deeper as the tunnel branches into a wide corridor leading southwest and a narrower one leading southeast.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "garden_north",
+      "rooms": [
+        234
+      ],
+      "asset": "z2_garden_north.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "North End of Garden\nThis is the northern end of a formal garden. Hedges hide the cavern walls, and if you don't look up, the illusion is of a cloudy day outside. The light comes from a large growth of glowing mosses on the roof of the cave. A break in the hedge is almost overgrown to the north. A carefully manicured path leads south. In the center of a rosebed is a small open structure, painted white. It appears to be a gazebo.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "gazebo",
+      "rooms": [
+        16
+      ],
+      "asset": "z2_gazebo.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          120,
+          85
+        ],
+        [
+          185,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Gazebo\nThis is a gazebo in the midst of a formal garden. It is cool and restful here. A tea table adorns the center of the gazebo.\nSitting on the table is: \n  A china teapot\n  A place mat\n  A newspaper\n  A letter opener\n  A matchbook",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "stream_path",
+      "rooms": [
+        212
+      ],
+      "asset": "z2_stream_path.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Path Near Stream\nThe path follows the south edge of a deep ravine and heads northeast. A tunnel heads southwest, narrowing to a rather tight crawl. A faint whirring sound can be heard in that direction. On the east is a ruined archway choked with vegetation.",
+      "prompt": "Use case: precise-object-edit. Change ONLY the SMALL dark crawlway at the far RIGHT of this Zork II ravine-path image. It is currently an implausibly tiny animal hole. Enlarge it into a HUMAN CRAWLWAY: approximately THREE FEET HIGH and THREE FEET WIDE, half the clear height of the large six-foot human tunnel in the middle, and large enough for an adult on hands and knees with a backpack. It must be visibly LARGER than the current hole, about 26 pixels wide and 20 pixels high in the final 240x102 composition. Its floor must be FLUSH with the adjacent main path, with a continuous dirt strip leading into its interior. No raised sill, no trench or drop into it. Keep a rough rock lintel and low natural ceiling. Leave the large central passage, right ruined arch, stream far below at left, camera, continuous path, geology, colors, light and 16-bit clustered pixels unchanged. The whole setting remains UNDERGROUND, no sky or forest. No people, props or UI.",
+      "prompt_status": "Preserved generation or final edit prompt"
+    },
+    {
+      "name": "pearl_room",
+      "rooms": [
+        38
+      ],
+      "asset": "z2_pearl_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Pearl Room\nThis is a former broom closet. The exits are to the east and west.\nThere is a pearl necklace here with hundreds of large pearls.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "pool",
+      "rooms": [
+        82
+      ],
+      "asset": "z2_pool.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          55,
+          85
+        ],
+        [
+          193,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Pool Room\nThis is a large room, one half of which is depressed. Salty water flows from a large leak in the ceiling. The only exit is to the west.\nThe leak has submerged the depressed area in a pool of tears. There is a hazy something at the deepest part of the pool.\nA stoppered glass flask with a skull-and-crossbones marking is here. The flask is filled with some clear liquid.",
+      "prompt": "Edit the dry-basin view: fill its depression with shallow blue-green salt water. Preserve the ceiling leak, western exit, camera, walls and floor. No window, candy, cake, flask or props.",
+      "prompt_status": "Reconstructed edit recipe; native PNG is authoritative.",
+      "generated_source": "exec-b876ff7c-9f84-4694-b80a-07ce5915eda4.png"
+    },
+    {
+      "name": "low_room",
+      "rooms": [
+        187
+      ],
+      "asset": "z2_low_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Low Room\nYou are in a circular room with a low ceiling. There are exits to the east and southeast.\nThere is a robot here.\nThere is a green piece of paper here.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "cobweb_corridor",
+      "rooms": [
+        206
+      ],
+      "asset": "z2_cobweb_corridor.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Cobwebby Corridor\nA winding corridor is filled with cobwebs. Some are broken and the dust on the floor is disturbed. The trend of the twists and turns is northeast to southwest. On the north side of one twist, high up, is a narrow crack.\nThere is a coil of black, braided string here.",
+      "prompt": "Use case: precise-object-edit. Repair the architecture of this exact 240x102-style Zork II COBWEBBY CORRIDOR. Keep the same winding underground masonry corridor, subdued lantern palette, eye-level camera and clustered 16-bit style. The story describes ONE winding corridor trending northeast/southwest, with cobwebs, disturbed floor dust, and a NARROW CRACK high up on the north side of one twist. The large LEFT arched opening must extend ALL THE WAY DOWN to the continuous corridor floor: REMOVE all solid masonry below its opening. Draw the existing dusty paving continuously from the foreground through the left arch and into its passage, at the same floor level, with a visible floor strip inside the arch. No raised sill, solid wall beneath the doorway, inaccessible platform or floating path. The SMALLER upper arch just to its right is wrongly a door: replace that entire small elevated arch with a very thin irregular vertical ROCK CRACK, clearly too narrow to be a human entrance, as specified by the story. The main corridor turns away to the right on the same continuous floor. Do not add more doors or stairs. No people, portable objects, text, UI or borders.",
+      "prompt_status": "Preserved generation or final edit prompt"
+    },
+    {
+      "name": "guarded_room",
+      "rooms": [
+        28
+      ],
+      "asset": "z2_guarded_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Guarded Room\nThis room is cobwebby and musty, but tracks in the dust show that it has seen visitors recently. At the south end of the room is a stained and battered (but very strong-looking) door. To the north, a corridor exits.\nImbedded in the door is a nasty-looking lizard head, with sharp teeth and beady eyes. The lizard is sniffing at you.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "topiary",
+      "rooms": [
+        218
+      ],
+      "asset": "z2_topiary.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Topiary\nThis is the southern end of a formal garden. Hedges hide the cavern walls and mosses provide dim illumination. Fantastically shaped hedges and bushes are arrayed with geometric precision. They have not recently been clipped, but you can discern creatures in the shapes of the bushes: There is a dragon, a unicorn, a great serpent, a huge misshapen dog, and several human figures. On the west side of the garden the path leads through a rose arbor into a tunnel.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "formal_garden",
+      "rooms": [
+        157
+      ],
+      "asset": "z2_formal_garden.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Formal Garden\nThis is the middle part of a formal garden. Hedges hide the cavern walls and a dim illumination comes from mosses far above. The path is of small crushed white stones. It winds among bushes and flower beds from south to north. To the north a small structure can be seen. To the south are peculiarly shaped bushes. There is a small gap in the hedges to the west.\nA strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.\nHe mutters something (muffled by his beard) and disappears as suddenly as he came.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "marble_hall",
+      "rooms": [
+        30
+      ],
+      "asset": "z2_marble_hall.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Marble Hall\nThis is an arched hall of fine marble. The hall stops abruptly to the north at a ford across a stream, where the marble is cracked and broken. Perhaps a flood or collapse of the cave was responsible. To the south the hall opens into a large room. There is rather annoying whirring sound coming from that room.\nThere is a square brick here which feels like clay.",
+      "prompt": "Use case: precise-object-edit. Change ONLY the environment beyond the central arch in this Zork II marble hall. This is UNDERGROUND inside a limestone cavern, not outside. Replace ALL the forest trees, woodland and apparent daylight beyond the arch with tall cool shadowed LIMESTONE RAVINE WALLS and a very SMALL underground stream ford. Keep the existing excellent continuous marble floor, flat accessible arch threshold, broken-marble near bank and gentle stepping stones at ground level exactly as they are. No new sill, stairs, raised door or gap. Moss high on cave walls gives faint dim light. Preserve marble architecture, left passage, plain right wall, eye-level camera, palette and crisp clustered 16-bit game style. No figures, loose objects, text or UI.",
+      "prompt_status": "Preserved generation or final edit prompt"
+    },
+    {
+      "name": "deep_ford",
+      "rooms": [
+        231
+      ],
+      "asset": "z2_deep_ford.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          22,
+          85
+        ],
+        [
+          218,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Deep Ford\nYou are fording the stream at a deep but not impossible spot. The water is very cold. The walls of the ravine rise to east and west. There is a small ledge along the north wall of the ravine. To the south is the entrance to a well-constructed but somewhat ruined hall.",
+      "prompt": "Use case: precise-object-edit. Correct the geography in this Zork II Deep Ford. Keep the underground cold limestone ravine, clear fordable stream and clustered 16-bit style, BUT rebuild the opposite bank. Camera looks NORTH across the small ford. REMOVE the enormous marble entrance and the high horizontal cliff-top path entirely; the marble hall is SOUTH BEHIND the viewer and not visible in this view. Instead the far/north bank is a natural LOW ROCK LEDGE only about three feet above water, with obvious rough handholds and footholds forming a short easy scramble from the ford up onto it. The same low ledge extends WEST/left along the wall. No door in this bank, no steps or artificial ramp. The foreground is shallow rocky water one can wade across, with dry near stones at edges for items. The ledge must be close to the stream's bottom level, NOT ten feet or a cliff top above it. Continuous physically usable ford to scramble to ledge. Cavern walls rise to both sides; no sky, forest, active lava, people, props, labels or UI.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-a2e81c4d-b11d-4308-b825-f21f237e756e.png"
+    },
+    {
+      "name": "ravine_ledge",
+      "rooms": [
+        124
+      ],
+      "asset": "z2_ravine_ledge.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          104,
+          85
+        ],
+        [
+          185,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Ledge in Ravine\nYou are on a narrow ledge near the bottom of a deep ravine. The ledge continues to the west. A precarious climb up to another tiny ledge is possible. A short scramble down the rock face leads to a stream.",
+      "prompt": "Use case: precise-object-edit. Correct this Zork II Ledge in Ravine to the actual story: 'You are on a narrow ledge near the bottom of a deep ravine. The ledge continues to the west. A precarious climb up to another tiny ledge is possible. A short scramble down the rock face leads to a stream.' Keep the underground limestone and 16-bit palette but rebuild height and access. Put camera on the LOW ledge only about three feet ABOVE the small cold stream visible at LEFT, not a high cliff over a deep gorge. A continuous narrow level walking ledge runs WEST/left around the wall. Remove the current ordinary doorway at right entirely. Instead a rough rock-face route with visible handholds/footholds climbs UP about one human height on the right to a separate TINY upper ledge and small cave mouth into Tiny Room. It is a precarious rock climb, NOT stairs, not a ramp, not a floating door. Show the short scramble DOWN to the stream at near-left as obvious worn footholds. Flat solid near ledge for standing and dropped items. No other doorways, bridges, people or UI.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-bcae490c-ab16-46ed-922f-47db7baf2a4f.png"
+    },
+    {
+      "name": "tiny_room",
+      "rooms": [
+        46
+      ],
+      "asset": "z2_tiny_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Tiny Room\nThis is a tiny room carved out of the wall of the ravine. There is an exit down a precarious climb. On the north side of the room is a massive wooden door, which has a small window barred with iron. A formidable bolt lock is set within the door frame. A keyhole covered by a thin metal lid lies within the lock.",
+      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+    },
+    {
+      "name": "dreary_room",
+      "rooms": [
+        59
+      ],
+      "asset": "z2_dreary_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Dreary Room\nThis is a small and rather dreary room, eerily illuminated by a red glow emanating from a crack in one wall. The light falls upon a dusty wooden table in the center of the room. On the south side of the room is a massive wooden door, which has a small window barred with iron. A formidable bolt lock is set within the door frame. A keyhole lies within the lock.\nIn the center of the table sits a blue crystal sphere.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Dreary Room\nThis is a small and rather dreary room, eerily illuminated by a red glow emanating from a crack in one wall. The light falls upon a dusty wooden table in the center of the room. On the south side of the room is a massive wooden door, which has a small window barred with iron. A formidable bolt lock is set within the door frame. A keyhole lies within the lock.\nIn the center of the table sits a blue crystal sphere.\nCOMPOSITION: The same massive oak door as reference, seen from its REVERSE side in the SOUTH wall, now at LEFT around x=45, flush threshold at y=78. Same barred window IN the door, formidable bolt lock and keyhole, reversed hinge placement. A LARGE DUSTY WOODEN TABLE stands in center-right, tabletop broad and empty around x=100..187 y=56..67 for a separate blue sphere; show legs meeting floor, no sphere in art. Narrow crack in RIGHT wall emits the story's eerie RED GLOW. No extra door, separate barred wall-window, fire source or furnishings.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-e79d294d-db26-43f3-a804-1852537c9a0e.png"
+    },
+    {
+      "name": "end_ledge",
+      "rooms": [
+        171
+      ],
+      "asset": "z2_end_ledge.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "End of Ledge\nA ledge from the east ends here, and a tunnel leads north into the wall. There is a rather odd smokey odor in the warm air of the tunnel.\nYour sword is glowing with a faint blue glow.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. End of a narrow high limestone ledge ABOVE the same deep small-stream ravine. Rough carved stair path climbs UP to a warm volcanic stone room through an arch, ledge trails back east, steep drop on outer left. Stable broad near foreground limestone. Distinct end of ledge, not interior cave.\nStory authority (portable contents will be separate sprites): End of Ledge\nA ledge from the east ends here, and a tunnel leads north into the wall. There is a rather odd smokey odor in the warm air of the tunnel.\nYour sword is glowing with a faint blue glow.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-61e3e7b7-c978-49bd-9b82-8eec737b5107.png"
+    },
+    {
+      "name": "stone_bridge",
+      "rooms": [
+        80
+      ],
+      "asset": "z2_stone_bridge.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          85,
+          85
+        ],
+        [
+          164,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Stone Bridge\nThis is the middle of a ruined but still impressive stone bridge spanning a deep chasm. Water flows far beneath. A paved path leads north into a large open space. To the south, the path leads into a misty tunnel.\nThe dragon follows you, out of mingled curiosity and anger.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Stone Bridge\nThis is the middle of a ruined but still impressive stone bridge spanning a deep chasm. Water flows far beneath. A paved path leads north into a large open space. To the south, the path leads into a misty tunnel.\nThe dragon follows you, out of mingled curiosity and anger.\nCOMPOSITION: Camera stands ON the stone deck looking south toward the misty tunnel. The deck fills the lower half, with broken low parapets at its edges and water far beneath. Clear solid deck all across foreground for a following dragon. No water at deck level or gap at tunnel threshold.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-25c07c49-6ebc-408b-aba6-a61eddfe3e5d.png"
+    },
+    {
+      "name": "cool_room",
+      "rooms": [
+        172
+      ],
+      "asset": "z2_cool_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Cool Room\nThe room is cool and damp. The air is misty. A twisty path from the southeast splits here toward a wide northerly stone bridge, and a narrow westerly tunnel. It is from the latter that the mist and chill seem to originate.\nThe dragon follows you, out of mingled curiosity and anger.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Cool Room\nThe room is cool and damp. The air is misty. A twisty path from the southeast splits here toward a wide northerly stone bridge, and a narrow westerly tunnel. It is from the latter that the mist and chill seem to originate.\nThe dragon follows you, out of mingled curiosity and anger.\nCOMPOSITION: Camera faces the broad northern stone-bridge approach, whose deck is flush with the foreground basalt floor. A narrow western icy tunnel branches LEFT at the same floor level. The southeast path is behind viewer. Leave enough continuous basalt foreground for a large pursuing dragon. No additional portals or decorative pillars.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-212d61d5-00ec-4121-aca0-6920d08cfbc2.png"
+    },
+    {
+      "name": "ice_room",
+      "rooms": [
+        161
+      ],
+      "asset": "z2_ice_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Ice Room\nThis is a large hall of ancient lava, since worn smooth by the movement of a glacier. A large passage exits to the east and an upward lava tube is at the top of a jumble of fallen rocks.\nA mass of ice fills the western half of the room.\n\nAs the dragon enters, he sees his reflection on the icy surface of the glacier at its western end. He becomes enraged: There is another dragon here, behind that glass, he thinks! Dragons are smart, but sometimes naive, and this one has never seen ice before. He rears up to his full height to challenge this intruder into his territory. He roars a challenge! The intruder responds! The dragon takes a deep breath, and out of his mouth pours a massive gout of flame. It washes over the ice, which melts rapidly, sending out torrents of water and a huge cloud of steam! You manage to clamber up to a small shelf, but the dragon is terrified! A huge splash goes down his throat! There is a muffled explosion and the dragon, a puzzled expression on his face, dies. He is carried away by the water.\n\nWhen the flood recedes you climb gingerly down. While no trace of the dragon can be found, the melting of the ice has revealed a passage leading west.\nYour sword is no longer glowing.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: This is a large hall of ancient lava, since worn smooth by the movement of a glacier. A large passage exits to the east and an upward lava tube is at the top of a jumble of fallen rocks. A mass of ice fills the western half of the room.\nCOMPOSITION: This is the BEFORE state, glacier still present. Western/LEFT half of the lava hall is physically BLOCKED by a huge blue-white opaque glacier. The east passage at RIGHT meets the floor. An UPWARD lava tube is reached by the explicitly described fallen-rock scramble. Only solidified lava, no active fire or molten lava. Large clear basalt foreground for dragon; ice begins at its far edge.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-e38ba42a-acdd-4dc4-ae09-d92408cbf74f.png"
+    },
+    {
+      "name": "dragons_lair",
+      "rooms": [
+        201
+      ],
+      "asset": "z2_dragons_lair.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Dragon's Lair\nYou are in the dragon's lair, where the rock walls are scarred by flame. A blackened doorway leads to the south.\nA rotten old wooden chest is in one corner among the debris.\nA beautiful young woman, wearing a dirty and bedraggled gown, sits on a rock in the corner. Her hair is unkempt and she is oblivious to your presence, almost in a trance.\nYour sword has begun to glow very brightly.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Dragon's Lair\nYou are in the dragon's lair, where the rock walls are scarred by flame. A blackened doorway leads to the south.\nA rotten old wooden chest is in one corner among the debris.\nA beautiful young woman, wearing a dirty and bedraggled gown, sits on a rock in the corner. Her hair is unkempt and she is oblivious to your presence, almost in a trance.\nYour sword has begun to glow very brightly.\nCOMPOSITION: Distinct INNER lair, not the broad outer Dragon Room. A single SOUTH blackened doorway at LEFT meets floor. A small low dark rock seat near x=156,y=75 for princess's seated sprite (the sprite includes its own small rock, so keep this a low unobtrusive matching rock). Empty flat left-corner floor near x=77,y=77 for a removable rotten chest. Scorched walls, debris confined to edges; no dragon, person, chest, treasure or fire drawn.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-ec0223a8-993f-47f5-ac77-5f0505f51a30.png"
+    },
+    {
+      "name": "workshop",
+      "rooms": [
+        45
+      ],
+      "asset": "z2_workshop.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Wizard's Workshop\nYou are standing in the entry hall of the Wizard's Workshop. Dark corridors lead west and south from here. The corridor to the west smells slightly of incense or candle smoke. The workshop door is open.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Wizard's Workshop\nYou are standing in the entry hall of the Wizard's Workshop. Dark corridors lead west and south from here. The corridor to the west smells slightly of incense or candle smoke. The workshop door is open.\nCOMPOSITION: Entry hall/foyer ONLY, distinct from the workbench laboratory. Bare dark dressed stone, dark WEST corridor to incense-scented laboratory, SOUTH corridor to ritual room. The NORTH workshop door is at right: show its CLOSED state in this asset (the recorded entry description had it open). Back face of a battered strong oak door with iron straps, without lizard head on this side. Three routes total, all continuous at floor level. No workbench, furnishings or loose magical objects.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-616ace53-374e-4a8f-bd07-e18dbd0d58b1.png"
+    },
+    {
+      "name": "lava_tube",
+      "rooms": [
+        184
+      ],
+      "asset": "z2_lava_tube.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Lava Tube\nYou are in a tight chimney of solidified lava. It extends up at least another hundred feet and down to a large room far below. A large crack opens to the south, probably the result of a shift in the rock strata.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Lava Tube\nYou are in a tight chimney of solidified lava. It extends up at least another hundred feet and down to a large room far below. A large crack opens to the south, probably the result of a shift in the rock strata.\nCOMPOSITION: A natural steep old solidified-lava tube, no stone-built staircase. Show rough continuous rock footing along its slope; its top and bottom connections are part of the same passage. A foot scramble rather than a floating door. NO active magma, flame, red glow source or furniture.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-dc9bfe28-3c08-477d-9c9b-10ccf654e99e.png"
+    },
+    {
+      "name": "lava_room",
+      "rooms": [
+        15
+      ],
+      "asset": "z2_lava_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Lava Room\nThis is a small room, whose walls are formed by an old lava flow. There are exits here to the east and the south.\nOn the floor lies a moby ruby.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Lava Room\nThis is a small room, whose walls are formed by an old lava flow. There are exits here to the east and the south.\nOn the floor lies a moby ruby.\nCOMPOSITION: Small cooled-lava chamber, rippled basalt walls. The EAST opening is a dark, clear passage left after the glacier melted; no ice remains. The SOUTH opening leads toward the volcano. Same floor level through both entrances. No ruby baked in: leave a clear patch of dark foreground stone for it. NO active magma, flame or unmentioned light source.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-4f5166dd-9592-4f99-983a-4188abd9dd5b.png"
+    },
+    {
+      "name": "volcano_bottom",
+      "rooms": [
+        176
+      ],
+      "asset": "z2_volcano_bottom.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Volcano Bottom\nYou are at the bottom of a large dormant volcano. High above you light enters from the cone of the volcano. The only exit is to the north.\nThere is a large and extremely heavy wicker basket here. An enormous cloth bag is draped over the side and is firmly attached to the basket. A metal receptacle is fastened to the center of the basket. Dangling from the basket is a piece of braided wire.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Volcano Bottom\nYou are at the bottom of a large dormant volcano. High above you light enters from the cone of the volcano. The only exit is to the north.\nThere is a large and extremely heavy wicker basket here. An enormous cloth bag is draped over the side and is firmly attached to the basket. A metal receptacle is fastened to the center of the basket. Dangling from the basket is a piece of braided wire.\nCOMPOSITION: Camera stands ON the dormant volcano FLOOR, with cold basalt walls curving UP to a distant daylight cone. A NORTH tunnel at ground level, fully connected to the foreground. Broad clear dry floor reserved for a separate large balloon and for dropped items. Do not draw balloon, basket, flame, lava or artificial stairs.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-343f8492-2275-4388-b01d-43bac355fc76.png"
+    },
+    {
+      "name": "volcano_core",
+      "rooms": [
+        34
+      ],
+      "asset": "z2_volcano_core.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Dropped.\nThe balloon rises slowly from the ground.\n\nVolcano Core, in the basket\nYou are about one hundred feet above the bottom of the volcano. The top of the volcano is clearly visible here.\nThe cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.\nThe basket contains:\n  A blue label",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nAsset volcano_core. STORY: Dropped.\nThe balloon rises slowly from the ground.\n\nVolcano Core, in the basket\nYou are about one hundred feet above the bottom of the volcano. The top of the volcano is clearly visible here.\n\nCOMPOSITION: View FROM A BALLOON suspended inside huge dormant volcanic shaft, shortly above floor. Deep basalt circular walls curve around us, floor distant BELOW visible at lower center and pale daylight cone far above. NO walkable foreground cave floor. Leave lower view open for separate first-person wicker basket rim.\nAirborne viewpoint: no floor beneath camera, no wicker, vehicle, cables, fire or cargo baked in; all separately rendered. Reserve lower view for basket overlay.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-626f671c-981f-41ed-bcaa-cfdf26b67c78.png"
+    },
+    {
+      "name": "volcano_small",
+      "rooms": [
+        113
+      ],
+      "asset": "z2_volcano_small.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Time passes...\nThe balloon ascends.\n\nVolcano Near Small Ledge, in the basket\nYou are about two hundred feet above the volcano floor. Looming above is the rim of the volcano. There is a small ledge on the west side.\nThe cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.\nThe basket contains:\n  A blue label",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nAsset volcano_small. STORY: Time passes...\nThe balloon ascends.\n\nVolcano Near Small Ledge, in the basket\nYou are about two hundred feet above the volcano floor. Looming above is the rim of the volcano. There is a small ledge on the west side.\n\nCOMPOSITION: View FROM A FLOATING BALLOON halfway up dormant black basalt volcanic shaft, SMALL narrow rocky landing at WEST/left protrudes from wall, a small dark doorway into library visible on landing. Sheer void below and opposite curved wall far away. NO walkable near floor. Leave bottom clear for basket rim overlay.\nAirborne viewpoint: no floor beneath camera, no wicker, vehicle, cables, fire or cargo baked in; all separately rendered. Reserve lower view for basket overlay.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-cdaba647-bb0b-433e-8464-aa7df46ae4a3.png"
+    },
+    {
+      "name": "narrow_ledge",
+      "rooms": [
+        13
+      ],
+      "asset": "z2_narrow_ledge.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          115,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "The balloon lands.\nNarrow Ledge, in the basket\nYou are on a narrow ledge within an old dormant volcano. This ledge is about halfway between the floor below and the rim above. There is an exit to the south.\nThe cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.\nOn the floor is a priceless gold zorkmid (a valuable collector's item).\nThere is a small hook attached to the rock here. (outside the basket)\n  The basket contains:\n    A blue label",
+      "prompt": "Use case: precise-object-edit. Make a CLEAN BACKGROUND PLATE of this exact Zork II Narrow Ledge. Remove ONLY the large wicker basket and the gold coin. They are separate game objects that move and must disappear when taken or when the balloon departs. Reconstruct continuous matching bare basalt ledge floor in their places, preserving its perspective, edge, texture and shadows. Keep the south doorway at left completely unchanged and accessible at floor level, keep the small metal wall hook, and keep the dormant volcano shaft, rim light, cliffs, camera and native 16-bit pixel style exactly fixed. Do NOT draw any basket, balloon, cloth bag, coin, tether, person, treasure, caption or UI. Return the same single ultra-wide background.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-afb38cb8-b4d3-4cb5-a64f-ffe9bd1a3452.png"
+    },
+    {
+      "name": "library",
+      "rooms": [
+        136
+      ],
+      "asset": "z2_library.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Library\nThis must have been a large library, probably for the royal family. All of the shelves have been gnawed to pieces by unfriendly gnomes. To the north is an exit.\nRight beside the purple book sits a white one.\nWorn and battered in one corner of the room is a blue book.\nA handsome book, bound in green leather, sits in the center of the room.\nLying in the dust, and covered with mold, is a purple book.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Library\nThis must have been a large library, probably for the royal family. All of the shelves have been gnawed to pieces by unfriendly gnomes. To the north is an exit.\nRight beside the purple book sits a white one.\nWorn and battered in one corner of the room is a blue book.\nA handsome book, bound in green leather, sits in the center of the room.\nLying in the dust, and covered with mold, is a purple book.\nCOMPOSITION: Royal library is ruined: gnawed broken wooden shelving along walls, dusty cold basalt chamber in dormant volcano, one NORTH exit flush with floor. NO BOOKS baked into the background: the purple, white, green and blue books are separate removable sprites. Reserve empty broad dusty floor for those four books and other drops. No other doors, magical glows, whole intact bookcases or fire source.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-56fbf76d-7838-488e-950d-7196b0d099a4.png"
+    },
+    {
+      "name": "volcano_viewing",
+      "rooms": [
+        86
+      ],
+      "asset": "z2_volcano_viewing.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Time passes...\nThe balloon ascends.\n\nVolcano by Viewing Ledge, in the basket\nYou are high above the floor of the volcano. The rim of the volcano looks very narrow and you are very near it. To the east is what appears to be a viewing ledge, too thin to land on.\nThe cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.\nThe basket contains:\n  A blue label",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nCORRECTION: The volcano is OLD AND DORMANT. Remove ALL molten lava, glowing fissures, flame and smoke; make the distant bottom cold dark solid basalt. High airborne camera near the rim. EAST right side has a thin projecting viewing shelf TOO NARROW TO LAND a balloon; preserve that distinction. No near foreground floor. Rock muted violet slate and earth like reference, cool pale daylight above.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-83aeed1b-084d-4fab-9dd1-e7dd99c432c2.png"
+    },
+    {
+      "name": "volcano_wide",
+      "rooms": [
+        177
+      ],
+      "asset": "z2_volcano_wide.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Time passes...\nThe balloon ascends.\n\nVolcano Near Wide Ledge, in the basket\nYou are near the rim of the volcano. Above you it is open to the sky. To the west, there is a place to land on a wide ledge.\nThe cloth bag is inflated and there is a newspaper burning in the receptacle. A braided wire is dangling over the side of the basket.\nThe basket contains:\n  A blue label",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nNew connected view at a HIGHER elevation, near the open rim of the SAME DORMANT volcano. Wide WEST left-hand rocky ledge offers room to land a balloon, with South doorway set in rock and continuous supported ground meeting doorway. Rim sky only a narrow pale opening at top. Deep empty cold basalt shaft below. No lava, fire, smoke, vegetation, characters, baskets, hooks or objects. No near foreground floor.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-caa0c8ac-fb16-4000-abe6-5a577187a310.png"
+    },
+    {
+      "name": "wide_ledge",
+      "rooms": [
+        143
+      ],
+      "asset": "z2_wide_ledge.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "The balloon lands.\nWide Ledge, in the basket\nYou are on a wide ledge high in the volcano. The rim of the volcano is about 200 feet above and there is a precipitous drop to the bottom. There is a small door to the south.\nThere is a small hook attached to the rock here. (outside the basket)\n  The basket contains:\n    A blue label",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: The balloon lands.\nWide Ledge, in the basket\nYou are on a wide ledge high in the volcano. The rim of the volcano is about 200 feet above and there is a precipitous drop to the bottom. There is a small door to the south.\nThere is a small hook attached to the rock here. (outside the basket)\n  The basket contains:\n    A blue label\nCOMPOSITION: Camera stands ON broad WEST ledge near the volcano rim. A SOUTH doorway at LEFT enters dusty safe room, threshold meets ledge floor. Deep shaft beyond outer RIGHT edge. Wide stable foreground landing for basket and dropped items, a small rock hook. No vehicle or artificial bridge, no lava.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-6254a410-553f-464c-bc06-2b514bb9a9d5.png"
+    },
+    {
+      "name": "dusty_room",
+      "rooms": [
+        182
+      ],
+      "asset": "z2_dusty_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Dusty Room\nYou are in a dusty old room which is featureless, except for an exit on the north side.\nImbedded in the far wall is a rusty box. It appears to be somewhat damaged, since an oblong hole has been chipped out of the front of it.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Dusty Room\nYou are in a dusty old room which is featureless, except for an exit on the north side.\nImbedded in the far wall is a rusty box. It appears to be somewhat damaged, since an oblong hole has been chipped out of the front of it.\nCOMPOSITION: Small dusty old room, NORTH exit behind viewer. Rusty rectangular safe/BOX is IMBEDDED in the far wall, closed door slightly damaged. Crucially the OBLONG HOLE has been chipped out of the FRONT OF THE BOX DOOR, not above it or in the wall. Put the safe front around x=150..197,y=35..70 with the small oblong hole around x=171,y=54. This hole admits a small clay brick/fuse sprite drawn separately. Empty near floor. No crown, card, explosive, fuse, furnishings, warning sign or active flame.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-acd37d50-3fab-460a-9a58-c89577d48828.png"
+    },
+    {
+      "name": "fresco_room",
+      "rooms": [
+        141
+      ],
+      "asset": "z2_fresco_room.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Fresco Room\nA path leads east-west through a room decorated with beautiful frescoes of someone battling dragons and rescuing fair maidens. It is hard to tell who is doing this as those parts of the frescoes have been blackened and cracked by intense heat.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Fresco Room\nA path leads east-west through a room decorated with beautiful frescoes of someone battling dragons and rescuing fair maidens. It is hard to tell who is doing this as those parts of the frescoes have been blackened and cracked by intense heat.\nCOMPOSITION: An east-west passage with faded frescoes of someone BATTLING DRAGONS and RESCUING MAIDENS. Those are PAINTED representations only; the faces and identities are BLACKENED AND CRACKED by intense heat. Charred red-ochre plaster on gray stone, side passages toward dragon cave and bank. All exit thresholds meet floor. No actual living characters, furniture, words or loose props.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-df77fbf5-b47a-4feb-b99d-cbf70f24e393.png"
+    },
+    {
+      "name": "bank_entrance",
+      "rooms": [
+        92
+      ],
+      "asset": "z2_bank_entrance.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Bank Entrance\nThis is the entrance hall of the Bank of Zork, the largest banking institution of the Great Underground Empire. A partial account of its history is in \"The Lives of the Twelve Flatheads,\" in the chapter on J. Pierpont Flathead. A more detailed history (albeit less objective) may be found in Flathead's outrageous autobiography \"I'm Rich and You Aren't - So There!\". Most of the furniture has been ravaged by passing scavengers. All that remains are two signs at the northwest and northeast corners of the room, which say:\n\n    <--  VIEWING ROOMS  -->\n\nThe way out (ornate but tasteful) is to the east.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Bank Entrance\nThis is the entrance hall of the Bank of Zork, the largest banking institution of the Great Underground Empire. A partial account of its history is in \"The Lives of the Twelve Flatheads,\" in the chapter on J. Pierpont Flathead. A more detailed history (albeit less objective) may be found in Flathead's outrageous autobiography \"I'm Rich and You Aren't - So There!\". Most of the furniture has been ravaged by passing scavengers. All that remains are two signs at the northwest and northeast corners of the room, which say:\n\n    <--  VIEWING ROOMS  -->\n\nThe way out (ornate but tasteful) is to the east.\nCOMPOSITION: Vandalized civic green-gray masonry, room largely stripped of furniture. TWO clear corner passages at northwest and northeast with small blank sign plaques above them for Viewing Rooms labels. An ornate but tasteful EAST exit on right side. All three entrances join one continuous level floor with visibly passable thresholds. No arches on floating platforms, counters, cash or people.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-19ffb75f-a610-43e3-8e5a-0b72b2b65476.png"
+    },
+    {
+      "name": "west_teller",
+      "rooms": [
+        152
+      ],
+      "asset": "z2_west_teller.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "West Teller's Room\nYou are in a small room, which was used by a bank officer who retrieved safety deposit boxes for the customer. On the north side of the room is a sign which reads  \"Viewing Room\". On the west side of the room, above an open door, is a sign reading:\n\n          BANK PERSONNEL ONLY",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: West Teller's Room\nYou are in a small room, which was used by a bank officer who retrieved safety deposit boxes for the customer. On the north side of the room is a sign which reads  \"Viewing Room\". On the west side of the room, above an open door, is a sign reading:\n\n          BANK PERSONNEL ONLY\nCOMPOSITION: Small bare WEST teller room in green-gray squared bank masonry, no remaining furniture. NORTH doorway toward viewing room has a plain small blank sign plaque. WEST doorway toward personnel area is at left, with a blank sign plaque above. Both sills meet the flat continuous stone floor. Two doorways only, no counters or deposit boxes.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-d265cfed-ac17-42ef-88af-2996683fe36d.png"
+    },
+    {
+      "name": "chairman",
+      "rooms": [
+        49
+      ],
+      "asset": "z2_chairman.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Chairman's Office\nThis room was the office of the Chairman of the Bank of Zork. Like the other rooms here, it has been extensively vandalized. The lone exit is to the north.\nA portrait of J. Pierpont Flathead hangs on the wall.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Chairman's Office\nThis room was the office of the Chairman of the Bank of Zork. Like the other rooms here, it has been extensively vandalized. The lone exit is to the north.\nA portrait of J. Pierpont Flathead hangs on the wall.\nCOMPOSITION: Vandalized bare bank office, a single NORTH exit at left meets continuous floor. Blank RIGHT wall space x=155..195, y=22..60 for a removable framed portrait sprite. Empty floor beneath; no painting, frame, furniture or extra door baked in.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-731dcde5-9755-4e5a-aee3-d0a05c3195dc.png"
+    },
+    {
+      "name": "east_teller",
+      "rooms": [
+        243
+      ],
+      "asset": "z2_east_teller.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "East Teller's Room\nYou are in a small room, which was used by a bank officer who retrieved safety deposit boxes for the customer. On the north side of the room is a sign which reads  \"Viewing Room\". On the east side of the room, above an open door, is a sign reading:\n\n          BANK PERSONNEL ONLY",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: East Teller's Room\nYou are in a small room, which was used by a bank officer who retrieved safety deposit boxes for the customer. On the north side of the room is a sign which reads  \"Viewing Room\". On the east side of the room, above an open door, is a sign reading:\n\n          BANK PERSONNEL ONLY\nCOMPOSITION: Small bare EAST teller room, matching the WEST teller's green-gray masonry. NORTH doorway toward viewing room, EAST doorway at right toward personnel area; small blank sign plaques above both. Both sills meet the flat continuous stone floor. Two doorways only, no furniture, counters or deposit boxes.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-308b79c5-b9bd-4ea2-a1ec-3f3217f8b301.png"
+    },
+    {
+      "name": "east_viewing",
+      "rooms": [
+        102
+      ],
+      "asset": "z2_east_viewing.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "You feel somewhat disoriented as you pass through...\n\nEast Viewing Room\nThis room was used by holders of safety deposit boxes to view their contents. On the north side of the room is a sign which says\n\n\"Remain here while the teller retrieves your safety deposit box. When you are finished, leave the box, and exit to the south. Safety deposit boxes cannot be removed from this room!\n\nThank You for Banking at the Zork!\"",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: You feel somewhat disoriented as you pass through...\n\nEast Viewing Room\nThis room was used by holders of safety deposit boxes to view their contents. On the north side of the room is a sign which says\n\n\"Remain here while the teller retrieves your safety deposit box. When you are finished, leave the box, and exit to the south. Safety deposit boxes cannot be removed from this room!\n\nThank You for Banking at the Zork!\"\nCOMPOSITION: Small bare bank viewing room with a large plain sign plaque on NORTH wall. Camera faces NORTH; SOUTH doorway is behind viewer and not drawn as a false north exit. Smooth unbroken side walls fit magical wall travel, flat unobstructed floor. No furniture, boxes, extra doors or portrait.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-7bd74ee6-cc23-4c27-bedb-27ae864a9731.png"
+    },
+    {
+      "name": "room8",
+      "rooms": [
+        207
+      ],
+      "asset": "z2_room8.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Room 8\nThis is a small chamber carved out of the rock at the end of a short crawl. On the wall is crudely chiseled the number \"8\".\nA spray can is in the corner. In large type is the legend \"Frobozz Magic Grue Repellent\".",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Room 8\nThis is a small chamber carved out of the rock at the end of a short crawl. On the wall is crudely chiseled the number \"8\".\nA spray can is in the corner. In large type is the legend \"Frobozz Magic Grue Repellent\".\nCOMPOSITION: SMALL chamber CARVED IN NATURAL ROCK at end of a short human crawl, unrelated to the bank. One LOW HUMAN CRAWLWAY at far left flush with floor, large enough for an adult on hands and knees, not an animal hole. Bare back rock wall for the number 8 to be drawn by the game. Spray can is a separate sprite on floor in right corner. No shelf, other doors, can, artificial masonry or number baked in.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-68346cc8-9d05-4e13-958d-80fd95c5d544.png"
+    },
+    {
+      "name": "kennel",
+      "rooms": [
+        128
+      ],
+      "asset": "z2_kennel.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Kennel\nThis room looks like it was once a kennel for a very large dog (some of the bones would fit a dinosaur). It apparently hasn't been used for a long time, as the dust is fairly thick all over. The only exit is northeast.\nA gigantic dog collar, large enough for three rhinoceros-sized dogs, is lying amidst the debris.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. STORY AUTHORITY: Kennel\nThis room looks like it was once a kennel for a very large dog (some of the bones would fit a dinosaur). It apparently hasn't been used for a long time, as the dust is fairly thick all over. The only exit is northeast.\nA gigantic dog collar, large enough for three rhinoceros-sized dogs, is lying amidst the debris.\nCOMPOSITION: A large ancient kennel for a truly HUGE dog. Dinosaur-sized old chewed bones along edges, deep dust and scratches. ONE northeast passage at right, floor continuous through it. Leave cleared near foreground for gigantic dog collar, drawn separately. Match the neighboring gray limestone quarry/Menhir Room. No dog, collar, furniture, other exits or door at raised height.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-a6e1c1db-1666-41e1-b66d-4992a537b9d7.png"
+    },
+    {
+      "name": "marble_stairway",
+      "rooms": [
+        240
+      ],
+      "asset": "z2_marble_stairway.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Stairway\nA marble stairway leads down into the gloom and a passage leads north.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory room240 Stairway: A marble stairway leads DOWN into the gloom and a passage leads NORTH. First-person from a real upper landing. Show a clear flight of pale marble steps descending at right into shadow, with continuous side walls and supported risers. A full adult-size level passage at left leads north off the SAME landing. No columns, torches, furnishings, outdoors or other doors.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-ececcb32-82ed-4d50-bb20-e5d8e3442faa.png"
+    },
+    {
+      "name": "angled_entry",
+      "rooms": [
+        19
+      ],
+      "asset": "z2_angled_entry.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Oddly-angled Room\nThis is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.\nA marble stairway leads upward.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory room19 Oddly-angled Room: oddly angled walls and passages in ALL directions; walls made of some glassy substance. A MARBLE STAIRWAY leads UPWARD. Compact angular dark slate and green glass-like stone walls meet at skew angles, multiple human-size passages with continuous same-level floors. At left a supported pale marble staircase rises from this room's real floor up into shadow. Enough headroom above steps. No floor diamond, club, stars, bright neon, props or secret door YET.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-3fe5fadd-9b4f-443d-b6b4-46ffff4f83ba.png"
+    },
+    {
+      "name": "angled_west",
+      "rooms": [
+        202
+      ],
+      "asset": "z2_angled_west.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Oddly-angled Room\nThis is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.\nOn the floor is a very small diamond shaped window which is flickering dimly.\nA long wooden club lies on the ground near the diamond-shaped window. The club is curiously burned at the thick end.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nNew connected room in this exact glassy dark green-slate oddly angled maze, story walls made of glassy substance, passages in all directions. A central broad tilted trapezoidal passage and small narrow right turn, left wall forms a long angled wedge. West progression room202. REMOVE ALL STAIRS from reference; these rooms have NO stairs. All passage thresholds meet one continuous flat floor with normal adult clearance. No floating openings or skewed staircases. Leave center floor near native x120 sourcey72 blank for small runtime diamond window overlay. No baked window, club, objects, symbols or bright glowing lights.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-9294e2d9-4df4-4346-8a1b-e2bd5df80a64.png"
+    },
+    {
+      "name": "angled_southeast",
+      "rooms": [
+        121
+      ],
+      "asset": "z2_angled_southeast.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Oddly-angled Room\nThis is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.\nOn the floor is a very small diamond shaped window which is dimly glowing.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nNew connected room in this exact glassy dark green-slate oddly angled maze, story walls made of glassy substance, passages in all directions. A broad diagonal wall fills middle right, passages left and far right and a rear skew opening. Southeast progression room121. REMOVE ALL STAIRS from reference; these rooms have NO stairs. All passage thresholds meet one continuous flat floor with normal adult clearance. No floating openings or skewed staircases. Leave center floor near native x120 sourcey72 blank for small runtime diamond window overlay. No baked window, club, objects, symbols or bright glowing lights.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-0b272fe7-94ec-4ae1-ac88-7ced38de50cd.png"
+    },
+    {
+      "name": "angled_northeast",
+      "rooms": [
+        242
+      ],
+      "asset": "z2_angled_northeast.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Oddly-angled Room\nThis is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.\nOn the floor is a very small diamond shaped window which is glowing.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nNew connected room in this exact glassy dark green-slate oddly angled maze, story walls made of glassy substance, passages in all directions. Tall leaning glassy wall facet at left, large central angled opening with a smaller right-hand passage. Northeast progression room242. REMOVE ALL STAIRS from reference; these rooms have NO stairs. All passage thresholds meet one continuous flat floor with normal adult clearance. No floating openings or skewed staircases. Leave center floor near native x120 sourcey72 blank for small runtime diamond window overlay. No baked window, club, objects, symbols or bright glowing lights.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-a4c82e1f-ccbe-4bb3-93da-9abfea6937b3.png"
+    },
+    {
+      "name": "angled_northwest",
+      "rooms": [
+        75
+      ],
+      "asset": "z2_angled_northwest.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Oddly-angled Room\nThis is a room with oddly angled walls and passages in all directions. The walls are made of some glassy substance.\nOn the floor is a very small diamond shaped window which is glowing brightly.",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nNew connected room in this exact glassy dark green-slate oddly angled maze, story walls made of glassy substance, passages in all directions. Low broad glassy wedge wall in middle left, broad right and far-left passages, narrow rear opening. Northwest progression room75. REMOVE ALL STAIRS from reference; these rooms have NO stairs. All passage thresholds meet one continuous flat floor with normal adult clearance. No floating openings or skewed staircases. Leave center floor near native x120 sourcey72 blank for small runtime diamond window overlay. No baked window, club, objects, symbols or bright glowing lights.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-3f93fe53-aaf5-40e6-8665-36b8e14327b7.png"
+    },
+    {
+      "name": "landing",
+      "rooms": [
+        230
+      ],
+      "asset": "z2_landing.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "story_description": "Landing\nBeyond the door is a roughly hewn staircase leading down into darkness. The landing on which you stand is covered with carefully drawn magical runes like those sketched upon the workbench of the Wizard of Frobozz. These have been overlaid with sweeping green lines of enormous power, which undulate back and forth across the landing. The wand begins to vibrate in harmony with the motion of the lines. You feel yourself compelled downward, and you yield, stepping onto the staircase. As you pass the green lines, they flare and disappear with a burst of light, and you tumble down the staircase!\n\nAt the bottom, a vast red-lit hall stretches off into the distance. Sinister statues guard the entrance to a dimly visible room far ahead. With courage and cunning you have conquered the Wizard of Frobozz and become the master of his domain, but the final challenge awaits!\n\n(The ultimate adventure concludes in \"Zork III: The Dungeon Master\".)\n\nYour score would be 400 (total of 400 points), in 419 moves.\nThis score gives you the rank of Master Adventurer.\n\nWould you like to restart the game from the beginning, restore a saved game position, or end this session of the game?\n(Type RESTART, RESTORE, or QUIT):",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nZork II finale room230 LANDING. Original story: Beyond the south secret door a roughly hewn staircase leads DOWN into darkness. Landing covered with carefully drawn magical runes overlaid by sweeping GREEN lines. As the player passes, the green lines flare and disappear and they tumble DOWN. At BOTTOM a vast RED-LIT HALL stretches into distance; sinister statues guard entrance to dim room far ahead. Compose view from a modest rough rock upper landing: bottom-left/sourcey70..85 visible landing with dim etched abstract runes, center/right a clearly DESCENDING broad rough stone stairway leading AWAY AND DOWN into much lower red-lit hall visible in distance. Eye line and side wall tops descend along stairs; do NOT depict upward risers toward a raised distant door. Far end of red hall tiny paired guardians matching attached reference stone giants on grounded plinths. No living characters or collectible props. No bright green barrier because it has disappeared at terminal state; only faded traces on landing. Preserve full approach and top stair within source rows10..85.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-e034f9b6-6fe9-4f8b-8db5-233043f9eade.png"
+    },
+    {
+      "name": "mist_red",
+      "rooms": [
+        224
+      ],
+      "asset": "z2_mist_red.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory: You are INSIDE a HUGE CRYSTALLINE SPHERE filled with thin red mist. The mist becomes blue to the WEST. First-person interior camera encircled by a curved faceted transparent shell, softly suggested by arcs across the upper and side edges. Beyond hazy curved glass, a SMALL plain stone room with a tiny BLURRY unreadable rectangular sign. No legible text. The WEST left edge is a narrow MIST corridor tinted blue, connected to the spherical interior, not a floating masonry door. No ordinary foreground floor, furniture INSIDE sphere, characters, props, labels or interface. Match pixel materials of reference but radically different mystical spherical setting, not reuse a hall.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-50d88544-df77-47de-9ac2-7f78760550e7.png"
+    },
+    {
+      "name": "mist_blue",
+      "rooms": [
+        227
+      ],
+      "asset": "z2_mist_blue.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory: You are INSIDE a HUGE CRYSTALLINE SPHERE filled with thin blue mist. The mist becomes white to the WEST. First-person interior camera encircled by a curved faceted transparent shell, softly suggested by arcs across the upper and side edges. Beyond hazy curved glass, a LARGE dreary room, a great OAK DOOR at left and a HUGE table at right, distorted by an odd blue glow. The WEST left edge is a narrow MIST corridor tinted white, connected to the spherical interior, not a floating masonry door. No ordinary foreground floor, furniture INSIDE sphere, characters, props, labels or interface. Match pixel materials of reference but radically different mystical spherical setting, not reuse a hall.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-c5da96ee-e591-4b00-a548-2ede6b25bb5b.png"
+    },
+    {
+      "name": "mist_white",
+      "rooms": [
+        228
+      ],
+      "asset": "z2_mist_white.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          0
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory: You are INSIDE a HUGE CRYSTALLINE SPHERE filled with thin white mist. The mist becomes black to the WEST. First-person interior camera encircled by a curved faceted transparent shell, softly suggested by arcs across the upper and side edges. Beyond hazy curved glass, only an unrecognizable vague blurry room silhouette. The WEST left edge is a narrow MIST corridor tinted black, connected to the spherical interior, not a floating masonry door. No ordinary foreground floor, furniture INSIDE sphere, characters, props, labels or interface. Match pixel materials of reference but radically different mystical spherical setting, not reuse a hall.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-976bb5f3-c03e-4104-b954-0a31b1d234c8.png"
+    },
+    {
+      "name": "pool_dry",
+      "rooms": [],
+      "asset": "z2_pool_dry.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Pool39 no longer in room82",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT STATE ONLY: Only change the pool into an empty broad depressed floor basin, wet but without standing water. The candied goodies formerly submerged are separate sprite, DO NOT DRAW them. Keep room, camera and WEST left arch unchanged. Story: a large room with half the floor depressed; salty water leaks from CEILING. Replace invented back window with plain damp stone wall, remove decorative wall lamps, make ceiling leak a narrow trickle falling into dry basin. No other exit, shelf, cakes or flask.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-a9f60a32-dea1-4e18-8b72-761dea41e013.png"
+    },
+    {
+      "name": "ice_melted",
+      "rooms": [],
+      "asset": "z2_ice_melted.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Glacier111 no longer in room161",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT STATE ONLY: The entire massive glacier blocking the WEST left passage has melted away. Reveal a normal full adult-sized west passage through dark volcanic rock, continuous smooth damp floor from foreground into the passage, with wisps of STEAM and scorch marks. Keep camera, right EAST passage and upward lava tube with rock scramble fixed. No residual ice boulder blocking passage, no fire, lava, characters or props.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-435fd224-d9bc-430f-9fc1-a0a1645fd118.png"
+    },
+    {
+      "name": "marble_open",
+      "rooms": [],
+      "asset": "z2_marble_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "MARBLE-DOOR global163 set",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY SPECIFIED PUZZLE STATE: Only change SECRET PASSAGE: EAST right-side marble wall panel now slides aside revealing a normal human-size passage to underground cavern GARDEN. Floor FLUSH with marble approach; white gravel and hedge visible INSIDE moss-lit dark cavern, no outdoor forest or sky. Keep left arch, northern stream ford and everything else fixed. No princess, unicorn, brick or props.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-c450d04d-4ae5-4bed-90c3-9f831b01501f.png"
+    },
+    {
+      "name": "tiny_open",
+      "rooms": [],
+      "asset": "z2_tiny_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Door137 OPEN from TinyRoom46",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY THIS STATE: The same oak door is OPEN so the view looks into the Dreary Room. It swings AWAY from the Tiny Room camera into Dreary Room, visibly attached at the east/right jamb, with the barred window embedded in the panel. Preserve a clear walking opening and make this the same door seen from the reverse camera. A continuous same-level floor continues through the full human-size doorway; do not add a sill wall. View of empty reverse room, no sphere, mat, keys or characters.\nPreserve the image's layout, perspective, materials and unchanged architecture exactly. Final240x102 native. No new props.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-a6b46ab5-250c-4463-8bdb-519e5f753807.png"
+    },
+    {
+      "name": "dreary_open",
+      "rooms": [],
+      "asset": "z2_dreary_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Door137 OPEN from DrearyRoom59",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY THIS STATE: The same oak door at LEFT is OPEN so the view looks into Tiny Room. Its leaf swings TOWARD the Dreary Room camera, into this room, attached at the west/left jamb; this is the reverse view of the same door, whose leaf swings away from the Tiny Room camera. The barred window stays in the panel. Keep the table, red-glowing crack, unchanged walls and camera fixed. Continuous same-level floor through doorway; no mat, sphere, keys, characters.\nPreserve the image's layout, perspective, materials and unchanged architecture exactly. Final240x102 native. No new props.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-15d9539c-d32c-41f2-8700-860f7f1e2d3c.png"
+    },
+    {
+      "name": "guarded_open",
+      "rooms": [],
+      "asset": "z2_guarded_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "condition": "Door 43 OPEN from Guarded Room 28: left jamb, swings away; same oak door; actual Workshop through-view",
+      "prompt": "Use case: precise-object-edit. Production Zork GBA background, detailed late16-bit pixel clusters, colored edges, limited black linework. Final240x102, source rows10..85 visible. This is ONE physical connecting door seen from opposite rooms. Door identity: heavy battered stained dark-brown vertical oak planks, rounded arch top fitted to stone arch, two restrained dull iron reinforcement bands at matching upper/lower positions, same worn wood and thickness. The round inset and living lizard are on the Guarded Room face; Workshop reverse has the same construction, seen from behind. No new hardware. Door thresholds meet a continuous same-level floor; no wall strip or extra steps. Preserve all architecture OUTSIDE the named door/through-view. No props or character sprites baked in, text or UI.\nImage1 is EDIT TARGET; image2 is the actual room BEYOND the open door. Preserve door's same left-side attachment, swing AWAY into Workshop, same weathered oak face, round lizard inset, door position and all Guarded Room architecture. Change ONLY what is seen THROUGH the doorway: recognizable WARM reddish stone entry hall of Wizard's Workshop, matching image2's broad arches and pillars, with corridors west/south beyond. Not generic cool stone corridor. Continuous same-level floor directly into that hall. Show the destination at plausible distance/perspective, not a framed flat painting. No invented workshop machinery, furnishings, torches or doors. Preserve empty round inset for runtime lizard head.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-fd616b74-9cb9-48b2-9ffb-8760dcb3138a.png",
+      "references": [
+        "assets/z2_guarded_open.png",
+        "assets/z2_workshop.png"
+      ],
+      "story_and_composition": "Image1 is EDIT TARGET; image2 is the actual room BEYOND the open door. Preserve door's same left-side attachment, swing AWAY into Workshop, same weathered oak face, round lizard inset, door position and all Guarded Room architecture. Change ONLY what is seen THROUGH the doorway: recognizable WARM reddish stone entry hall of Wizard's Workshop, matching image2's broad arches and pillars, with corridors west/south beyond. Not generic cool stone corridor. Continuous same-level floor directly into that hall. Show the destination at plausible distance/perspective, not a framed flat painting. No invented workshop machinery, furnishings, torches or doors. Preserve empty round inset for runtime lizard head."
+    },
+    {
+      "name": "safe_blast",
+      "rooms": [],
+      "asset": "z2_safe_blast.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Debris101 in DustyRoom182",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY SPECIFIED PUZZLE STATE: Only change safe after explosion: safe front door blown off, OPEN dark interior with small EMPTY bottom shelf for separate crown/card sprites, scattered blasted heavy iron door pieces and dusty debris at its base. Preserve rock room, same safe box position native x155..194 sourcey30..59, camera, floor and lighting. No treasure, brick, fuse, smoke or fire baked in. No hole above safe; front door is removed.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-9b46a519-f23f-49f7-8938-186a7b865c6b.png"
+    },
+    {
+      "name": "crypt_dark",
+      "rooms": [],
+      "asset": "z2_crypt_dark.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Crypt125 has no accessible lit matchbook, lamp or newspaper; secret151 shut",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nChange only lighting / secret doorway state of this exact Crypt. DARK STATE: All light sources extinguished. Almost entirely BLACK with the faint thin cool-green rectangular door OUTLINE ONLY at native x104..135 source y23..64. No room details, heads, floor or posts visible in darkness. Door remains shut. No lettering because the faint F is rendered by code. No bright portal, beams, fog, scene illumination or decorative runes.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-9d0f9eb9-170b-4c02-843d-5095585ddcc2.png"
+    },
+    {
+      "name": "crypt_open",
+      "rooms": [],
+      "asset": "z2_crypt_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Crypt125 illuminated and secret151 OPEN",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY SPECIFIED PUZZLE STATE: Only OPEN the concealed SOUTH door centered native x104..135, source y23..64. Show a BLACK human-size opening onto a level roughly hewn landing. No stairs visible from this view; the descending staircase is beyond the landing in darkness. Do not show ANY stair risers or upward staircase. Preserve all twelve flat heads on poles, floor, walls and lamplight; door threshold flush with foreground floor, unchanged camera.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-ca4115ab-de9d-49b6-b987-30a2114044a5.png"
+    },
+    {
+      "name": "workshop_open",
+      "rooms": [],
+      "asset": "z2_workshop_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "condition": "Door 43 OPEN from Workshop 45: right jamb, swings inward, concealed hinge; actual Guarded Room through-view",
+      "prompt": "Use case: precise-object-edit. Production Zork GBA background, detailed late16-bit pixel clusters, colored edges, limited black linework. Final240x102, source rows10..85 visible. This is ONE physical connecting door seen from opposite rooms. Door identity: heavy battered stained dark-brown vertical oak planks, rounded arch top fitted to stone arch, two restrained dull iron reinforcement bands at matching upper/lower positions, same worn wood and thickness. The round inset and living lizard are on the Guarded Room face; Workshop reverse has the same construction, seen from behind. No new hardware. Door thresholds meet a continuous same-level floor; no wall strip or extra steps. Preserve all architecture OUTSIDE the named door/through-view. No props or character sprites baked in, text or UI.\nImage1 is EDIT TARGET, images2/3 are identity and destination references. Edit ONLY the open NORTH doorway at right: same door as Guarded reference, swung INTO WORKSHOP towards viewer about85degrees, pivot at RIGHT jamb. Hinge pin/plates/barrels are hidden BEHIND stone frame and leaf; absolutely NO hinge hardware visible. Match worn oak plank color and iron-band design to Guarded door, viewed from its plain reverse side. THROUGH THE OPENING show the actual Guarded Room: dusty gray-green stone, cobwebbed upper corners, a small musty chamber, its north passage visible on far wall at depth. It must NOT show another warm repeated-arch Workshop corridor. Guarded floor continues directly through threshold. Keep Workshop's other two arches, reddish pillars, camera, floor and lighting unchanged.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-744e6c03-445c-4b86-8593-cbd29625e5ce.png",
+      "references": [
+        "assets/z2_workshop_open.png",
+        "assets/z2_guarded_room.png",
+        "assets/z2_guarded_open.png"
+      ],
+      "story_and_composition": "Image1 is EDIT TARGET, images2/3 are identity and destination references. Edit ONLY the open NORTH doorway at right: same door as Guarded reference, swung INTO WORKSHOP towards viewer about85degrees, pivot at RIGHT jamb. Hinge pin/plates/barrels are hidden BEHIND stone frame and leaf; absolutely NO hinge hardware visible. Match worn oak plank color and iron-band design to Guarded door, viewed from its plain reverse side. THROUGH THE OPENING show the actual Guarded Room: dusty gray-green stone, cobwebbed upper corners, a small musty chamber, its north passage visible on far wall at depth. It must NOT show another warm repeated-arch Workshop corridor. Guarded floor continues directly through threshold. Keep Workshop's other two arches, reddish pillars, camera, floor and lighting unchanged."
+    },
+    {
+      "name": "crypt_secret_open",
+      "rooms": [],
+      "asset": "z2_crypt_secret_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Crypt125 unilluminated and secret151 OPEN",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nChange only lighting / secret doorway state of this exact Crypt. DARK OPEN STATE: All light sources extinguished, but concealed SOUTH door now OPEN at native x104..135 source y23..64. Nearly black canvas, faint greenish door edges and a barely visible first rough step just through the human-size opening. Darkness conceals all heads, floor, room walls and posts. No F lettering. Keep original camera and doorway position; do not light the room.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-95b83e5c-5a7f-4260-84e2-9d82e4c43a62.png"
+    },
+    {
+      "name": "angled_entry_open",
+      "rooms": [],
+      "asset": "z2_angled_entry_open.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          74,
+          85
+        ],
+        [
+          175,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Odd-room secret global13 set",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY SPECIFIED PUZZLE STATE: Only add newly opened SECRET passage at EAST right wall after completing the baseball maze. A normal adult-sized black opening, continuous same-level floor through it, leads into dark narrow stone corridor. Preserve every other passage, glassy angled wall, UPWARD marble stairway, camera and foreground floor. No characters or objects.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-97b0c205-c3cb-4216-9180-223aff5be6ba.png"
+    },
+    {
+      "name": "narrow_ledge_escape",
+      "rooms": [],
+      "asset": "z2_narrow_ledge_escape.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          115,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-re-audit.md",
+      "condition": "Volcano escape global72 set",
+      "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nEDIT ONLY SPECIFIED PUZZLE STATE: Only ADD the WEST escape door after the volcano gnome is paid. A small adult crawl/climb doorway appears at WEST end of this same ledge, beside and distinct from the existing SOUTH library exit at far LEFT. Through the new door is a narrow rock CHIMNEY sloping steeply DOWNWARD; show dark descending sloped rock immediately inside, NOT an uphill staircase. Keep same ledge foreground, original south doorway, mounted hook native x90 y37, shaft and camera. All paths have continuous support into their mouths. No coin, gnome, vehicle or props.",
+      "prompt_status": "Preserved generation or final edit prompt",
+      "generated_source": "exec-99bc0c3c-1b85-494b-a566-2de935463337.png"
+    },
+    {
+      "name": "trophy",
+      "rooms": [
+        63
+      ],
+      "asset": "z2_trophy.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          176,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nStory room63: Wizard's Trophy Room. Memorabilia in a modest worked-stone chamber: framed D.T.degree, old magic wands in a wall rack, dull nicked swords displayed on wall, small glass bottles holding tiny preserved homunculi, a stuffed owl on a perch. An ORNATE EMPTY trophy cabinet embedded in wall, protected by magic, cannot open. Small affixed hand-lettered label shown as tiny marks, not readable lettering. These are FIXED story scenery, so may be baked in; no treasure to collect. NORTH exit at LEFT leads back to Workshop's red stone hall, flush floor and adult-sized arch. Keep foreground floor mostly clear, collections on walls at middle depth. No invented second exit, chests or freestanding sword props.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-1c5f9cba-0b86-49d6-8297-bce93bb9309b.png",
+      "references": [
+        "assets/z2_workshop.png"
+      ],
+      "story_and_composition": "Story room63: Wizard's Trophy Room. Memorabilia in a modest worked-stone chamber: framed D.T.degree, old magic wands in a wall rack, dull nicked swords displayed on wall, small glass bottles holding tiny preserved homunculi, a stuffed owl on a perch. An ORNATE EMPTY trophy cabinet embedded in wall, protected by magic, cannot open. Small affixed hand-lettered label shown as tiny marks, not readable lettering. These are FIXED story scenery, so may be baked in; no treasure to collect. NORTH exit at LEFT leads back to Workshop's red stone hall, flush floor and adult-sized arch. Keep foreground floor mostly clear, collections on walls at middle depth. No invented second exit, chests or freestanding sword props."
+    },
+    {
+      "name": "quarters_cave",
+      "rooms": [
+        69
+      ],
+      "asset": "z2_quarters_cave.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          181,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nStory room69 Wizard's Quarters, CAVE appearance: a DANK DIMLY LIGHTED CAVE, floor piled with furs and OLD BONES. No living bodies or gore. Rounded irregular dark stone cave roof and walls, NORTH passage at LEFT back to Aquarium Room, at normal human scale, flat continuous stone floor through arch. A pile of rough worn pelts/furs and small dry bones occupies right-middle floor, with clear flat foreground stone near source rows75..85 for separate dropped props. No bed, furniture, bottles, skull wall relief, crests, torches, flowers or other decoration. Establish a stable eye-level camera and north-exit position for six magical decor variants, later changed to match each LOOK description.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-12c889b1-c93c-4230-8f52-d32b3b0c8c1d.png",
+      "references": [
+        "assets/z2_guarded_room.png"
+      ],
+      "story_and_composition": "Story room69 Wizard's Quarters, CAVE appearance: a DANK DIMLY LIGHTED CAVE, floor piled with furs and OLD BONES. No living bodies or gore. Rounded irregular dark stone cave roof and walls, NORTH passage at LEFT back to Aquarium Room, at normal human scale, flat continuous stone floor through arch. A pile of rough worn pelts/furs and small dry bones occupies right-middle floor, with clear flat foreground stone near source rows75..85 for separate dropped props. No bed, furniture, bottles, skull wall relief, crests, torches, flowers or other decoration. Establish a stable eye-level camera and north-exit position for six magical decor variants, later changed to match each LOOK description.",
+      "condition": "Room 69: actual most recently printed cave description; cached in Save/Restore"
+    },
+    {
+      "name": "quarters_louis",
+      "rooms": [],
+      "asset": "z2_quarters_louis.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          181,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nEDIT this exact Wizard's Quarters room69 to its alternative story description. Preserve left north-exit position, camera and floor approach; changes are intentional magical furnishings described by story. Story appearance: decorated in LOUIS XIV style. Transform cave's decoration into ornate late17th-century French royal chamber: restrained gilded carved wall panels, dark rich tapestry, a richly upholstered chair and small opulent curtained bed to RIGHT. Same north exit at LEFT, same camera, perspective and clear stone near-foreground floor; furnishings never obstruct doorway. Keep it underground and magically incongruous, no windows, mirrors, people or extra passages. Match existing game pixel style rather than photographic palace ornament.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-8aaf58cd-fb08-45e2-ba03-a10bf3b16e8a.png",
+      "references": [],
+      "story_and_composition": "Story appearance: decorated in LOUIS XIV style. Transform cave's decoration into ornate late17th-century French royal chamber: restrained gilded carved wall panels, dark rich tapestry, a richly upholstered chair and small opulent curtained bed to RIGHT. Same north exit at LEFT, same camera, perspective and clear stone near-foreground floor; furnishings never obstruct doorway. Keep it underground and magically incongruous, no windows, mirrors, people or extra passages. Match existing game pixel style rather than photographic palace ornament.",
+      "condition": "Room 69: actual most recently printed louis description; cached in Save/Restore"
+    },
+    {
+      "name": "quarters_bunks",
+      "rooms": [],
+      "asset": "z2_quarters_bunks.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          181,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nEDIT this exact Wizard's Quarters room69 to its alternative story description. Preserve left north-exit position, camera and floor approach; changes are intentional magical furnishings described by story. Story appearance: a suburban bedroom out of the1950s, COMPLETE WITH BUNK BEDS. A plain painted timber bunk bed with EXACTLY TWO stacked mattresses at RIGHT back wall, supported posts, side ladder visibly attached from floor to upper bunk. Simple faded patterned wallpaper over magical chamber walls. Same left NORTH exit, perspective and clear near-foreground stone floor. No third bed, floating mattress, windows, lamps, people, toys or extra passages.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-95542615-c8d6-4212-af12-65c6a901a4fd.png",
+      "references": [],
+      "story_and_composition": "Story appearance: a suburban bedroom out of the1950s, COMPLETE WITH BUNK BEDS. A plain painted timber bunk bed with EXACTLY TWO stacked mattresses at RIGHT back wall, supported posts, side ladder visibly attached from floor to upper bunk. Simple faded patterned wallpaper over magical chamber walls. Same left NORTH exit, perspective and clear near-foreground stone floor. No third bed, floating mattress, windows, lamps, people, toys or extra passages.",
+      "condition": "Room 69: actual most recently printed bunks description; cached in Save/Restore"
+    },
+    {
+      "name": "quarters_hammock",
+      "rooms": [],
+      "asset": "z2_quarters_hammock.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          181,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nEDIT this exact Wizard's Quarters room69 to its alternative story description. Preserve left north-exit position, camera and floor approach; changes are intentional magical furnishings described by story. Story appearance: overhung with PALM-TREES AND LIANAS; ONLY FURNITURE IS A HAMMOCK. Transform chamber decor into indoor magical jungle: two robust rooted palm trunks at rear right/center support ONE securely tied fabric hammock, fronds and trailing lianas overhead. Dark enclosed stone cave roof remains visible through foliage, no outdoor sky. Same LEFT NORTH exit and approach fully clear, continuous stone foreground. No bed, chair, table, flowers, animals, people, river, extra doorway or other furniture.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-d7494af7-aaa6-40ce-9828-e4fb6dd4a9d6.png",
+      "references": [],
+      "story_and_composition": "Story appearance: overhung with PALM-TREES AND LIANAS; ONLY FURNITURE IS A HAMMOCK. Transform chamber decor into indoor magical jungle: two robust rooted palm trunks at rear right/center support ONE securely tied fabric hammock, fronds and trailing lianas overhead. Dark enclosed stone cave roof remains visible through foliage, no outdoor sky. Same LEFT NORTH exit and approach fully clear, continuous stone foreground. No bed, chair, table, flowers, animals, people, river, extra doorway or other furniture.",
+      "condition": "Room 69: actual most recently printed hammock description; cached in Save/Restore"
+    },
+    {
+      "name": "quarters_austere",
+      "rooms": [],
+      "asset": "z2_quarters_austere.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          181,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nEdit exact Wizard's Quarters room69 to appearance: SPARSELY FURNISHED, ALMOST MONKISH IN AUSTERITY. Remove furs and bones. Same rough stone cave walls, left north passage, eye-level camera and clear foreground floor. Only simple plain narrow wooden cot with thin unpatterned blanket at back RIGHT and a small plain stool beside it. No tapestries, drapery, rug, ornament, windows, books, candles, props, people, other furniture or extra exits. Sparse and quiet, but not an empty generic hallway.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-1a39f2ee-cfee-40fb-9270-4b3ec2fed129.png",
+      "references": [],
+      "story_and_composition": "Edit exact Wizard's Quarters room69 to appearance: SPARSELY FURNISHED, ALMOST MONKISH IN AUSTERITY. Remove furs and bones. Same rough stone cave walls, left north passage, eye-level camera and clear foreground floor. Only simple plain narrow wooden cot with thin unpatterned blanket at back RIGHT and a small plain stool beside it. No tapestries, drapery, rug, ornament, windows, books, candles, props, people, other furniture or extra exits. Sparse and quiet, but not an empty generic hallway.",
+      "condition": "Room 69: actual most recently printed austere description; cached in Save/Restore"
+    },
+    {
+      "name": "quarters_arabian",
+      "rooms": [],
+      "asset": "z2_quarters_arabian.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          181,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nEdit exact Wizard's Quarters room69 to appearance: OPULENTLY FURNISHED SERAGLIO OUT OF AN ARABIAN FOLKTALE. Remove all furs and bones. Richly patterned red/teal silk drapes across back/right cave wall, low brocaded divan and several embroidered cushions, small ornate brass side table fixed beside it, richly woven rug under seating. Same left NORTH passage, cave roof silhouette, camera and unobstructed near foreground floor. No people, harem figures, windows, lamps, bottles, loot or extra exits. Story's magical furnishings are deliberate, match game's pixels and restrained colored edges.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-919bfcff-63f6-48bb-a787-e41e9528f102.png",
+      "references": [],
+      "story_and_composition": "Edit exact Wizard's Quarters room69 to appearance: OPULENTLY FURNISHED SERAGLIO OUT OF AN ARABIAN FOLKTALE. Remove all furs and bones. Richly patterned red/teal silk drapes across back/right cave wall, low brocaded divan and several embroidered cushions, small ornate brass side table fixed beside it, richly woven rug under seating. Same left NORTH passage, cave roof silhouette, camera and unobstructed near foreground floor. No people, harem figures, windows, lamps, bottles, loot or extra exits. Story's magical furnishings are deliberate, match game's pixels and restrained colored edges.",
+      "condition": "Room 69: actual most recently printed arabian description; cached in Save/Restore"
+    },
+    {
+      "name": "volcano_view",
+      "rooms": [
+        117
+      ],
+      "asset": "z2_volcano_view.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          195,
+          85
+        ],
+        [
+          218,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nNEW foot-accessible room117 Volcano View. Original story: on EAST viewing ledge, intermediate elevation between TWO ledges on WEST opposite side, bottom visible below and rim above, only exit EAST behind viewer. Camera STANDS ON this narrow ledge facing WEST across vast DORMANT basalt shaft. A narrow supported rock lip across near bottom source y78..101 is real ground for dropped items; not a wide balloon landing platform. Across shaft at left see two tiny separate west ledges, one LOWER with South library doorway, one HIGHER with South Dusty Room doorway. These distant doorways sit flush on THEIR own ledges. Cold solid-rock bottom far below, pale rim opening high above. Local EAST exit is BEHIND camera, no invented nearby door. No balloon, basket, wire, fire, lava, characters or props. Same violet/slate dormant rock geology as reference, distinct foot viewpoint rather than airborne view.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-f4d995ae-a607-48a1-a8ec-c31675db05d4.png",
+      "references": [],
+      "story_and_composition": "NEW foot-accessible room117 Volcano View. Original story: on EAST viewing ledge, intermediate elevation between TWO ledges on WEST opposite side, bottom visible below and rim above, only exit EAST behind viewer. Camera STANDS ON this narrow ledge facing WEST across vast DORMANT basalt shaft. A narrow supported rock lip across near bottom source y78..101 is real ground for dropped items; not a wide balloon landing platform. Across shaft at left see two tiny separate west ledges, one LOWER with South library doorway, one HIGHER with South Dusty Room doorway. These distant doorways sit flush on THEIR own ledges. Cold solid-rock bottom far below, pale rim opening high above. Local EAST exit is BEHIND camera, no invented nearby door. No balloon, basket, wire, fire, lava, characters or props. Same violet/slate dormant rock geology as reference, distinct foot viewpoint rather than airborne view."
+    },
+    {
+      "name": "west_viewing",
+      "rooms": [
+        204
+      ],
+      "asset": "z2_west_viewing.png",
+      "source_size": [
+        240,
+        102
+      ],
+      "visible_source_rows": [
+        10,
+        85
+      ],
+      "safe_contacts": [
+        [
+          65,
+          85
+        ],
+        [
+          176,
+          85
+        ]
+      ],
+      "review_document": "../zork-ii-completion-audit.md",
+      "prompt": "Use case: illustration-story. ONE production Zork II background, native240x102; source rows10..85 must contain important geometry, supports and a clear near floor for dropped item sprites. Match references' detailed late16-bit clustered pixels, muted earth/slate palette, colored edges and restrained black outlines. Single consistent perspective. Trace continuous floor from foreground THROUGH every visible passage with adult clearance and flush threshold; no floating doors, unexplained steps or extra exits. Story takes priority. Underground, no outdoor sky, characters, collectible props, text, UI, caption or border.\nStory room204 West Viewing Room: bare bank room formerly used for viewing safety deposit box contents. A sign on NORTH wall tells clients to wait for teller and exit SOUTH; the south exit is BEHIND the viewer, so NO visible doorway. Same aged green-gray squared bank masonry, restrained brass trim, worn slate floor with thin brass lines as references. Distinct oblique corner view: NORTH wall at LEFT depth, its broad brass sign plaque native x35..133 source y24..49, empty east side wall at right. Plaque blank or tiny indistinct marks, actual words provided by game's Read action. NO desk, table, box, teller, vault, service hatch, windows, lamps or additional doors. Broad clear near floor.",
+      "prompt_status": "Preserved final generation or edit prompt",
+      "generated_source": "exec-9f236cbf-40a1-4fa5-a956-60aca699d0ef.png",
+      "references": [
+        "assets/z2_east_viewing.png",
+        "assets/z2_west_teller.png"
+      ],
+      "story_and_composition": "Story room204 West Viewing Room: bare bank room formerly used for viewing safety deposit box contents. A sign on NORTH wall tells clients to wait for teller and exit SOUTH; the south exit is BEHIND the viewer, so NO visible doorway. Same aged green-gray squared bank masonry, restrained brass trim, worn slate floor with thin brass lines as references. Distinct oblique corner view: NORTH wall at LEFT depth, its broad brass sign plaque native x35..133 source y24..49, empty east side wall at right. Plaque blank or tiny indistinct marks, actual words provided by game's Read action. NO desk, table, box, teller, vault, service hatch, windows, lamps or additional doors. Broad clear near floor."
+    }
+  ]
+}

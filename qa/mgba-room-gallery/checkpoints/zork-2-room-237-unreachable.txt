@@ -1,0 +1,16 @@
+# Zork II Murky Room (237): no stable arrival. Probed with qa/mgba-room-gallery/route_saves.c
+# (winning-route fixture, seed 4372) by walking to the Aquarium Room (233) and entering the tank.
+#
+# Glass intact (before route step 161, "throw sword at aquarium"):
+#   > in
+#   You drop into the aquarium with a splash (which attracts the serpent). He greedily eats you.
+#   He's just a baby, after all, and needs all the food he can get.
+#   -> death; revived in Room of Red Mist (224)
+#
+# Glass broken (after route step 161):
+#   > in            (also: enter aquarium)
+#   Oh dear, you have cut yourself severely on the broken glass. I'm afraid you've bled to death.
+#   -> death; revived in Room of Red Mist (224)
+#
+# The clear crystal sphere that starts in 237 reaches the player when the tank breaks, so no
+# route needs the room. Its art (assets/z2_murky_room.png) is selected only if the room is entered.

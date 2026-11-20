@@ -1,0 +1,19 @@
+
+SHOT extra-trophy room=63 scene=z2_trophy title=Trophy Room dark=0 pages=1 room targets= 129:Wizard's trophy cabinet; 236:Warning label; 85:Small bottles; 10:Nicked swords; 96:Set of used wands; 175:Degree;
+
+SHOT route-63-lit room=63 scene=z2_trophy title=Trophy Room dark=0 pages=1 room targets= 129:Wizard's trophy cabinet; 236:Warning label; 85:Small bottles; 10:Nicked swords; 96:Set of used wands; 175:Degree;
+
+SHOT extra-quarters room=69 scene=z2_quarters_cave title=Wizard's Quarters dark=0 pages=1 room targets=
+
+SHOT route-69-lit room=69 scene=z2_quarters_cave title=Wizard's Quarters dark=0 pages=1 room targets=
+
+SHOT extra-volcano_view room=117 scene=z2_volcano_view title=Volcano View dark=0 pages=1 room targets=
+
+SHOT route-117-lit room=117 scene=z2_volcano_view title=Volcano View dark=0 pages=1 room targets=
+
+SHOT extra-west_viewing room=204 scene=z2_west_viewing title=West Viewing Room dark=0 pages=1 room targets= 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+
+SHOT route-204-lit room=204 scene=z2_west_viewing title=West Viewing Room dark=0 pages=1 room targets= 145:East wall; 211:West wall; 50:North wall; 199:South wall;
+PICKERS 230 reachable argument pickers
+ACCESS 4 room states, 10 focus targets, 30 bag entries, 3521 traversed menu rows, 292 matching room crops
+AUDIT RESULT screen=2 room=204 score=270 moves=287

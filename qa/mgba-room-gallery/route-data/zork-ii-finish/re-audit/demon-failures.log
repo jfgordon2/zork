@@ -1,0 +1,47 @@
+
+>>>> demon, attack wizard [room #91 score 315 turn 369]
+The demon seems confused. "I don't see any wizard here!"
+
+>>>> give lamp to demon [room #91 score 315 turn 370]
+The demon gladly takes the lamp and smiles balefully, revealing enormous fangs.
+
+SHOT demon-unpaid room=91 scene=pentagram_room title=Pentagram Room dark=0 pages=1 room targets= 229:Demon; 246:Priceless zorkmid; 78:Flathead stamp; 146:Gaudy crown; 97:Ruby; 140:Fancy violin; 179:Stack of zorkmid bills; 56:Portrait of J. Pierpont Flathead; 3:Golden dragon statuette; 127:Delicate gold key; 134:Pearl necklace; 209:Pentagram; 166:Enormous menhir; 208:Three-headed dog; 222:Wizard's trophy cabinet;
+
+>>>> sw [room #159 score 365 turn 398]
+You are trying to walk through an enormous rock.
+
+>>>> say "float" [room #159 score 365 turn 399]
+Talking to yourself is a sign of impending mental collapse.
+
+SHOT menhir-unprepared room=159 scene=menhir_room title=Menhir Room dark=0 pages=1 room targets= 84:Enormous menhir;
+
+>>>> sw [room #159 score 365 turn 400]
+Kennel
+This room looks like it was once a kennel for a very large dog (some of the bones would fit a dinosaur). It apparently hasn't been used for a long time, as the dust is fairly thick all over. The only exit is northeast.
+A gigantic dog collar, large enough for three rhinoceros-sized dogs, is lying amidst the debris.
+
+>>>> ne [room #128 score 365 turn 401]
+Menhir Room
+There is a huge menhir here.
+
+SHOT menhir-after-return room=159 scene=menhir_room title=Menhir Room dark=0 pages=1 room targets= 84:Enormous menhir;
+
+>>>> east [room #162 score 395 turn 412]
+The huge dog snaps nastily at you.
+
+>>>> attack cerberus with sword [room #162 score 395 turn 413]
+You don't have that!
+
+SHOT cerberus-rejects room=162 scene=cerberus_room title=Cerberus Room dark=0 pages=1 room targets= 58:Three-headed dog; 180:Stairs;
+
+>>>> east [room #162 score 395 turn 413]
+Crypt Anteroom
+The anteroom is large and empty. Marble bas reliefs depict the stirring times and afterlife of the Flatheads (the latter a bit optimistically). The exit is to the west. A huge marble door stands to the south. The door is closed. Above the door is the cryptic inscription: "Feel Free".
+
+>>>> northwest [room #194 score 398 turn 414]
+You can't go that way.
+
+SHOT cerberus-return room=194 scene=crypt_anteroom title=Crypt Anteroom dark=0 pages=1 room targets= 245:Crypt door;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=194 score=398 moves=415

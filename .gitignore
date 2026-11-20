@@ -1,0 +1,10 @@
+/build/
+# Built cartridges; `make` regenerates them.
+*.gba
+# Emulator saves and save states, except the QA gallery's checkpoint inputs.
+*.sav
+*.ss[0-9]
+!/qa/mgba-room-gallery/checkpoints/*.sav
+!/qa/mgba-room-gallery/route-data/**/*.sav
+__pycache__/
+.DS_Store

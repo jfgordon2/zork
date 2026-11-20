@@ -1,0 +1,76 @@
+
+>>>> inventory [room #124 score 2 turn 19]
+You are carrying:
+  A torch (providing light)
+  A golden amulet (being worn)
+The indicator above the table flickers briefly, then changes to "II".
+
+>>>> touch table [room #124 score 2 turn 20]
+You touch the table and are instantly transported to another place!
+
+Room 8
+This is a small chamber carved out of the rock at the end of a short crawl. On the wall is crudely chiseled the number "8". The only apparent exit, to the east, seems to be a blur and a loud, whirring sound resounds through the rock.
+A spray can is in the corner. In large type is the legend "Frobozz Magic Grue Repellent."
+
+>>>> take repellent [room #192 score 2 turn 21]
+Taken.
+
+>>>> wait [room #192 score 2 turn 22]
+Time passes...
+You suddenly find yourself back in the viewing room!
+
+>>>> drop torch [room #124 score 2 turn 23]
+Dropped.
+The indicator above the table flickers briefly, then changes to "III".
+
+>>>> drop golden amulet [room #124 score 2 turn 24]
+Dropped.
+
+>>>> look [room #124 score 2 turn 25]
+Scenic Vista
+You are in a small chamber carved in the rock, with the sole exit to the north. Mounted on one wall is a table labelled "Scenic Vista," whose featureless surface is angled toward you. One might believe that the table was used to indicate points of interest in the view from this spot, like those found in many parks. On the other hand, your surroundings are far from spacious and by no stretch of the imagination could this spot be considered scenic. An indicator above the table reads "III".
+There is a golden amulet here.
+There is a torch here (providing light).
+
+>>>> wait [room #124 score 2 turn 26]
+Time passes...
+The indicator above the table flickers briefly, then changes to "IV".
+
+>>>> look [room #124 score 2 turn 28]
+Scenic Vista
+You are in a small chamber carved in the rock, with the sole exit to the north. Mounted on one wall is a table labelled "Scenic Vista," whose featureless surface is angled toward you. One might believe that the table was used to indicate points of interest in the view from this spot, like those found in many parks. On the other hand, your surroundings are far from spacious and by no stretch of the imagination could this spot be considered scenic. An indicator above the table reads "IV".
+There is a golden amulet here.
+There is a torch here (providing light).
+
+>>>> wait [room #124 score 2 turn 29]
+Time passes...
+The indicator above the table flickers briefly, then changes to "I".
+
+>>>> look [room #124 score 2 turn 32]
+Scenic Vista
+You are in a small chamber carved in the rock, with the sole exit to the north. Mounted on one wall is a table labelled "Scenic Vista," whose featureless surface is angled toward you. One might believe that the table was used to indicate points of interest in the view from this spot, like those found in many parks. On the other hand, your surroundings are far from spacious and by no stretch of the imagination could this spot be considered scenic. An indicator above the table reads "I".
+There is a golden amulet here.
+There is a torch here (providing light).
+
+>>>> spray repellent on me [room #124 score 2 turn 33]
+The spray smells like a mixture of old socks and burning rubber. If I were a grue I'd sure stay clear!
+
+>>>> drop repellent [room #124 score 2 turn 34]
+Dropped.
+
+>>>> touch table [room #124 score 2 turn 35]
+You touch the table and are instantly transported to another place!
+
+You have moved into a dark place.
+It is pitch black.
+
+>>>> west [room #15 score 2 turn 36]
+There are sinister gurgling noises in the darkness all around you!
+You have moved into a dark place.
+It is pitch black.
+
+SHOT route-drafty-228 room=228 scene=hall title=Drafty Room dark=1 pages=1 room targets=
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=228 score=2 moves=37

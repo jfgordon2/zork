@@ -1,0 +1,68 @@
+
+>>>> north [room #6 score 7 turn 288]
+Hallway
+This is a part of the long hallway. The east and west walls are dressed stone. In the center of the hall is a shallow stone channel. In the center of the room the channel widens into a large hole around which is engraved a compass rose.
+The hallway continues to the south.
+A large mirror fills the north side of the hallway.
+
+SHOT beam-before-block room=169 scene=z3_mirror_hall title=Hallway dark=0 pages=2 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+
+>>>> south [room #169 score 7 turn 289]
+Beam Room
+
+>>>> take sword [room #6 score 7 turn 290]
+You already have that!
+
+>>>> south [room #6 score 7 turn 291]
+Button Room
+
+>>>> push button [room #98 score 7 turn 292]
+Click.
+
+>>>> north [room #98 score 7 turn 293]
+Beam Room
+
+SHOT beam-not-blocked room=6 scene=z3_beam_room title=Beam Room dark=0 pages=1 room targets= 27:Red beam of light;
+
+SHOT mirror-access room=169 scene=z3_mirror_hall title=Hallway dark=0 pages=1 room targets= 106:Mirror; 29:Panel; 96:Compass rose; 107:Stone channel; 80:Wooden wall;
+
+>>>> north [room #169 score 7 turn 293]
+Inside Mirror
+You are inside a rectangular box of wood whose structure is rather complicated. Four sides and the roof are filled in, and the floor is open.
+
+As you face the side opposite the entrance, two short sides of carved and polished wood are to your left and right. The left panel is mahogany, the right pine. The wall you face is red on its left half and black on its right. On the entrance side, the wall is white opposite the red part of the wall it faces, and yellow opposite the black section. The painted walls are at least twice the length of the unpainted ones. The ceiling is painted blue.
+
+In the floor is a stone channel about six inches wide and a foot deep. The channel is oriented in a north-south direction. In the exact center of the room the channel widens into a circular depression perhaps two feet wide. Incised in the stone around this area is a compass rose.
+
+Running from one short wall to the other at about waist height is a wooden bar, carefully carved and drilled. This bar is pierced in two places. The first hole is in the center of the bar (and thus the center of the room). The second is at the left end of the room (as you face opposite the entrance). Through each hole runs a wooden pole.
+
+The pole at the left end of the bar is short, extending about a foot above the bar, and ends in a hand grip. The pole has been dropped into a hole carved in the stone floor.
+
+The long pole at the center of the bar extends from the ceiling through the bar to the circular area in the stone channel. This bottom end of the pole has a T-bar a bit less than two feet long attached to it, and on the T-bar is carved an arrow. The arrow and T-bar are pointing west.
+
+SHOT mirror-inside room=160 scene=mirror_room title=Inside Mirror dark=0 pages=10 room targets= 157:Wooden bar; 52:White panel; 212:Yellow panel; 2:Short pole; 197:Red panel; 62:Pine panel; 37:Mahogany panel; 196:Long pole; 127:Compass arrow; 87:Black panel; 175:T-bar; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork;
+
+>>>> push mahogany panel [room #160 score 7 turn 294]
+The structure rocks back and forth slightly but doesn't move.
+
+>>>> lower short pole [room #160 score 7 turn 295]
+The pole cannot be lowered further.
+
+>>>> push red panel [room #160 score 7 turn 296]
+The structure shakes slightly but doesn't move.
+The mirror quietly swings shut.
+
+SHOT mirror-wrong-pole-order room=160 scene=mirror_room title=Inside Mirror dark=0 pages=1 room targets= 157:Wooden bar; 52:White panel; 212:Yellow panel; 2:Short pole; 197:Red panel; 62:Pine panel; 37:Mahogany panel; 196:Long pole; 127:Compass arrow; 87:Black panel; 175:T-bar; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork;
+
+>>>> lift short pole [room #160 score 7 turn 297]
+The pole is now slightly above the floor.
+
+>>>> push yellow panel [room #160 score 7 turn 298]
+The structure rotates clockwise.
+The arrow on the compass rose now indicates northwest.
+
+SHOT mirror-turned room=160 scene=mirror_room title=Inside Mirror dark=0 pages=1 room targets= 157:Wooden bar; 52:White panel; 212:Yellow panel; 2:Short pole; 197:Red panel; 62:Pine panel; 37:Mahogany panel; 196:Long pole; 127:Compass arrow; 87:Black panel; 175:T-bar; 96:Compass rose; 107:Stone channel; 152:Guardians of Zork;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=160 score=7 moves=299

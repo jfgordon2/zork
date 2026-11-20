@@ -1,0 +1,7 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/room-160.png,captured,zork-i-story-state-160-room-160,0,160,160
+zork-i/states/grating-exposed.png,captured,zork-i-story-state-160-grating-exposed,0,160,160
+zork-i/states/grating-open-above.png,captured,zork-i-story-state-160-grating-open-above,0,160,160
+zork-i/room-216.png,captured,zork-i-story-state-216-room-216,0,216,216
+zork-i/states/grating-open-below.png,captured,zork-i-story-state-216-grating-open-below,0,216,216
+zork-i/states/grating-return.png,captured,zork-i-story-state-216-grating-return,0,216,216

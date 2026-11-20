@@ -1,0 +1,66 @@
+
+SHOT quarters-1 room=69 scene=z2_quarters_cave title=Wizard's Quarters dark=0 pages=1 room targets=
+QUARTERS 1 matched printed description, Save/Restore, Continue and crop.
+
+SHOT quarters-2 room=69 scene=z2_quarters_louis title=Wizard's Quarters dark=0 pages=1 room targets=
+QUARTERS 2 matched printed description, Save/Restore, Continue and crop.
+
+SHOT quarters-3 room=69 scene=z2_quarters_bunks title=Wizard's Quarters dark=0 pages=1 room targets=
+QUARTERS 3 matched printed description, Save/Restore, Continue and crop.
+
+SHOT quarters-4 room=69 scene=z2_quarters_hammock title=Wizard's Quarters dark=0 pages=1 room targets=
+QUARTERS 4 matched printed description, Save/Restore, Continue and crop.
+
+SHOT quarters-5 room=69 scene=z2_quarters_austere title=Wizard's Quarters dark=0 pages=1 room targets=
+QUARTERS 5 matched printed description, Save/Restore, Continue and crop.
+
+SHOT quarters-6 room=69 scene=z2_quarters_arabian title=Wizard's Quarters dark=0 pages=1 room targets=
+QUARTERS 6 matched printed description, Save/Restore, Continue and crop.
+FINISH totals: 0 drop scenes, 0 selected objects, 0 return/Restore checks.
+
+SHOT fuse-active room=182 scene=z2_dusty_room title=Dusty Room dark=0 pages=1 room targets= 163:Hole; 225:Brick; 213:Black string; 132:Box;
+
+SHOT fuse-detonated room=182 scene=z2_safe_blast title=Dusty Room dark=0 pages=3 room targets= 101:Debris from an explosion; 132:Box; 146:Gaudy crown; 55:Card;
+
+SHOT fuse-restored room=182 scene=z2_dusty_room title=Dusty Room dark=0 pages=1 room targets= 163:Hole; 225:Brick; 213:Black string; 132:Box;
+FUSE active/expired/restored clock states and visual-only idle frames passed.
+FINISH totals: 0 drop scenes, 0 selected objects, 0 return/Restore checks.
+
+>>>> south [room #125 score 400 turn 419]
+Landing
+Beyond the door is a roughly hewn staircase leading down into darkness. The landing on which you stand is covered with carefully drawn magical runes like those sketched upon the workbench of the Wizard of Frobozz. These have been overlaid with sweeping green lines of enormous power, which undulate back and forth across the landing. The wand begins to vibrate in harmony with the motion of the lines. You feel yourself compelled downward, and you yield, stepping onto the staircase. As you pass the green lines, they flare and disappear with a burst of light, and you tumble down the staircase!
+
+At the bottom, a vast red-lit hall stretches off into the distance. Sinister statues guard the entrance to a dimly visible room far ahead. With courage and cunning you have conquered the Wizard of Frobozz and become the master of his domain, but the final challenge awaits!
+
+(The ultimate adventure concludes in "Zork III: The Dungeon Master".)
+
+Your score would be 400 (total of 400 points), in 419 moves.
+This score gives you the rank of Master Adventurer.
+
+Would you like to restart the game from the beginning, restore a saved game position, or end this session of the game?
+(Type RESTART, RESTORE, or QUIT):
+
+SHOT finale-lines room=230 scene=z2_landing title=Landing dark=0 pages=8 room targets=
+
+SHOT finale-flare room=230 scene=z2_landing title=Landing dark=0 pages=8 room targets=
+
+SHOT finale-faded room=230 scene=z2_landing title=Landing dark=0 pages=8 room targets=
+FINALE undulation/flare/fade leave story moves and RNG unchanged.
+FINISH totals: 0 drop scenes, 0 selected objects, 0 return/Restore checks.
+
+SHOT cargo-169 room=176 scene=z2_volcano_bottom title=Volcano Bottom dark=0 pages=1 room targets= 169:Basket; 149:Brass lantern; 213:Black string; 181:Newspaper; 23:Matchbook; 225:Brick; 127:Delicate gold key; 36:Black crystal sphere; 97:Ruby; 126:Receptacle; 93:Cloth bag; 170:Braided wire;
+CARGO 169: 8 selected children visible, original parent restored.
+FINISH totals: 0 drop scenes, 0 selected objects, 0 return/Restore checks.
+
+SHOT cargo-52 room=119 scene=z2_well_bottom title=Circular Room dark=0 pages=1 room targets= 52:Wooden bucket; 149:Brass lantern; 223:Elvish sword; 107:China teapot; 186:Quantity of water; 134:Pearl necklace; 9:Wall with etchings; 6:Well;
+CARGO 52: 4 selected children visible, original parent restored.
+FINISH totals: 0 drop scenes, 0 selected objects, 0 return/Restore checks.
+
+SHOT container-closed room=144 scene=carousel title=Carousel Room dark=0 pages=1 room targets= 22:Steel box;
+
+SHOT container-moved room=30 scene=z2_marble_open title=Marble Hall dark=0 pages=1 room targets= 22:Steel box; 72:Gigantic dog collar; 24:Wizard's magic wand; 23:Matchbook; 104:Stream;
+CONTAINER three contents, closed visibility, capacity refusal, carried move, floor drop and Restore passed.
+FINISH totals: 0 drop scenes, 0 selected objects, 0 return/Restore checks.
+PICKERS 0 reachable argument pickers
+ACCESS 6 room states, 0 focus targets, 54 bag entries, 198 traversed menu rows, 85 matching room crops
+AUDIT RESULT screen=2 room=30 score=380 moves=418

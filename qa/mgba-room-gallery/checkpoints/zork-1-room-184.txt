@@ -1,0 +1,10 @@
+# Zork 1 room 184: winning-route fixture steps 1-87 (seed 7), then:
+e
+e
+e
+e
+# Arrived lit at room 184. Story text on arrival:
+#   White Cliffs Beach
+#   You are on a narrow strip of beach which runs along the base of the White Cliffs. There is a narrow path heading south along the Cliffs and a tight passage leading west into the cliffs themselves.
+#   
+#   >

@@ -1,0 +1,59 @@
+
+SHOT trident-selected room=4 scene=atlantis title=Atlantis Room dark=0 pages=1 room targets= 23:Crystal trident; 177:Stairs;
+
+SHOT egypt-closed room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 179:Gold coffin; 177:Stairs;
+
+SHOT egypt-open room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 179:Gold coffin; 204:Sceptre; 177:Stairs;
+
+>>>> take sceptre [room #241 score 166 turn 249]
+Taken.
+
+SHOT egypt-empty room=241 scene=egyptian title=Egyptian Room dark=0 pages=1 room targets= 179:Gold coffin; 177:Stairs;
+
+>>>> tie rope to railing [room #11 score 152 turn 241]
+The rope drops over the side and comes within ten feet of the floor.
+
+SHOT dome-tied room=11 scene=z1_dome title=Dome Room dark=0 pages=1 room targets= 58:Rope; 57:Wooden railing;
+
+SHOT shaft-up room=245 scene=z1_shaft title=Shaft Room dark=0 pages=1 room targets= 108:Basket;
+
+>>>> lower basket [room #245 score 271 turn 371]
+The basket is lowered to the bottom of the shaft.
+
+SHOT shaft-down room=245 scene=z1_shaft title=Shaft Room dark=0 pages=1 room targets= 203:Basket;
+
+SHOT shaft-bottom room=249 scene=z1_shaft_bottom title=Drafty Room dark=0 pages=1 room targets= 108:Basket; 60:Small pile of coal; 114:Screwdriver; 12:Torch;
+
+SHOT ritual-altar room=129 scene=z1_altar title=Altar dark=0 pages=1 room targets= 26:Pair of candles; 35:Altar; 196:Black book;
+
+SHOT hot-bell room=38 scene=hades title=Entrance to Hades dark=0 pages=1 room targets= 26:Pair of candles; 168:Red hot brass bell; 211:Number of ghosts; 144:Pile of bodies;
+
+SHOT attic-rope room=187 scene=z1_attic title=Attic dark=0 pages=1 room targets= 58:Rope; 250:Table; 165:Nasty knife; 177:Stairs;
+
+SHOT skeleton-key room=218 scene=z1_maze_skeleton title=Maze dark=0 pages=1 room targets= 96:Skeleton key; 232:Rusty knife; 97:Leather bag of coins; 91:Burned-out lantern; 206:Skeleton;
+
+>>>> east [room #78 score 50 turn 45]
+Strange Passage
+This is a long passage. To the west is one entrance. On the east there is an old wooden door, with a large opening in it (about cyclops sized).
+
+SHOT strange-west room=117 scene=z1_strange_passage title=Strange Passage dark=0 pages=2 room targets=
+
+>>>> east [room #117 score 50 turn 46]
+Living Room
+
+SHOT shortcut-from-house room=75 scene=z1_living_moved_shortcut title=Living Room dark=0 pages=1 room targets= 100:Wooden door; 240:Trap door; 55:Carpet; 197:Trophy case; 177:Stairs;
+
+>>>> west [room #75 score 50 turn 47]
+Strange Passage
+
+SHOT strange-east room=117 scene=z1_strange_passage title=Strange Passage dark=0 pages=1 room targets=
+
+SHOT mirror-south room=110 scene=z1_mirror_south title=Mirror Room dark=0 pages=1 room targets= 234:Mirror;
+
+>>>> rub mirror [room #110 score 266 turn 364]
+There is a rumble from deep within the earth and the room shakes.
+
+SHOT mirror-north room=52 scene=z1_mirror_north title=Mirror Room dark=0 pages=1 room targets= 234:Mirror;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=52 score=266 moves=365

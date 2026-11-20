@@ -1,0 +1,30 @@
+
+>>>> exit [room #5 score 4 turn 170]
+You are on your own feet again.
+
+SHOT route-5-lit room=5 scene=technology_museum title=Technology Museum dark=0 pages=1 room targets= 219:Plaque; 92:Grey machine; 132:Black machine; 122:Gold machine; 76:Dial; 121:Seat; 120:Button; 82:Wooden door;
+
+>>>> open wooden door [room #5 score 4 turn 171]
+The wooden door opens.
+
+>>>> south [room #5 score 4 turn 172]
+Museum Entrance
+This is the entrance to the Royal Museum, the finest and grandest in the Great Underground Empire. To the south, down a few steps, is the entrance to the Royal Puzzle and to the east, through a stone door, is the Royal Jewel Collection. A wooden door to the north is open and leads to the Museum of Technology. To the west is a great iron door, rusted shut.
+
+SHOT route-173-lit room=173 scene=museum_entrance title=Museum Entrance dark=0 pages=3 room targets= 199:Iron door; 205:Stone door; 82:Wooden door; 154:Stairs;
+
+>>>> south [room #173 score 4 turn 173]
+Royal Puzzle Entrance
+This is a small square room, in the middle of which is a round hole which is blocked by smooth sandstone.
+
+SHOT route-84-lit room=84 scene=z3_royal_puzzle_entrance title=Royal Puzzle Entrance dark=0 pages=1 room targets= 154:Stairs;
+
+>>>> west [room #84 score 4 turn 174]
+Side Room
+You are in a narrow room, lit from above. A flight of steps leads up to the north, and a metal door leads to the east.
+
+SHOT route-130-lit room=130 scene=z3_side_room title=Side Room dark=0 pages=1 room targets= 117:Steel door; 154:Stairs;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 347 reachable argument pickers
+ACCESS 4 room states, 15 focus targets, 0 bag entries, 2923 traversed menu rows, 388 matching room crops
+AUDIT RESULT screen=2 room=130 score=4 moves=175

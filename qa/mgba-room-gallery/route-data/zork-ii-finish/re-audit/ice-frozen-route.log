@@ -1,0 +1,10 @@
+Pre-dragon alternate route to the frozen Ice Room
+
+Source checkpoint: route-206-lit.sav, first stable arrival in the Cobwebby Corridor before waking or provoking the dragon.
+
+Paths -> North reaches the Lava Tube (room 184).
+Paths -> Down reaches the Ice Room (room 161).
+
+The glacier remains intact at this prompt; no dragon is present. A targeted mGBA input replay verified chapter 1, room 161 and captured the screenshot after the new room had rendered. No destination SRAM checkpoint is used or created; the repeatable evidence is the source save plus the North → Down route replay.
+
+SHOT ice-frozen room=161 scene=z2_ice_room title=Ice Room dark=0 pages=1 room targets=

@@ -1,0 +1,31 @@
+
+>>>> enter bucket [room #119 score 20 turn 25]
+You are now in the wooden bucket.
+
+>>>> climb well [room #119 score 20 turn 26]
+You can't climb the well.
+
+>>>> stand [room #119 score 20 turn 27]
+You are on your own feet again.
+
+>>>> stand [room #8 score 30 turn 27]
+You are on your own feet again.
+
+SHOT well-top-outside room=8 scene=z2_well_top title=Top of Well dark=0 pages=1 room targets= 52:Wooden bucket; 186:Quantity of water; 191:Wall with etchings; 6:Well;
+
+>>>> west [room #8 score 30 turn 28]
+You can't go that way.
+
+>>>> fill teapot [room #8 score 30 turn 27]
+The teapot is now full of water.
+The bucket descends and comes to a stop.
+
+Circular Room, in the wooden bucket
+
+>>>> stand [room #119 score 30 turn 28]
+You are on your own feet again.
+
+SHOT well-bottom-return room=119 scene=z2_well_bottom title=Circular Room dark=0 pages=1 room targets= 52:Wooden bucket; 9:Wall with etchings; 6:Well;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=119 score=30 moves=29

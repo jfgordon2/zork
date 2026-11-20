@@ -1,0 +1,6 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/states/boat-afloat.png,captured,zork-i-story-state-37-boat-afloat,0,37,37
+zork-i/states/boat-with-lantern.png,captured,zork-i-story-state-37-boat-with-lantern,0,37,37
+zork-i/states/river-launched.png,captured,zork-i-story-state-37-river-launched,0,37,37
+zork-i/states/inside-boat.png,captured,zork-i-story-state-111-inside-boat,0,111,111
+zork-i/states/cargo-downstream.png,captured,zork-i-story-state-174-cargo-downstream,0,174,174

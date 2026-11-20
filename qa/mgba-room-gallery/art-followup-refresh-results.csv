@@ -1,0 +1,12 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/room-16.png,captured,zork-i-route-room-16-room-16,0,16,16
+zork-i/room-31.png,captured,zork-i-route-room-31-room-31,0,31,31
+zork-i/room-72.png,captured,zork-i-route-room-72-room-72,0,72,72
+zork-i/room-86.png,captured,zork-i-route-room-86-room-86,0,86,86
+zork-i/room-167.png,captured,zork-i-route-room-167-room-167,0,167,167
+zork-i/room-202.png,captured,zork-i-route-room-202-room-202,0,202,202
+zork-ii/room-15.png,captured,zork-ii-route-room-15-room-15,1,15,15
+zork-ii/room-59.png,captured,zork-ii-route-room-59-room-59,1,59,59
+zork-ii/states/wooden-door-open.png,captured,zork-ii-story-state-46-wooden-door-open,1,46,46
+zork-ii/states/wooden-door-shut.png,captured,zork-ii-story-state-46-wooden-door-shut,1,46,46
+zork-ii/states/wooden-door-entered.png,captured,zork-ii-story-state-59-wooden-door-entered,1,59,59

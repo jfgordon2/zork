@@ -1,0 +1,10 @@
+
+>>>> west [room #143 score 3 turn 158]
+Side Room
+You are in a narrow room, lit from above. A flight of steps leads up to the north, and a metal door leads to the east.
+
+SHOT route-188-lit room=188 scene=z3_side_room title=Side Room dark=0 pages=1 room targets= 117:Steel door; 154:Stairs;
+VISUAL 0 selection checks, 0 absent markers, 0 clipped markers, 0 crowded states, 0 persistence checks
+PICKERS 46 reachable argument pickers
+ACCESS 1 room states, 2 focus targets, 6 bag entries, 508 traversed menu rows, 59 matching room crops
+AUDIT RESULT screen=2 room=188 score=3 moves=159

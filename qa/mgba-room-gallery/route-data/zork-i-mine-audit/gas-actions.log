@@ -1,0 +1,44 @@
+
+>>>> look [room #46 score 271 turn 376]
+Gas Room
+This is a small room which smells strongly of coal gas. There is a short climb up some stairs and a narrow tunnel leading east.
+There is a sapphire-encrusted bracelet here.
+
+SHOT gas-lantern room=46 scene=z1_gas_room title=Gas Room dark=0 pages=2 room targets= 214:Sapphire-encrusted bracelet; 177:Stairs;
+
+>>>> up [room #46 score 271 turn 377]
+Smelly Room
+
+>>>> south [room #93 score 271 turn 378]
+Shaft Room
+At the end of the chain is a basket.
+The basket contains:
+  A screwdriver
+  A torch (providing light)
+
+>>>> take torch [room #245 score 271 turn 379]
+Taken.
+
+>>>> north [room #245 score 271 turn 380]
+Smelly Room
+
+>>>> down [room #93 score 271 turn 381]
+Gas Room
+There is a sapphire-encrusted bracelet here.
+Oh dear. It appears that the smell coming from this room was coal gas. I would have thought twice about carrying flaming objects in here.
+
+      ** BOOOOOOOOOOOM **
+ 
+    ****  You have died  **** 
+
+As you take your last breath, you feel relieved of your burdens. The feeling passes as you find yourself before the gates of Hell, where the spirits jeer at you and deny you entry. Your senses are disturbed. The objects in the dungeon appear indistinct, bleached of color, even unreal.
+
+Entrance to Hades
+There is a brass bell here.
+There is a pair of candles here.
+There is a black book here.
+
+SHOT gas-with-flame room=38 scene=hades title=Entrance to Hades dark=0 pages=5 room targets= 83:Brass bell; 26:Pair of candles; 196:Black book; 144:Pile of bodies;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=38 score=261 moves=382

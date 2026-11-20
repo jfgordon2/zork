@@ -1,0 +1,106 @@
+
+>>>> take red sphere [room #54 score 45 turn 44]
+As you reach for the sphere, a solid steel cage falls from the ceiling to entrap you. To make matters worse, poisonous gas starts coming into the room.
+
+Cage
+You are trapped inside a solid steel cage.
+
+SHOT cage-entered room=106 scene=z2_closet title=Cage dark=0 pages=2 room targets= 11:Solid steel cage; 98:Robot;
+
+>>>> north [room #106 score 45 turn 45]
+You can't go that way.
+
+>>>> wait [room #106 score 45 turn 46]
+Time passes...
+
+>>>> wait [room #106 score 45 turn 49]
+Time passes...
+Time passes...and you die from some obscure poisoning.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see a small room with a sign on the wall, but it is too blurry to read.
+
+>>>> wait [room #224 score 35 turn 50]
+Time passes...
+
+SHOT cage-timeout room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=1 room targets= 188:Sphere;
+
+>>>> robot, go north [room #54 score 45 turn 44]
+"Whirr, buzz, click!"
+The robot leaves the room.
+
+>>>> take red sphere [room #54 score 45 turn 45]
+As you reach for the sphere, a solid steel cage falls from the ceiling to entrap you. To make matters worse, poisonous gas starts coming into the room.
+
+Cage
+You are trapped inside a solid steel cage.
+
+>>>> robot, lift cage [room #106 score 45 turn 46]
+You can't see any robot here!
+
+>>>> wait [room #106 score 45 turn 46]
+Time passes...
+
+>>>> wait [room #106 score 45 turn 49]
+Time passes...
+Time passes...and you die from some obscure poisoning.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see a small room with a sign on the wall, but it is too blurry to read.
+
+SHOT cage-without-robot room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=5 room targets= 188:Sphere;
+
+>>>> push round button [room #87 score 65 turn 50]
+There is a giant spark and you are fried to a crisp.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see only darkness.
+
+SHOT round-button-outcome room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=4 room targets= 188:Sphere;
+
+>>>> push square button [room #87 score 65 turn 50]
+There is a giant spark and you are fried to a crisp.
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see only darkness.
+
+SHOT square-button-outcome room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=4 room targets= 188:Sphere;
+
+>>>> robot, push round button [room #87 score 65 turn 50]
+"Whirr, buzz, click!"
+Nothing seems to happen.
+
+SHOT robot-round-outcome room=87 scene=robot_machine title=Machine Room dark=0 pages=1 room targets= 98:Robot; 4:Triangular button; 27:Square button; 1:Round button;
+
+>>>> robot, push square button [room #87 score 65 turn 50]
+"Whirr, buzz, click!"
+The whirring increases in intensity.
+
+SHOT robot-square-outcome room=87 scene=robot_machine title=Machine Room dark=0 pages=1 room targets= 98:Robot; 4:Triangular button; 27:Square button; 1:Round button;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=87 score=65 moves=51

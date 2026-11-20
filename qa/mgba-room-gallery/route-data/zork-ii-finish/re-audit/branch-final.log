@@ -1,0 +1,103 @@
+
+>>>> give portrait to gnome [room #64 score 290 turn 304]
+The gnome carefully places the portrait of J. Pierpont Flathead in the deposit box. "Let me show you the way out," he says, making it clear he will be pleased to see the last of you. Then, you are momentarily disoriented, and when you recover you are back at the Bank Entrance.
+Bank Entrance
+
+SHOT banker-payment-result room=92 scene=z2_bank_entrance title=Bank Entrance dark=0 pages=2 room targets=
+
+>>>> demon, move menhir [room #91 score 335 turn 389]
+The demon is gone for a moment. "A trifle... My little finger alone was enough."
+The genie departs, his agreement fulfilled.
+
+SHOT demon-moved-menhir room=91 scene=pentagram_room title=Pentagram Room dark=0 pages=1 room targets= 18:Wizard of Frobozz; 24:Wizard's magic wand; 209:Pentagram; 166:Enormous menhir; 208:Three-headed dog; 222:Wizard's trophy cabinet;
+
+>>>> north [room #91 score 335 turn 390]
+Wizard's Workroom
+Sitting on the Wizard's workbench is: 
+  A black obsidian stand
+
+>>>> east [room #94 score 335 turn 391]
+Wizard's Workshop
+
+>>>> north [room #45 score 335 turn 392]
+Guarded Room
+
+>>>> north [room #28 score 335 turn 393]
+Cobwebby Corridor
+
+>>>> ne [room #206 score 335 turn 394]
+Carousel Room
+There is a dented steel box here.
+
+>>>> south [room #144 score 335 turn 395]
+Menhir Room
+This is a large room which was evidently used once as a quarry. Many large limestone chunks lie helter-skelter around the room. Some are rough-hewn and unworked, others smooth and well-finished. One side of the room appears to have been used to quarry building blocks, the other to produce menhirs (standing stones). Obvious passages lead north and south.
+There is a huge menhir lying on the floor near a southwest passage.
+
+>>>> look [room #159 score 335 turn 396]
+Menhir Room
+This is a large room which was evidently used once as a quarry. Many large limestone chunks lie helter-skelter around the room. Some are rough-hewn and unworked, others smooth and well-finished. One side of the room appears to have been used to quarry building blocks, the other to produce menhirs (standing stones). Obvious passages lead north and south.
+There is a huge menhir lying on the floor near a southwest passage.
+
+SHOT menhir-after-demon room=159 scene=menhir_room title=Menhir Room dark=0 pages=3 room targets= 84:Enormous menhir;
+
+>>>> turn off lamp [room #238 score 0 turn 21]
+The lamp is now off.
+It is now pitch black.
+
+>>>> look [room #238 score 0 turn 22]
+It is pitch black. You are likely to be eaten by a grue.
+
+>>>> southeast [room #238 score 0 turn 23]
+Oh, no! You have walked into the slavering fangs of a lurking grue!
+ 
+    ****  You have died  **** 
+
+Now, let's take a look here... Well, you probably deserve another chance. I can't quite fix you up completely, but you can't have everything.
+
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see a small room with a sign on the wall, but it is too blurry to read.
+
+>>>> look [room #224 score 65526 turn 24]
+Room of Red Mist
+You are inside a huge crystalline sphere filled with thin red mist. The mist becomes blue to the west.
+You strain to look out through the mist... 
+You see a small room with a sign on the wall, but it is too blurry to read.
+
+SHOT death-red room=224 scene=z2_mist_red title=Room of Red Mist dark=0 pages=2 room targets= 188:Sphere;
+
+>>>> west [room #224 score 65526 turn 25]
+Room of Blue Mist
+You are inside a huge crystalline sphere filled with thin blue mist. The mist becomes white to the west.
+You strain to look out through the mist... 
+You look out into a large, dreary room with a great door and a huge table. There is an odd glow to the mist.
+
+SHOT death-blue room=227 scene=z2_mist_blue title=Room of Blue Mist dark=0 pages=2 room targets= 188:Sphere;
+
+>>>> west [room #227 score 65526 turn 26]
+Room of White Mist
+You are inside a huge crystalline sphere filled with thin white mist. The mist becomes black to the west.
+You strain to look out through the mist... 
+A strange blurry room is barely visible.
+
+SHOT death-white room=228 scene=z2_mist_white title=Room of White Mist dark=0 pages=2 room targets= 188:Sphere;
+
+>>>> west [room #228 score 65526 turn 27]
+You follow a corridor of black mist into a black walled spherical room. As you enter, a huge and horrible face materializes out of the mist.
+
+"What brings you here to trouble my imprisonment, wanderer?" it asks. Hearing no immediate answer, it studies you for a moment.
+"Perhaps you may be of some use to me in gaining my freedom from this place. Return to your foolish quest! I shall not destroy you this time. Mayhap you will repay this favor in kind someday." The face vanishes and the mist begins to swirl. When it clears you are returned to the world of life.
+Inside the Barrow
+There is a lamp here.
+
+SHOT death-black room=51 scene=barrow title=Inside the Barrow dark=0 pages=4 room targets= 149:Brass lantern;
+
+>>>> south [room #51 score 65526 turn 28]
+Narrow Tunnel
+
+SHOT death-return room=168 scene=z2_narrow_tunnel title=Narrow Tunnel dark=0 pages=1 room targets= 74:Bridge; 105:Chasm; 104:Stream; 217:Mosses;
+PICKERS 0 reachable argument pickers
+ACCESS 0 room states, 0 focus targets, 0 bag entries, 0 traversed menu rows, 0 matching room crops
+AUDIT RESULT screen=2 room=168 score=65526 moves=29
