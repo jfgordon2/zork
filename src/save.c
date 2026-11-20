@@ -9,8 +9,6 @@ enum {
 };
 static const uint32_t signature = 0x31524f5a;  /* ZOR1 */
 static uint8_t payload[BANK_SIZE - HEADER_SIZE];
-static uint8_t dynamic[Z_DYNAMIC_MAX];
-static uint8_t stack[Z_STACK_WORDS * 2];
 
 static uint32_t get(const volatile uint8_t *p, unsigned bytes) {
     uint32_t value = 0;
@@ -289,6 +287,8 @@ bool save_read_with_transcript(const volatile uint8_t *sram, unsigned chapter, u
     ZResume state = {get(payload, 4), get(payload + 4, 4), get(payload + 8, 2), get(payload + 10, 2),
                      get(payload + 12, 2), get(payload + 14, 2), get(payload + 16, 1) != 0};
     unsigned pos = RESUME_SIZE + VISITED_BYTES;
+    uint8_t *dynamic, *stack;
+    z_scratch(&dynamic, &stack);
     if (!z_valid_resume(&state) || !decode(&pos, story_end, dynamic, z_original(), z_dynamic_size()) ||
         !decode(&pos, story_end, stack, 0, state.sp * 2u) || pos != story_end) return false;
     for (unsigned i = 0; i < VISITED_BYTES; i++) seen[i] = payload[RESUME_SIZE + i];

@@ -236,6 +236,70 @@ static void check_action(unsigned object, ActionGroup group, const char *name, c
     assert(!strcmp(line, expected));
 }
 
+// Objects that have an exit property are rooms; their names are displayed, not
+// typed as parser nouns, so they are out of scope for this check.
+static bool is_room(unsigned id) {
+    static const uint8_t exit_props[12] = {31, 30, 28, 29, 27, 25, 24, 26, 23, 22, 21, 20};
+    for (unsigned i = 0; i < 12; i++) {
+        const uint8_t *bytes;
+        if (z_property(id, exit_props[i], &bytes)) return true;
+    }
+    return false;
+}
+
+// A noun built for a parser command must not contain a word the story can't
+// tokenize; otherwise the story answers "I don't know the word ...".
+static void check_parser_nouns(unsigned story) {
+    unsigned bad = 0, unaddressable = 0;
+    for (unsigned id = 1; id <= z_object_count(); id++) {
+        if (is_room(id)) continue;
+        // Global pseudo-objects ("you", "number", "random object", ...) hang off
+        // an unnamed container and are never offered as parser targets.
+        unsigned parent = z_parent(id);
+        char parent_name[Z_NAME_MAX];
+        if (!parent) continue;
+        z_name(parent, parent_name, sizeof(parent_name));
+        if (!*parent_name) continue;
+        char name[Z_NAME_MAX], noun[Z_NAME_MAX];
+        z_name(id, name, sizeof(name));
+        if (!*name) continue;
+        story_parser_noun(id, noun);
+        if (!*noun) {
+            if (unaddressable < 12) fprintf(stderr, "Story %u object %u (%s): no parser noun; excluded from focus\n",
+                                            story + 1, id, name);
+            unaddressable++;
+            if (story != 1 || id != 203) bad++;
+            continue;
+        }
+        // Exercise the actual Z-machine tokenizer, including punctuation
+        // separators and words that have no dictionary entry.
+        char line[COMMAND_SIZE] = "examine ", reply[128] = {0};
+        assert(append_text(line, sizeof(line), noun));
+        if (!z_probe(line, reply, sizeof(reply), 20000) || text_has(reply, "I don't know the word")) {
+            if (bad < 12) fprintf(stderr, "Story %u object %u (%s), parent %u (%s): parser rejected '%s' (%s)\n",
+                                  story + 1, id, name, parent, parent_name, line, reply);
+            bad++;
+        }
+    }
+    printf("Story %u parser noun check: %u bad nouns; %u objects have no parser noun.\n",
+           story + 1, bad, unaddressable);
+    assert(bad == 0);
+    assert(unaddressable == (story == 1 ? 1u : 0u));
+}
+
+// The bird's nest's short name is "bird's nest", which the story can't tokenize.
+// The generic dictionary normalizer must derive "nest" without a special alias.
+static void check_birds_nest_command(void) {
+    Action examine = {"Examine", "examine", NULL, DO_OBJECT};
+    char line[COMMAND_SIZE], noun[Z_NAME_MAX], raw[Z_NAME_MAX];
+    story_noun(135, raw);
+    story_parser_noun(135, noun);
+    assert(text_equal(raw, "Bird's nest"));
+    assert(text_equal(noun, "nest"));
+    assert(action_command(examine, 135, NULL, line));
+    assert(!strcmp(line, "examine nest"));
+}
+
 // Every object's action list must fit in MAX_ACTIONS without story_actions' cap kicking in.
 static void check_action_capacity(unsigned story) {
     static const ActionGroup groups[] = {PRIMARY, INSPECT, HANDLE, USE, COMBINE, TOOLS, MOVE, ORDERS};
@@ -276,6 +340,37 @@ static void check_gazebo_targets(void) {
     command(line);
     story_targets(1, &room, &bag);
     assert(has_target(&bag, teapot) && !has_target(&room, teapot));
+}
+
+// The forest lists the songbird you only hear and the house you can only see
+// from afar; the story refuses to examine either there, so neither is offered.
+static void check_distant_scenery(void) {
+    Targets room, bag;
+    story_targets(chapter, &room, &bag);
+    assert(has_target(&room, 65));  // West of House: the white house is right there.
+    command("north");
+    command("north");
+    assert(z_global(0) == 238);
+    uint8_t before[Z_DYNAMIC_MAX];
+    memcpy(before, z_dynamic(), z_dynamic_size());
+    story_targets(chapter, &room, &bag);
+    assert(!has_target(&room, 56) && !has_target(&room, 65) && has_target(&room, 107));
+    // Asking the story leaves no trace: same memory, same prompt.
+    assert(!memcmp(before, z_dynamic(), z_dynamic_size()) && z_input_limit());
+    command("examine tree");
+    captured_story_text[captured_story_size] = 0;
+    assert(strstr(captured_story_text, "nothing special about the tree"));
+    command("up");
+    assert(z_global(0) == 5);
+    story_targets(chapter, &room, &bag);
+    assert(has_target(&room, 135) && has_target(&room, 105));
+    assert(!has_target(&room, 56) && !has_target(&room, 65));
+    Action examine = {"Examine", "examine", NULL, DO_OBJECT};
+    char line[COMMAND_SIZE];
+    assert(action_command(examine, 135, NULL, line) && !strcmp(line, "examine nest"));
+    command(line);
+    captured_story_text[captured_story_size] = 0;
+    assert(strstr(captured_story_text, "nest"));
 }
 
 static void check_first_zork_dam(void) {
@@ -410,6 +505,8 @@ int main(void) {
     start(0);
     assert(z_global(0) == 64 && z_global(2) == 0);
     check_action_capacity(0);
+    check_parser_nouns(0);
+    check_birds_nest_command();
     check_action(199, PRIMARY, "Give item...", "lunch", "give lunch to cyclops");
     check_action(ZORK1_TROLL, PRIMARY, "Throw item...", "knife", "throw knife at troll");
     check_action(157, PRIMARY, "Move", NULL, "move pile of leaves");
@@ -449,11 +546,14 @@ int main(void) {
     assert(restore_vm() && trail.count == 0 && z_parent(76) == 44);
 
     start(0);
+    check_distant_scenery();
+    start(0);
     check_first_zork_dam();
 
     start(1);
     assert(z_global(0) == 51 && !save_exists(sram, 1));
     check_action_capacity(1);
+    check_parser_nouns(1);
     check_action(ZORK2_DRAGON, PRIMARY, "Kick", NULL, "kick dragon");
     check_action(229, ORDERS, "Attack...", "wizard", "demon, attack wizard");
     check_dictionary((const char *const[]){"well", "float"}, 2);
@@ -476,6 +576,7 @@ int main(void) {
     start(2);
     assert(z_global(0) == 211 && !save_exists(sram, 2));
     check_action_capacity(2);
+    check_parser_nouns(2);
     assert(z_attr(ZORK3_VIKING_SHIP, ZORK3_SHIP_HIDDEN));
     assert(!story_cliff_man_visible() && !story_figure_defenseless());
     check_action(ZORK3_OLD_MAN, PRIMARY, "Wake", NULL, "wake man");

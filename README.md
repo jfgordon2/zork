@@ -30,7 +30,7 @@ All audit and review reports are indexed in [docs/](docs/README.md).
 
 [Route-driven visual consistency and QA audit](docs/audits/visual-route-qa-audit.md) · [Zork III re-audit](docs/audits/zork-iii-re-audit.md) · [Initial Zork III audit](docs/audits/zork-iii-audit.md) · [Connected-scene consistency pass](docs/audits/zork-iii-consistency-pass.md) · [Current backgrounds](docs/images/zork-iii-connected-scenes.png) · [Connected in-game states](docs/images/zork-iii-connected-scene-states.png) · [72-room renderer review](docs/images/zork-iii-scene-review.png) · [Per-screen capture matrix](docs/audits/zork-iii-audit-screens.csv)
 
-[Asset / story consistency review](docs/audits/asset-story-consistency-audit.md) · [Follow-up full sweep](docs/audits/asset-story-consistency-audit-followup.md) · [Code review](docs/audits/code-review.md) · [Room and encounter placement across connected scenes](docs/art-history/encounter-options/encounter-routes.png)
+[Asset / story consistency review](docs/audits/asset-story-consistency-audit.md) · [Follow-up full sweep](docs/audits/asset-story-consistency-audit-followup.md) · [Code review](docs/audits/code-review.md) · [Parser noun normalization](docs/audits/parser-noun-fix.md) · [Room and encounter placement across connected scenes](docs/art-history/encounter-options/encounter-routes.png)
 
 Compare two pixel-art designs for each encounter in [Zork I](docs/art-history/encounter-options/zork-i.png), [Zork II](docs/art-history/encounter-options/zork-ii.png), and [Zork III](docs/art-history/encounter-options/zork-iii.png). The boards include alternate poses for encounters that change during play.
 

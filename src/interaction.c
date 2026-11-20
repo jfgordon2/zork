@@ -203,7 +203,7 @@ bool action_command(Action action, unsigned object, const char *value, char line
     line[0] = 0;
     if (!action.verb || !append_text(line, COMMAND_SIZE, action.verb)) return false;
     if (action.kind == PICK_ITEM) {
-        story_noun(object, noun);
+        story_parser_noun(object, noun);
         return value && *value && *noun && action.argument && append_text(line, COMMAND_SIZE, " ") &&
                append_text(line, COMMAND_SIZE, value) && append_text(line, COMMAND_SIZE, " ") &&
                append_text(line, COMMAND_SIZE, action.argument) && append_text(line, COMMAND_SIZE, " ") &&
@@ -212,7 +212,7 @@ bool action_command(Action action, unsigned object, const char *value, char line
     if (action.kind == DO_OBJECT ||
         ((action.kind == PICK_TARGET || action.kind == PICK_SELF) && action.argument) ||
         (action.kind == PICK_DIRECTION && text_equal(action.verb, "push"))) {
-        story_noun(object, noun);
+        story_parser_noun(object, noun);
         if (!*noun || !append_text(line, COMMAND_SIZE, " ") || !append_text(line, COMMAND_SIZE, noun)) return false;
     }
     if (action.argument &&

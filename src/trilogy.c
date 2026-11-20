@@ -1480,7 +1480,7 @@ static void update(uint16_t pressed) {
             break;
         case SECOND_OBJECT: {
             char noun[Z_NAME_MAX];
-            story_noun(second.id[selected], noun);
+            story_parser_noun(second.id[selected], noun);
             run_action(pending_action, noun);
             break;
         }

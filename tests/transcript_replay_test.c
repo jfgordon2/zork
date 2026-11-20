@@ -37,6 +37,9 @@ static unsigned qa_marker_count, qa_bad_marker_bounds;
 static unsigned qa_ui_focus_count;
 static unsigned qa_scene_checks, qa_target_checks;
 static unsigned qa_dropped_item_checks;
+static unsigned qa_parser_target_checks;
+static unsigned qa_parser_probe_checks, qa_room_definition_checks;
+static bool qa_parser_checked[QA_CHAPTERS][512];
 static bool qa_missing[QA_CHAPTERS][256][512];
 static bool qa_bad_bounds[QA_CHAPTERS][256][512];
 
@@ -99,12 +102,44 @@ static void response_trim(void) {
     response[response_size] = 0;
 }
 
+static void audit_parser_targets(const Targets *targets) {
+    for (unsigned i = 0; i < targets->count; i++) {
+        unsigned id = targets->id[i];
+        char noun[Z_NAME_MAX];
+        story_parser_noun(id, noun);
+        if (!*noun) {
+            char name[Z_NAME_MAX];
+            story_name(chapter, id, name);
+            fprintf(stderr, "Unaddressable target: Z%u room %u object %u (%s)\n",
+                    chapter + 1, z_global(0), id, name);
+        }
+        assert(*noun);
+        if (id < 512 && !qa_parser_checked[chapter][id]) {
+            char line[COMMAND_SIZE] = "examine ", reply[96] = {0};
+            assert(append_text(line, sizeof(line), noun));
+            assert(z_probe(line, reply, sizeof(reply), 20000));
+            if (text_has(reply, "I don't know the word")) {
+                char name[Z_NAME_MAX];
+                story_name(chapter, id, name);
+                fprintf(stderr, "Parser rejected target noun: Z%u room %u object %u (%s): %s\n",
+                        chapter + 1, z_global(0), id, name, reply);
+            }
+            assert(!text_has(reply, "I don't know the word"));
+            qa_parser_checked[chapter][id] = true;
+            qa_parser_probe_checks++;
+        }
+        qa_parser_target_checks++;
+    }
+}
+
 static void audit_scene_target_boxes(void) {
     unsigned room_id = z_global(0);
     if (zork1_barrow_finished()) return;
 
     Targets targets, carried;
     story_targets(chapter, &targets, &carried);
+    audit_parser_targets(&targets);
+    audit_parser_targets(&carried);
     if (!targets.count) return;
     char room_name[Z_NAME_MAX];
     z_name(room_id, room_name, sizeof(room_name));
@@ -196,6 +231,10 @@ static void report_target_box_gaps(void) {
     printf("Scene target-box audit: %u states, %u focused targets, %u without a scene-specific box, "
            "%u scene boxes outside the art band; every target had at most one scene box and one yellow name-row frame.\n",
            qa_scene_checks, qa_target_checks, missing, outside);
+    printf("Parser target audit: %u visible and carried target appearances had usable parser nouns.\n",
+           qa_parser_target_checks);
+    printf("All-room parser audit: %u room definitions checked; %u distinct target names accepted by the interpreter.\n",
+           qa_room_definition_checks, qa_parser_probe_checks);
     printf("Dropped-item scene boxes checked: %u.\n", qa_dropped_item_checks);
     assert(outside == 0);
 }
@@ -281,6 +320,30 @@ static void poke_global(unsigned number, uint16_t value) {
     dynamic[address + 1] = value & 0xFF;
 }
 
+static bool object_is_room(unsigned id) {
+    static const uint8_t exits[] = {31, 30, 28, 29, 27, 25, 24, 26, 23, 22, 21, 20};
+    for (unsigned i = 0; i < sizeof(exits) / sizeof(*exits); i++) {
+        const uint8_t *bytes;
+        if (z_property(id, exits[i], &bytes)) return true;
+    }
+    return false;
+}
+
+static void audit_all_room_parser_targets(void) {
+    enum { HERE = 0 };
+    uint16_t saved_here = z_global(HERE);
+    for (unsigned id = 1; id <= z_object_count(); id++) {
+        if (!object_is_room(id)) continue;
+        poke_global(HERE, id);
+        Targets room, bag;
+        story_targets(chapter, &room, &bag);
+        audit_parser_targets(&room);
+        audit_parser_targets(&bag);
+        qa_room_definition_checks++;
+    }
+    poke_global(HERE, saved_here);
+}
+
 static void audit_offroute_zork2_scenes(void) {
     // The eight floor-window angled rooms and the Murky Room are off the winning route.
     extern const Color art_z2_angled_northeast[], art_z2_murky_room[];
@@ -361,6 +424,7 @@ static void run_game(unsigned game, unsigned final_room, unsigned final_score) {
     account_entry(NULL, response, response_size, &plain_total, &encoded_total,
                   retained, &retained_head, &retained_count, &retained_encoded, &retained_plain);
     audit_scene_target_boxes();
+    audit_all_room_parser_targets();
 
     FILE *route = fopen(route_path, "r");
     assert(route);

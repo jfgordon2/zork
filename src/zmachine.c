@@ -4,11 +4,17 @@ enum { MAX_STORY = 96 * 1024, MAX_STREAMS = 8 };
 static uint8_t memory[MAX_STORY] __attribute__((aligned(4)));
 static const uint8_t *original;
 static size_t original_size;
+static unsigned story_generation;
 static const ZPlatform *platform;
 static unsigned objects;
 static bool screen_enabled;
 static uint16_t streams[MAX_STREAMS];
 static unsigned depth;
+// Shared scratch for a saved game being restored and for z_probe's rewind point;
+// the two never overlap.
+static uint8_t scratch_dynamic[Z_DYNAMIC_MAX], scratch_stack[Z_STACK_WORDS * 2];
+static char *probe_reply;
+static size_t probe_size, probe_capacity;
 
 void *memset(void *dst, int value, size_t count) {
     unsigned char *bytes = dst;
@@ -82,7 +88,8 @@ static void output(const char *text, size_t size) {
         for (size_t i = 0; i < size; i++) memory[address + 2u + used + i] = text[i] == '\n' ? 13 : text[i];
         write_word(memory + address, used + size);
     } else if (screen_enabled && !vm.current_window) {
-        platform->text(text, size);
+        if (!probe_reply) platform->text(text, size);
+        else for (size_t i = 0; i < size && probe_size < probe_capacity; i++) probe_reply[probe_size++] = text[i];
     }
 }
 
@@ -132,6 +139,8 @@ void z_start(const uint8_t *story, size_t size, const ZPlatform *io) {
     platform = io;
     original = story;
     original_size = size;
+    story_generation++;
+    if (!story_generation) story_generation = 1;
     vm.writestr = output;
     vm.die = fatal;
     if (size < 64 || size > sizeof(memory) || story[0] != 3 || read_word(story + 14) > Z_DYNAMIC_MAX ||
@@ -218,6 +227,40 @@ unsigned z_dictionary_size(void) {
     return entries;
 }
 
+unsigned z_story_generation(void) { return story_generation; }
+
+bool z_dictionary_phrase_known(const char *phrase) {
+    unsigned stride, entries;
+    const uint8_t *words = dictionary(&stride, &entries);
+    const uint8_t *separators = memory + vm.header.dict_addr;
+    unsigned separator_count = *separators++;
+    bool any = false;
+    while (*phrase) {
+        if (*phrase == ' ') {
+            phrase++;
+            continue;
+        }
+        const char *start = phrase;
+        bool separator = is_dictionary_separator((uint8_t)*phrase, separators, separator_count);
+        phrase++;
+        if (!separator) {
+            while (*phrase && *phrase != ' ' &&
+                   !is_dictionary_separator((uint8_t)*phrase, separators, separator_count)) phrase++;
+        }
+        size_t length = (size_t)(phrase - start);
+        if (length >= Z_NAME_MAX) length = Z_NAME_MAX - 1;
+        char token[Z_NAME_MAX];
+        for (size_t i = 0; i < length; i++) {
+            char ch = start[i];
+            token[i] = ch >= 'A' && ch <= 'Z' ? ch + ('a' - 'A') : ch;
+        }
+        token[length] = 0;
+        if (!dictionary_word((const uint8_t *)token, (unsigned)length, words, stride, entries)) return false;
+        any = true;
+    }
+    return any;
+}
+
 void z_dictionary_word(unsigned index, char word[Z_WORD_MAX]) {
     unsigned stride, entries;
     const uint8_t *table = dictionary(&stride, &entries);
@@ -228,6 +271,26 @@ void z_dictionary_word(unsigned index, char word[Z_WORD_MAX]) {
     size_t length = Z_WORD_MAX - 1;
     decode_zscii(entry, 0, word, &length);
     word[length < Z_WORD_MAX ? length : Z_WORD_MAX - 1] = 0;
+}
+
+void z_scratch(uint8_t **dynamic, uint8_t **stack) {
+    *dynamic = scratch_dynamic;
+    *stack = scratch_stack;
+}
+
+bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget) {
+    if (!vm.waiting_for_line || !capacity) return false;
+    ZResume state = z_resume();
+    memcpy(scratch_dynamic, memory, vm.header.staticmem_addr);
+    memcpy(scratch_stack, vm.stack, state.sp * 2u);
+    probe_reply = reply;
+    probe_size = 0;
+    probe_capacity = capacity - 1;
+    bool answered = z_submit(line) && z_run(budget) == Z_PROMPT;
+    reply[probe_size] = 0;
+    probe_reply = NULL;
+    z_load(&state, scratch_dynamic, scratch_stack);
+    return answered;
 }
 
 const uint8_t *z_dynamic(void) { return memory; }

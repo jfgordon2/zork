@@ -35,6 +35,8 @@ bool z_attr(unsigned object, unsigned attribute);
 size_t z_property(unsigned object, unsigned property, const uint8_t **bytes);
 void z_name(unsigned object, char *text, size_t capacity);
 unsigned z_dictionary_size(void);
+unsigned z_story_generation(void);
+bool z_dictionary_phrase_known(const char *phrase);
 void z_dictionary_word(unsigned index, char word[Z_WORD_MAX]);
 const uint8_t *z_dynamic(void);
 const uint8_t *z_original(void);
@@ -43,5 +45,10 @@ const uint8_t *z_stack_bytes(void);
 ZResume z_resume(void);
 bool z_valid_resume(const ZResume *state);
 void z_load(const ZResume *state, const uint8_t *dynamic, const uint8_t *stack);
+// Buffers large enough for a dynamic-memory image and a stack image.
+void z_scratch(uint8_t **dynamic, uint8_t **stack);
+// Runs one command at the prompt with its text captured into reply instead of
+// shown, then rewinds the story to exactly where it was. Uses z_scratch.
+bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget);
 
 #endif

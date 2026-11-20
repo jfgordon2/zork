@@ -478,6 +478,63 @@ void story_noun(unsigned id, char buffer[Z_NAME_MAX]) {
     }
 }
 
+// A token the dictionary can't match makes the story print "I don't know the
+// word ...". Ask the VM's tokenizer directly so its six-Z-character limit and
+// punctuation separators stay in sync with the parser.
+typedef struct { char token[Z_NAME_MAX]; bool known; } DictionaryToken;
+static DictionaryToken dictionary_tokens[16];
+static unsigned dictionary_token_generation;
+
+static bool dictionary_has(const char *token) {
+    unsigned generation = z_story_generation();
+    if (generation != dictionary_token_generation) {
+        dictionary_token_generation = generation;
+        for (unsigned i = 0; i < sizeof(dictionary_tokens) / sizeof(*dictionary_tokens); i++) {
+            dictionary_tokens[i].token[0] = 0;
+            dictionary_tokens[i].known = false;
+        }
+    }
+    unsigned slot = 0;
+    for (const char *p = token; *p; p++) slot = (slot * 31u + (uint8_t)lower(*p)) & 15u;
+    DictionaryToken *entry = &dictionary_tokens[slot];
+    if (entry->token[0] && text_equal(entry->token, token)) return entry->known;
+    bool known = z_dictionary_phrase_known(token);
+    entry->token[0] = 0;
+    append_text(entry->token, sizeof(entry->token), token);
+    entry->known = known;
+    return known;
+}
+
+void story_parser_noun(unsigned id, char buffer[Z_NAME_MAX]) {
+    buffer[0] = 0;
+    char source[Z_NAME_MAX];
+    story_noun(id, source);
+    char kept[Z_NAME_MAX] = {0};
+    unsigned used = 0;
+    bool first = true;
+    const char *cursor = source;
+    while (*cursor) {
+        while (*cursor == ' ') cursor++;
+        if (!*cursor) break;
+        const char *start = cursor;
+        while (*cursor && *cursor != ' ') cursor++;
+        char token[Z_NAME_MAX] = {0};
+        unsigned len = (unsigned)(cursor - start);
+        if (len >= sizeof(token)) len = sizeof(token) - 1;
+        for (unsigned i = 0; i < len; i++) token[i] = start[i];
+        if (dictionary_has(token)) {
+            if (!first && used + 1 < sizeof(kept)) kept[used++] = ' ';
+            for (unsigned i = 0; i < len && used + 1 < sizeof(kept); i++) kept[used++] = token[i];
+            kept[used] = 0;
+            first = false;
+        }
+    }
+    // An object with no known noun cannot be addressed by the story parser.
+    // Leave it out of focus rather than offering an action that will fail at
+    // tokenization.
+    if (used) append_text(buffer, Z_NAME_MAX, kept);
+}
+
 void story_name(unsigned chapter, unsigned id, char buffer[Z_NAME_MAX]) {
     raw_noun(id, buffer);
     if (id == TARGET_SELF) {
@@ -491,24 +548,28 @@ void story_name(unsigned chapter, unsigned id, char buffer[Z_NAME_MAX]) {
     }
 }
 
-static void add_object(Targets *list, unsigned id, unsigned chapter) {
+static bool add_object(Targets *list, unsigned id, unsigned chapter) {
     unsigned player = chapters[chapter].player;
-    if (list->count == TARGET_LIMIT || !id || id > z_object_count() || id == player) return;
-    if (chapter == 0 && id == ZORK1_TROLL && visual_state_troll_disappeared()) return;
+    if (list->count == TARGET_LIMIT || !id || id > z_object_count() || id == player) return false;
+    if (chapter == 0 && id == ZORK1_TROLL && visual_state_troll_disappeared()) return false;
     // Zork II uses different INVISIBLE and TRANSBIT attributes.
-    if (z_attr(id, chapter == 1 ? 9 : ATTR_INVISIBLE)) return;
-    if (chapter == 2 && id == ZORK3_VIKING_SHIP && z_attr(id, ZORK3_SHIP_HIDDEN)) return;
-    if (chapter == 2 && id == ZORK3_CLIFF_MAN && !story_cliff_man_visible()) return;
-    if (chapter == 2 && id == 11 && z_global(0) == ZORK3_DUNGEON_ENTRANCE) return;
+    if (z_attr(id, chapter == 1 ? 9 : ATTR_INVISIBLE)) return false;
+    if (chapter == 2 && id == ZORK3_VIKING_SHIP && z_attr(id, ZORK3_SHIP_HIDDEN)) return false;
+    if (chapter == 2 && id == ZORK3_CLIFF_MAN && !story_cliff_man_visible()) return false;
+    if (chapter == 2 && id == 11 && z_global(0) == ZORK3_DUNGEON_ENTRANCE) return false;
     char name[Z_NAME_MAX];
     z_name(id, name, sizeof(name));
-    if (!*name) return;
+    if (!*name) return false;
     for (unsigned i = 0; i < list->count; i++) {
-        if (list->id[i] == id) return;
+        if (list->id[i] == id) return false;
         // Zork III has both an actor and a room-local proxy for the Dungeon Master.
-        if (chapter == 2 && ((id == 1 && list->id[i] == 11) || (id == 11 && list->id[i] == 1))) return;
+        if (chapter == 2 && ((id == 1 && list->id[i] == 11) || (id == 11 && list->id[i] == 1))) return false;
     }
+    char noun[Z_NAME_MAX];
+    story_parser_noun(id, noun);
+    if (!*noun) return true; // Don't focus it, but still allow visible contents through it.
     list->id[list->count++] = id;
+    return true;
 }
 
 static void add_contents(Targets *list, unsigned parent, unsigned chapter, unsigned depth) {
@@ -516,12 +577,31 @@ static void add_contents(Targets *list, unsigned parent, unsigned chapter, unsig
     unsigned transparent = chapter == 1 ? 7 : ATTR_TRANSPARENT;
     unsigned item = z_child(parent);
     for (unsigned i = 0; item && i < z_object_count(); i++, item = z_sibling(item)) {
-        unsigned before = list->count;
-        add_object(list, item, chapter);
-        if (list->count != before && depth &&
+        bool visible = add_object(list, item, chapter);
+        if (visible && depth &&
             (z_attr(item, ATTR_OPEN) || z_attr(item, transparent) || item == vessel))
             add_contents(list, item, chapter, depth - 1);
     }
+}
+
+// A room's local globals are scenery it mentions, not things that are always
+// there: Zork I's forest lists the songbird you only hear and the house you can
+// only see from afar, and Zork III's lake lists a fish that comes and goes.
+// Ask the story itself, then rewind, so only scenery it will discuss is offered.
+static bool story_rejects(unsigned id) {
+    static const char *const refusals[] = {"You can't see any ", "You're not at ", "There is no "};
+    char noun[Z_NAME_MAX], line[Z_NAME_MAX + 8] = "examine ", reply[32];
+    story_parser_noun(id, noun);
+    append_text(line, sizeof(line), noun);
+    if (!z_probe(line, reply, sizeof(reply), 20000)) return false;
+    const char *text = reply;
+    while (*text == '\n' || *text == ' ' || *text == '>') text++;
+    for (unsigned i = 0; i < sizeof(refusals) / sizeof(*refusals); i++) {
+        const char *a = text, *b = refusals[i];
+        while (*b && *a == *b) a++, b++;
+        if (!*b) return true;
+    }
+    return false;
 }
 
 void story_targets(unsigned chapter, Targets *room, Targets *bag) {
@@ -540,7 +620,9 @@ void story_targets(unsigned chapter, Targets *room, Targets *bag) {
     for (unsigned i = 0; i < n; i++) {
         unsigned id = locals[i];
         if (puzzle && (id == 42 || id == 104 || id == 115 || id == 187)) continue;
+        unsigned before = room->count;
         add_object(room, id, chapter);
+        if (room->count != before && story_rejects(id)) room->count--;
     }
     if (puzzle) {
         for (unsigned id = TARGET_NORTH_WALL; id <= TARGET_WEST_WALL && room->count < TARGET_LIMIT; id++)

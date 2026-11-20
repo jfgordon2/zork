@@ -72,6 +72,7 @@ void story_targets(unsigned chapter, Targets *room, Targets *bag);
 unsigned story_focus_dropped_item(const Targets *previous_bag, unsigned room, const Targets *current_room);
 void story_name(unsigned chapter, unsigned object, char buffer[Z_NAME_MAX]);
 void story_noun(unsigned object, char buffer[Z_NAME_MAX]);
+void story_parser_noun(unsigned object, char buffer[Z_NAME_MAX]);
 bool text_has(const char *text, const char *part);
 bool text_equal(const char *a, const char *b);
 bool append_text(char *out, unsigned capacity, const char *text);
