@@ -756,7 +756,7 @@ static const RoomAnchor anchors[] = {
     {0, 27, 243, 178, 19, 46, 34},
     {0, 27, 43, 8, 18, 34, 39},
     // Kitchen's two stair treads sit at the far right edge and continue offscreen.
-    {0, 27, 177, 224, 55, 14, 17},
+    {0, 27, 177, 214, 63, 24, 25},
     {0, 75, 55, 35, 55, 124, 29},
     {0, 75, 197, 181, 27, 41, 37},
     {0, 75, 177, 105, 60, 31, 21},
