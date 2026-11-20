@@ -4,7 +4,7 @@
 
 The updated cartridge reaches **400/400 points in 419 moves** on the same 73-room winning route. This pass adds **72 background/state images and 35 item or vehicle poses**, replaces the audited generic scenery, and fixes support and contact placements. The Workshop's earlier open-door image is restored; the Guarded Room correction opens away from the viewer. The aquarium's live and dead serpent now share one canonical design.
 
-[Updated game screens](docs/images/zork-ii-updated-preview.png) · [73 updated route views](docs/images/zork-ii-updated-scenes.png) · [Remaining optional-room gaps](docs/images/zork-ii-remaining-scenes.png) · [Art sources and prompts](assets/zork-ii-art.md) · [Screen checklist](qa-screen-checklist.md)
+[Updated game screens](../images/zork-ii-updated-preview.png) · [73 updated route views](../images/zork-ii-updated-scenes.png) · [Remaining optional-room gaps](../images/zork-ii-remaining-scenes.png) · [Art sources and prompts](../../assets/zork-ii-art.md) · [Screen checklist](../../qa/screen-checklist.md)
 
 Reviewed November 17, 2026. The bundled Zork II Release 63, serial 860811 remains authoritative and unchanged. Production ROM and the isolated mGBA review copy have SHA-256 `36580dc2ba96113043011330b34ac33e77c901a364f65d69b9fac01d59306143`. The [earlier audit](zork-ii-audit.md) documents the pre-update build; its screenshots remain historical evidence.
 
@@ -27,7 +27,7 @@ Reviewed November 17, 2026. The bundled Zork II Release 63, serial 860811 remain
 | Z2-13 Ending/death | Descending landing toward red hall and distant statues; red/blue/white crystalline mist interiors. | Implemented as static states; transient green-line flare is not animated. |
 | Z2-14 Other rooms/items | Necklace closet, robot low room, cobweb corridor, guarded door, workshop, library books, fresco, Room 8 and kennel; new portable poses. | Implemented for sampled rooms and states. |
 
-The [scenery rules](assets/SCENERY_RULES.md) now require continuous access through openings, adult clearance, supported elevations, connected camera views, separate movable props, native-crop review and entity identity. Explicit user approvals take precedence: retain the restored Workshop hinge/composition.
+The [scenery rules](../../assets/SCENERY_RULES.md) now require continuous access through openings, adult clearance, supported elevations, connected camera views, separate movable props, native-crop review and entity identity. Explicit user approvals take precedence: retain the restored Workshop hinge/composition.
 
 ## Story, interaction, UI and persistence evidence
 

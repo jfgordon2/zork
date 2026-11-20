@@ -4,11 +4,11 @@ The rebuilt cartridge reached the Stone Barrow with **350/350 points in 507 move
 
 **Follow-up art comparison, November 18, 2026:** the same-room dam water/sluice variants still change the far masonry design. This was not identified by the earlier route replay; see [the paired entrance/exit audit](paired-entrance-exit-art-audit.md).
 
-The table records the targeted checks applied to the rebuild. mGBA checks used the cartridge controls for `SWIM`, the trident, the trap door, the coffin, and the new boat repair path. The larger route and branch replays used the same story interpreter, menu command builders, and room renderer. [Screen checklist](qa-screen-checklist.md) · [Repeat-audit captures](docs/images/zork-i-followup-preview.png) · [ImageGen prompts](assets/zork-i-followup-art.md)
+The table records the targeted checks applied to the rebuild. mGBA checks used the cartridge controls for `SWIM`, the trident, the trap door, the coffin, and the new boat repair path. The larger route and branch replays used the same story interpreter, menu command builders, and room renderer. [Screen checklist](../../qa/screen-checklist.md) · [Repeat-audit captures](../images/zork-i-followup-preview.png) · [ImageGen prompts](../../assets/zork-i-followup-art.md)
 
 ## Mine scenery, UI access, and persistence pass
 
-Ladder Top, Ladder Bottom, and the Gas Room now have dedicated scenery. The two ladder views share the same worn wooden rails, mine materials, and shaft. The Gas Room shows its stairs and eastern tunnel with lantern-compatible light, plus the sapphire bracelet on its floor. [Latest emulator captures](docs/images/zork-i-mine-preview.png) · [Mine art prompts](assets/zork-i-mine-art.md)
+Ladder Top, Ladder Bottom, and the Gas Room now have dedicated scenery. The two ladder views share the same worn wooden rails, mine materials, and shaft. The Gas Room shows its stairs and eastern tunnel with lantern-compatible light, plus the sapphire bracelet on its floor. [Latest emulator captures](../images/zork-i-mine-preview.png) · [Mine art prompts](../../assets/zork-i-mine-art.md)
 
 The access pass found that the generic Climb action at Ladder Top tried to go upward. The ladder now offers **Climb down** at the top and **Climb up** at the bottom in both primary and Movement menus. The separate top staircase and Gas Room stairs offer **Climb up**. The native emulator check traveled down and up the ladder, up the separate staircase, and back down through Paths.
 

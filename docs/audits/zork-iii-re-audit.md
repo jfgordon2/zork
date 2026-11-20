@@ -18,11 +18,11 @@ Re-audited November 17, 2026 against the bundled **Zork III Release 25, serial 8
 
 These are 240 × 160 production-renderer captures. The descriptions identify the jewels and their pedestal; no jewel sprites are visible in the corresponding scenes.
 
-![Unfinished Jewel Room, year 776](docs/images/zork-iii-re-audit-jewels-776.png)
+![Unfinished Jewel Room, year 776](../images/zork-iii-re-audit-jewels-776.png)
 
-![Jewel Room, year 947](docs/images/zork-iii-re-audit-jewels-947.png)
+![Jewel Room, year 947](../images/zork-iii-re-audit-jewels-947.png)
 
-![Present-era Jewel Room](docs/images/zork-iii-re-audit-jewels-948.png)
+![Present-era Jewel Room](../images/zork-iii-re-audit-jewels-948.png)
 
 ## Follow-up list
 
@@ -50,7 +50,7 @@ No full GBA ROM build or mGBA replay was performed for this implementation updat
 ## Verification and limits
 
 - `make test` passes: all three stories, dictionary decoding, object menus, puzzle maps, route history, and save recovery.
-- The audit harness was rebuilt from the current C renderer and packed artwork. Fresh captures and logs are in [`build/zork-iii-audit`](qa/mgba-room-gallery/route-data/zork-iii-audit/); key records are [`probe-expanded.log`](qa/mgba-room-gallery/route-data/zork-iii-audit/probe-expanded.log), [`connected-visual-refresh.log`](qa/mgba-room-gallery/route-data/zork-iii-audit/connected-visual-refresh.log), [`drop-stress.log`](qa/mgba-room-gallery/route-data/zork-iii-audit/drop-stress.log), [`persistence.log`](qa/mgba-room-gallery/route-data/zork-iii-audit/persistence.log), and [`optional-eras.log`](qa/mgba-room-gallery/route-data/zork-iii-audit/optional-eras.log).
+- The audit harness was rebuilt from the current C renderer and packed artwork. Fresh captures and logs are in [`build/zork-iii-audit`](../../qa/mgba-room-gallery/route-data/zork-iii-audit/); key records are [`probe-expanded.log`](../../qa/mgba-room-gallery/route-data/zork-iii-audit/probe-expanded.log), [`connected-visual-refresh.log`](../../qa/mgba-room-gallery/route-data/zork-iii-audit/connected-visual-refresh.log), [`drop-stress.log`](../../qa/mgba-room-gallery/route-data/zork-iii-audit/drop-stress.log), [`persistence.log`](../../qa/mgba-room-gallery/route-data/zork-iii-audit/persistence.log), and [`optional-eras.log`](../../qa/mgba-room-gallery/route-data/zork-iii-audit/optional-eras.log).
 - The full-GBA toolchain is unavailable here (`arm-none-eabi-gcc` is not installed), so this pass does not claim a freshly built ROM or a new mGBA replay. The screenshots use the production C room renderer at native screen size.
-- The existing [per-screen capture matrix](zork-iii-audit-screens.csv) provides the captured-state inventory and unchecked-room list; its issue labels are from the initial audit, so use this report for current dispositions. The [connected-scene comparison](zork-iii-consistency-pass.md) and [shared screen checklist](qa-screen-checklist.md) provide supporting evidence and acceptance rules. The earlier [initial Zork III audit](zork-iii-audit.md) is retained as historical context; its completed findings are superseded by the connected-scene work and this re-audit.
-- [Route coverage and reproducible checkpoints](zork-iii-route-coverage.md) distinguish real in-story captures from forced catalog diagnostics and list the remaining route-state gaps. The [paired mine artwork notes](assets/zork-iii-mine-art.md) and [mirror room mapping](assets/zork-iii-mirror-art.md) record the shared-feature continuity rules.
+- The existing [per-screen capture matrix](zork-iii-audit-screens.csv) provides the captured-state inventory and unchecked-room list; its issue labels are from the initial audit, so use this report for current dispositions. The [connected-scene comparison](zork-iii-consistency-pass.md) and [shared screen checklist](../../qa/screen-checklist.md) provide supporting evidence and acceptance rules. The earlier [initial Zork III audit](zork-iii-audit.md) is retained as historical context; its completed findings are superseded by the connected-scene work and this re-audit.
+- [Route coverage and reproducible checkpoints](zork-iii-route-coverage.md) distinguish real in-story captures from forced catalog diagnostics and list the remaining route-state gaps. The [paired mine artwork notes](../../assets/zork-iii-mine-art.md) and [mirror room mapping](../../assets/zork-iii-mirror-art.md) record the shared-feature continuity rules.

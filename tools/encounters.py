@@ -36,8 +36,6 @@ def compile_art(manifest, output):
     poses = []
     frames = json.loads(manifest.read_text())
     for key, sprite in frames.items():
-        if key == "guardians":
-            continue  # The Guardians are part of their room's background.
         with Image.open(manifest.with_name(f"{key}.png")) as sheet:
             for index, cell in enumerate(sprite["cells"]):
                 # Derived sprites have fixed names, so build them from the first pose only;

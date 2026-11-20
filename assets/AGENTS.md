@@ -1,6 +1,6 @@
 # Instructions for game artwork
 
-Before generating or editing scenery, read [SCENERY_RULES.md](SCENERY_RULES.md) and the [screen QA checklist](../qa-screen-checklist.md). Apply them to prompts, native-size artwork, and in-game placement.
+Before generating or editing scenery, read [SCENERY_RULES.md](SCENERY_RULES.md) and the [screen QA checklist](../qa/screen-checklist.md). Apply them to prompts, native-size artwork, and in-game placement.
 
 The story program's current room description and state are authoritative. Check every visible entrance for continuous access, human clearance, and correct elevation. A high narrow crack must not become an apparent doorway.
 

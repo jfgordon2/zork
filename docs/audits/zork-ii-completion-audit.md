@@ -4,7 +4,7 @@ The four remaining optional-room scenery gaps, bucket viewpoint, friendly Cerber
 
 **Follow-up visual review, November 18, 2026:** the current source PNG comparison found that the closed Guarded Room face no longer reads as the same oak door shown in the Workshop, and that the Tiny Room open-door view omits the Dreary Room's table and red-lit crack. These current-source findings are recorded in the [paired entrance/exit audit](paired-entrance-exit-art-audit.md); the earlier completion result remains historical evidence for the reviewed ROM and captures.
 
-[Latest game screens](docs/images/zork-ii-completion-preview.png) · [Completed scenery](docs/images/zork-ii-completion-scenes.png) · [Door pair](docs/images/zork-ii-door-pair.png) · [Playable cartridge](zork-trilogy.gba) · [Art sources](assets/zork-ii-art.md) · [Preserved completion prompts](assets/zork-ii-completion-prompts.json)
+[Latest game screens](../images/zork-ii-completion-preview.png) · [Completed scenery](../images/zork-ii-completion-scenes.png) · [Door pair](../images/zork-ii-door-pair.png) · [Playable cartridge](../../zork-trilogy.gba) · [Art sources](../../assets/zork-ii-art.md) · [Preserved completion prompts](../../assets/zork-ii-completion-prompts.json)
 
 Reviewed November 17, 2026 against the unchanged bundled Zork II Release 63, serial 860811. Production ROM and isolated native review copy SHA-256: `cf6627c96fe1670eda01ee8d1fe7c9fe9bf7e26293f062d87d5e9b70ecb29591`. This report supersedes the remaining-work list and temporary Workshop preference in the [previous re-audit](zork-ii-re-audit.md).
 
@@ -50,4 +50,4 @@ Scratch inputs, source-derived host harness, logs, fixture saves, native scripts
 
 ## Scope
 
-The documented follow-ups are addressed for the states above. This is broad route, branch, presentation and persistence coverage, not an exhaustive enumeration of every command, random event, portable-item combination or possible item arrangement. Future scenery and encounter work must follow the [scenery rules](assets/SCENERY_RULES.md) and [screen checklist](qa-screen-checklist.md), including actual destination views through doors, supported floor drops, entity identity, UI access and saved visual state.
+The documented follow-ups are addressed for the states above. This is broad route, branch, presentation and persistence coverage, not an exhaustive enumeration of every command, random event, portable-item combination or possible item arrangement. Future scenery and encounter work must follow the [scenery rules](../../assets/SCENERY_RULES.md) and [screen checklist](../../qa/screen-checklist.md), including actual destination views through doors, supported floor drops, entity identity, UI access and saved visual state.

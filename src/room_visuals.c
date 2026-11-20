@@ -515,7 +515,7 @@ static const RoomAnchor anchors[] = {
     {0, 129, 35, 74, 64, 91, 17},
     {0, 245, 203, 60, 27, 54, 47},
     {0, 249, 203, 94, 48, 49, 31},
-    {1, 238, 7, 115, 26, 80, 48},
+    {1, 238, 7, 91, 19, 101, 48},
     {1, 87, 1, 202, 26, 8, 10},
     {1, 87, 4, 211, 26, 8, 10},
     {1, 87, 27, 220, 26, 8, 10},
@@ -530,9 +530,9 @@ static const RoomAnchor anchors[] = {
     {2, 36, 60, 110, 65, 24, 10},
     {2, 103, 10, 70, 24, 100, 46},
     {2, 181, ZORK3_VIKING_SHIP, 26, 32, 45, 31},
-    {2, ZORK3_GUARDIANS_HALL, 152, 15, 16, 209, 75},
-    {2, ZORK3_GUARDIANS_SOUTH, 152, 67, 34, 106, 40},
-    {2, ZORK3_GUARDIANS_NORTH, 152, 67, 34, 106, 40},
+    {2, ZORK3_GUARDIANS_HALL, 152, 25, 23, 190, 59},
+    {2, ZORK3_GUARDIANS_SOUTH, 152, 50, 27, 141, 39},
+    {2, ZORK3_GUARDIANS_NORTH, 152, 46, 28, 149, 44},
     {2, ZORK3_NARROW_GUARDIANS_EAST, 152, 70, 20, 99, 47},
     {2, ZORK3_NARROW_GUARDIANS_WEST, 152, 70, 20, 99, 47},
     {2, ZORK3_NARROW_STATUES_EAST, 152, 103, 34, 34, 22},
@@ -613,8 +613,10 @@ static const RoomAnchor anchors[] = {
     {2, 176, 219, 197, 31, 18, 22},
     {2, 78, 14, 8, 25, 49, 33},
     {2, ZORK3_ROYAL_HALL, 38, 103, 18, 34, 28},
-    {2, ZORK3_GREAT_DOOR, 89, 8, 31, 33, 29},
-    {2, ZORK3_GREAT_DOOR, 199, 88, 27, 64, 43},
+    {2, ZORK3_GREAT_DOOR, 89, 6, 18, 88, 57},
+    {2, ZORK3_GREAT_DOOR, 199, 160, 24, 78, 57},
+    {2, ZORK3_LAND_OF_SHADOW_69, 14, 94, 46, 62, 31},
+    {2, ZORK3_LAND_OF_SHADOW_69, 193, 5, 20, 230, 54},
     {2, ZORK3_WEST_SHORE, 67, 146, 66, 34, 21},
     {2, ZORK3_WEST_SHORE, 223, 106, 45, 126, 32},
     {2, ZORK3_NARROW_GUARDIANS_EAST, 147, 13, 30, 55, 38},
@@ -637,7 +639,7 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_CLIFF_LEDGE, 220, 145, 25, 63, 33},
     {2, ZORK3_CLIFF_LEDGE, 137, 160, 17, 18, 62},
     {2, ZORK3_ENDLESS_STAIR, 154, 153, 31, 42, 35},
-    {2, ZORK3_SOUTH_SHORE, 154, 11, 48, 216, 34},
+    {2, ZORK3_SOUTH_SHORE, 154, 6, 36, 76, 51},
     {2, 159, 147, 14, 30, 74, 36},
     {2, 169, 29, 165, 25, 28, 42},
     {2, 169, 80, 165, 25, 28, 42},
@@ -648,7 +650,7 @@ static const RoomAnchor anchors[] = {
     {2, 179, 79, 164, 54, 35, 26},
     {2, 179, 205, 13, 31, 46, 33},
     {2, 190, 209, 91, 28, 58, 33},
-    {2, 216, 223, 8, 35, 224, 39},
+    {2, 216, 223, 128, 32, 109, 44},
     {2, ZORK3_LAKE, 94, 119, 63, 25, 12},
     {2, ZORK3_MINE_DEAD_END, 85, 119, 50, 22, 20},
 
@@ -1328,6 +1330,7 @@ extern const Color art_kitchen[], art_living[], art_living_moved[], art_cellar[]
 extern const Color art_barrow[], art_stairway[], art_cavern[], art_water[];
 extern const Color art_hall[], art_forest[], art_troll_room[], art_riddle_room[];
 extern const Color art_riddle_room_open[], art_mirror_room_v2[], art_canyon[];
+extern const Color art_z2_riddle_room_238[], art_z2_riddle_room_238_open[];
 extern const Color art_dam[], art_egyptian[], art_carousel[];
 extern const Color art_tea[], art_lake_shore[], art_jewel_room[], art_treasure_room[];
 extern const Color art_atlantis[], art_great_cavern[], art_workroom[];
@@ -1335,7 +1338,7 @@ extern const Color art_cliff_ledge_upper_shelf[];
 extern const Color art_flathead_ocean[], art_cyclops_room[], art_aragain_falls[], art_end_of_rainbow[];
 extern const Color art_pentagram_room[], art_menhir_room[], art_flathead_ship[], art_dragon_room[];
 extern const Color art_robot_machine[], art_land_of_shadow[], art_dungeon_entrance[], art_aquarium[];
-extern const Color art_aquarium_broken[], art_guardians_approach[];
+extern const Color art_aquarium_broken[];
 extern const Color art_bank_vault[], art_cerberus_room[], art_hades[], art_engravings[], art_cliff_top[];
 extern const Color art_bank_small_room[], art_bank_depository[], art_crypt_anteroom[], art_crypt_anteroom_open[];
 extern const Color art_hades_inside[], art_cliff_base[];
@@ -1360,6 +1363,7 @@ extern const Color art_z3_guardian_hallway_v3[], art_z3_hairpin_loop[], art_z3_k
 extern const Color art_z3_narrow_corridor[], art_z3_puzzle_room[], art_z3_south_corridor[];
 extern const Color art_z3_tight_squeeze[], art_z3_west_corridor[];
 extern const Color art_z3_creepy_crawl[], art_z3_prison_cell_bronze[], art_z3_shadow_cliff[];
+extern const Color art_z3_land_of_shadow_69[];
 
 typedef struct {
     const Color *background;
@@ -1380,6 +1384,8 @@ static const RoomFloor room_floors[] = {
     FLOOR(hall, 82, 81, 155, 83), FLOOR(forest, 89, 86, 153, 86),
     FLOOR(troll_room, 73, 83, 168, 82), FLOOR(riddle_room, 74, 88, 159, 88),
     FLOOR(riddle_room_open, 74, 87, 159, 88),
+    FLOOR(z2_riddle_room_238, 74, 88, 159, 88),
+    FLOOR(z2_riddle_room_238_open, 74, 88, 159, 88),
     FLOOR(mirror_room_v2, 65, 84, 170, 84),
     FLOOR(canyon, 46, 86, 55, 86),
     FLOOR(dam, 56, 87, 180, 87), FLOOR(egyptian, 60, 87, 185, 88),
@@ -1394,8 +1400,7 @@ static const RoomFloor room_floors[] = {
     FLOOR(menhir_room, 80, 84, 158, 83), FLOOR(dragon_room, 76, 85, 173, 84),
     FLOOR(robot_machine, 77, 84, 164, 81), FLOOR(land_of_shadow, 75, 84, 157, 85),
     FLOOR(dungeon_entrance, 76, 87, 150, 86), FLOOR(aquarium, 75, 86, 180, 81),
-    FLOOR(aquarium_broken, 75, 86, 180, 81), FLOOR(guardians, 100, 85, 132, 85),
-    FLOOR(guardians_approach, 94, 83, 142, 83),
+    FLOOR(aquarium_broken, 75, 86, 180, 81),
     FLOOR(bank_vault, 89, 83, 157, 85), FLOOR(cerberus_room, 98, 86, 158, 86),
     FLOOR(hades, 87, 83, 167, 84), FLOOR(engravings, 68, 81, 161, 83),
     FLOOR(cliff_top, 108, 84, 153, 85),
@@ -1405,7 +1410,7 @@ static const RoomFloor room_floors[] = {
     FLOOR(junction, 77, 85, 166, 86), FLOOR(technology_museum, 94, 84, 159, 86),
     FLOOR(museum_entrance, 84, 85, 155, 86), FLOOR(museum_entrance_open, 84, 85, 155, 86),
     FLOOR(z3_underwater, 53, 85, 185, 85), FLOOR(z3_lake_surface, 70, 85, 181, 85),
-    FLOOR(z3_west_shore, 66, 85, 190, 84), FLOOR(z3_south_shore, 64, 86, 180, 86),
+    FLOOR(z3_west_shore, 66, 85, 190, 84), FLOOR(z3_south_shore, 78, 86, 119, 86),
     FLOOR(z3_aqueduct, 62, 84, 180, 84), FLOOR(z3_high_arch, 73, 82, 169, 81),
     FLOOR(z3_water_slide, 82, 84, 164, 85),
     FLOOR(z3_damp_passage, 71, 84, 166, 84),
@@ -1439,6 +1444,7 @@ static const RoomFloor room_floors[] = {
     FLOOR(z3_tight_squeeze, 72, 85, 168, 85),
     FLOOR(z3_creepy_crawl, 72, 86, 165, 86),
     FLOOR(z3_prison_cell_bronze, 72, 84, 172, 84), FLOOR(z3_shadow_cliff, 120, 85, 200, 85),
+    FLOOR(z3_land_of_shadow_69, 68, 86, 173, 86),
     FLOOR(z1_rear_open, 66, 88, 167, 85), FLOOR(z1_kitchen_shut, 44, 87, 190, 88),
     FLOOR(z1_living_shortcut, 88, 83, 148, 85), FLOOR(z1_living_moved_shortcut, 76, 83, 160, 85),
     FLOOR(z1_hatch_open, 65, 84, 190, 84), FLOOR(z1_hatch_open_shortcut, 65, 84, 190, 84),
@@ -2282,14 +2288,49 @@ static void scene_segment(ScenePoint a, ScenePoint b, Color color) {
 static void wire_segment(ScenePoint a, ScenePoint b) { scene_segment(a, b, STEEL); }
 
 static void draw_scaled_scene_sprite(const SceneSprite *art, int x, int y, int width, int height) {
+    int source_y = 0, y_error = 0;
     for (int row = 0; row < height; row++) {
-        int source_y = row * art->height / height;
+        int source_x = 0, x_error = 0;
         for (int col = 0; col < width; col++) {
-            int source_x = col * art->width / width;
             Color color = art->pixels[source_y * art->width + source_x];
             if (color & 0x8000) pixel(x + col, y + row, color & 0x7fff);
+            x_error += art->width;
+            while (x_error >= width) {
+                source_x++;
+                x_error -= width;
+            }
+        }
+        y_error += art->height;
+        while (y_error >= height) {
+            source_y++;
+            y_error -= height;
         }
     }
+}
+
+static void draw_z3_guardians(unsigned room) {
+    int left_center, right_center, width, height, baseline;
+    switch (room) {
+        case ZORK3_GUARDIANS_HALL:
+            // The player is passing between the pair, so they stand at full scale
+            // on the near alcove floors.
+            left_center = 44; right_center = 196; width = 38; height = 59; baseline = 82;
+            break;
+        case ZORK3_GUARDIANS_SOUTH:
+            // From the mirror side, the same statues are farther up the corridor.
+            left_center = 62; right_center = 178; width = 25; height = 39; baseline = 66;
+            break;
+        case ZORK3_GUARDIANS_NORTH:
+            // From the north approach, they remain distant but slightly larger.
+            left_center = 60; right_center = 180; width = 29; height = 44; baseline = 72;
+            break;
+        default:
+            return;
+    }
+    draw_scaled_scene_sprite(&ArtGuardiansLeft, left_center - width / 2, baseline - height,
+                             width, height);
+    draw_scaled_scene_sprite(&ArtGuardiansRight, right_center - width / 2, baseline - height,
+                             width, height);
 }
 
 static void draw_z3_museum_plaque(unsigned room, const Targets *targets) {
@@ -2599,6 +2640,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     if (chapter == 2) {
         draw_z3_museum_plaque(room, targets);
         draw_z3_prison_master(room, targets);
+        draw_z3_guardians(room);
     }
     draw_room_items(chapter, room, background, targets, focused);
     if (chapter == 2 && room == ZORK3_CLIFF_LEDGE &&

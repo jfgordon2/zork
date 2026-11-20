@@ -4,7 +4,7 @@ This is the baseline audit. The rebuilt cartridge and its verification are docum
 
 Audited Release 119, serial 880429, in `zork-trilogy.gba`. The complete run visited 83 room IDs and entered the Stone Barrow with 350 out of 350 points and the Master Adventurer rank. The route replay checked the commands exposed by the GBA menus and compared equivalent commands against the bundled story. It resolved 334 exact and 106 equivalent inputs. Five redundant failed inputs replayed as Look to preserve turn timing.
 
-I compared native 240 × 160 renders of the visited rooms against the story text. Branch replays covered additional rooms and states. In mGBA I used the GBA object menu to open the Living Room trap door and the GBA keyboard to reproduce the Dam Base error. The screenshots include both emulator captures and frames from the cartridge renderer. [Audit screenshots](docs/images/zork-i-audit-preview.png)
+I compared native 240 × 160 renders of the visited rooms against the story text. Branch replays covered additional rooms and states. In mGBA I used the GBA object menu to open the Living Room trap door and the GBA keyboard to reproduce the Dam Base error. The screenshots include both emulator captures and frames from the cartridge renderer. [Audit screenshots](../images/zork-i-audit-preview.png)
 
 ## Gameplay checks
 

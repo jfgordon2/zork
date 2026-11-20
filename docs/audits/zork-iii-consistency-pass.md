@@ -28,13 +28,13 @@ Reviewed November 17, 2026 against the bundled Zork III Release 25 story. This p
 
 ## Evidence and limits
 
-- [Connected-scene montage](docs/images/zork-iii-connected-scenes.png); the current source has 35 active Z3 background assets, including the additions noted below.
-- [18 connected room states in the production renderer](docs/images/zork-iii-connected-scene-states.png)
-- [Parapet sundial state](docs/images/zork-iii-sundial-preview.png)
-- [Updated 72-room renderer review](docs/images/zork-iii-scene-review.png)
+- [Connected-scene montage](../images/zork-iii-connected-scenes.png); the current source has 35 active Z3 background assets, including the additions noted below.
+- [18 connected room states in the production renderer](../images/zork-iii-connected-scene-states.png)
+- [Parapet sundial state](../images/zork-iii-sundial-preview.png)
+- [Updated 72-room renderer review](../images/zork-iii-scene-review.png)
 - [Per-state checklist](zork-iii-audit-screens.csv)
 - [Route coverage and reachable-room checkpoints](zork-iii-route-coverage.md)
-- [Royal Puzzle floor-item and UI preview](docs/images/zork-iii-puzzle-floor-preview.png)
+- [Royal Puzzle floor-item and UI preview](../images/zork-iii-puzzle-floor-preview.png)
 
 The host renderer refreshed **38 connected-room states**, regenerated the wider inventory at **72 room IDs / 76 room-light panels**, and captured all eight sundial settings to confirm the pointer tracks each engraved mark. New real route captures cover museum rooms 5/173/84/130 and alternate Side Room 188; room 54 reaches the east- and west-mirror pair 119/221. Thirteen catalog entries still lack stable route-driven captures and are classified in the [screen matrix](zork-iii-audit-screens.csv). Their diagnostic renders now pair each room's own `look` text with its artwork. The **27 existing route and branch scripts** completed without harness failures. For the floor-item update, a dropped-book scenario confirms the item appears below the grid and above the story panel. `make test` passes all three stories. A full cartridge build could not be repeated in this environment because `arm-none-eabi-gcc` is unavailable.
 

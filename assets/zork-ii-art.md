@@ -2,7 +2,7 @@
 
 The built-in ImageGen tool produced 81 backgrounds, including state variants, and 37 additional item, vehicle or encounter poses across the scenery and completion passes. The final PNGs are production sources. Backgrounds are 240 × 102; the cartridge shows source rows 10–85 as a 240 × 76 band. Sprite manifests retain transparent pose bounds. Packing, resampling and derived small support poses use `tools/import_art.py` and `tools/encounters.py`.
 
-Apply [SCENERY_RULES.md](SCENERY_RULES.md) and the [screen checklist](../qa-screen-checklist.md) before further work. The bundled Release 63 story controls architecture, exits, scale and state. The [completion audit](../zork-ii-completion-audit.md) records the current coverage and resolved follow-ups; the [earlier re-audit](../zork-ii-re-audit.md) is historical evidence.
+Apply [SCENERY_RULES.md](SCENERY_RULES.md) and the [screen checklist](../qa/screen-checklist.md) before further work. The bundled Release 63 story controls architecture, exits, scale and state. The [completion audit](../docs/audits/zork-ii-completion-audit.md) records the current coverage and resolved follow-ups; the [earlier re-audit](../docs/audits/zork-ii-re-audit.md) is historical evidence.
 
 - [Background mappings, story text and preserved prompts](zork-ii-scenes.json)
 - [Additional item prompts](zork-ii-item-prompts.json)

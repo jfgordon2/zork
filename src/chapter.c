@@ -8,6 +8,7 @@ extern const Color art_north[], art_south[], art_rear[], art_kitchen[], art_livi
 extern const Color art_barrow[], art_stairway[], art_cavern[], art_water[], art_hall[], art_forest[];
 
 extern const Color art_troll_room[], art_riddle_room[], art_riddle_room_open[], art_mirror_room_v2[];
+extern const Color art_z2_riddle_room_238[], art_z2_riddle_room_238_open[];
 extern const Color art_canyon[], art_dam[], art_egyptian[], art_carousel[], art_tea[];
 extern const Color art_lake_shore[], art_jewel_room[];
 extern const Color art_treasure_room[], art_atlantis[], art_great_cavern[], art_workroom[];
@@ -15,7 +16,7 @@ extern const Color art_cliff_ledge_upper_shelf[], art_flathead_ocean[];
 extern const Color art_cyclops_room[], art_aragain_falls[], art_end_of_rainbow[], art_pentagram_room[];
 extern const Color art_menhir_room[], art_flathead_ship[];
 extern const Color art_dragon_room[], art_robot_machine[], art_land_of_shadow[], art_dungeon_entrance[];
-extern const Color art_aquarium[], art_aquarium_broken[], art_guardians_approach[];
+extern const Color art_aquarium[], art_aquarium_broken[];
 extern const Color art_bank_vault[], art_cerberus_room[], art_hades[], art_engravings[], art_cliff_top[];
 extern const Color art_bank_small_room[], art_bank_depository[], art_crypt_anteroom[], art_crypt_anteroom_open[];
 extern const Color art_hades_inside[], art_cliff_base[];
@@ -40,6 +41,7 @@ extern const Color art_z3_guardian_hallway_v3[], art_z3_hairpin_loop[], art_z3_k
 extern const Color art_z3_narrow_corridor[], art_z3_puzzle_room[], art_z3_south_corridor[];
 extern const Color art_z3_tight_squeeze[], art_z3_west_corridor[];
 extern const Color art_z3_creepy_crawl[], art_z3_prison_cell_bronze[], art_z3_shadow_cliff[];
+extern const Color art_z3_land_of_shadow_69[];
 
 const Chapter chapters[3] = {
     {"Zork I", "The Great Underground Empire", story_zork1, story_zork1_end, 44, 5, art_west},
@@ -245,6 +247,7 @@ static const Color *zork2_location_art(void) {
             // The Red Mist has a separate illustration for the story's
             // "You see only darkness" state; the normal view shows the room.
             return visual_state_mist_view_dark() ? art_z2_mist_red_dark : art_z2_mist_red;
+        case 238: return z_attr(7, ATTR_OPEN) ? art_z2_riddle_room_238_open : art_z2_riddle_room_238;
         case 8: return art_z2_well_top;
         case 13: return z_global(72) ? art_z2_narrow_ledge_escape : art_z2_narrow_ledge;
         case 19: return z_global(13) ? art_z2_angled_entry_open : art_z2_angled_entry;
@@ -341,6 +344,7 @@ const Color *story_scene(unsigned chapter, const char *room) {
     } else if (chapter == 2) {
         unsigned here = z_global(0);
         if (here == 55) return art_z3_creepy_crawl;
+        if (here == ZORK3_LAND_OF_SHADOW_69) return art_z3_land_of_shadow_69;
         if (here == 170) return art_z3_shadow_cliff;   // clifftop over the ocean, ruined wall to the north
         if (here == 39) return art_z3_key_room;
         if (here == 40) return art_z3_tight_squeeze;
@@ -348,7 +352,9 @@ const Color *story_scene(unsigned chapter, const char *room) {
         if (here == 78) return art_z3_hairpin_loop;
         if (here == 86) return art_z3_dead_end;
         if (here == 112) return art_z3_barren_area;
-        if (here == 113) return art_z3_guardian_hallway_v3;
+        if (here == 113 || here == ZORK3_GUARDIANS_HALL || here == ZORK3_GUARDIANS_NORTH)
+            return art_z3_guardian_hallway_v3;
+        if (here == ZORK3_GUARDIANS_SOUTH) return art_z3_mirror_hall_closed;
         if (here == 159) return art_z3_narrow_corridor;
         if (here == 162) return art_z3_west_corridor;
         if (here == 190) return art_z3_south_corridor;
@@ -422,9 +428,6 @@ const Color *story_scene(unsigned chapter, const char *room) {
         if (text_equal(room, "Dungeon Entrance")) return art_dungeon_entrance;
         if (text_equal(room, "Flathead Ocean"))
             return z_attr(ZORK3_VIKING_SHIP, ZORK3_SHIP_HIDDEN) ? art_flathead_ocean : art_flathead_ship;
-        if (z_global(0) == ZORK3_GUARDIANS_HALL) return art_guardians;
-        if (z_global(0) == ZORK3_GUARDIANS_SOUTH || z_global(0) == ZORK3_GUARDIANS_NORTH)
-            return art_guardians_approach;
     }
     // Generic art for rooms without dedicated scenes, chosen by whole words in the room name
     // (an optional plural "s" allowed), so "Damp Cave" is a cave rather than a dam.

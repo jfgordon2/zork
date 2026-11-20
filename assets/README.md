@@ -345,4 +345,15 @@ Zork III room 163 shows the dry channel again. The Aqueduct (203) says the chann
 - `z2_tiny_room.png`: approved ImageGen revision for the closed Tiny Room door. The keyhole lid is integrated into the bolt lock plate. `z2_tiny_open.png` shows the door swinging away into Dreary Room; paired `z2_dreary_open.png` shows it from the other side.
 - `z2_mist_red_dark.png`: approved ImageGen alternate for Room of the Red Mist 224 when the story says "You see only darkness." The normal `z2_mist_red.png` remains in use when the small room and sign are visible.
 
-The Nov 20 art and boat-overlay follow-up was captured in mGBA; see `qa/mgba-room-gallery/art-followup-refresh-results.csv` and `visual-consistency-review.md`.
+The Nov 20 art and boat-overlay follow-up was captured in mGBA; see `qa/mgba-room-gallery/art-followup-refresh-results.csv` and `docs/audits/visual-consistency-review.md`.
+
+## Approved scenery updates · 2026-11-20
+
+The approved native-size previews are retained under `qa/mgba-room-gallery/proposals/claude-2026-11-20/` as review evidence. These production files now use those images:
+
+- `z3_great_door.png` (room 136): the monumental hall has the north arch and east rusted iron door described by the story; its focus anchors follow the two openings.
+- `z3_land_of_shadow_69.png` (room 69): low western and southern hills meet a massive northern wall with a passable rubble gap. It has its own scene mapping; room 170 continues to use `z3_shadow_cliff.png` for the ocean cliff.
+- `z3_south_shore.png` (room 216): the lake shore now includes the dark passage sloping up into the southern rock. Dropped-item anchors remain on the beach.
+- `z2_riddle_room_238.png` and `z2_riddle_room_238_open.png` (Zork II room 238): both show the northwest floor descent and east stone door; the latter opens into the stairs. They are separate from the other Riddle Room art and are selected from the stone door's open flag.
+
+Fresh mGBA screenshots and focus-box review for these four scenes are still pending; the corresponding rows in `qa/screen-checklist.md` remain open for that evidence.

@@ -1,6 +1,6 @@
 # Visual consistency review — November 19, 2026
 
-A full static sweep of the production backgrounds against `qa-screen-checklist.md` and
+A full static sweep of the production backgrounds against `qa/screen-checklist.md` and
 `assets/SCENERY_RULES.md`. It follows up recommendation 5 of
 `asset-story-consistency-audit.md` (sweep the remaining crops).
 
@@ -334,7 +334,7 @@ This pass used the 23:58 mGBA captures, which show exactly what the game display
 
 **Overlay bug (not art):** Z1 86 Stream drew a second boat on the beach while the player was aboard. Fixed in the generic loose-item renderer by suppressing the shore-side boat sprite whenever the player is inside it. The Nov 20 mGBA screenshot shows the interior raft rim and no second boat.
 
-**Approved art installed and captured Nov 20:** Forest 167 mountain reveal, post-melt Lava Room passage, paired Tiny/Dreary door swing, refreshed ladder views, softer rainbow, and Slide Room inscription. The rebuilt ROM was captured in mGBA; all 11 targeted captures reached their expected chapter and room. See [art-followup-refresh-results.csv](qa/mgba-room-gallery/art-followup-refresh-results.csv) and the [updated gallery](qa/mgba-room-gallery/index.html). The ladder pair is refreshed, though the ladder is seen from opposite ends and only the visible portion can be compared.
+**Approved art installed and captured Nov 20:** Forest 167 mountain reveal, post-melt Lava Room passage, paired Tiny/Dreary door swing, refreshed ladder views, softer rainbow, and Slide Room inscription. The rebuilt ROM was captured in mGBA; all 11 targeted captures reached their expected chapter and room. See [art-followup-refresh-results.csv](../../qa/mgba-room-gallery/art-followup-refresh-results.csv) and the [updated gallery](../../qa/mgba-room-gallery/index.html). The ladder pair is refreshed, though the ladder is seen from opposite ends and only the visible portion can be compared.
 
 Acceptable as is: Twisting and Winding Passages (102/145) use the generic cave, which fits "a winding passage". The Murky Room cannot be entered, and the dark rooms 155/177/228 show black.
 

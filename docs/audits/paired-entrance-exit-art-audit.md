@@ -89,5 +89,5 @@ Validation: reviewed the updated image at native 240×102 and in the game's 240�
 - Current source art: the linked `assets/*.png` files and state mappings in `src/chapter.c`.
 - Route/state transcripts: `build/zork-i-audit/dam-actions.log`, `build/zork-ii-art/re-audit/door-check.log`, `build/zork-ii-art/re-audit/keyhole-failures.log`, and `build/zork-iii-audit/master-prison-branches.log`.
 - Existing route and state evidence: [Zork I repeat audit](zork-i-re-audit.md), [Zork II completion audit](zork-ii-completion-audit.md), and [Zork III route coverage](zork-iii-route-coverage.md).
-- Shared acceptance rules: [Scenery rules](assets/SCENERY_RULES.md), including same-object door identity, fixed architecture across state changes, and actual destination views through open doors.
+- Shared acceptance rules: [Scenery rules](../../assets/SCENERY_RULES.md), including same-object door identity, fixed architecture across state changes, and actual destination views through open doors.
 - The review checked the listed source images and existing route captures. It did not perform a new full-ROM or mGBA replay; proposed changes should be rechecked at the native 240×160 crop and through both route directions.

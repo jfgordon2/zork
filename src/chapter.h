@@ -12,6 +12,7 @@ enum {
     ZORK2_DRAGONS_LAIR = 201, ZORK2_AQUARIUM_ROOM = 233, ZORK2_AQUARIUM = 250, ZORK2_SERPENT = 32,
     ZORK2_BANK_SMALL_ROOM = 64, ZORK2_CRYPT_DOOR = 245,
     ZORK3_OLD_MAN = 97, ZORK3_HOODED_FIGURE = 110, ZORK3_CLIFF_MAN = 189, ZORK3_CLIFF_LEDGE = 218,
+    ZORK3_LAND_OF_SHADOW_69 = 69,
     ZORK3_DUNGEON_ENTRANCE = 105, ZORK3_DUNGEON_DOOR = 207,
     ZORK3_GUARDIANS_HALL = 44, ZORK3_GUARDIANS_SOUTH = 54, ZORK3_GUARDIANS_NORTH = 224,
     ZORK3_VIKING_SHIP = 214, ZORK3_SHIP_HIDDEN = 10,
@@ -59,7 +60,7 @@ extern const Chapter chapters[3];
 extern const char *const path_names[12];
 extern const char *const path_commands[12];
 extern const uint8_t path_properties[12];
-extern const Color art_west[], art_guardians[];
+extern const Color art_west[];
 
 bool story_dark(unsigned chapter);
 bool zork1_barrow_finished(void);

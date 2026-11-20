@@ -150,6 +150,6 @@ remaining room crop is still open; the original room sheets and crops remain in
 `build/story-dump/zork{1,2,3}-sheets.md`, `build/story-dump/crops/`, `src/chapter.c`,
 `src/chapter.h`, `src/zork1_scenes.def`, `src/zork2_scenes.def`, `src/scenes.S`,
 `src/room_visuals.c`, `src/trilogy.c`, the Makefile, `assets/SCENERY_RULES.md`,
-`assets/AGENTS.md`, `qa-screen-checklist.md`, and the existing root-level audits
+`assets/AGENTS.md`, `qa/screen-checklist.md`, and the existing audits in `docs/audits/`
 (especially `paired-entrance-exit-art-audit.md`, `background-asset-wiring-audit.md`,
 `zork-ii-completion-audit.md`, `zork-iii-consistency-pass.md`).

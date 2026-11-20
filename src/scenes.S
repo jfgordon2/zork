@@ -25,6 +25,8 @@ SCENE forest
 SCENE troll_room
 SCENE riddle_room
 SCENE riddle_room_open
+SCENE z2_riddle_room_238
+SCENE z2_riddle_room_238_open
 SCENE mirror_room_v2
 SCENE canyon
 SCENE dam
@@ -44,8 +46,6 @@ SCENE aragain_falls
 SCENE end_of_rainbow
 SCENE pentagram_room
 SCENE menhir_room
-SCENE guardians
-SCENE guardians_approach
 SCENE aquarium
 SCENE aquarium_broken
 SCENE flathead_ship
@@ -121,6 +121,7 @@ SCENE z3_west_corridor
 SCENE z3_creepy_crawl
 SCENE z3_prison_cell_bronze
 SCENE z3_shadow_cliff
+SCENE z3_land_of_shadow_69
 #define ZORK1_SCENE(name) SCENE name
 #include "zork1_scenes.def"
 #undef ZORK1_SCENE

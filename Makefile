@@ -8,8 +8,8 @@ SCENES = west north south rear kitchen living living_moved cellar
 EXTRA_SCENES = barrow stairway cavern water hall forest troll_room riddle_room riddle_room_open mirror_room_v2 \
                canyon dam egyptian carousel tea lake_shore jewel_room \
                treasure_room atlantis great_cavern workroom cliff_ledge_upper_shelf flathead_ocean \
-               cyclops_room aragain_falls end_of_rainbow pentagram_room menhir_room guardians flathead_ship \
-               dragon_room robot_machine land_of_shadow dungeon_entrance aquarium aquarium_broken guardians_approach \
+               cyclops_room aragain_falls end_of_rainbow pentagram_room menhir_room flathead_ship \
+               dragon_room robot_machine land_of_shadow dungeon_entrance aquarium aquarium_broken \
                bank_vault bank_small_room bank_depository cerberus_room crypt_anteroom crypt_anteroom_open \
                hades hades_inside engravings cliff_top cliff_base junction technology_museum \
                museum_entrance museum_entrance_open
@@ -23,7 +23,7 @@ Z3_SCENES = z3_aqueduct z3_aqueduct_view z3_barren_area z3_beam_room z3_button_r
             z3_mine_dead_end z3_mirror_hall_closed z3_mirror_hall_open z3_narrow_corridor z3_narrow_mirror \
             z3_narrow_mirror_guardians z3_narrow_mirror_guardians_north z3_parapet \
             z3_prison_cell_bronze z3_prison_cell_closed z3_prison_cell_open z3_puzzle_room \
-            z3_royal_hall z3_royal_puzzle_entrance z3_scenic_vista z3_shadow_cliff \
+            z3_royal_hall z3_royal_puzzle_entrance z3_scenic_vista z3_shadow_cliff z3_land_of_shadow_69 \
             z3_side_room z3_south_corridor z3_south_shore z3_technology_unfinished \
             z3_tight_squeeze z3_timber_room z3_treasury z3_underwater z3_water_slide z3_west_shore
 EXTRA_SCENES += $(Z3_SCENES)

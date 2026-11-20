@@ -43,7 +43,7 @@ The older [Zork III screen matrix](zork-iii-audit-screens.csv) retains issue lab
 
 ## Evidence reviewed
 
-- [Zork I repeat audit](zork-i-re-audit.md) and [route follow-up captures](docs/images/zork-i-followup-preview.png)
-- [Zork II completion audit](zork-ii-completion-audit.md), [connected scene board](docs/images/zork-ii-completion-scenes.png), and [paired door views](docs/images/zork-ii-door-pair.png)
-- [Zork III connected-scene comparison](zork-iii-consistency-pass.md), [scene-state captures](docs/images/zork-iii-connected-scene-states.png), [route coverage](zork-iii-route-coverage.md), and the lake route transcript in `build/zork-iii-audit/alternate-input.log`
+- [Zork I repeat audit](zork-i-re-audit.md) and [route follow-up captures](../images/zork-i-followup-preview.png)
+- [Zork II completion audit](zork-ii-completion-audit.md), [connected scene board](../images/zork-ii-completion-scenes.png), and [paired door views](../images/zork-ii-door-pair.png)
+- [Zork III connected-scene comparison](zork-iii-consistency-pass.md), [scene-state captures](../images/zork-iii-connected-scene-states.png), [route coverage](zork-iii-route-coverage.md), and the lake route transcript in `build/zork-iii-audit/alternate-input.log`
 - Current underwater, lake, and shore art: `assets/z3_underwater.png`, `assets/z3_lake_surface.png`, `assets/z3_west_shore.png`, and `assets/z3_south_shore.png`

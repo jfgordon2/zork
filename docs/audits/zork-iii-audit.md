@@ -4,7 +4,7 @@ Follow-up status: connected-scene consistency work, the eight-state perspective-
 
 This document records the initial Zork III visual and QA audit. Its follow-up observations are superseded where the current [connected-scene consistency pass](zork-iii-consistency-pass.md) and [Zork III re-audit](zork-iii-re-audit.md) record a correction or refreshed evidence. The initial route, controller, and native mGBA results remain useful historical evidence.
 
-[Selected audit screens](docs/images/zork-iii-audit-preview.png) · [Room and route contact sheet](docs/images/zork-iii-scene-review.png) · [Per-screen checklist](zork-iii-audit-screens.csv) · [Shared QA checklist](qa-screen-checklist.md)
+[Selected audit screens](../images/zork-iii-audit-preview.png) · [Room and route contact sheet](../images/zork-iii-scene-review.png) · [Per-screen checklist](zork-iii-audit-screens.csv) · [Shared QA checklist](../../qa/screen-checklist.md)
 
 Audited November 17, 2026 against the bundled **Zork III Release 25, serial 860811**. Cartridge SHA-256: `cf6627c96fe1670eda01ee8d1fe7c9fe9bf7e26293f062d87d5e9b70ecb29591`. The production ROM, story, game code and art were unchanged by this audit. The isolated mGBA copy has the same hash.
 
@@ -81,4 +81,4 @@ Controller replay resolves **201 exact / 53 equivalent / 0 missing** main-route 
 
 This is a broad visual, branch, controller, UI and persistence audit, not an exhaustive proof of every command, random combat outcome, time period, maze position or item arrangement. The room-object catalog contains 89 IDs; some are temporal variants or scenes that resolve entirely inside narration. The per-screen CSV marks uncaptured room IDs as **Unchecked**, including past museum variants, several other mirror-side positions, Ladder Top/Bottom, Machine/Drafty rooms, another prison variant and the alternate Royal Puzzle Entrance. The sacrificial altar and brief Ladder Bottom transition were observed in text, without a stable interactive scene capture.
 
-Use the [scenery rules](assets/SCENERY_RULES.md) for the follow-up pass. Prioritize puzzle landmarks and missing items, then connected scenery and state variants, then presentation polish. Preserve the working Guardian identities, grounded encounter poses, original hazards and story-owned persistent state while addressing the listed issues.
+Use the [scenery rules](../../assets/SCENERY_RULES.md) for the follow-up pass. Prioritize puzzle landmarks and missing items, then connected scenery and state variants, then presentation polish. Preserve the working Guardian identities, grounded encounter poses, original hazards and story-owned persistent state while addressing the listed issues.

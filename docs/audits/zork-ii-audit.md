@@ -4,9 +4,9 @@ This is the pre-update audit. See the [scenery changes and re-audit](zork-ii-re-
 
 Audited November 17, 2026. The current cartridge reached the ending with **400/400 points in 419 moves**. The winning route visited **73 room IDs**. All 73 first-entry views received a visual review and a button-access check. The targeted persistence checks passed. **Fourteen visual follow-up groups remain**, including missing puzzle scenery and some misleading placements. No progression blocker was found on the tested winning route.
 
-[Selected issues, with full game screens](docs/images/zork-ii-audit-preview.png) · [All 73 route views](docs/images/zork-ii-scene-review.png) · [Screen checklist](qa-screen-checklist.md)
+[Selected issues, with full game screens](../images/zork-ii-audit-preview.png) · [All 73 route views](../images/zork-ii-scene-review.png) · [Screen checklist](../../qa/screen-checklist.md)
 
-This was an audit of the existing build; game code, artwork, and the production ROM were unchanged. The story authority was the bundled [Zork II program](stories/zork2.z3), Release 63, serial 860811. The audited `zork-trilogy.gba` SHA-256 was `7dfae342f3e8eeb2c2a5197195be1e849c10c21ed6b0eb337a0d358c0daff885`.
+This was an audit of the existing build; game code, artwork, and the production ROM were unchanged. The story authority was the bundled [Zork II program](../../stories/zork2.z3), Release 63, serial 860811. The audited `zork-trilogy.gba` SHA-256 was `7dfae342f3e8eeb2c2a5197195be1e849c10c21ed6b0eb337a0d358c0daff885`.
 
 ## Follow-up fixes
 

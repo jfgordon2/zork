@@ -12,23 +12,25 @@
 
 [Room items in mGBA](docs/images/item-preview.png) and [item art prompts](assets/items/README.md)
 
-[Zork I repeat audit](zork-i-re-audit.md) · [Updated Zork I scenes](docs/images/zork-i-followup-preview.png) · [Screen QA checklist](qa-screen-checklist.md)
+All audit and review reports are indexed in [docs/](docs/README.md).
+
+[Zork I repeat audit](docs/audits/zork-i-re-audit.md) · [Updated Zork I scenes](docs/images/zork-i-followup-preview.png) · [Screen QA checklist](qa/screen-checklist.md)
 
 [Mine scenery, UI access, and save checks](docs/images/zork-i-mine-preview.png)
 
 [Scenery generation rules](assets/SCENERY_RULES.md)
 
-[Background asset wiring audit](background-asset-wiring-audit.md)
+[Background asset wiring audit](docs/audits/background-asset-wiring-audit.md)
 
-[Zork II visual and QA audit](zork-ii-audit.md) · [Selected Zork II issues](docs/images/zork-ii-audit-preview.png) · [All 73 route scenes](docs/images/zork-ii-scene-review.png)
+[Zork II visual and QA audit](docs/audits/zork-ii-audit.md) · [Selected Zork II issues](docs/images/zork-ii-audit-preview.png) · [All 73 route scenes](docs/images/zork-ii-scene-review.png)
 
-[Zork II scenery update and re-audit](zork-ii-re-audit.md) · [Updated game screens](docs/images/zork-ii-updated-preview.png) · [Updated route scenes](docs/images/zork-ii-updated-scenes.png)
+[Zork II scenery update and re-audit](docs/audits/zork-ii-re-audit.md) · [Updated game screens](docs/images/zork-ii-updated-preview.png) · [Updated route scenes](docs/images/zork-ii-updated-scenes.png)
 
-[Zork II completed follow-ups and audit](zork-ii-completion-audit.md) · [Latest game screens](docs/images/zork-ii-completion-preview.png) · [Completed optional scenery](docs/images/zork-ii-completion-scenes.png)
+[Zork II completed follow-ups and audit](docs/audits/zork-ii-completion-audit.md) · [Latest game screens](docs/images/zork-ii-completion-preview.png) · [Completed optional scenery](docs/images/zork-ii-completion-scenes.png)
 
-[Route-driven visual consistency and QA audit](visual-route-qa-audit.md) · [Zork III re-audit](zork-iii-re-audit.md) · [Initial Zork III audit](zork-iii-audit.md) · [Connected-scene consistency pass](zork-iii-consistency-pass.md) · [Current backgrounds](docs/images/zork-iii-connected-scenes.png) · [Connected in-game states](docs/images/zork-iii-connected-scene-states.png) · [72-room renderer review](docs/images/zork-iii-scene-review.png) · [Per-screen capture matrix](zork-iii-audit-screens.csv)
+[Route-driven visual consistency and QA audit](docs/audits/visual-route-qa-audit.md) · [Zork III re-audit](docs/audits/zork-iii-re-audit.md) · [Initial Zork III audit](docs/audits/zork-iii-audit.md) · [Connected-scene consistency pass](docs/audits/zork-iii-consistency-pass.md) · [Current backgrounds](docs/images/zork-iii-connected-scenes.png) · [Connected in-game states](docs/images/zork-iii-connected-scene-states.png) · [72-room renderer review](docs/images/zork-iii-scene-review.png) · [Per-screen capture matrix](docs/audits/zork-iii-audit-screens.csv)
 
-[Asset / story consistency review](asset-story-consistency-audit.md) · [Follow-up full sweep](asset-story-consistency-audit-followup.md) · [Code review](code-review.md) · [Room and encounter placement across connected scenes](docs/art-history/encounter-options/encounter-routes.png)
+[Asset / story consistency review](docs/audits/asset-story-consistency-audit.md) · [Follow-up full sweep](docs/audits/asset-story-consistency-audit-followup.md) · [Code review](docs/audits/code-review.md) · [Room and encounter placement across connected scenes](docs/art-history/encounter-options/encounter-routes.png)
 
 Compare two pixel-art designs for each encounter in [Zork I](docs/art-history/encounter-options/zork-i.png), [Zork II](docs/art-history/encounter-options/zork-ii.png), and [Zork III](docs/art-history/encounter-options/zork-iii.png). The boards include alternate poses for encounters that change during play.
 
@@ -48,7 +50,7 @@ Compare the encounter style studies in [Zork I](docs/art-history/encounter-optio
 | Select | Open the bag and act on carried objects. | |
 | Start | Open the pause menu for saves, the map, controls, and the last story response. | Resume from pause. |
 
-Press **Up** in a room to open **Paths**. Use the D-pad to choose a direction and **A** to try it. Paths lists possible exits represented by the current room, among north, east, south, west, the four diagonals, up, down, in, and out. The same exits stay visible in the top bar during exploration, including in dark rooms; compact right triangles point toward the four diagonal exits, while **U**, **D**, **I**, and **O** stand for up, down, in, and out. Paths spells out diagonal names. Teal marks a known route back to the room you just left; if that exit is conditional, it keeps its dim text and gets a teal underline. Other conditional routes appear dimmed. In Zork III's Royal Puzzle, a surveyed map hides compass moves blocked by the maze walls. Zork II's Oddly-angled Rooms list every direction because the story reorients their passages; the Carousel also offers its randomized **In** and **Out** moves. Some listed routes depend on story conditions, so the story may still block one until its condition is met. You can also open Paths through **Room actions**. Choose **Room actions → Nearby objects** to see the room's objects in one list. **More actions** groups ways to inspect, handle, and combine objects. For actions that require a tool, the target picker starts with the items in your bag. See [the route state audit](route-state-audit.md) for trace results and remaining QA checks.
+Press **Up** in a room to open **Paths**. Use the D-pad to choose a direction and **A** to try it. Paths lists possible exits represented by the current room, among north, east, south, west, the four diagonals, up, down, in, and out. The same exits stay visible in the top bar during exploration, including in dark rooms; compact right triangles point toward the four diagonal exits, while **U**, **D**, **I**, and **O** stand for up, down, in, and out. Paths spells out diagonal names. Teal marks a known route back to the room you just left; if that exit is conditional, it keeps its dim text and gets a teal underline. Other conditional routes appear dimmed. In Zork III's Royal Puzzle, a surveyed map hides compass moves blocked by the maze walls. Zork II's Oddly-angled Rooms list every direction because the story reorients their passages; the Carousel also offers its randomized **In** and **Out** moves. Some listed routes depend on story conditions, so the story may still block one until its condition is met. You can also open Paths through **Room actions**. Choose **Room actions → Nearby objects** to see the room's objects in one list. **More actions** groups ways to inspect, handle, and combine objects. For actions that require a tool, the target picker starts with the items in your bag. See [the route state audit](docs/audits/route-state-audit.md) for trace results and remaining QA checks.
 
 Choose **Start → Story so far** to review commands and story responses, newest first. Use **R** for older pages, **L** for newer pages, and **B** to return to the pause menu. The live log has 24 KiB for compact text; recurring phrases are tokenized in RAM and expanded when a page is displayed, so its plain-text history varies with the text. Saving stores the most recent transcript that fits alongside the story snapshot and route history. If either limit is reached, older entries are trimmed.
 
