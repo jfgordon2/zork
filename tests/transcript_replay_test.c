@@ -20,6 +20,8 @@ enum {
     QA_CHAPTERS = 3
 };
 
+enum { QA_BOAT, QA_BUCKET, QA_BASKET, QA_SPECIAL_VEHICLE, QA_VEHICLE_TYPES };
+
 typedef struct {
     unsigned encoded_size;
     unsigned plain_size;
@@ -42,6 +44,11 @@ static unsigned qa_parser_probe_checks, qa_room_definition_checks;
 static bool qa_parser_checked[QA_CHAPTERS][512];
 static bool qa_missing[QA_CHAPTERS][256][512];
 static bool qa_bad_bounds[QA_CHAPTERS][256][512];
+static bool qa_action_menu_checked[QA_CHAPTERS][256][512];
+static bool qa_carried_action_menu_checked[QA_CHAPTERS][512];
+static unsigned qa_action_menu_checks, qa_filtered_default_actions, qa_action_command_checks;
+static bool qa_enter_exit_states[QA_CHAPTERS][QA_VEHICLE_TYPES][2];
+static unsigned qa_enter_exit_menu_checks;
 
 static int qa_first_marker[4];
 static unsigned qa_distinct_markers;
@@ -132,6 +139,60 @@ static void audit_parser_targets(const Targets *targets) {
     }
 }
 
+static void audit_default_action_menu(unsigned room_id, unsigned object, bool carried) {
+    bool *checked = carried ? &qa_carried_action_menu_checked[chapter][object]
+                            : &qa_action_menu_checked[chapter][room_id][object];
+    if (*checked) return;
+    *checked = true;
+
+    Action actions[MAX_ACTIONS];
+    unsigned before = story_actions(chapter, object, carried, PRIMARY, actions);
+    unsigned count = story_filter_defaults(object, actions, before);
+    assert(count > 0);
+    qa_action_menu_checks++;
+    qa_filtered_default_actions += before - count;
+
+    for (unsigned i = 0; i < count; i++) {
+        if (actions[i].kind != DO_OBJECT && actions[i].kind != DO_LITERAL) continue;
+        char line[COMMAND_SIZE], reply[192] = {0};
+        assert(action_command(actions[i], object, NULL, line));
+        assert(z_probe(line, reply, sizeof(reply), 20000));
+        assert(!text_has(reply, "I don't know the word"));
+        assert(!text_has(reply, "I don't understand that sentence"));
+        assert(!text_has(reply, "That sentence isn't one I recognize"));
+        assert(!text_has(reply, "That sentence is not one I recognize"));
+        qa_action_command_checks++;
+    }
+}
+
+static void audit_enter_exit_menu(unsigned object) {
+    char name[Z_NAME_MAX];
+    story_noun(object, name);
+    unsigned type;
+    if (chapter == 2 && object == 122) type = QA_SPECIAL_VEHICLE;
+    else if (text_has(name, "boat")) type = QA_BOAT;
+    else if (text_has(name, "bucket")) type = QA_BUCKET;
+    else if (text_has(name, "basket")) type = QA_BASKET;
+    else return;
+
+    bool inside = z_parent(chapters[chapter].player) == object;
+    const char *expected = inside ?
+        ((type == QA_BUCKET || type == QA_BASKET) ? "Stand up" : "Get out") : "Enter";
+    const char *opposite = inside ? "Enter" :
+        ((type == QA_BUCKET || type == QA_BASKET) ? "Stand up" : "Get out");
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(chapter, object, false, PRIMARY, actions);
+    count = story_filter_defaults(object, actions, count);
+    bool found_expected = false, found_opposite = false;
+    for (unsigned i = 0; i < count; i++) {
+        if (strcmp(actions[i].name, expected) == 0) found_expected = true;
+        if (strcmp(actions[i].name, opposite) == 0) found_opposite = true;
+    }
+    assert(found_expected && !found_opposite);
+    qa_enter_exit_states[chapter][type][inside ? 1 : 0] = true;
+    qa_enter_exit_menu_checks++;
+}
+
 static void audit_scene_target_boxes(void) {
     unsigned room_id = z_global(0);
     if (zork1_barrow_finished()) return;
@@ -140,6 +201,13 @@ static void audit_scene_target_boxes(void) {
     story_targets(chapter, &targets, &carried);
     audit_parser_targets(&targets);
     audit_parser_targets(&carried);
+    for (unsigned i = 0; i < targets.count; i++)
+    {
+        audit_default_action_menu(room_id, targets.id[i], false);
+        audit_enter_exit_menu(targets.id[i]);
+    }
+    for (unsigned i = 0; i < carried.count; i++)
+        audit_default_action_menu(room_id, carried.id[i], true);
     if (!targets.count) return;
     char room_name[Z_NAME_MAX];
     z_name(room_id, room_name, sizeof(room_name));
@@ -235,6 +303,13 @@ static void report_target_box_gaps(void) {
            qa_parser_target_checks);
     printf("All-room parser audit: %u room definitions checked; %u distinct target names accepted by the interpreter.\n",
            qa_room_definition_checks, qa_parser_probe_checks);
+    printf("Default-action audit: %u room/inventory menus checked; %u direct action commands parsed; "
+           "%u unrecognized defaults filtered.\n",
+           qa_action_menu_checks, qa_action_command_checks, qa_filtered_default_actions);
+    assert(qa_enter_exit_states[0][QA_BOAT][0] && qa_enter_exit_states[0][QA_BOAT][1]);
+    assert(qa_enter_exit_states[1][QA_BUCKET][0] && qa_enter_exit_states[1][QA_BUCKET][1]);
+    printf("Enter/exit direction audit: %u vehicle states checked; Zork I boat and Zork II bucket tested inside and outside.\n",
+           qa_enter_exit_menu_checks);
     printf("Dropped-item scene boxes checked: %u.\n", qa_dropped_item_checks);
     assert(outside == 0);
 }

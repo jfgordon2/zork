@@ -9,6 +9,117 @@
 #define MENU(label, kind) {label, NULL, NULL, kind}
 #define NUMBER(label, verb, kind) {label, verb, NULL, kind}
 
+enum { ACTION_REPLY_SIZE = 192, MAX_NOUN_WORDS = 8 };
+
+static bool action_needs_object_noun(Action action) {
+    return action.kind == DO_OBJECT || action.kind == PICK_ITEM ||
+           ((action.kind == PICK_TARGET || action.kind == PICK_SELF) && action.argument) ||
+           (action.kind == PICK_DIRECTION && text_equal(action.verb, "push"));
+}
+
+static bool raw_action_command(Action action, const char *noun, const char *value,
+                               char line[COMMAND_SIZE]) {
+    line[0] = 0;
+    if (!action.verb || !append_text(line, COMMAND_SIZE, action.verb)) return false;
+    if (action.kind == PICK_ITEM) {
+        return noun && *noun && value && *value && action.argument &&
+               append_text(line, COMMAND_SIZE, " ") && append_text(line, COMMAND_SIZE, value) &&
+               append_text(line, COMMAND_SIZE, " ") && append_text(line, COMMAND_SIZE, action.argument) &&
+               append_text(line, COMMAND_SIZE, " ") && append_text(line, COMMAND_SIZE, noun);
+    }
+    if (action_needs_object_noun(action)) {
+        if (!noun || !*noun || !append_text(line, COMMAND_SIZE, " ") ||
+            !append_text(line, COMMAND_SIZE, noun)) return false;
+    }
+    if (action.argument &&
+        (!append_text(line, COMMAND_SIZE, " ") || !append_text(line, COMMAND_SIZE, action.argument))) return false;
+    if (value && (!append_text(line, COMMAND_SIZE, " ") || !append_text(line, COMMAND_SIZE, value))) return false;
+    return true;
+}
+
+static bool parser_rejected(const char *reply) {
+    return text_has(reply, "I don't know the word") ||
+           text_has(reply, "I don't understand that sentence") ||
+           text_has(reply, "That sentence isn't one I recognize") ||
+           text_has(reply, "That sentence is not one I recognize");
+}
+
+static bool probe_action_form(Action action, const char *value,
+                              const char *noun, char reply[ACTION_REPLY_SIZE]) {
+    char line[COMMAND_SIZE];
+    reply[0] = 0;
+    if (!raw_action_command(action, noun, value, line)) return false;
+    if (!z_probe(line, reply, ACTION_REPLY_SIZE, 20000)) return true;
+    return !parser_rejected(reply);
+}
+
+static void copy_noun_words(const char *noun, unsigned first, unsigned count,
+                            const unsigned starts[MAX_NOUN_WORDS],
+                            const unsigned lengths[MAX_NOUN_WORDS], char out[Z_NAME_MAX]) {
+    out[0] = 0;
+    for (unsigned i = 0; i < count; i++) {
+        if (i) append_text(out, Z_NAME_MAX, " ");
+        unsigned at = 0;
+        while (at < starts[first + i] && noun[at]) at++;
+        unsigned end = starts[first + i] + lengths[first + i];
+        while (at < end && noun[at] && at + 1 < Z_NAME_MAX) {
+            unsigned used = 0;
+            while (out[used]) used++;
+            out[used] = noun[at++];
+            out[used + 1] = 0;
+        }
+    }
+}
+
+// Some Z-machine grammars accept an object's short headword in an action but
+// reject its full display name (for example, "climb mountain range" versus
+// "climb mountain"). Probe the actual story parser and try shorter contiguous
+// noun phrases, longest first, before exposing a generated default action.
+static bool resolve_action_noun(Action action, unsigned object, const char *value,
+                                char chosen[Z_NAME_MAX], char reply[ACTION_REPLY_SIZE]) {
+    char full[Z_NAME_MAX];
+    chosen[0] = 0;
+    story_parser_noun(object, full);
+    if (!*full) return false;
+    if (probe_action_form(action, value, full, reply)) {
+        append_text(chosen, Z_NAME_MAX, full);
+        return true;
+    }
+
+    unsigned starts[MAX_NOUN_WORDS], lengths[MAX_NOUN_WORDS], words = 0;
+    for (unsigned i = 0; full[i] && words < MAX_NOUN_WORDS;) {
+        while (full[i] == ' ') i++;
+        if (!full[i]) break;
+        starts[words] = i;
+        while (full[i] && full[i] != ' ') i++;
+        lengths[words] = i - starts[words];
+        words++;
+    }
+    for (unsigned count = words; count > 0; count--) {
+        for (unsigned first = 0; first + count <= words; first++) {
+            if (first == 0 && count == words) continue;
+            char candidate[Z_NAME_MAX] = {0};
+            copy_noun_words(full, first, count, starts, lengths, candidate);
+            if (probe_action_form(action, value, candidate, reply)) {
+                append_text(chosen, Z_NAME_MAX, candidate);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+static bool reply_says_climb_direction_fails(const char *reply, bool upward) {
+    const char *word = upward ? "upward" : "downward";
+    const char *short_word = upward ? "up" : "down";
+    return (text_has(reply, "doesn't lead") && text_has(reply, word)) ||
+           (text_has(reply, "don't lead") && text_has(reply, word)) ||
+           (text_has(reply, "does not lead") && text_has(reply, word)) ||
+           (text_has(reply, "doesn't go") && text_has(reply, short_word)) ||
+           (text_has(reply, "don't go") && text_has(reply, short_word)) ||
+           (text_has(reply, "does not go") && text_has(reply, short_word));
+}
+
 static const Action inspect[] = {
     OBJECT("Look under", "look under"), OBJECT("Look inside", "look in"),
     OBJECT("Search", "search"), OBJECT("Smell", "smell"), OBJECT("Listen to", "listen to"),
@@ -78,16 +189,43 @@ static unsigned copy_actions(Action list[MAX_ACTIONS], const Action *from, unsig
 
 #define COPY(group) copy_actions(list, group, sizeof(group) / sizeof(group[0]))
 
-static Action climb_action(unsigned chapter, unsigned id) {
-    if (chapter == 0) {
-        unsigned room = z_global(0);
-        if (id == ZORK1_MINE_LADDER && room == ZORK1_LADDER_TOP)
-            return (Action)OBJECT("Climb down", "climb down");
-        if ((id == ZORK1_MINE_LADDER && room == ZORK1_LADDER_BOTTOM) ||
-            (id == ZORK1_STAIRS && (room == ZORK1_LADDER_TOP || room == ZORK1_GAS_ROOM)))
-            return (Action)OBJECT("Climb up", "climb up");
+static Action climb_action(unsigned id) {
+    unsigned room = z_global(0);
+    // Keep the established ladder and mine-stair directions where the story
+    // has explicit route geometry; probe the story parser for other climbables.
+    if (id == ZORK1_MINE_LADDER && room == ZORK1_LADDER_TOP)
+        return (Action)OBJECT("Climb down", "climb down");
+    if ((id == ZORK1_MINE_LADDER && room == ZORK1_LADDER_BOTTOM) ||
+        (id == ZORK1_STAIRS && (room == ZORK1_LADDER_TOP || room == ZORK1_GAS_ROOM)))
+        return (Action)OBJECT("Climb up", "climb up");
+
+    Action generic = travel[0];
+    char noun[Z_NAME_MAX], reply[ACTION_REPLY_SIZE];
+    if (!resolve_action_noun(generic, id, NULL, noun, reply))
+        return (Action){NULL, NULL, NULL, DO_OBJECT};
+
+    bool choose_down = reply_says_climb_direction_fails(reply, true);
+    bool choose_up = reply_says_climb_direction_fails(reply, false);
+    if (!choose_down && !choose_up) {
+        Action up = OBJECT("Climb up", "climb up");
+        Action down = OBJECT("Climb down", "climb down");
+        char up_reply[ACTION_REPLY_SIZE], down_reply[ACTION_REPLY_SIZE];
+        bool up_known = resolve_action_noun(up, id, NULL, noun, up_reply);
+        bool down_known = resolve_action_noun(down, id, NULL, noun, down_reply);
+        bool up_blocked = up_known && reply_says_climb_direction_fails(up_reply, true);
+        bool down_blocked = down_known && reply_says_climb_direction_fails(down_reply, false);
+        if (up_blocked != down_blocked) {
+            choose_down = up_blocked;
+            choose_up = down_blocked;
+        }
     }
-    return travel[0];
+
+    if (choose_down != choose_up) {
+        Action direction = choose_down ? (Action)OBJECT("Climb down", "climb down")
+                                       : (Action)OBJECT("Climb up", "climb up");
+        if (resolve_action_noun(direction, id, NULL, noun, reply)) return direction;
+    }
+    return generic;
 }
 
 unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup group, Action list[MAX_ACTIONS]) {
@@ -101,7 +239,8 @@ unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup 
         case TOOLS: return COPY(tools);
         case MOVE: {
             unsigned count = COPY(travel);
-            list[0] = climb_action(chapter, id);
+            Action suggested = climb_action(id);
+            list[0] = suggested.verb ? suggested : travel[0];
             return count;
         }
         case ORDERS:
@@ -137,9 +276,13 @@ unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup 
         else ADD(OBJECT("Enter", "enter"));
         ADD(DIRECTION("Push toward...", "push"));
     }
-    if (text_has(name, "bucket")) {
-        ADD(OBJECT("Enter", "enter"));
+    if (!(chapter == 2 && id == 122) && text_has(name, "boat")) {
+        if (z_parent(chapters[chapter].player) == id) ADD(OBJECT("Get out", "get out of"));
+        else ADD(OBJECT("Enter", "enter"));
+    }
+    if (!(chapter == 2 && id == 122) && (text_has(name, "bucket") || text_has(name, "basket"))) {
         if (z_parent(chapters[chapter].player) == id) ADD(SENTENCE("Stand up", "stand"));
+        else ADD(OBJECT("Enter", "enter"));
     }
     if (text_equal(name, "teapot")) ADD(OBJECT("Fill", "fill"));
     if (text_has(name, "panel") || text_has(name, "button")) ADD(OBJECT("Push", "push"));
@@ -182,7 +325,7 @@ unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup 
         ADD(OBJECT("Look under", "look under"));
         ADD(OBJECT("Move", "move"));
     }
-    if (z_attr(id, ATTR_CLIMBABLE)) ADD(climb_action(chapter, id));
+    if (z_attr(id, ATTR_CLIMBABLE)) ADD(climb_action(id));
     if (z_attr(id, ATTR_ACTOR)) {
         ADD(OFFER("Give item...", "give", "to"));
         ADD(TARGET("Attack with...", "attack", "with"));
@@ -198,27 +341,30 @@ unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup 
     return count;
 }
 
+unsigned story_filter_defaults(unsigned id, Action list[MAX_ACTIONS], unsigned count) {
+    unsigned kept = 0;
+    for (unsigned i = 0; i < count; i++) {
+        Action action = list[i];
+        bool accepted = true;
+        char noun[Z_NAME_MAX], reply[ACTION_REPLY_SIZE];
+        if (action.kind == DO_OBJECT)
+            accepted = resolve_action_noun(action, id, NULL, noun, reply);
+        else if (action.kind == DO_LITERAL)
+            accepted = probe_action_form(action, NULL, NULL, reply);
+        if (accepted) list[kept++] = action;
+    }
+    return kept;
+}
+
 bool action_command(Action action, unsigned object, const char *value, char line[COMMAND_SIZE]) {
     char noun[Z_NAME_MAX];
-    line[0] = 0;
-    if (!action.verb || !append_text(line, COMMAND_SIZE, action.verb)) return false;
-    if (action.kind == PICK_ITEM) {
-        story_parser_noun(object, noun);
-        return value && *value && *noun && action.argument && append_text(line, COMMAND_SIZE, " ") &&
-               append_text(line, COMMAND_SIZE, value) && append_text(line, COMMAND_SIZE, " ") &&
-               append_text(line, COMMAND_SIZE, action.argument) && append_text(line, COMMAND_SIZE, " ") &&
-               append_text(line, COMMAND_SIZE, noun);
-    }
-    if (action.kind == DO_OBJECT ||
-        ((action.kind == PICK_TARGET || action.kind == PICK_SELF) && action.argument) ||
-        (action.kind == PICK_DIRECTION && text_equal(action.verb, "push"))) {
-        story_parser_noun(object, noun);
-        if (!*noun || !append_text(line, COMMAND_SIZE, " ") || !append_text(line, COMMAND_SIZE, noun)) return false;
-    }
-    if (action.argument &&
-        (!append_text(line, COMMAND_SIZE, " ") || !append_text(line, COMMAND_SIZE, action.argument))) return false;
-    if (value && (!append_text(line, COMMAND_SIZE, " ") || !append_text(line, COMMAND_SIZE, value))) return false;
-    return true;
+    if (!action_needs_object_noun(action)) return raw_action_command(action, NULL, value, line);
+    if (resolve_action_noun(action, object, value, noun, (char[ACTION_REPLY_SIZE]){0}))
+        return raw_action_command(action, noun, value, line);
+    // Keep arbitrary menu actions available even when the current story parser
+    // rejects every generated noun form; the story should return its own refusal.
+    story_parser_noun(object, noun);
+    return raw_action_command(action, noun, value, line);
 }
 
 bool speech_command(unsigned mode, const char *phrase, char line[COMMAND_SIZE]) {

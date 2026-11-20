@@ -228,12 +228,38 @@ static void check_transcript_save(void) {
 static void check_action(unsigned object, ActionGroup group, const char *name, const char *item, const char *expected) {
     Action actions[MAX_ACTIONS];
     unsigned count = story_actions(chapter, object, false, group, actions);
+    if (group == PRIMARY) count = story_filter_defaults(object, actions, count);
     unsigned row = 0;
     while (row < count && strcmp(actions[row].name, name)) row++;
+    if (row == count) fprintf(stderr, "missing action %s for object %u in group %u\n", name, object, group);
     assert(row < count);
     char line[COMMAND_SIZE];
     assert(action_command(actions[row], object, item, line));
     assert(!strcmp(line, expected));
+}
+
+static void check_climb_action_defaults(void) {
+    start(0);
+    command("south"); command("east"); command("open window"); command("enter window");
+    assert(z_global(0) == 27);
+    check_action(43, PRIMARY, "Climb down", NULL, "climb down chimney");
+    check_action(177, PRIMARY, "Climb up", NULL, "climb up stairs");
+    char reply[256] = {0};
+    assert(z_probe("climb down chimney", reply, sizeof(reply), 20000));
+    assert(strstr(reply, "Santa Claus climbs down chimneys"));
+    assert(z_global(0) == 27);
+
+    start(0);
+    command("north"); command("north"); command("east"); command("east");
+    assert(z_global(0) == 167);
+    check_action(118, PRIMARY, "Climb", NULL, "climb mountain");
+    memset(reply, 0, sizeof(reply));
+    assert(z_probe("climb mountain range", reply, sizeof(reply), 20000));
+    assert(strstr(reply, "That sentence isn't one I recognize"));
+    memset(reply, 0, sizeof(reply));
+    assert(z_probe("climb mountain", reply, sizeof(reply), 20000));
+    assert(strstr(reply, "mountains are impassable"));
+    assert(z_global(0) == 167);
 }
 
 // Objects that have an exit property are rooms; their names are displayed, not
@@ -549,6 +575,7 @@ int main(void) {
     check_distant_scenery();
     start(0);
     check_first_zork_dam();
+    check_climb_action_defaults();
 
     start(1);
     assert(z_global(0) == 51 && !save_exists(sram, 1));

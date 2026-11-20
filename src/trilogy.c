@@ -1160,6 +1160,7 @@ static void rotate(unsigned *index, unsigned count, bool forward) {
 static void choose_action_list(Screen next, ActionGroup group) {
     open_menu(next);
     action_count = story_actions(chapter, action_object, verb_is_bag, group, action_list);
+    if (group == PRIMARY) action_count = story_filter_defaults(action_object, action_list, action_count);
 }
 
 static void pick_object(unsigned object) {
