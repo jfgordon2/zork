@@ -67,3 +67,114 @@ but it does not prove every shortened noun resolves to the intended entity when
 two objects share the remaining words. Story routes and interaction outcome
 tests are still needed for identity and behavior; a correct dictionary token by
 itself is not proof of a correct target.
+
+## Primary action probing — November 20, 2026
+
+The primary action list is now probe-driven rather than rule-only. `story_filter_defaults()`
+first probes the object's existing suggested actions, then walks a fixed table of 32
+single-noun verbs (`take`, `drop`, `open`, `close`, `read`, `eat`, `drink`, `light`,
+`extinguish`, `fill`, `wind`, `ring`, `knock on`, `climb`, `enter`, `cross`, `push`,
+`pull`, `turn`, `lift`, `lower`, `move`, `press`, `rub`, `shake`, `touch`, `wave`,
+`search`, `smell`, `listen to`, `look under`, `look in`). Two-object and tool verbs stay
+in the category menus.
+
+- Replies are classified by a no-effect pattern table (`action_reply_is_no_effect`), so
+  actions that only acknowledge the verb are not offered.
+- Actions whose complete replies and observed VM-state effect fingerprints match are collapsed,
+  keeping the earliest: suggested actions first, then table order. Deduplication tests
+  compare full replies and effect fingerprints, not first sentences alone.
+- "Not available here" replies (`You can't see any ...`) never group actions.
+- `rub` and `touch` are probed only for objects with the LIGHT attribute: Zork I's
+  RUB/TOUCH routine crashes (`Object id #0 referenced`) on objects such as the brass
+  bell.
+- `climb_action()` now verifies both directions instead of trusting the generic climb
+  reply, which is misleading on Zork III's endless stair.
+- `z_probe_last_line()` records the last probe command for test diagnostics.
+
+Tests: `check_reply_classification`, `check_primary_enrichment`, and
+`check_primary_dedup`; the replay audits now compare action visibility against the
+no-effect rule and accept an action collapsed by de-duplication when another offered
+action has the same reply. `make test` passes and the ARM build leaves 1,980 bytes of
+EWRAM free.
+
+### Final-review follow-ups (same day)
+
+The whole-branch review found that applying the no-effect table to `Examine` removed
+it whenever the object description contained phrases like "is closed" or "securely
+fastened" (206 of 7,360 menu builds). `Examine` is now always offered, never
+classified as no-effect, and still claims its reply for de-duplication so a duplicate
+`Look inside` is collapsed.
+
+Also from the review:
+
+- The refusal table gained the common Zork phrasings the first pass missed (`you
+  already have`, `a valiant attempt`, `isn't notably helpful`, `you can't move the`,
+  `securely anchored`, `you can't turn that`, `contortion`, `accomplished enough
+  juggler`, `doesn't seem to work`, `you can't open that`, `not openable`).
+- Probe-time story faults are now recoverable. `z_probe` guards execution with a small
+  naked-asm setjmp/longjmp (ARMv7 for the GBA, AArch64 for the host); a story bug such
+  as Zork I's RUB on the brass bell unwinds, rewinds and reports the probe as rejected
+  instead of resetting the game. Verified by disabling the rub/touch guard and running
+  the full sweep: it passes.
+- `probe_action_form` now treats a timeout or crashed probe as rejected rather than
+  accepted, so partial output is never offered.
+- Reply normalization skips leading punctuation (the boat label starts `!!!!`).
+- The menu cap is enforced after de-duplication, including when `More actions...` is
+  present.
+- Noun-form fallback tries each individual word plus the final two words.
+- The replay default-menu audit now asserts `Examine` is present, the menu is last,
+  the count fits `MAX_ACTIONS - 1`, and no two offered actions share a full reply and
+  effect signature. The filtered-action counter no longer underflows when enrichment
+  adds actions.
+
+### Follow-up to the probe review
+
+The action-menu probe path now has a total budget of 48 probe attempts per menu
+build, including probes needed to choose a climb direction. The menu is built
+synchronously, so this prevents the old worst case of up to 128 candidate-form
+probes from blocking input indefinitely.
+
+Noun fallback tries each individual word, then the final two words, so it reaches
+headwords in the middle of longer display nouns.
+Descriptive smell replies such as "It smells like ..." are no longer classified
+as no-effect responses.
+
+Duplicate detection compares the entire captured reply and persistent dynamic
+state. After capturing the action reply, the probe runs `inventory` in its
+rewindable scratch branch to settle parser work tables; that output is suppressed
+and the live game is restored afterward. The READ input and parse buffers, plus
+the parser's `PRSA` and `P-TABLE` words in the bundled Zork I release 119 build,
+are excluded from the state fingerprint. Other globals and story memory remain
+included, so actions with matching text but different game effects stay separate.
+The reply capture is 512 bytes so long outcomes such as the ghost's curse can
+still be compared in full; replies that fill the capture buffer remain unique
+because they may be truncated. Probe recovery marks the architecture-specific trampoline
+`returns_twice`, supports ARM, AArch64, and SysV x86-64 host builds, and fails
+compilation on unsupported ABIs instead of silently omitting recovery.
+
+### Route-audit fixes and verification — November 20, 2026
+
+The full route replay found three parser and test edge cases:
+
+- Noun fallback now tries every individual word. This lets the visible Zork II flask
+  resolve as `flask` when its full display name and surrounding words are rejected by
+  the story grammar. A noun found while probing `Examine` is reused for the other
+  primary-action probes in that menu build.
+- Multiword targets are checked against `Examine` before being exposed as focus targets.
+  If neither the complete name nor any individual word addresses the object, the focus
+  target is omitted. This removes the unaddressable `rock structure` target in Zork
+  III's Crystal Grotto.
+- The refusal "can't see how to get in from here" is treated as an unavailable action,
+  removing invalid Open/Enter suggestions for the white house.
+
+The story tests no longer require unique first sentences. They assert uniqueness only
+for matching full replies and persistent effect fingerprints, and use
+phrase-construction checks when a test target is remote from the current room. The
+Zork I rug regression checks that `move`, `push`, and `pull` collapse to one primary
+action, while `press` remains because the VM reports a distinct state effect despite
+the same visible reply. This guards both sides of de-duplication: remove repeated
+choices while retaining a different outcome.
+
+Verification: `make test` passes all three story replays, including 751 default-action
+menus and 3,870 direct action commands. The replays report zero reference-state drifts.
+`make zork-trilogy.gba` also builds successfully with the ARM7TDMI toolchain.

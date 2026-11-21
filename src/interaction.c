@@ -9,7 +9,19 @@
 #define MENU(label, kind) {label, NULL, NULL, kind}
 #define NUMBER(label, verb, kind) {label, verb, NULL, kind}
 
-enum { ACTION_REPLY_SIZE = 192, MAX_NOUN_WORDS = 8 };
+enum { ACTION_REPLY_SIZE = 512, MAX_NOUN_WORDS = 8, ACTION_MENU_PROBE_LIMIT = 48 };
+
+static bool action_menu_probe_limited;
+static unsigned action_menu_probes_remaining;
+
+void story_menu_probe_begin(void) {
+    action_menu_probe_limited = true;
+    action_menu_probes_remaining = ACTION_MENU_PROBE_LIMIT;
+}
+
+void story_menu_probe_end(void) {
+    action_menu_probe_limited = false;
+}
 
 static bool action_needs_object_noun(Action action) {
     return action.kind == DO_OBJECT || action.kind == PICK_ITEM ||
@@ -44,13 +56,150 @@ static bool parser_rejected(const char *reply) {
            text_has(reply, "That sentence is not one I recognize");
 }
 
+static bool reply_disallows_action(Action action, const char *reply) {
+    char cannot[COMMAND_SIZE] = "cannot ";
+    char cant[COMMAND_SIZE] = "can't ";
+    return action.verb && append_text(cannot, COMMAND_SIZE, action.verb) &&
+           append_text(cant, COMMAND_SIZE, action.verb) &&
+           (text_has(reply, cannot) || text_has(reply, cant));
+}
+
+// Reply text reduced to its first sentence: parenthetical parser notes dropped,
+// lowercased, whitespace collapsed. Used for refusal classification and reports;
+// full-response signatures below decide whether two actions can be merged.
+void action_reply_normalized(const char *reply, char *out, unsigned capacity) {
+    if (!capacity) return;
+    unsigned used = 0;
+    const char *p = reply;
+    while (*p == ' ' || *p == '\n' || *p == '\r') p++;
+    if (*p == '(') {
+        while (*p && *p != ')') p++;
+        if (*p == ')') p++;
+        while (*p == ' ' || *p == '\n' || *p == '\r') p++;
+    }
+    // Replies that open with punctuation (Zork I's boat label starts "!!!!")
+    // still describe a result; start at the first alphanumeric character.
+    while (*p && !((*p >= 'a' && *p <= 'z') || (*p >= 'A' && *p <= 'Z') || (*p >= '0' && *p <= '9')))
+        p++;
+    if (!*p) { out[0] = 0; return; }
+    while (*p && *p != '.' && *p != '!' && *p != '?' && *p != '\n' && *p != '\r') {
+        char ch = *p++;
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch - 'A' + 'a');
+        if (ch == ' ' && used && out[used - 1] == ' ') continue;
+        if (used + 1 < capacity) out[used++] = ch;
+    }
+    while (used && out[used - 1] == ' ') used--;
+    out[used] = 0;
+}
+
+// Fingerprint the full visible reply for de-duplication. The first-sentence
+// helper above remains useful for classification, but is too lossy for deciding
+// that two actions are equivalent. A reply filling the capture buffer may have
+// been truncated, so it is kept unique instead of being merged.
+typedef struct {
+    uint32_t first, second;
+    ZProbeEffect effect;
+} ActionReplySignature;
+
+static bool action_reply_signature(const char *reply, ZProbeEffect effect,
+                                   ActionReplySignature *signature) {
+    unsigned length = 0;
+    while (reply[length]) length++;
+    if (length >= ACTION_REPLY_SIZE - 1 || !effect.valid) return false;
+
+    const char *p = reply;
+    while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    if (*p == '(') {
+        while (*p && *p != ')') p++;
+        if (*p == ')') p++;
+        while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    }
+    // Two independent 32-bit rolling hashes avoid truncating the response and
+    // avoid 64-bit multiply helpers on the freestanding ARM7 build.
+    uint32_t first_hash = 2166136261u, second_hash = 0x9e3779b9u;
+    bool pending_space = false, any = false;
+    while (*p) {
+        char ch = *p++;
+        if (ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t') {
+            pending_space = any;
+            continue;
+        }
+        if (pending_space) {
+            first_hash = (first_hash ^ (uint8_t)' ') * 16777619u;
+            second_hash ^= (uint8_t)' ' + 0x9e3779b9u + (second_hash << 6) + (second_hash >> 2);
+            pending_space = false;
+        }
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch - 'A' + 'a');
+        first_hash = (first_hash ^ (uint8_t)ch) * 16777619u;
+        second_hash ^= (uint8_t)ch + 0x9e3779b9u + (second_hash << 6) + (second_hash >> 2);
+        any = true;
+    }
+    if (!any) return false;
+    signature->first = first_hash;
+    signature->second = second_hash;
+    signature->effect = effect;
+    return true;
+}
+
+// Replies that acknowledge a verb but change nothing. An action whose reply
+// matches one of these is not offered in the primary list.
+static const char *const no_effect_patterns[] = {
+    "has no effect", "reveals nothing", "fiddling with", "playing in this way",
+    "you can't do that", "i don't think that", "how does one", "you must tell me how",
+    "what do you want to", "first tell me what", "you're not carrying", "you don't have",
+    "already closed", "already open", "securely fastened", "extremely heavy",
+    "cannot be carried", "you find nothing unusual", "there is nothing special",
+    "isn't sleeping", "i'd sooner kiss", "that's pretty weird", "you have lost your mind",
+    "there is nothing to fill", "is it empty", "how, exactly", "why knock",
+    "your bare hands", "an interesting idea", "you can't cross", "you can't look inside",
+    "you hear nothing", "you can hear nothing", "nothing but dust",
+    "nothing happens", "you wave the", "is closed", "is locked", "isn't open yet",
+    "already in", "you're already", "you are already", "hit your head",
+    "makes no sound", "already on", "already off", "already lit",
+    "you already have", "a valiant attempt", "isn't notably helpful",
+    "you can't move the", "securely anchored", "you can't turn that",
+    "contortion", "accomplished enough juggler", "can't be done",
+    "doesn't seem to work", "you can't open that", "not openable",
+    "can't see how to get in from here"
+};
+
+bool action_reply_is_no_effect(const char *reply) {
+    char normalized[ACTION_REPLY_SIZE];
+    action_reply_normalized(reply, normalized, sizeof(normalized));
+    for (unsigned i = 0; i < sizeof(no_effect_patterns) / sizeof(no_effect_patterns[0]); i++)
+        if (text_has(normalized, no_effect_patterns[i])) return true;
+    return false;
+}
+
+static bool reply_has_no_matching_target(const char *reply) {
+    char normalized[ACTION_REPLY_SIZE];
+    action_reply_normalized(reply, normalized, sizeof(normalized));
+    return text_has(normalized, "you can't see any") ||
+           text_has(normalized, "i don't see any") ||
+           text_has(normalized, "you're not at") ||
+           text_has(normalized, "you are not at");
+}
+
 static bool probe_action_form(Action action, const char *value,
-                              const char *noun, char reply[ACTION_REPLY_SIZE]) {
+                              const char *noun, char reply[ACTION_REPLY_SIZE],
+                              ZProbeEffect *effect) {
     char line[COMMAND_SIZE];
     reply[0] = 0;
+    if (effect) *effect = (ZProbeEffect){0, 0, false};
     if (!raw_action_command(action, noun, value, line)) return false;
-    if (!z_probe(line, reply, ACTION_REPLY_SIZE, 20000)) return true;
-    return !parser_rejected(reply);
+    if (action_menu_probe_limited) {
+        if (!action_menu_probes_remaining) return false;
+        action_menu_probes_remaining--;
+    }
+    // A probe that crashes the story (or exceeds its budget) proves nothing;
+    // treat it as rejected rather than offering the action.
+    bool answered = effect ? z_probe_with_effect(line, reply, ACTION_REPLY_SIZE, 20000, effect)
+                           : z_probe(line, reply, ACTION_REPLY_SIZE, 20000);
+    if (!answered) {
+        reply[0] = 0;
+        return false;
+    }
+    return !parser_rejected(reply) && (!noun || !reply_has_no_matching_target(reply));
 }
 
 static void copy_noun_words(const char *noun, unsigned first, unsigned count,
@@ -73,15 +222,16 @@ static void copy_noun_words(const char *noun, unsigned first, unsigned count,
 
 // Some Z-machine grammars accept an object's short headword in an action but
 // reject its full display name (for example, "climb mountain range" versus
-// "climb mountain"). Probe the actual story parser and try shorter contiguous
-// noun phrases, longest first, before exposing a generated default action.
+// "climb mountain"). Probe the actual story parser and try bounded short forms
+// before exposing a generated default action.
 static bool resolve_action_noun(Action action, unsigned object, const char *value,
-                                char chosen[Z_NAME_MAX], char reply[ACTION_REPLY_SIZE]) {
+                                char chosen[Z_NAME_MAX], char reply[ACTION_REPLY_SIZE],
+                                ZProbeEffect *effect) {
     char full[Z_NAME_MAX];
     chosen[0] = 0;
     story_parser_noun(object, full);
     if (!*full) return false;
-    if (probe_action_form(action, value, full, reply)) {
+    if (probe_action_form(action, value, full, reply, effect)) {
         append_text(chosen, Z_NAME_MAX, full);
         return true;
     }
@@ -95,15 +245,24 @@ static bool resolve_action_noun(Action action, unsigned object, const char *valu
         lengths[words] = i - starts[words];
         words++;
     }
-    for (unsigned count = words; count > 0; count--) {
-        for (unsigned first = 0; first + count <= words; first++) {
-            if (first == 0 && count == words) continue;
-            char candidate[Z_NAME_MAX] = {0};
-            copy_noun_words(full, first, count, starts, lengths, candidate);
-            if (probe_action_form(action, value, candidate, reply)) {
-                append_text(chosen, Z_NAME_MAX, candidate);
-                return true;
-            }
+    if (words < 2) return false;
+    // A display name can contain adjectives or trailing descriptions around
+    // the parser's headword ("glass flask with liquid" -> "flask"). Try each
+    // bounded single word, then the final two words for multiword headwords.
+    for (unsigned first = 0; first < words; first++) {
+        char candidate[Z_NAME_MAX] = {0};
+        copy_noun_words(full, first, 1, starts, lengths, candidate);
+        if (probe_action_form(action, value, candidate, reply, effect)) {
+            append_text(chosen, Z_NAME_MAX, candidate);
+            return true;
+        }
+    }
+    if (words > 2) {
+        char candidate[Z_NAME_MAX] = {0};
+        copy_noun_words(full, words - 2, 2, starts, lengths, candidate);
+        if (probe_action_form(action, value, candidate, reply, effect)) {
+            append_text(chosen, Z_NAME_MAX, candidate);
+            return true;
         }
     }
     return false;
@@ -201,30 +360,30 @@ static Action climb_action(unsigned id) {
 
     Action generic = travel[0];
     char noun[Z_NAME_MAX], reply[ACTION_REPLY_SIZE];
-    if (!resolve_action_noun(generic, id, NULL, noun, reply))
+    if (!resolve_action_noun(generic, id, NULL, noun, reply, NULL))
         return (Action){NULL, NULL, NULL, DO_OBJECT};
 
-    bool choose_down = reply_says_climb_direction_fails(reply, true);
-    bool choose_up = reply_says_climb_direction_fails(reply, false);
-    if (!choose_down && !choose_up) {
-        Action up = OBJECT("Climb up", "climb up");
-        Action down = OBJECT("Climb down", "climb down");
-        char up_reply[ACTION_REPLY_SIZE], down_reply[ACTION_REPLY_SIZE];
-        bool up_known = resolve_action_noun(up, id, NULL, noun, up_reply);
-        bool down_known = resolve_action_noun(down, id, NULL, noun, down_reply);
-        bool up_blocked = up_known && reply_says_climb_direction_fails(up_reply, true);
-        bool down_blocked = down_known && reply_says_climb_direction_fails(down_reply, false);
-        if (up_blocked != down_blocked) {
-            choose_down = up_blocked;
-            choose_up = down_blocked;
-        }
-    }
-
-    if (choose_down != choose_up) {
-        Action direction = choose_down ? (Action)OBJECT("Climb down", "climb down")
-                                       : (Action)OBJECT("Climb up", "climb up");
-        if (resolve_action_noun(direction, id, NULL, noun, reply)) return direction;
-    }
+    // A generic climb reply can be misleading (Zork III's endless stair reports
+    // "don't lead upward" even though climbing up works), so verify both
+    // directions instead of trusting it.
+    Action up = OBJECT("Climb up", "climb up");
+    Action down = OBJECT("Climb down", "climb down");
+    char up_reply[ACTION_REPLY_SIZE], down_reply[ACTION_REPLY_SIZE];
+    bool up_known = resolve_action_noun(up, id, NULL, noun, up_reply, NULL);
+    bool down_known = resolve_action_noun(down, id, NULL, noun, down_reply, NULL);
+    bool up_blocked = !up_known || reply_says_climb_direction_fails(up_reply, true) ||
+                      action_reply_is_no_effect(up_reply);
+    bool down_blocked = !down_known || reply_says_climb_direction_fails(down_reply, false) ||
+                        action_reply_is_no_effect(down_reply);
+    // Prefer the direction the generic reply points at, but never when that
+    // direction is actually blocked (Zork III's endless stair is the known case).
+    bool hint_down = reply_says_climb_direction_fails(reply, true);
+    bool hint_up = reply_says_climb_direction_fails(reply, false);
+    if (hint_down && !down_blocked) return down;
+    if (hint_up && !up_blocked) return up;
+    if (hint_down && !up_blocked) return up;
+    if (hint_up && !down_blocked) return down;
+    if (!hint_down && !hint_up && up_blocked != down_blocked) return down_blocked ? up : down;
     return generic;
 }
 
@@ -290,8 +449,11 @@ unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup 
     if (chapter == 2 && id == ZORK3_DUNGEON_DOOR && z_global(0) == ZORK3_DUNGEON_ENTRANCE) {
         ADD(OBJECT("Knock on", "knock on"));
     } else if (z_attr(id, ATTR_CONTAINER) || z_attr(id, ATTR_DOOR) || text_has(name, "window") || text_has(name, "door")) {
-        if (z_attr(id, ATTR_OPEN)) ADD(OBJECT("Close", "close"));
-        else ADD(OBJECT("Open", "open"));
+        if (z_attr(id, ATTR_OPEN)) {
+            ADD(OBJECT("Close", "close"));
+            if (z_attr(id, ATTR_DOOR) || text_has(name, "window"))
+                ADD(OBJECT("Enter", "enter"));
+        } else ADD(OBJECT("Open", "open"));
         if (text_equal(name, "trap door")) ADD(SENTENCE("Descend", "down"));
     }
     if (text_has(name, "match")) ADD(OBJECT("Light", "light"));
@@ -341,25 +503,158 @@ unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup 
     return count;
 }
 
+// Single-noun verbs probed for every object, in menu priority order. The
+// object's own suggested actions are probed first by the loop below; this list
+// adds effectful actions the hardcoded rules never proposed.
+static const struct { const char *label, *verb; } probe_verbs[] = {
+    {"Take", "take"}, {"Drop", "drop"}, {"Open", "open"}, {"Close", "close"},
+    {"Read", "read"}, {"Eat", "eat"}, {"Drink", "drink"}, {"Light", "light"},
+    {"Extinguish", "extinguish"}, {"Fill", "fill"}, {"Wind", "wind"}, {"Ring", "ring"},
+    {"Knock on", "knock on"}, {"Climb", "climb"}, {"Enter", "enter"}, {"Cross", "cross"},
+    {"Push", "push"}, {"Pull", "pull"}, {"Turn", "turn"}, {"Lift", "lift"},
+    {"Lower", "lower"}, {"Move", "move"}, {"Press", "press"}, {"Rub", "rub"},
+    {"Shake", "shake"}, {"Touch", "touch"}, {"Wave", "wave"}, {"Search", "search"},
+    {"Smell", "smell"}, {"Listen to", "listen to"}, {"Look under", "look under"},
+    {"Look inside", "look in"}
+};
+
+// A few story verbs are only implemented for specific kinds of object and
+// dereference a missing object otherwise (Zork I's RUB on the brass bell is a
+// known crash). Probe such verbs only where the story supports them.
+static bool probe_verb_allowed(const char *verb, unsigned id) {
+    // Zork I's RUB/TOUCH routine dereferences a missing object for objects that
+    // do not implement it (the brass bell is a known crash). The probe guard
+    // recovers if another verb/object pair does the same, but skip the known one.
+    if (text_equal(verb, "rub") || text_equal(verb, "touch")) return z_attr(id, ATTR_LIGHT);
+    return true;
+}
+
+static bool list_has_verb(const Action *list, unsigned count, const char *verb) {
+    for (unsigned i = 0; i < count; i++)
+        if (list[i].verb && text_equal(list[i].verb, verb)) return true;
+    return false;
+}
+
 unsigned story_filter_defaults(unsigned id, Action list[MAX_ACTIONS], unsigned count) {
-    unsigned kept = 0;
+    bool has_menu = count && list[count - 1].kind == SHOW_CATEGORIES;
+    if (has_menu) count--;
+    Action kept[MAX_ACTIONS];
+    char norm[MAX_ACTIONS][48];   // First sentence, for unavailable-here classification.
+    ActionReplySignature signatures[MAX_ACTIONS] = {{0}};
+    bool signature_valid[MAX_ACTIONS] = {false};
+    char noun_hint[Z_NAME_MAX] = {0};
+    unsigned kept_count = 0, norm_count = 0;
     for (unsigned i = 0; i < count; i++) {
         Action action = list[i];
         bool accepted = true;
         char noun[Z_NAME_MAX], reply[ACTION_REPLY_SIZE];
-        if (action.kind == DO_OBJECT)
-            accepted = resolve_action_noun(action, id, NULL, noun, reply);
-        else if (action.kind == DO_LITERAL)
-            accepted = probe_action_form(action, NULL, NULL, reply);
-        if (accepted) list[kept++] = action;
+        reply[0] = 0;
+        // Examine is always offered: its reply describes the object and must not
+        // be mistaken for a no-effect refusal ("The door is closed."). Its full
+        // reply and observed state change participate in duplicate detection.
+        if (action.verb && text_equal(action.verb, "examine")) {
+            char examine_reply[ACTION_REPLY_SIZE];
+            ZProbeEffect effect = {0, 0, false};
+            if (resolve_action_noun(action, id, NULL, noun, examine_reply, &effect)) {
+                append_text(noun_hint, sizeof(noun_hint), noun);
+                action_reply_normalized(examine_reply, norm[norm_count], sizeof(norm[0]));
+                signature_valid[norm_count] = action_reply_signature(examine_reply, effect, &signatures[norm_count]);
+            } else norm[norm_count][0] = 0;
+            kept[kept_count++] = action;
+            norm_count++;
+            continue;
+        }
+        ZProbeEffect effect = {0, 0, false};
+        if (action.kind == DO_OBJECT) {
+            noun[0] = 0;
+            accepted = noun_hint[0] && probe_action_form(action, NULL, noun_hint, reply, &effect);
+            if (accepted) append_text(noun, sizeof(noun), noun_hint);
+            else accepted = resolve_action_noun(action, id, NULL, noun, reply, &effect);
+            if (accepted && (reply_disallows_action(action, reply) || action_reply_is_no_effect(reply)))
+                accepted = false;
+        } else if (action.kind == DO_LITERAL) {
+            accepted = probe_action_form(action, NULL, NULL, reply, &effect);
+            if (accepted && reply_disallows_action(action, reply)) accepted = false;
+        }
+        if (!accepted) continue;
+        kept[kept_count] = action;
+        if (action.kind == DO_OBJECT || action.kind == DO_LITERAL) {
+            action_reply_normalized(reply, norm[norm_count], sizeof(norm[0]));
+            signature_valid[norm_count] = action_reply_signature(reply, effect, &signatures[norm_count]);
+        } else norm[norm_count][0] = 0;
+        kept_count++;
+        norm_count++;
     }
-    return kept;
+    for (unsigned i = 0; i < sizeof(probe_verbs) / sizeof(probe_verbs[0]); i++) {
+        if (kept_count >= MAX_ACTIONS - 2) break; // Reserve the final slot for the menu.
+        if (list_has_verb(kept, kept_count, probe_verbs[i].verb)) continue;
+        // A directional climb already chosen for this object covers the generic verb.
+        if (text_equal(probe_verbs[i].verb, "climb") &&
+            (list_has_verb(kept, kept_count, "climb up") || list_has_verb(kept, kept_count, "climb down"))) continue;
+        if (!probe_verb_allowed(probe_verbs[i].verb, id)) continue;
+        Action action = {probe_verbs[i].label, probe_verbs[i].verb, NULL, DO_OBJECT};
+        char noun[Z_NAME_MAX], reply[ACTION_REPLY_SIZE];
+        noun[0] = 0;
+        ZProbeEffect effect = {0, 0, false};
+        bool resolved = noun_hint[0] && probe_action_form(action, NULL, noun_hint, reply, &effect);
+        if (resolved) append_text(noun, sizeof(noun), noun_hint);
+        else resolved = resolve_action_noun(action, id, NULL, noun, reply, &effect);
+        if (!resolved) continue;
+        if (!reply[0] || reply_disallows_action(action, reply) || action_reply_is_no_effect(reply)) continue;
+        kept[kept_count] = action;
+        action_reply_normalized(reply, norm[norm_count], sizeof(norm[0]));
+        signature_valid[norm_count] = action_reply_signature(reply, effect, &signatures[norm_count]);
+        kept_count++;
+        norm_count++;
+    }
+    // Collapse actions only when the full captured replies and observed story
+    // state changes match, keeping the earliest. Replies that only mean "not
+    // available here" are not results.
+    unsigned out_count = 0;
+    bool output_groupable[MAX_ACTIONS] = {false};
+    for (unsigned i = 0; i < kept_count; i++) {
+        bool groupable = signature_valid[i] && norm[i][0] &&
+            !text_has(norm[i], "you can't see any") && !text_has(norm[i], "you're not at") &&
+            !text_has(norm[i], "there is no ");
+        bool duplicate = false;
+        if (groupable) {
+            for (unsigned j = 0; j < out_count; j++)
+                if (output_groupable[j] && signatures[j].first == signatures[i].first &&
+                    signatures[j].second == signatures[i].second &&
+                    signatures[j].effect.first == signatures[i].effect.first &&
+                    signatures[j].effect.second == signatures[i].effect.second) {
+                    duplicate = true;
+                    break;
+                }
+        }
+        if (duplicate) continue;
+        if (out_count != i) {
+            kept[out_count] = kept[i];
+            norm[out_count][0] = 0;
+            if (groupable) append_text(norm[out_count], sizeof(norm[0]), norm[i]);
+            signatures[out_count] = signatures[i];
+            signature_valid[out_count] = signature_valid[i];
+        }
+        output_groupable[out_count] = groupable;
+        if (!groupable) {
+            norm[out_count][0] = 0;
+            signatures[out_count] = (ActionReplySignature){0};
+            signature_valid[out_count] = false;
+        }
+        out_count++;
+    }
+    // Keep the list within the menu budget; the last slot stays for "More actions...".
+    unsigned budget = has_menu ? MAX_ACTIONS - 2 : MAX_ACTIONS - 1;
+    while (out_count > budget && out_count > 0) out_count--;
+    if (has_menu) kept[out_count++] = (Action)MENU("More actions...", SHOW_CATEGORIES);
+    for (unsigned i = 0; i < out_count; i++) list[i] = kept[i];
+    return out_count;
 }
 
 bool action_command(Action action, unsigned object, const char *value, char line[COMMAND_SIZE]) {
     char noun[Z_NAME_MAX];
     if (!action_needs_object_noun(action)) return raw_action_command(action, NULL, value, line);
-    if (resolve_action_noun(action, object, value, noun, (char[ACTION_REPLY_SIZE]){0}))
+    if (resolve_action_noun(action, object, value, noun, (char[ACTION_REPLY_SIZE]){0}, NULL))
         return raw_action_command(action, noun, value, line);
     // Keep arbitrary menu actions available even when the current story parser
     // rejects every generated noun form; the story should return its own refusal.

@@ -235,7 +235,74 @@ static void check_action(unsigned object, ActionGroup group, const char *name, c
     assert(row < count);
     char line[COMMAND_SIZE];
     assert(action_command(actions[row], object, item, line));
+    if (strcmp(line, expected)) fprintf(stderr, "action %s for object %u produced '%s', expected '%s'\n",
+                                       name, object, line, expected);
     assert(!strcmp(line, expected));
+}
+
+static void check_action_phrase(unsigned object, ActionGroup group, const char *name,
+                                const char *item, const char *expected) {
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(chapter, object, false, group, actions);
+    unsigned row = 0;
+    while (row < count && strcmp(actions[row].name, name)) row++;
+    if (row == count) fprintf(stderr, "missing action phrase %s for object %u in group %u\n",
+                              name, object, group);
+    assert(row < count);
+    char line[COMMAND_SIZE];
+    assert(action_command(actions[row], object, item, line));
+    if (strcmp(line, expected)) fprintf(stderr, "action phrase %s for object %u produced '%s', expected '%s'\n",
+                                       name, object, line, expected);
+    assert(!strcmp(line, expected));
+}
+
+static void check_action_absent(unsigned object, ActionGroup group, const char *name) {
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(chapter, object, false, group, actions);
+    if (group == PRIMARY) count = story_filter_defaults(object, actions, count);
+    for (unsigned i = 0; i < count; i++) assert(strcmp(actions[i].name, name));
+}
+
+static void check_leaves_move_action(void) {
+    start(0);
+    command("west");
+    command("north");
+    assert(z_global(0) == 160);
+    check_action(157, PRIMARY, "Move", NULL, "move pile of leaves");
+    command("move pile of leaves");
+    captured_story_text[captured_story_size] = 0;
+    assert(strstr(captured_story_text, "a grating is revealed"));
+    start(0); // Restore the West of House context for the checks that follow.
+}
+
+static void check_window_enter_action(void) {
+    const unsigned window = 243;
+    start(0);
+    command("south"); command("east");
+    assert(z_global(0) == 85 && !z_attr(window, ATTR_OPEN));
+    check_action(window, PRIMARY, "Open", NULL, "open kitchen window");
+    check_action_absent(window, PRIMARY, "Enter");
+
+    command("open window");
+    assert(z_global(0) == 85 && z_attr(window, ATTR_OPEN));
+    check_action(window, PRIMARY, "Close", NULL, "close kitchen window");
+    check_action(window, PRIMARY, "Enter", NULL, "enter kitchen window");
+    command("enter window");
+    assert(z_global(0) == 27);
+
+    Targets room, bag;
+    story_targets(0, &room, &bag);
+    unsigned table = 0;
+    for (unsigned i = 0; i < room.count; i++) {
+        char noun[Z_NAME_MAX];
+        story_noun(room.id[i], noun);
+        if (text_has(noun, "table")) table = room.id[i];
+    }
+    assert(table);
+    check_action_absent(table, PRIMARY, "Close");
+    char reply[256] = {0};
+    assert(z_probe("close kitchen table", reply, sizeof(reply), 20000));
+    assert(strstr(reply, "You cannot close that"));
 }
 
 static void check_climb_action_defaults(void) {
@@ -525,7 +592,154 @@ static void check_wrap_progress(void) {
     assert(end == text + 2 && next == text + 3);
 }
 
+static void check_reply_classification(void) {
+    char out[64];
+    action_reply_normalized("With a great effort, the rug is moved to one side.", out, sizeof(out));
+    assert(!strcmp(out, "with a great effort, the rug is moved to one side"));
+    action_reply_normalized("Pushing the brass lantern has no effect.\nMore text.", out, sizeof(out));
+    assert(!strcmp(out, "pushing the brass lantern has no effect"));
+    action_reply_normalized("(with the sword) A clean cut.", out, sizeof(out));
+    assert(!strcmp(out, "a clean cut"));
+    action_reply_normalized("!!!!FROBBOZZ LABEL", out, sizeof(out));
+    assert(!strcmp(out, "frobbozz label"));
+    assert(action_reply_is_no_effect("Pushing the brass lantern has no effect."));
+    assert(action_reply_is_no_effect("You find nothing unusual."));
+    assert(action_reply_is_no_effect("I can't see how to get in from here."));
+    assert(!action_reply_is_no_effect("The rug is too heavy to lift, but in trying to do so you notice a trap door."));
+    assert(!action_reply_is_no_effect("The rug is moved to one side, revealing a closed trap door."));
+}
+
+static void check_primary_enrichment(void) {
+    // Living Room (75) holds the carpet (55), lantern (146), sword (227), trophy case (197).
+    command("n"); command("e"); command("open window"); command("climb through window"); command("w");
+    assert(z_global(0) == 75);
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(0, 55, false, PRIMARY, actions);
+    count = story_filter_defaults(55, actions, count);
+    assert(count <= MAX_ACTIONS - 1);
+    // The carpet's heuristic list is Examine, Look under, Move. Enrichment must
+    // add at least one further effectful action (currently Lift).
+    bool extra = false;
+    for (unsigned i = 0; i < count; i++)
+        if (actions[i].kind == DO_OBJECT && actions[i].verb &&
+            strcmp(actions[i].verb, "examine") && strcmp(actions[i].verb, "look under") &&
+            strcmp(actions[i].verb, "move")) extra = true;
+    assert(extra);
+}
+
+static void check_examine_always_offered(void) {
+    start(0);
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(0, 230, false, PRIMARY, actions); // closed mailbox
+    count = story_filter_defaults(230, actions, count);
+    bool found = false;
+    for (unsigned i = 0; i < count; i++) if (!strcmp(actions[i].name, "Examine")) found = true;
+    assert(found);
+}
+
+static void check_carried_item_menu(void) {
+    start(0);
+    command("open mailbox");
+    command("take leaflet");
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(0, 76, true, PRIMARY, actions);
+    count = story_filter_defaults(76, actions, count);
+    for (unsigned i = 0; i < count; i++)
+        assert(strcmp(actions[i].name, "Take")); // You already have it.
+}
+
+static void normalize_full_reply(const char *reply, char *out, unsigned capacity) {
+    unsigned used = 0;
+    const char *p = reply;
+    while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    if (*p == '(') {
+        while (*p && *p != ')') p++;
+        if (*p == ')') p++;
+        while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    }
+    bool pending_space = false;
+    while (*p) {
+        char ch = *p++;
+        if (ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t') {
+            pending_space = used != 0;
+            continue;
+        }
+        if (pending_space && used + 1 < capacity) out[used++] = ' ';
+        pending_space = false;
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch - 'A' + 'a');
+        if (used + 1 < capacity) out[used++] = ch;
+    }
+    out[used] = 0;
+}
+
+static void check_primary_dedup(void) {
+    command("n"); command("e"); command("open window"); command("climb through window"); command("w");
+    assert(z_global(0) == 75);
+
+    // Zork I maps PULL to V-MOVE and PUSH to V-PUSH; RUG-FCN handles MOVE and
+    // PUSH in the same branch. The four commands have the same visible reply,
+    // but PRESS has a different persistent result, so it must remain separate.
+    const char *rug_verbs[] = {"move", "push", "pull"};
+    char rug_normalized[192];
+    ZProbeEffect rug_effect = {0, 0, false};
+    for (unsigned i = 0; i < sizeof(rug_verbs) / sizeof(rug_verbs[0]); i++) {
+        char line[COMMAND_SIZE], reply[512], normalized[512];
+        snprintf(line, sizeof(line), "%s carpet", rug_verbs[i]);
+        ZProbeEffect effect = {0, 0, false};
+        assert(z_probe_with_effect(line, reply, sizeof(reply), 20000, &effect));
+        normalize_full_reply(reply, normalized, sizeof(normalized));
+        assert(*normalized && effect.valid);
+        if (!i) {
+            strcpy(rug_normalized, normalized);
+            rug_effect = effect;
+        } else {
+            assert(!strcmp(rug_normalized, normalized));
+            assert(rug_effect.first == effect.first && rug_effect.second == effect.second);
+        }
+    }
+    char press_reply[512], press_normalized[512];
+    ZProbeEffect press_effect = {0, 0, false};
+    assert(z_probe_with_effect("press carpet", press_reply, sizeof(press_reply), 20000, &press_effect));
+    normalize_full_reply(press_reply, press_normalized, sizeof(press_normalized));
+    assert(!strcmp(rug_normalized, press_normalized));
+    assert(press_effect.valid && (rug_effect.first != press_effect.first ||
+                                  rug_effect.second != press_effect.second));
+
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(0, 55, false, PRIMARY, actions);
+    count = story_filter_defaults(55, actions, count);
+    bool has_move = false;
+    bool has_press = false;
+    unsigned rug_action_count = 0;
+    char normalized[MAX_ACTIONS][512];
+    ZProbeEffect effects[MAX_ACTIONS];
+    unsigned replies = 0;
+    for (unsigned i = 0; i < count; i++) {
+        if (actions[i].verb && !strcmp(actions[i].verb, "move")) has_move = true;
+        if (actions[i].verb && !strcmp(actions[i].verb, "press")) has_press = true;
+        if (actions[i].verb && (!strcmp(actions[i].verb, "move") || !strcmp(actions[i].verb, "push") ||
+                                !strcmp(actions[i].verb, "pull") || !strcmp(actions[i].verb, "press")))
+            rug_action_count++;
+        if (actions[i].kind != DO_OBJECT && actions[i].kind != DO_LITERAL) continue;
+        char line[COMMAND_SIZE], reply[512];
+        assert(action_command(actions[i], 55, NULL, line));
+        assert(z_probe_with_effect(line, reply, sizeof(reply), 20000, &effects[replies]));
+        normalize_full_reply(reply, normalized[replies], sizeof(normalized[replies]));
+        assert(*normalized[replies] && effects[replies].valid); // offered actions must have a result
+        // Deduplication is based on the complete reply and observed VM effect.
+        // First-sentence equality is too broad: distinct outcomes can start the
+        // same way, while equivalent actions can leave different parser scratch state.
+        for (unsigned j = 0; j < replies; j++)
+            assert(strcmp(normalized[j], normalized[replies]) ||
+                   effects[j].first != effects[replies].first ||
+                   effects[j].second != effects[replies].second);
+        replies++;
+    }
+    assert(has_move && has_press && rug_action_count == 2);
+}
+
 int main(void) {
+    check_reply_classification();
     check_wrap_progress();
     check_transcript_codec();
     start(0);
@@ -535,9 +749,10 @@ int main(void) {
     check_birds_nest_command();
     check_action(199, PRIMARY, "Give item...", "lunch", "give lunch to cyclops");
     check_action(ZORK1_TROLL, PRIMARY, "Throw item...", "knife", "throw knife at troll");
-    check_action(157, PRIMARY, "Move", NULL, "move pile of leaves");
+    check_leaves_move_action();
     check_action(29, PRIMARY, "Unlock with...", "skeleton key", "unlock grating with skeleton key");
-    check_action(59, PRIMARY, "Cross", NULL, "cross rainbow");
+    check_action_absent(59, PRIMARY, "Cross");
+    check_action_phrase(59, PRIMARY, "Cross", NULL, "cross rainbow");
     char patch_material[Z_NAME_MAX];
     story_noun(136, patch_material);
     check_action(68, PRIMARY, "Patch with...", patch_material, "plug punctured boat with viscous material");
@@ -574,14 +789,26 @@ int main(void) {
     start(0);
     check_distant_scenery();
     start(0);
+    check_examine_always_offered();
+    start(0);
+    check_carried_item_menu();
+    start(0);
+    check_primary_enrichment();
+    start(0);
+    check_primary_dedup();
+    start(0);
     check_first_zork_dam();
     check_climb_action_defaults();
+    check_window_enter_action();
 
     start(1);
     assert(z_global(0) == 51 && !save_exists(sram, 1));
     check_action_capacity(1);
     check_parser_nouns(1);
-    check_action(ZORK2_DRAGON, PRIMARY, "Kick", NULL, "kick dragon");
+    // The dragon starts in its lair, so the default-action filter correctly
+    // hides Kick from this starting room. Check command construction without
+    // pretending the remote dragon is currently interactable.
+    check_action_phrase(ZORK2_DRAGON, PRIMARY, "Kick", NULL, "kick dragon");
     check_action(229, ORDERS, "Attack...", "wizard", "demon, attack wizard");
     check_dictionary((const char *const[]){"well", "float"}, 2);
     assert(z_submit("answer \"well\""));
@@ -608,7 +835,9 @@ int main(void) {
     assert(!story_cliff_man_visible() && !story_figure_defenseless());
     check_action(ZORK3_OLD_MAN, PRIMARY, "Wake", NULL, "wake man");
     check_action(ZORK3_VIKING_SHIP, PRIMARY, "Hail sailor", NULL, "hello sailor");
-    check_action(22, PRIMARY, "Drink from", NULL, "drink from vial");
+    // The vial is not in the starting scene; this verifies the action's command
+    // phrase without requiring an unavailable target to survive menu filtering.
+    check_action_phrase(22, PRIMARY, "Drink from", NULL, "drink from vial");
     check_dictionary((const char *const[]){"sailor", "dial"}, 2);
     command("take lamp");
     command("turn on lamp");

@@ -73,9 +73,123 @@ static bool port_restore(void);
 
 static ZMachineState vm;
 
+static const char *probe_last_line;
+const char *z_probe_last_line(void) { return probe_last_line; }
+
+// A probe runs story code speculatively, so a story bug triggered by a probe
+// must not end the game. While a probe is active, fatal() unwinds back into
+// z_probe(), which rewinds the interpreter and reports the probe as unsuccessful.
+// This small context save/restore is written per supported ABI because the GBA
+// build is freestanding.
+#if defined(__aarch64__)
+typedef struct { uint64_t x[12]; uint64_t sp; } ProbeJump;
+static ProbeJump probe_jump;
+static bool probe_guarded;
+
+// Naked: no prologue, so the saved SP is the caller's and longjmp resumes a
+// correct frame. Arguments arrive in x0. returns_twice is essential: it tells
+// the optimizer that this call can resume after a later fatal().
+__attribute__((naked, noinline, returns_twice))
+static int probe_setjmp(ProbeJump *j __attribute__((unused))) {
+    __asm__ volatile(
+        "stp x19, x20, [x0, #0]\n\t"
+        "stp x21, x22, [x0, #16]\n\t"
+        "stp x23, x24, [x0, #32]\n\t"
+        "stp x25, x26, [x0, #48]\n\t"
+        "stp x27, x28, [x0, #64]\n\t"
+        "stp x29, x30, [x0, #80]\n\t"
+        "mov x9, sp\n\t"
+        "str x9, [x0, #96]\n\t"
+        "mov x0, #0\n\t"
+        "ret\n\t");
+}
+
+__attribute__((naked, noinline, noreturn))
+static void probe_longjmp(ProbeJump *j __attribute__((unused))) {
+    __asm__ volatile(
+        "ldp x19, x20, [x0, #0]\n\t"
+        "ldp x21, x22, [x0, #16]\n\t"
+        "ldp x23, x24, [x0, #32]\n\t"
+        "ldp x25, x26, [x0, #48]\n\t"
+        "ldp x27, x28, [x0, #64]\n\t"
+        "ldp x29, x30, [x0, #80]\n\t"
+        "ldr x9, [x0, #96]\n\t"
+        "mov sp, x9\n\t"
+        "mov x0, #1\n\t"
+        "br x30\n\t");
+}
+#elif defined(__arm__)
+typedef struct { uint32_t r[10]; } ProbeJump; // r4-r11, sp, lr
+static ProbeJump probe_jump;
+static bool probe_guarded;
+
+__attribute__((naked, noinline, returns_twice))
+static int probe_setjmp(ProbeJump *j __attribute__((unused))) {
+    __asm__ volatile(
+        "stmia r0, {r4-r11}\n\t"
+        "str sp, [r0, #32]\n\t"
+        "str lr, [r0, #36]\n\t"
+        "mov r0, #0\n\t"
+        "bx lr\n\t");
+}
+
+__attribute__((naked, noinline, noreturn))
+static void probe_longjmp(ProbeJump *j __attribute__((unused))) {
+    __asm__ volatile(
+        "ldmia r0, {r4-r11}\n\t"
+        "ldr sp, [r0, #32]\n\t"
+        "ldr lr, [r0, #36]\n\t"
+        "mov r0, #1\n\t"
+        "bx lr\n\t");
+}
+#elif defined(__x86_64__) && !defined(_WIN32)
+// SysV x86-64 host builds (including macOS and Linux). Save the callee-saved
+// registers and the entry stack pointer; ret from longjmp resumes the call
+// site with a nonzero return value, just like setjmp/longjmp.
+typedef struct { uint64_t rbx, rbp, r12, r13, r14, r15, rsp; } ProbeJump;
+static ProbeJump probe_jump;
+static bool probe_guarded;
+
+__attribute__((naked, noinline, returns_twice))
+static int probe_setjmp(ProbeJump *j __attribute__((unused))) {
+    __asm__ volatile(
+        "movq %rbx, 0(%rdi)\n\t"
+        "movq %rbp, 8(%rdi)\n\t"
+        "movq %r12, 16(%rdi)\n\t"
+        "movq %r13, 24(%rdi)\n\t"
+        "movq %r14, 32(%rdi)\n\t"
+        "movq %r15, 40(%rdi)\n\t"
+        "movq %rsp, 48(%rdi)\n\t"
+        "xorl %eax, %eax\n\t"
+        "ret\n\t");
+}
+
+__attribute__((naked, noinline, noreturn))
+static void probe_longjmp(ProbeJump *j __attribute__((unused))) {
+    __asm__ volatile(
+        "movq 0(%rdi), %rbx\n\t"
+        "movq 8(%rdi), %rbp\n\t"
+        "movq 16(%rdi), %r12\n\t"
+        "movq 24(%rdi), %r13\n\t"
+        "movq 32(%rdi), %r14\n\t"
+        "movq 40(%rdi), %r15\n\t"
+        "movq 48(%rdi), %rsp\n\t"
+        "movl $1, %eax\n\t"
+        "ret\n\t");
+}
+#else
+#error "Probe fatal recovery is not implemented for this ABI"
+#endif
+
 static void fatal(const char *reason, ...) __attribute__((noreturn));
 static void fatal(const char *reason, ...) {
     unsigned pc = GState->logical_pc;
+#if defined(__aarch64__) || defined(__arm__) || (defined(__x86_64__) && !defined(_WIN32))
+    if (probe_guarded) {
+        probe_guarded = false;
+        probe_longjmp(&probe_jump);
+    }
+#endif
     platform->fatal(reason, pc, pc < original_size ? memory[pc] : 0);
     for (;;) {}
 }
@@ -278,19 +392,119 @@ void z_scratch(uint8_t **dynamic, uint8_t **stack) {
     *stack = scratch_stack;
 }
 
-bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget) {
-    if (!vm.waiting_for_line || !capacity) return false;
+static void effect_hash_word(ZProbeEffect *effect, uint32_t word) {
+    for (unsigned shift = 0; shift < 32; shift += 8) {
+        uint8_t byte = (uint8_t)(word >> shift);
+        effect->first = (effect->first ^ byte) * 16777619u;
+        effect->second ^= byte + 0x9e3779b9u + (effect->second << 6) + (effect->second >> 2);
+    }
+}
+
+static bool address_in_range(unsigned address, unsigned start, unsigned length) {
+    return address >= start && address - start < length;
+}
+
+static bool probe_transient_address(unsigned address, const ZResume *state) {
+    unsigned dynamic_size = vm.header.staticmem_addr;
+    if (state->input < dynamic_size) {
+        unsigned input_length = 2u + scratch_dynamic[state->input];
+        if (input_length > dynamic_size - state->input) input_length = dynamic_size - state->input;
+        if (address_in_range(address, state->input, input_length)) return true;
+    }
+    if (state->parse < dynamic_size) {
+        unsigned parse_length = 2u + (unsigned)scratch_dynamic[state->parse] * 4u;
+        if (parse_length > dynamic_size - state->parse) parse_length = dynamic_size - state->parse;
+        if (address_in_range(address, state->parse, parse_length)) return true;
+    }
+    return false;
+}
+
+// The stock Zork I release 119 build leaves the parser's current action and
+// syntax-table globals in slots 15 and 59. Their values depend on which
+// accepted synonym was entered (for example MOVE/PUSH in RUG-FCN), even after
+// the follow-up command has refreshed the parser tables. Keep those two
+// parser-only words out of the persistent-story fingerprint. Other globals
+// remain part of the effect, including all puzzle and clock state.
+static bool probe_parser_global(unsigned global) {
+    return read_word(memory + 2) == 119 &&
+        memory[0x12] == '8' && memory[0x13] == '8' && memory[0x14] == '0' &&
+        memory[0x15] == '4' && memory[0x16] == '2' && memory[0x17] == '9' &&
+        (global == 15 || global == 59);
+}
+
+static ZProbeEffect probe_effect_after_run(const ZResume *state) {
+    ZProbeEffect effect = {2166136261u, 0x9e3779b9u, true};
+    unsigned dynamic_size = vm.header.staticmem_addr;
+    for (unsigned address = 0; address < dynamic_size; address++) {
+        if (probe_transient_address(address, state) || memory[address] == scratch_dynamic[address]) continue;
+        if (address >= vm.header.globals_addr && address - vm.header.globals_addr < 480u &&
+            probe_parser_global((address - vm.header.globals_addr) / 2)) continue;
+        effect_hash_word(&effect, address);
+        effect_hash_word(&effect, memory[address]);
+    }
+    if (random_seed != state->random) {
+        effect_hash_word(&effect, 0xffffffffu);
+        effect_hash_word(&effect, random_seed);
+    }
+    return effect;
+}
+
+static bool z_probe_run(const char *line, char *reply, size_t capacity, unsigned budget,
+                        ZProbeEffect *effect) {
+    if (effect) *effect = (ZProbeEffect){0, 0, false};
+    if (!capacity) return false;
+    reply[0] = 0;
+    if (!vm.waiting_for_line) return false;
     ZResume state = z_resume();
     memcpy(scratch_dynamic, memory, vm.header.staticmem_addr);
     memcpy(scratch_stack, vm.stack, state.sp * 2u);
     probe_reply = reply;
     probe_size = 0;
     probe_capacity = capacity - 1;
-    bool answered = z_submit(line) && z_run(budget) == Z_PROMPT;
-    reply[probe_size] = 0;
+    probe_last_line = line;
+    volatile bool answered = false;
+#if defined(__aarch64__) || defined(__arm__) || (defined(__x86_64__) && !defined(_WIN32))
+    probe_guarded = true;
+    if (probe_setjmp(&probe_jump) == 0) {
+        answered = z_submit(line) && z_run(budget) == Z_PROMPT;
+    } else {
+        // A fatal() during the probe unwinds here; discard any partial output.
+        probe_size = 0;
+    }
+    probe_guarded = false;
+#else
+    answered = z_submit(line) && z_run(budget) == Z_PROMPT;
+#endif
+    if (answered) {
+        // Each candidate verb leaves parser work tables set to its own
+        // tokenization. Run a canonical command in the scratch branch so those
+        // tables settle before fingerprinting persistent story effects. The
+        // command is rewound with the probe, and its output is not captured.
+        size_t captured_size = probe_size;
+        const char *action_line = probe_last_line;
+        probe_last_line = "inventory";
+        probe_capacity = captured_size;
+        bool normalized = z_submit("inventory") && z_run(budget) == Z_PROMPT;
+        probe_last_line = action_line;
+        probe_size = captured_size;
+        if (!normalized) answered = false;
+    }
+    if (!answered) probe_size = 0;
+    if (answered && effect) *effect = probe_effect_after_run(&state);
+    probe_last_line = NULL;
+    reply[probe_size < probe_capacity ? probe_size : probe_capacity] = 0;
     probe_reply = NULL;
     z_load(&state, scratch_dynamic, scratch_stack);
     return answered;
+}
+
+bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget) {
+    return z_probe_run(line, reply, capacity, budget, NULL);
+}
+
+bool z_probe_with_effect(const char *line, char *reply, size_t capacity,
+                         unsigned budget, ZProbeEffect *effect) {
+    return z_probe_run(line, reply, capacity, budget, effect);
 }
 
 const uint8_t *z_dynamic(void) { return memory; }

@@ -548,6 +548,51 @@ void story_name(unsigned chapter, unsigned id, char buffer[Z_NAME_MAX]) {
     }
 }
 
+static bool parser_rejects_command(const char *reply) {
+    return text_has(reply, "I don't know the word") ||
+           text_has(reply, "I don't understand that sentence") ||
+           text_has(reply, "That sentence isn't one I recognize") ||
+           text_has(reply, "That sentence is not one I recognize");
+}
+
+static bool parser_cannot_find_target(const char *reply) {
+    return text_has(reply, "You can't see any") || text_has(reply, "I don't see any") ||
+           text_has(reply, "You're not at") || text_has(reply, "You are not at") ||
+           text_has(reply, "There is no ");
+}
+
+// A display name can contain words that the story parser doesn't accept as a
+// noun phrase. Check the full name, then its individual words, so focus only
+// lands on a target the player's action menus can actually address.
+static bool target_noun_resolves(const char *noun) {
+    bool multiword = false;
+    for (const char *p = noun; *p; p++) if (*p == ' ') multiword = true;
+    if (!multiword) return true;
+    char line[Z_NAME_MAX + 8] = "examine ", reply[96];
+    if (!append_text(line, sizeof(line), noun)) return false;
+    if (!z_probe(line, reply, sizeof(reply), 20000)) return false;
+    if (!parser_rejects_command(reply) && !parser_cannot_find_target(reply)) return true;
+
+    const char *word = noun;
+    while (*word) {
+        while (*word == ' ') word++;
+        if (!*word) break;
+        const char *end = word;
+        while (*end && *end != ' ') end++;
+        char candidate[Z_NAME_MAX] = {0};
+        unsigned length = (unsigned)(end - word);
+        if (length >= sizeof(candidate)) length = sizeof(candidate) - 1;
+        for (unsigned i = 0; i < length; i++) candidate[i] = word[i];
+        line[0] = 0;
+        append_text(line, sizeof(line), "examine ");
+        append_text(line, sizeof(line), candidate);
+        if (z_probe(line, reply, sizeof(reply), 20000) &&
+            !parser_rejects_command(reply) && !parser_cannot_find_target(reply)) return true;
+        word = end;
+    }
+    return false;
+}
+
 static bool add_object(Targets *list, unsigned id, unsigned chapter) {
     unsigned player = chapters[chapter].player;
     if (list->count == TARGET_LIMIT || !id || id > z_object_count() || id == player) return false;
@@ -568,6 +613,7 @@ static bool add_object(Targets *list, unsigned id, unsigned chapter) {
     char noun[Z_NAME_MAX];
     story_parser_noun(id, noun);
     if (!*noun) return true; // Don't focus it, but still allow visible contents through it.
+    if (!target_noun_resolves(noun)) return false;
     list->id[list->count++] = id;
     return true;
 }
@@ -589,19 +635,11 @@ static void add_contents(Targets *list, unsigned parent, unsigned chapter, unsig
 // only see from afar, and Zork III's lake lists a fish that comes and goes.
 // Ask the story itself, then rewind, so only scenery it will discuss is offered.
 static bool story_rejects(unsigned id) {
-    static const char *const refusals[] = {"You can't see any ", "You're not at ", "There is no "};
     char noun[Z_NAME_MAX], line[Z_NAME_MAX + 8] = "examine ", reply[32];
     story_parser_noun(id, noun);
     append_text(line, sizeof(line), noun);
     if (!z_probe(line, reply, sizeof(reply), 20000)) return false;
-    const char *text = reply;
-    while (*text == '\n' || *text == ' ' || *text == '>') text++;
-    for (unsigned i = 0; i < sizeof(refusals) / sizeof(*refusals); i++) {
-        const char *a = text, *b = refusals[i];
-        while (*b && *a == *b) a++, b++;
-        if (!*b) return true;
-    }
-    return false;
+    return parser_rejects_command(reply) || parser_cannot_find_target(reply);
 }
 
 void story_targets(unsigned chapter, Targets *room, Targets *bag) {

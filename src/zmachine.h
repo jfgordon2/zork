@@ -15,6 +15,11 @@ typedef struct {
 } ZResume;
 
 typedef struct {
+    uint32_t first, second;
+    bool valid;
+} ZProbeEffect;
+
+typedef struct {
     void (*text)(const char *text, size_t size);
     void (*fatal)(const char *reason, unsigned pc, unsigned opcode);
     uint32_t (*entropy)(void);
@@ -50,5 +55,8 @@ void z_scratch(uint8_t **dynamic, uint8_t **stack);
 // Runs one command at the prompt with its text captured into reply instead of
 // shown, then rewinds the story to exactly where it was. Uses z_scratch.
 bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget);
+bool z_probe_with_effect(const char *line, char *reply, size_t capacity,
+                         unsigned budget, ZProbeEffect *effect);
+const char *z_probe_last_line(void);
 
 #endif

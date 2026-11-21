@@ -11,6 +11,7 @@
 #include "visual_state.h"
 
 enum {
+    REPLAY_REPLY_SIZE = 512,
     STORY_CAPACITY = 96 * 1024,
     RESPONSE_CAPACITY = 32768,
     ENTRY_CAPACITY = 65536,
@@ -49,6 +50,9 @@ static bool qa_carried_action_menu_checked[QA_CHAPTERS][512];
 static unsigned qa_action_menu_checks, qa_filtered_default_actions, qa_action_command_checks;
 static bool qa_enter_exit_states[QA_CHAPTERS][QA_VEHICLE_TYPES][2];
 static unsigned qa_enter_exit_menu_checks;
+static bool qa_opening_family_checked[QA_CHAPTERS][256][512][2];
+static bool qa_climb_family_checked[QA_CHAPTERS][256][512][2];
+static unsigned qa_opening_family_checks, qa_climb_family_checks;
 
 static int qa_first_marker[4];
 static unsigned qa_distinct_markers;
@@ -86,6 +90,7 @@ static void collect_text(const char *text, size_t size) {
 }
 
 static void fatal(const char *reason, unsigned pc, unsigned opcode) {
+    if (z_probe_last_line()) fprintf(stderr, "during probe: %s\n", z_probe_last_line());
     fprintf(stderr, "Story %u VM error: %s (PC %x, opcode %x)\n", chapter + 1, reason, pc, opcode);
     abort();
 }
@@ -139,6 +144,30 @@ static void audit_parser_targets(const Targets *targets) {
     }
 }
 
+static void normalize_full_action_reply(const char *reply, char *out, unsigned capacity) {
+    unsigned used = 0;
+    const char *p = reply;
+    while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    if (*p == '(') {
+        while (*p && *p != ')') p++;
+        if (*p == ')') p++;
+        while (*p == ' ' || *p == '\n' || *p == '\r' || *p == '\t') p++;
+    }
+    bool pending_space = false;
+    while (*p) {
+        char ch = *p++;
+        if (ch == ' ' || ch == '\n' || ch == '\r' || ch == '\t') {
+            pending_space = used != 0;
+            continue;
+        }
+        if (pending_space && used + 1 < capacity) out[used++] = ' ';
+        pending_space = false;
+        if (ch >= 'A' && ch <= 'Z') ch = (char)(ch - 'A' + 'a');
+        if (used + 1 < capacity) out[used++] = ch;
+    }
+    out[used] = 0;
+}
+
 static void audit_default_action_menu(unsigned room_id, unsigned object, bool carried) {
     bool *checked = carried ? &qa_carried_action_menu_checked[chapter][object]
                             : &qa_action_menu_checked[chapter][room_id][object];
@@ -149,21 +178,68 @@ static void audit_default_action_menu(unsigned room_id, unsigned object, bool ca
     unsigned before = story_actions(chapter, object, carried, PRIMARY, actions);
     unsigned count = story_filter_defaults(object, actions, before);
     assert(count > 0);
+    assert(count <= MAX_ACTIONS - 1);
     qa_action_menu_checks++;
-    qa_filtered_default_actions += before - count;
+    if (before > count) qa_filtered_default_actions += before - count;
 
+    bool has_menu = count && actions[count - 1].kind == SHOW_CATEGORIES;
+    if (has_menu)
+        for (unsigned i = 0; i + 1 < count; i++) assert(actions[i].kind != SHOW_CATEGORIES);
+
+    char seen[MAX_ACTIONS][REPLAY_REPLY_SIZE];
+    ZProbeEffect seen_effects[MAX_ACTIONS];
+    const char *seen_names[MAX_ACTIONS];
+    unsigned seen_count = 0;
+    bool has_examine = false;
     for (unsigned i = 0; i < count; i++) {
+        if (actions[i].verb && text_equal(actions[i].verb, "examine")) has_examine = true;
         if (actions[i].kind != DO_OBJECT && actions[i].kind != DO_LITERAL) continue;
-        char line[COMMAND_SIZE], reply[192] = {0};
+        char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0};
+        ZProbeEffect effect = {0, 0, false};
         assert(action_command(actions[i], object, NULL, line));
-        assert(z_probe(line, reply, sizeof(reply), 20000));
+        assert(z_probe_with_effect(line, reply, sizeof(reply), 20000, &effect));
+        assert(effect.valid);
+        if (text_has(reply, "I don't know the word") ||
+            text_has(reply, "I don't understand that sentence") ||
+            text_has(reply, "That sentence isn't one I recognize") ||
+            text_has(reply, "That sentence is not one I recognize")) {
+            char name[Z_NAME_MAX], noun[Z_NAME_MAX];
+            story_name(chapter, object, name);
+            story_parser_noun(object, noun);
+            fprintf(stderr, "Parser rejected default in Z%u room %u object %u (%s, parent %u, noun '%s'): %s (%s) -> %s\n",
+                    chapter + 1, room_id, object, name, z_parent(object), noun, actions[i].name, line, reply);
+        }
         assert(!text_has(reply, "I don't know the word"));
         assert(!text_has(reply, "I don't understand that sentence"));
         assert(!text_has(reply, "That sentence isn't one I recognize"));
         assert(!text_has(reply, "That sentence is not one I recognize"));
+        char norm[48] = {0}, full_reply[REPLAY_REPLY_SIZE] = {0};
+        action_reply_normalized(reply, norm, sizeof(norm));
+        normalize_full_action_reply(reply, full_reply, sizeof(full_reply));
+        // Deduplication uses the full reply and VM effect. A repeated first
+        // sentence can still lead to different details or a distinct result.
+        // "Not available here" replies are not results and may repeat.
+        if (norm[0] && !text_has(norm, "you can't see any") && !text_has(norm, "you're not at")) {
+            for (unsigned j = 0; j < seen_count; j++) {
+                if (!strcmp(seen[j], full_reply) &&
+                    seen_effects[j].first == effect.first && seen_effects[j].second == effect.second) {
+                    fprintf(stderr, "duplicate full result in room %u from %s object %u (already offered as %s): %s\n",
+                            room_id, actions[i].name, object, seen_names[j], full_reply);
+                    assert(false);
+                }
+            }
+            unsigned k = 0;
+            do { seen[seen_count][k] = full_reply[k]; } while (full_reply[k++]);
+            seen_effects[seen_count] = effect;
+            seen_names[seen_count] = actions[i].name;
+            seen_count++;
+        }
         qa_action_command_checks++;
     }
+    assert(has_examine);
 }
+
+static bool action_reply_rejects(Action action, unsigned object);
 
 static void audit_enter_exit_menu(unsigned object) {
     char name[Z_NAME_MAX];
@@ -180,6 +256,8 @@ static void audit_enter_exit_menu(unsigned object) {
         ((type == QA_BUCKET || type == QA_BASKET) ? "Stand up" : "Get out") : "Enter";
     const char *opposite = inside ? "Enter" :
         ((type == QA_BUCKET || type == QA_BASKET) ? "Stand up" : "Get out");
+    Action candidates[MAX_ACTIONS];
+    unsigned candidate_count = story_actions(chapter, object, false, PRIMARY, candidates);
     Action actions[MAX_ACTIONS];
     unsigned count = story_actions(chapter, object, false, PRIMARY, actions);
     count = story_filter_defaults(object, actions, count);
@@ -188,9 +266,190 @@ static void audit_enter_exit_menu(unsigned object) {
         if (strcmp(actions[i].name, expected) == 0) found_expected = true;
         if (strcmp(actions[i].name, opposite) == 0) found_opposite = true;
     }
-    assert(found_expected && !found_opposite);
+    // The filter drops actions the story refuses or answers with no effect
+    // (a closed basket cannot be entered), so judge against viability.
+    bool expected_viable = false, opposite_viable = false;
+    for (unsigned i = 0; i < candidate_count; i++) {
+        if (strcmp(candidates[i].name, expected) == 0)
+            expected_viable = !action_reply_rejects(candidates[i], object);
+        if (strcmp(candidates[i].name, opposite) == 0)
+            opposite_viable = !action_reply_rejects(candidates[i], object);
+    }
+    // The expected action may be legitimately absent when its result duplicates
+    // another offered action (dedup keeps the earlier one).
+    bool expected_ok = found_expected == expected_viable;
+    if (!expected_ok && !found_expected && expected_viable) {
+        char expected_norm[48] = {0};
+        for (unsigned i = 0; i < candidate_count; i++) {
+            if (strcmp(candidates[i].name, expected) != 0) continue;
+            char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0};
+            if (action_command(candidates[i], object, NULL, line) &&
+                z_probe(line, reply, sizeof(reply), 20000))
+                action_reply_normalized(reply, expected_norm, sizeof(expected_norm));
+            break;
+        }
+        if (expected_norm[0]) {
+            for (unsigned i = 0; i < count && !expected_ok; i++) {
+                char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0}, norm[48] = {0};
+                if (actions[i].kind == DO_OBJECT && action_command(actions[i], object, NULL, line) &&
+                    z_probe(line, reply, sizeof(reply), 20000)) {
+                    action_reply_normalized(reply, norm, sizeof(norm));
+                    if (norm[0] && !strcmp(norm, expected_norm)) expected_ok = true;
+                }
+            }
+        }
+    }
+    if (!expected_ok || (found_opposite && !opposite_viable)) {
+        fprintf(stderr, "enter/exit audit: chapter %u object %u inside %d expected %s viable %d found %d opposite %s viable %d found %d\n",
+                chapter, object, inside, expected, expected_viable, found_expected, opposite, opposite_viable, found_opposite);
+        for (unsigned i = 0; i < count; i++) {
+            char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0}, norm[48] = {0};
+            fprintf(stderr, "  [%s]", actions[i].name);
+            if (actions[i].kind == DO_OBJECT && action_command(actions[i], object, NULL, line) &&
+                z_probe(line, reply, sizeof(reply), 20000)) {
+                action_reply_normalized(reply, norm, sizeof(norm));
+                fprintf(stderr, "='%s'", norm);
+            }
+        }
+        fprintf(stderr, "\n");
+    }
+    assert(expected_ok && !(found_opposite && !opposite_viable));
     qa_enter_exit_states[chapter][type][inside ? 1 : 0] = true;
     qa_enter_exit_menu_checks++;
+}
+
+static bool action_list_has(const Action *actions, unsigned count, const char *name) {
+    for (unsigned i = 0; i < count; i++)
+        if (strcmp(actions[i].name, name) == 0) return true;
+    return false;
+}
+
+static bool action_reply_rejects(Action action, unsigned object) {
+    char line[COMMAND_SIZE], reply[192] = {0};
+    assert(action_command(action, object, NULL, line));
+    assert(z_probe(line, reply, sizeof(reply), 20000));
+    bool parser_rejected = text_has(reply, "I don't know the word") ||
+                           text_has(reply, "I don't understand that sentence") ||
+                           text_has(reply, "That sentence isn't one I recognize") ||
+                           text_has(reply, "That sentence is not one I recognize");
+    char cannot[COMMAND_SIZE] = "cannot ";
+    char cant[COMMAND_SIZE] = "can't ";
+    bool explicitly_impossible = action.verb &&
+        append_text(cannot, COMMAND_SIZE, action.verb) &&
+        append_text(cant, COMMAND_SIZE, action.verb) &&
+        (text_has(reply, cannot) || text_has(reply, cant));
+    return parser_rejected || explicitly_impossible || action_reply_is_no_effect(reply);
+}
+
+static void assert_candidate_filter(Action *candidates, unsigned candidate_count,
+                                    Action *visible, unsigned visible_count,
+                                    const char *name, unsigned object) {
+    for (unsigned i = 0; i < candidate_count; i++) {
+        if (strcmp(candidates[i].name, name) != 0) continue;
+        bool should_be_visible = !action_reply_rejects(candidates[i], object);
+        bool found = action_list_has(visible, visible_count, name);
+        // A viable action may still be collapsed by de-duplication when another
+        // visible action produced the same reply.
+        if (should_be_visible && !found) {
+            char line[COMMAND_SIZE], reply[192] = {0}, expected[48] = {0};
+            if (action_command(candidates[i], object, NULL, line) &&
+                z_probe(line, reply, sizeof(reply), 20000))
+                action_reply_normalized(reply, expected, sizeof(expected));
+            for (unsigned j = 0; expected[0] && j < visible_count && !found; j++) {
+                char vline[COMMAND_SIZE], vreply[192] = {0}, vnorm[48] = {0};
+                if (visible[j].kind != DO_OBJECT && visible[j].kind != DO_LITERAL) continue;
+                if (action_command(visible[j], object, NULL, vline) &&
+                    z_probe(vline, vreply, sizeof(vreply), 20000)) {
+                    action_reply_normalized(vreply, vnorm, sizeof(vnorm));
+                    if (vnorm[0] && !strcmp(vnorm, expected)) found = true;
+                }
+            }
+        }
+        assert(found == should_be_visible);
+        return;
+    }
+    assert(false);
+}
+
+static bool reply_blocks_climb_direction(const char *reply, bool upward) {
+    const char *word = upward ? "upward" : "downward";
+    const char *short_word = upward ? "up" : "down";
+    return (text_has(reply, "doesn't lead") && text_has(reply, word)) ||
+           (text_has(reply, "don't lead") && text_has(reply, word)) ||
+           (text_has(reply, "does not lead") && text_has(reply, word)) ||
+           (text_has(reply, "doesn't go") && text_has(reply, short_word)) ||
+           (text_has(reply, "don't go") && text_has(reply, short_word)) ||
+           (text_has(reply, "does not go") && text_has(reply, short_word));
+}
+
+static void audit_opening_action_family(unsigned room_id, unsigned object, bool carried) {
+    char name[Z_NAME_MAX];
+    story_noun(object, name);
+    bool is_window = text_has(name, "window");
+    bool is_door = z_attr(object, ATTR_DOOR) || text_has(name, "door");
+    if (!z_attr(object, ATTR_CONTAINER) && !is_door && !is_window) return;
+    if (chapter == 2 && object == ZORK3_DUNGEON_DOOR && room_id == ZORK3_DUNGEON_ENTRANCE) return;
+
+    bool open = z_attr(object, ATTR_OPEN);
+    bool *checked = &qa_opening_family_checked[chapter][room_id][object][open ? 1 : 0];
+    if (*checked) return;
+    *checked = true;
+
+    Action candidates[MAX_ACTIONS], visible[MAX_ACTIONS];
+    unsigned candidate_count = story_actions(chapter, object, carried, PRIMARY, candidates);
+    memcpy(visible, candidates, candidate_count * sizeof(*visible));
+    unsigned visible_count = story_filter_defaults(object, visible, candidate_count);
+    const char *expected = open ? "Close" : "Open";
+    const char *opposite = open ? "Open" : "Close";
+    assert(action_list_has(candidates, candidate_count, expected));
+    assert(!action_list_has(candidates, candidate_count, opposite));
+    assert_candidate_filter(candidates, candidate_count, visible, visible_count, expected, object);
+
+    bool portal = is_door || is_window;
+    if (portal) {
+        if (open) {
+            assert(action_list_has(candidates, candidate_count, "Enter"));
+            assert_candidate_filter(candidates, candidate_count, visible, visible_count, "Enter", object);
+        } else assert(!action_list_has(candidates, candidate_count, "Enter"));
+    }
+    qa_opening_family_checks++;
+}
+
+static void audit_climb_action_family(unsigned room_id, unsigned object) {
+    if (!z_attr(object, ATTR_CLIMBABLE)) return;
+    bool open = z_attr(object, ATTR_OPEN);
+    bool *checked = &qa_climb_family_checked[chapter][room_id][object][open ? 1 : 0];
+    if (*checked) return;
+    *checked = true;
+
+    Action actions[MAX_ACTIONS];
+    unsigned count = story_actions(chapter, object, false, PRIMARY, actions);
+    count = story_filter_defaults(object, actions, count);
+    const Action *climb = NULL;
+    for (unsigned i = 0; i < count; i++) {
+        if (strcmp(actions[i].name, "Climb") == 0 || strcmp(actions[i].name, "Climb up") == 0 ||
+            strcmp(actions[i].name, "Climb down") == 0) {
+            climb = &actions[i];
+            break;
+        }
+    }
+    if (!climb) return; // The story may explicitly reject climbing this target.
+
+    char line[COMMAND_SIZE], reply[192] = {0};
+    assert(action_command(*climb, object, NULL, line));
+    assert(z_probe(line, reply, sizeof(reply), 20000));
+    assert(!text_has(reply, "I don't know the word"));
+    assert(!text_has(reply, "I don't understand that sentence"));
+    assert(!text_has(reply, "That sentence isn't one I recognize"));
+    assert(!text_has(reply, "That sentence is not one I recognize"));
+    if (strcmp(climb->name, "Climb up") == 0) assert(!reply_blocks_climb_direction(reply, true));
+    else if (strcmp(climb->name, "Climb down") == 0) assert(!reply_blocks_climb_direction(reply, false));
+    else if (reply_blocks_climb_direction(reply, true) || reply_blocks_climb_direction(reply, false)) {
+        fprintf(stderr, "climb audit: room %u object %u action %s reply '%s'\n",
+                room_id, object, climb->name, reply);
+        assert(false);
+    }
+    qa_climb_family_checks++;
 }
 
 static void audit_scene_target_boxes(void) {
@@ -205,9 +464,13 @@ static void audit_scene_target_boxes(void) {
     {
         audit_default_action_menu(room_id, targets.id[i], false);
         audit_enter_exit_menu(targets.id[i]);
+        audit_opening_action_family(room_id, targets.id[i], false);
+        audit_climb_action_family(room_id, targets.id[i]);
     }
-    for (unsigned i = 0; i < carried.count; i++)
+    for (unsigned i = 0; i < carried.count; i++) {
         audit_default_action_menu(room_id, carried.id[i], true);
+        audit_opening_action_family(room_id, carried.id[i], true);
+    }
     if (!targets.count) return;
     char room_name[Z_NAME_MAX];
     z_name(room_id, room_name, sizeof(room_name));
@@ -304,12 +567,15 @@ static void report_target_box_gaps(void) {
     printf("All-room parser audit: %u room definitions checked; %u distinct target names accepted by the interpreter.\n",
            qa_room_definition_checks, qa_parser_probe_checks);
     printf("Default-action audit: %u room/inventory menus checked; %u direct action commands parsed; "
-           "%u unrecognized defaults filtered.\n",
+           "%u parser-rejected or explicitly impossible defaults filtered.\n",
            qa_action_menu_checks, qa_action_command_checks, qa_filtered_default_actions);
     assert(qa_enter_exit_states[0][QA_BOAT][0] && qa_enter_exit_states[0][QA_BOAT][1]);
     assert(qa_enter_exit_states[1][QA_BUCKET][0] && qa_enter_exit_states[1][QA_BUCKET][1]);
     printf("Enter/exit direction audit: %u vehicle states checked; Zork I boat and Zork II bucket tested inside and outside.\n",
            qa_enter_exit_menu_checks);
+    assert(qa_opening_family_checks && qa_climb_family_checks);
+    printf("Action-family audit: %u open/close/portal states and %u climbable target states checked.\n",
+           qa_opening_family_checks, qa_climb_family_checks);
     printf("Dropped-item scene boxes checked: %u.\n", qa_dropped_item_checks);
     assert(outside == 0);
 }
