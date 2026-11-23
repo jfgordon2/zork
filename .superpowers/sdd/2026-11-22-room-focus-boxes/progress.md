@@ -45,3 +45,9 @@ Guardian pair target:
 - draw_z3_guardians now frames the pair with one combined sprite rect (44: 25,23 190x59; 54: 50,27 141x39; 224: 46,28 149x44) and reports it for the focus box.
 - Filtered object 152 outside 44/54/224 (narrow-mirror rooms and Inside Mirror 160), where the statues are not in the view.
 - make test passes 0 missing/0 mismatches; ROM rebuilt.
+QA-save coverage sweep:
+- Collected all 234 route saves (Z1 83, Z2 77, Z3 74), compared visible room objects to the focus target list, and rendered every target.
+- Fixed narrow-mirror anchors (y 8 -> 15, height 59 -> 52; added rooms 8/100), added boxes for the present Jewel Room (cage/plaque/pedestal), Land of Shadow 170 (wall/rubble), Museum Entrance 173 (three doors), Technology Museum 5 (two machines + door), Aqueduct View 75, and Z2 West Viewing Room 204 (east/west walls).
+- Restored the narrow-room Guardian target as name-row only; kept the Inside Mirror 160 proxy filtered. The Kennel menhir stays filtered (room text/art omit it).
+- Sweep result: no phantom targets, no box/visual mismatches, and no unallowlisted target without a box. Remaining boxless targets are the documented carried/contained or behind-camera cases.
+- make test passes; ROM rebuilt.

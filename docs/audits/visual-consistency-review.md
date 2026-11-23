@@ -430,9 +430,30 @@ picture; all were corrected:
   use the mirror-hall box; its south wooden wall remains name-row only because it is
   behind the camera.
 - **Guardians of Zork (152)** are now addressable as “guardians” in hallways 44/54/224
-  and are boxed as one frame around the pair of statues. The narrow-mirror rooms and
-  the Inside Mirror list the same local name but do not draw the statues, so the target
-  is filtered there rather than boxed on empty scenery.
+  and are boxed as one frame around the pair of statues. The narrow rooms describe the
+  same pair, so they offer the name row; the Inside Mirror view does not show them and
+  they stay filtered there.
+
+### QA-save coverage sweep
+
+A separate sweep loaded all 234 route saves (Zork I 83, Zork II 77, Zork III 74),
+enumerated every visible room object, compared it with the focus target list, and
+rendered every target. It found and corrected:
+
+- Narrow-Room mirror/panel boxes: the east/west mirror anchors started above the art
+  band, so the box was clamped while the reported visual was not; they now start at row
+  15 and also cover the base `z3_narrow_mirror` rooms 8/100.
+- Missing scene boxes in the present Jewel Room (cage, plaque, pedestal), Land of
+  Shadow clifftop (stone wall, rubble), Museum Entrance (iron/wooden/stone doors),
+  Technology Museum (grey/black machines, open wooden door), Aqueduct View (aqueduct),
+  and the Zork II West Viewing Room (east/west walls).
+- The narrow-room Guardian target is offered again as name-row only; the Inside Mirror
+  proxy remains filtered.
+
+After the sweep, the only boxless targets are the documented name-row-only cases
+(carried/contained items, the Cellar chute, the Jewel Room stone doors, the Room 54
+south wall, the Dreary lid, and the narrow-room Guardians). The sweep reports no
+phantom targets, no box/visual mismatches, and no visible target without a box.
 
 The attic and coal-room views still allowlist scenery the art does not draw, and the
 Cellar chute remains name-row only because the cellar view shows an archway rather than

@@ -753,12 +753,16 @@ static void audit_climb_action_family(unsigned room_id, unsigned object) {
 static bool focus_allowlisted(unsigned chapter_id, unsigned room, unsigned object) {
     if (chapter_id == 1 && room == 59 && object == 109)
         return z_attr(137, ATTR_OPEN); // The lid is only drawn while the door is shut.
+    if (chapter_id == 1 && room == 204 && object == 199)
+        return true; // The south wall is behind the camera in the viewing-room view.
     if (chapter_id == 2 && room == 54 && object == 80)
         return true; // The south wooden wall is behind the camera in the mirror-hall view.
+    if (chapter_id == 2 && object == 152 && room != 44 && room != 54 && room != 224 && room != 160)
+        return true; // The narrow-room text describes the pair even though the statues are off-screen.
     static const struct { uint8_t chapter; uint16_t room, object; } hidden[] = {
         {0, 82, 94}, {0, 82, 105}, {0, 82, 246}, {0, 89, 60}, {0, 117, 94},
         {0, 117, 246}, {0, 245, 60}, {0, 249, 60},
-        {0, 33, 231}, {1, 233, 31}, {2, 103, 205}
+        {0, 33, 231}, {1, 233, 31}, {2, 16, 205}, {2, 103, 205}
     };
     for (unsigned i = 0; i < sizeof(hidden) / sizeof(hidden[0]); i++)
         if (hidden[i].chapter == chapter_id && hidden[i].room == room && hidden[i].object == object)

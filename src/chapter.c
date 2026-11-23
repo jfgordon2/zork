@@ -605,9 +605,8 @@ static bool add_object(Targets *list, unsigned id, unsigned chapter) {
     // North End when the story state places it there.
     if (chapter == 1 && id == 154 &&
         (z_global(0) == 16 || z_global(0) == 157 || z_global(0) == 234)) return false;
-    // The Kennel's room-local list cites the Menhir Room's stone, but the
-    // Kennel text and art show only bones and the dog collar. Don't offer the
-    // distant menhir as if it were in this view.
+    // The Kennel's local list cites the Menhir Room's stone; the Kennel text
+    // and art show only bones and the dog collar.
     if (chapter == 1 && id == 84 && z_global(0) == 128) return false;
     // The Zork I staircase is only exposed after the living-room trap door is
     // opened. Before that, the rug or closed hatch covers the stairs entirely.
@@ -631,12 +630,8 @@ static bool add_object(Targets *list, unsigned id, unsigned chapter) {
     if (chapter == 2 && id == ZORK3_VIKING_SHIP && z_attr(id, ZORK3_SHIP_HIDDEN)) return false;
     if (chapter == 2 && id == ZORK3_CLIFF_MAN && !story_cliff_man_visible()) return false;
     if (chapter == 2 && id == 11 && z_global(0) == ZORK3_DUNGEON_ENTRANCE) return false;
-    // The guardian pair is only drawn in the three guardian hallways. The
-    // narrow-mirror rooms and the Inside Mirror list the same local name, but
-    // the statues are not in those views.
-    if (chapter == 2 && id == 152 && z_global(0) != ZORK3_GUARDIANS_HALL &&
-        z_global(0) != ZORK3_GUARDIANS_SOUTH && z_global(0) != ZORK3_GUARDIANS_NORTH)
-        return false;
+    // The Inside Mirror view lists the guardians locally but does not show them.
+    if (chapter == 2 && id == 152 && z_global(0) == 160) return false;
     // The North Corridor and Parapet local lists mention the prison-cell Master,
     // but the actor (object 1) is the only real presence there. When the actor is
     // absent the proxy is a stale mention, so don't offer "Dungeon Master" at all.
