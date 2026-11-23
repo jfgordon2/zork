@@ -22,13 +22,29 @@ def main():
     if len(sys.argv) != 2:
         raise SystemExit("usage: host_scenes.py OUTPUT.S")
     output = Path(sys.argv[1])
-    lines = [".section __DATA,__const"]
+    # The host test links on both macOS (Mach-O) and Linux (ELF). Keep the
+    # generated assembly portable: Mach-O needs __DATA,__const and a leading
+    # underscore; ELF needs .rodata and no underscore.
+    lines = [
+        "#ifdef __APPLE__",
+        ".section __DATA,__const",
+        "#define ART_SYM(x) _##x",
+        "#else",
+        ".section .rodata",
+        "#define ART_SYM(x) x",
+        "#endif",
+    ]
     for name in scene_names():
         asset = ROOT / "build" / f"{name}.rgb555"
         if not asset.is_file():
             raise SystemExit(f"missing compiled scene art: {asset}")
         relative = asset.relative_to(ROOT).as_posix()
-        lines += [".p2align 2", f".globl _art_{name}", f"_art_{name}:", f'.incbin "{relative}"']
+        lines += [
+            ".p2align 2",
+            f".globl ART_SYM(art_{name})",
+            f"ART_SYM(art_{name}):",
+            f'.incbin "{relative}"',
+        ]
     output.write_text("\n".join(lines) + "\n", encoding="utf-8")
     print(f"Wrote host scene assembly for {len(scene_names())} backgrounds to {output}")
 
