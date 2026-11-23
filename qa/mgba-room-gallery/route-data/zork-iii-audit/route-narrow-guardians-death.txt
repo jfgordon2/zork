@@ -1,4 +1,4 @@
-@build/zork-iii-audit/route-160-lit.sav
+@qa/mgba-room-gallery/route-data/zork-iii-audit/route-160-lit.sav
 lift short pole
 push red panel
 push red panel

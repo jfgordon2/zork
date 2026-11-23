@@ -59,7 +59,7 @@ Style reference set `forest.png`, `kitchen.png`, `cavern.png`
 1. TOP LEFT, tree canopy high above the White House forest. Camera on a thick broad horizontal pine branch spanning foreground about 68–82 percent height, needles and faded evening blue around it, ground visibly many feet below through gaps, branch fork slightly left of center where a separate tiny bird nest overlay can rest. No bird, nest, or egg.
 2. TOP RIGHT, the attic of the very small wood house. Low angled roof rafters sloping down left and right, rough old tan pine beams, worn boards, dusty wall, faint late dusk from a tiny high vent. A small low empty rectangular wooden table at center-right with the top clearly visible at about 58–67 percent height. floor space near foreground. No clutter or loose items.
 3. BOTTOM LEFT, maze dead end containing remains of a long-dead adventurer. Same twisty rough cave style but clearly a low dead-end alcove, warm amber glancing across empty ground in foreground, bone-colored crumbling limestone at edges. Blank patch near center for a separate skeleton and several props. No bones or collectible things baked in.
-4. BOTTOM RIGHT, the underground Torch Room overlooking the Dome Room. Warm brown rock and old worked stone, a single low wide hewn stone pedestal near center with visible small empty top at 58–62 percent height, quiet tomb atmosphere, distinct passages at rear and left, no torch, no flame.
+4. BOTTOM RIGHT, the underground Torch Room overlooking the Dome Room. Warm brown rock and old worked stone, a single low wide hewn stone pedestal near center with visible small empty top at 58–62 percent height, quiet tomb atmosphere, distinct passages at rear and left. The left doorway visibly contains a short stone staircase descending away into darkness; keep its treads within the doorway and connected to the floor. No torch or flame.
 
 ### routes
 
@@ -235,7 +235,8 @@ Edit this exact wide 16-bit Zork I Reservoir North location. Preserve pixel pale
 - **Z1 room 220, Studio (`z1_studio.png`):** paint-splattered room, open painted door
   toward the Gallery, and a separate fireplace with a dark narrow chimney. Object 41, the
   ZORK owner's manual described as a small piece of paper on the wall, is a separate sprite
-  anchored to the painted wall at (68,58); it is not baked into the background. The room's
+  anchored fully on the painted wall at (48,50), clear of the doorway edge; it is not baked
+  into the background. The room's
   two floor-drop anchors remain at (75,86) and (168,86). References: `z1_gallery.png`, `z1_torch_room.png`,
   `z1_attic.png`, `z1_maze.png`.
 - **Z1 room 238, Forest Path (`z1_forest_path.png`):** a clear north-south earth path beside

@@ -450,8 +450,13 @@ static void fatal_error(const char *message, unsigned pc, unsigned opcode) {
     present();
     while (buttons() & KEY_A) wait_frame();
     while (!(buttons() & KEY_A)) wait_frame();
+#ifdef VISUAL_QA
+    extern void visual_qa_abort(void) __attribute__((noreturn));
+    visual_qa_abort();
+#else
     extern void _start(void) __attribute__((noreturn));
     _start();
+#endif
 }
 
 static uint32_t entropy(void) { return (entropy_state * 747796405u) ^ 29429773u; }
@@ -1151,6 +1156,37 @@ static void render(void) {
     }
 }
 
+#ifdef VISUAL_QA
+// Host replay hook: exercise the real render() -> draw_explore() path for one
+// currently available target, including the target name row and its focus box.
+bool visual_qa_render_focus_frame(unsigned chapter_id, unsigned room, unsigned object) {
+    if (chapter_id >= sizeof(chapters) / sizeof(chapters[0]) || z_global(0) != room) return false;
+    chapter = chapter_id;
+    screen = EXPLORE;
+    room_object = room;
+    dark = story_dark(chapter);
+    finished_prompt = successful_ending = false;
+    busy = false;
+    page = 0;
+    page_count = 1;
+    page_offsets[0] = 0;
+    response[0] = 0;
+    response_size = 0;
+    z_name(room, room_name, sizeof(room_name));
+    story_targets(chapter, &nearby, &carried);
+    focus = nearby.count;
+    for (unsigned i = 0; i < nearby.count; i++) {
+        if (nearby.id[i] == object) {
+            focus = i;
+            break;
+        }
+    }
+    if (focus == nearby.count) return false;
+    render();
+    return true;
+}
+#endif
+
 static void rotate(unsigned *index, unsigned count, bool forward) {
     if (!count) return;
     if (forward) *index = *index + 1 == count ? 0 : *index + 1;
@@ -1159,10 +1195,13 @@ static void rotate(unsigned *index, unsigned count, bool forward) {
 
 static void choose_action_list(Screen next, ActionGroup group) {
     open_menu(next);
-    story_menu_probe_begin();
-    action_count = story_actions(chapter, action_object, verb_is_bag, group, action_list);
-    if (group == PRIMARY) action_count = story_filter_defaults(action_object, action_list, action_count);
-    story_menu_probe_end();
+    if (group == PRIMARY) {
+        story_menu_probe_begin();
+        story_menu_probe_set_budget(STORY_MENU_PROBE_BUDGET);
+        action_count = story_actions(chapter, action_object, verb_is_bag, group, action_list);
+        action_count = story_filter_defaults_masked(chapter, action_object, action_list, action_count);
+        story_menu_probe_end();
+    } else action_count = story_actions_fast(chapter, action_object, verb_is_bag, group, action_list);
 }
 
 static void pick_object(unsigned object) {

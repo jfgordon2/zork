@@ -178,3 +178,46 @@ choices while retaining a different outcome.
 Verification: `make test` passes all three story replays, including 751 default-action
 menus and 3,870 direct action commands. The replays report zero reference-state drifts.
 `make zork-trilogy.gba` also builds successfully with the ARM7TDMI toolchain.
+
+### Primary action-menu latency — November 21, 2026
+
+Opening an Act menu previously paid the full state-effect cost for every candidate:
+each `z_probe_with_effect()` ran the action, ran a canonical `inventory` command, then
+scanned dynamic story memory to fingerprint changes. The menu now probes each candidate
+reply with the cheaper `z_probe()` path and fingerprints effects only when two full
+replies match. Those effect comparisons are capped at 24 per menu; uncertain comparisons
+keep both actions, so the cap cannot hide a distinct outcome. The menu also reuses the
+already-failed full noun when trying shorter noun forms.
+
+This preserves the carpet regression: Move/Push/Pull collapse because both their full
+replies and effects match, while Press remains because its effect differs despite the
+same reply. `make test` passes all three route replays and their menu, parser, and action
+family audits. Across the 751 audited menus, no menu needed more than 16 effect probes;
+the ARM7TDMI ROM rebuild also succeeds. This reduces work by avoiding the extra inventory
+execution and full-memory scan for every non-duplicate candidate.
+
+### Generated candidate masks with live-state probes — November 21, 2026
+
+The exact-menu lookup prototype was replaced because its room/object/attribute key could
+miss hidden story flags. The current design generates a 32-bit candidate-verb mask per
+game/object from interpreter-verified menu results, then probes only those verbs against
+the current story state when the player opens Act. Room conditions and hidden flags now
+affect the actual probe replies; the mask only limits which verbs are considered. The
+candidate verb names are shared between C and the generator through
+`src/action_probe_verbs.def`.
+
+The profile fixture now includes full-route menus plus open/closed and climb states. QA
+compares masked menus action-for-action with the full 32-verb sweep across 1,014 audited
+states. They match at a 5,000-instruction probe budget: 7,114 masked attempts versus
+31,482 full-sweep attempts, with maxima of 17 versus 35 per state. A 3,000-instruction
+budget failed this comparison in Zork II, so it was rejected. `z_probe_batch_begin()` also
+saves the interpreter snapshot once per menu batch; each candidate restores from that
+baseline instead of recopying it before every probe. Effect comparisons remain capped at
+24 per menu (the audited maximum is 16).
+
+Run `build/transcript-replay-test --dump-action-profiles tests/fixtures/action-profiles.tsv`
+to refresh the source data after changing story action behavior, then run `make test`.
+The tests catch newly discovered verbs on the audited routes and state families; states
+outside that audit can still need more mask coverage. `make test` and the ARM7TDMI ROM
+build pass. Live mGBA latency is still unverified because the emulator is stuck in its
+script console after an earlier timed-out QA script.

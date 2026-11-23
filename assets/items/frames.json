@@ -1390,5 +1390,27 @@
         "height": 15
       }
     ]
+  },
+  "pile_bodies": {
+    "cells": [
+      {
+        "pose": "Pile",
+        "x": 0,
+        "y": 0,
+        "width": 64,
+        "height": 28
+      }
+    ]
+  },
+  "attic_railing": {
+    "cells": [
+      {
+        "pose": "Rail",
+        "x": 0,
+        "y": 0,
+        "width": 42,
+        "height": 25
+      }
+    ]
   }
 }

@@ -1,0 +1,11 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/room-13.png,captured,zork-i-route-room-13-room-13,0,13,13
+zork-i/room-38.png,captured,zork-i-route-room-38-room-38,0,38,38
+zork-i/states/skull-focused.png,captured,zork-i-story-state-13-skull-focused,0,13,13
+zork-i/states/bell-rung.png,captured,zork-i-story-state-38-bell-rung,0,38,38
+zork-i/states/gas-with-flame.png,captured,zork-i-story-state-38-gas-with-flame,0,38,38
+zork-i/states/hades-cleared.png,captured,zork-i-story-state-38-hades-cleared,0,38,38
+zork-i/states/hades-ritual.png,captured,zork-i-story-state-38-hades-ritual,0,38,38
+zork-i/states/hades-warded.png,captured,zork-i-story-state-38-hades-warded,0,38,38
+zork-i/states/hot-bell.png,captured,zork-i-story-state-38-hot-bell,0,38,38
+zork-i/states/river-over-falls.png,captured,zork-i-story-state-38-river-over-falls,0,38,38

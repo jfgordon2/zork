@@ -1,4 +1,5 @@
 #include <assert.h>
+#include <stdint.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -37,17 +38,30 @@ static unsigned chapter, seed;
 static bool response_overflow;
 static bool refresh_route_states;
 static unsigned qa_marker_count, qa_bad_marker_bounds;
-static unsigned qa_ui_focus_count;
 static unsigned qa_scene_checks, qa_target_checks;
 static unsigned qa_dropped_item_checks;
+static unsigned qa_target_visibility_appearances, qa_hidden_target_rejections;
 static unsigned qa_parser_target_checks;
 static unsigned qa_parser_probe_checks, qa_room_definition_checks;
 static bool qa_parser_checked[QA_CHAPTERS][512];
 static bool qa_missing[QA_CHAPTERS][256][512];
 static bool qa_bad_bounds[QA_CHAPTERS][256][512];
+static bool qa_hidden_target_reported[QA_CHAPTERS][256][512];
 static bool qa_action_menu_checked[QA_CHAPTERS][256][512];
 static bool qa_carried_action_menu_checked[QA_CHAPTERS][512];
 static unsigned qa_action_menu_checks, qa_filtered_default_actions, qa_action_command_checks;
+static unsigned qa_max_action_menu_effect_probes;
+static unsigned qa_total_masked_probes, qa_max_masked_probes, qa_masked_menu_checks;
+static unsigned qa_total_reference_probes, qa_max_reference_probes;
+static unsigned qa_fast_proposed_actions, qa_fast_rejected_actions, qa_fast_missing_actions;
+typedef struct {
+    uint16_t room, object, parent;
+    uint8_t game, carried;
+    uint32_t attributes, actions;
+} QAActionProfile;
+static QAActionProfile qa_action_profiles[1024];
+static unsigned qa_action_profile_count, qa_action_profile_conflicts;
+static FILE *qa_action_profile_output;
 static bool qa_enter_exit_states[QA_CHAPTERS][QA_VEHICLE_TYPES][2];
 static unsigned qa_enter_exit_menu_checks;
 static bool qa_opening_family_checked[QA_CHAPTERS][256][512][2];
@@ -55,7 +69,82 @@ static bool qa_climb_family_checked[QA_CHAPTERS][256][512][2];
 static unsigned qa_opening_family_checks, qa_climb_family_checks;
 
 static int qa_first_marker[4];
+static int qa_conflicting_marker[4];
 static unsigned qa_distinct_markers;
+
+static bool action_reply_rejects(Action action, unsigned object);
+static bool action_list_has(const Action *actions, unsigned count, const char *name);
+
+static uint32_t qa_profile_actions_hash(const Action *actions, unsigned count) {
+    uint32_t hash = 2166136261u;
+    for (unsigned i = 0; i < count; i++) {
+        const char *parts[] = {actions[i].name, actions[i].verb, actions[i].argument};
+        for (unsigned part = 0; part < sizeof(parts) / sizeof(parts[0]); part++) {
+            const char *p = parts[part];
+            while (p && *p) hash = (hash ^ (uint8_t)*p++) * 16777619u;
+            hash = (hash ^ 0xffu) * 16777619u;
+        }
+        hash = (hash ^ actions[i].kind) * 16777619u;
+    }
+    return hash;
+}
+
+static bool qa_action_equal(Action left, Action right) {
+    const char *a[] = {left.name, left.verb, left.argument};
+    const char *b[] = {right.name, right.verb, right.argument};
+    for (unsigned i = 0; i < sizeof(a) / sizeof(a[0]); i++) {
+        if ((!a[i]) != (!b[i])) return false;
+        if (a[i] && strcmp(a[i], b[i])) return false;
+    }
+    return left.kind == right.kind;
+}
+
+static void qa_dump_action_profile(unsigned room_id, unsigned object, bool carried,
+                                   const Action *actions, unsigned count) {
+    if (!qa_action_profile_output) return;
+    uint32_t attributes = 0;
+    for (unsigned i = 0; i < 32; i++) if (z_attr(object, i)) attributes |= 1u << i;
+    fprintf(qa_action_profile_output, "%u\t%u\t%u\t%u\t%u\t%08x\t%u",
+            chapter, room_id, object, z_parent(object), carried, attributes, count);
+    for (unsigned i = 0; i < count; i++)
+        fprintf(qa_action_profile_output, "\t%s\t%s\t%s\t%u",
+                actions[i].name ? actions[i].name : "-",
+                actions[i].verb ? actions[i].verb : "-",
+                actions[i].argument ? actions[i].argument : "-",
+                (unsigned)actions[i].kind);
+    fputc('\n', qa_action_profile_output);
+}
+
+static void qa_check_masked_menu(unsigned room_id, unsigned object, bool carried,
+                                 const Action *reference, unsigned reference_count) {
+    Action masked[MAX_ACTIONS];
+    story_menu_probe_begin();
+    story_menu_probe_set_budget(STORY_MENU_PROBE_BUDGET);
+    unsigned candidate_count = story_actions(chapter, object, carried, PRIMARY, masked);
+    unsigned count = story_filter_defaults_masked(chapter, object, masked, candidate_count);
+    unsigned probes = story_menu_probes_used();
+    unsigned effects = story_menu_effect_probes_used();
+    story_menu_probe_end();
+    qa_total_masked_probes += probes;
+    qa_masked_menu_checks++;
+    if (probes > qa_max_masked_probes) qa_max_masked_probes = probes;
+    if (effects > qa_max_action_menu_effect_probes) qa_max_action_menu_effect_probes = effects;
+    if (count != reference_count) {
+        fprintf(stderr, "masked menu count mismatch game %u room %u object %u: %u vs %u\n",
+                chapter, room_id, object, reference_count, count);
+    }
+    bool equal = count == reference_count;
+    for (unsigned i = 0; equal && i < count; i++) equal = qa_action_equal(reference[i], masked[i]);
+    if (!equal && !qa_action_profile_output) {
+        for (unsigned i = 0; i < reference_count; i++)
+            fprintf(stderr, " ref %u %s / %s\n", i, reference[i].name,
+                    reference[i].verb ? reference[i].verb : "-");
+        for (unsigned i = 0; i < count; i++)
+            fprintf(stderr, " got %u %s / %s\n", i, masked[i].name,
+                    masked[i].verb ? masked[i].verb : "-");
+        assert(false);
+    }
+}
 
 void visual_qa_marker(int x, int y, int width, int height) {
     // A focused target gets exactly one scene box; redrawing the identical box is allowed.
@@ -64,6 +153,8 @@ void visual_qa_marker(int x, int y, int width, int height) {
         qa_distinct_markers = 1;
     } else if (x != qa_first_marker[0] || y != qa_first_marker[1] ||
                width != qa_first_marker[2] || height != qa_first_marker[3]) {
+        qa_conflicting_marker[0] = x, qa_conflicting_marker[1] = y;
+        qa_conflicting_marker[2] = width, qa_conflicting_marker[3] = height;
         qa_distinct_markers++;
     }
     qa_marker_count++;
@@ -71,7 +162,114 @@ void visual_qa_marker(int x, int y, int width, int height) {
         qa_bad_marker_bounds++;
 }
 
-void visual_qa_ui_focus(void) { qa_ui_focus_count++; }
+void visual_qa_abort(void) { abort(); }
+
+// The scene renderer reports the focused visual independently of the box. A
+// visual is either a drawn sprite (kind 0) or a named scene feature (kind 1).
+static unsigned qa_box_object, qa_visual_object, qa_visual_kind;
+static int qa_box_rect[4], qa_visual_rect[4];
+static bool qa_box_seen, qa_visual_seen;
+static unsigned qa_reported, qa_visual_reports, qa_sprite_visual_reports, qa_feature_visual_reports;
+extern Color visual_qa_pixel(int x, int y);
+
+typedef struct {
+    unsigned chapter, room, object;
+    uint64_t image_hash;
+} QAFocusFrameKey;
+
+static QAFocusFrameKey qa_focus_frame_keys[8192];
+static unsigned qa_focus_frame_key_count, qa_focus_frame_count;
+static FILE *qa_focus_frame_manifest;
+
+// Optional evidence export for reviewing hotspots on art baked into a room
+// background. The capture contains the actual rendered art band, including the
+// current focus box. Set ZORK_FOCUS_REVIEW_DIR to an existing output directory.
+static void qa_capture_focus_frame(unsigned chapter_id, unsigned room, unsigned object) {
+    const char *directory = getenv("ZORK_FOCUS_REVIEW_DIR");
+    if (!directory || !*directory || qa_visual_kind != 1) return;
+
+    uint64_t hash = 1469598103934665603ull;
+    for (int y = 15; y < 91; y++) {
+        for (int x = 0; x < SCREEN_W; x++) {
+            uint16_t pixel = visual_qa_pixel(x, y);
+            hash = (hash ^ (pixel & 0xffu)) * 1099511628211ull;
+            hash = (hash ^ (pixel >> 8)) * 1099511628211ull;
+        }
+    }
+    for (unsigned i = 0; i < qa_focus_frame_key_count; i++) {
+        QAFocusFrameKey *key = &qa_focus_frame_keys[i];
+        if (key->chapter == chapter_id && key->room == room && key->object == object &&
+            key->image_hash == hash) return;
+    }
+    if (qa_focus_frame_key_count >= sizeof(qa_focus_frame_keys) / sizeof(qa_focus_frame_keys[0])) {
+        fprintf(stderr, "Focus review capture limit exceeded.\n");
+        abort();
+    }
+    qa_focus_frame_keys[qa_focus_frame_key_count++] =
+        (QAFocusFrameKey){chapter_id, room, object, hash};
+
+    if (!qa_focus_frame_manifest) {
+        char manifest_path[1024];
+        int length = snprintf(manifest_path, sizeof(manifest_path), "%s/frames.tsv", directory);
+        if (length < 0 || (size_t)length >= sizeof(manifest_path)) abort();
+        qa_focus_frame_manifest = fopen(manifest_path, "w");
+        if (!qa_focus_frame_manifest) {
+            perror(manifest_path);
+            abort();
+        }
+        fputs("chapter\troom\troom_name\tobject\ttarget_name\timage_hash\tbox_x\tbox_y\tbox_w\tbox_h\tfile\n",
+              qa_focus_frame_manifest);
+    }
+
+    char image_path[1024], image_name[96];
+    snprintf(image_name, sizeof(image_name), "z%u-r%03u-o%03u-%016llx.ppm",
+             chapter_id + 1, room, object, (unsigned long long)hash);
+    int length = snprintf(image_path, sizeof(image_path), "%s/%s", directory, image_name);
+    if (length < 0 || (size_t)length >= sizeof(image_path)) abort();
+    FILE *image = fopen(image_path, "wb");
+    if (!image) {
+        perror(image_path);
+        abort();
+    }
+    fprintf(image, "P6\n%u 76\n255\n", SCREEN_W);
+    for (int y = 15; y < 91; y++) {
+        for (int x = 0; x < SCREEN_W; x++) {
+            uint16_t pixel = visual_qa_pixel(x, y);
+            unsigned red = pixel & 31u, green = (pixel >> 5) & 31u, blue = (pixel >> 10) & 31u;
+            uint8_t rgb[3] = {(uint8_t)(red * 255u / 31u), (uint8_t)(green * 255u / 31u),
+                              (uint8_t)(blue * 255u / 31u)};
+            fwrite(rgb, sizeof(rgb), 1, image);
+        }
+    }
+    fclose(image);
+    char room_name[Z_NAME_MAX], target_name[Z_NAME_MAX];
+    z_name(room, room_name, sizeof(room_name));
+    story_name(chapter_id, object, target_name);
+    fprintf(qa_focus_frame_manifest, "%u\t%u\t%s\t%u\t%s\t%016llx\t%d\t%d\t%d\t%d\t%s\n",
+            chapter_id + 1, room, room_name, object, target_name, (unsigned long long)hash,
+            qa_box_rect[0], qa_box_rect[1] - 15, qa_box_rect[2], qa_box_rect[3], image_name);
+    fflush(qa_focus_frame_manifest);
+    qa_focus_frame_count++;
+}
+
+void visual_qa_focused_box(unsigned object, int x, int y, int width, int height) {
+    if (qa_box_seen) return; // first box of the frame
+    qa_reported++;
+    qa_box_seen = true;
+    qa_box_object = object;
+    qa_box_rect[0] = x; qa_box_rect[1] = y; qa_box_rect[2] = width; qa_box_rect[3] = height;
+}
+
+void visual_qa_focused_visual(unsigned object, int kind, int x, int y, int width, int height) {
+    if (qa_visual_seen) return; // first visual representation of the frame
+    qa_visual_reports++;
+    if (kind == 0) qa_sprite_visual_reports++;
+    else qa_feature_visual_reports++;
+    qa_visual_seen = true;
+    qa_visual_object = object;
+    qa_visual_kind = (unsigned)kind;
+    qa_visual_rect[0] = x; qa_visual_rect[1] = y; qa_visual_rect[2] = width; qa_visual_rect[3] = height;
+}
 
 static void collect_text(const char *text, size_t size) {
     visual_state_observe(chapter, z_global(0), text, size);
@@ -144,6 +342,44 @@ static void audit_parser_targets(const Targets *targets) {
     }
 }
 
+static bool target_examine_says_absent(const char *reply) {
+    return text_has(reply, "You can't see any") || text_has(reply, "I don't see any") ||
+           text_has(reply, "You're not at") || text_has(reply, "You are not at") ||
+           text_has(reply, "There is no ") || text_has(reply, "isn't here") ||
+           text_has(reply, "is not here");
+}
+
+// The Master outside a shut cell door is addressed through the barred window;
+// "examine" says he is not in the cell, but the story still accepts orders to
+// him from inside, so he stays a legitimate target.
+static bool target_is_outside_cell(unsigned room, unsigned object) {
+    return chapter == 2 && object == 11 && (room == 45 || room == 204 || room == 225);
+}
+
+static void audit_room_target_visibility(const Targets *targets) {
+    unsigned room = z_global(0);
+    if (chapter == 2 && room == 160)
+        for (unsigned i = 0; i < targets->count; i++) assert(targets->id[i] != 152);
+    for (unsigned i = 0; i < targets->count; i++) {
+        unsigned object = targets->id[i];
+        if (object >= TARGET_SELF || object >= 512) continue;
+        qa_target_visibility_appearances++;
+        char noun[Z_NAME_MAX], line[COMMAND_SIZE] = "examine ", reply[192] = {0};
+        story_parser_noun(object, noun);
+        if (!*noun || !append_text(line, sizeof(line), noun) ||
+            !z_probe(line, reply, sizeof(reply), 20000)) continue;
+        if (!target_examine_says_absent(reply) || qa_hidden_target_reported[chapter][room][object]) continue;
+        if (target_is_outside_cell(room, object)) continue;
+        char room_name[Z_NAME_MAX], object_name[Z_NAME_MAX];
+        z_name(room, room_name, sizeof(room_name));
+        story_name(chapter, object, object_name);
+        fprintf(stderr, "Target may be hidden: Z%u room %u (%s), object %u (%s): %s\n",
+                chapter + 1, room, room_name, object, object_name, reply);
+        qa_hidden_target_reported[chapter][room][object] = true;
+        qa_hidden_target_rejections++;
+    }
+}
+
 static void normalize_full_action_reply(const char *reply, char *out, unsigned capacity) {
     unsigned used = 0;
     const char *p = reply;
@@ -174,13 +410,58 @@ static void audit_default_action_menu(unsigned room_id, unsigned object, bool ca
     if (*checked) return;
     *checked = true;
 
-    Action actions[MAX_ACTIONS];
+    Action actions[MAX_ACTIONS], proposed[MAX_ACTIONS];
+    story_menu_probe_begin();
     unsigned before = story_actions(chapter, object, carried, PRIMARY, actions);
+    memcpy(proposed, actions, before * sizeof(*actions));
     unsigned count = story_filter_defaults(object, actions, before);
+    unsigned effect_probes = story_menu_effect_probes_used();
+    unsigned reference_probes = story_menu_probes_used();
+    qa_total_reference_probes += reference_probes;
+    if (reference_probes > qa_max_reference_probes) qa_max_reference_probes = reference_probes;
+    if (effect_probes > qa_max_action_menu_effect_probes)
+        qa_max_action_menu_effect_probes = effect_probes;
+    story_menu_probe_end();
+    assert(effect_probes <= 24);
     assert(count > 0);
     assert(count <= MAX_ACTIONS - 1);
+    qa_check_masked_menu(room_id, object, carried, actions, count);
+    assert(reference_probes <= 256);
     qa_action_menu_checks++;
     if (before > count) qa_filtered_default_actions += before - count;
+
+    for (unsigned i = 0; i < before; i++) {
+        if (proposed[i].kind != DO_OBJECT && proposed[i].kind != DO_LITERAL) continue;
+        qa_fast_proposed_actions++;
+        if (action_reply_rejects(proposed[i], object)) qa_fast_rejected_actions++;
+    }
+    for (unsigned i = 0; i < count; i++) {
+        if (actions[i].kind != DO_OBJECT && actions[i].kind != DO_LITERAL) continue;
+        if (!action_list_has(proposed, before, actions[i].name)) qa_fast_missing_actions++;
+    }
+
+    uint32_t attributes = 0;
+    for (unsigned i = 0; i < 32; i++) if (z_attr(object, i)) attributes |= 1u << i;
+    QAActionProfile profile = {
+        (uint16_t)room_id, (uint16_t)object, z_parent(object), (uint8_t)chapter,
+        (uint8_t)carried, attributes, qa_profile_actions_hash(actions, count)
+    };
+    bool profile_found = false;
+    for (unsigned i = 0; i < qa_action_profile_count; i++) {
+        QAActionProfile old = qa_action_profiles[i];
+        if (old.game == profile.game && old.room == profile.room && old.object == profile.object &&
+            old.parent == profile.parent && old.carried == profile.carried &&
+            old.attributes == profile.attributes) {
+            profile_found = true;
+            if (old.actions != profile.actions) qa_action_profile_conflicts++;
+            break;
+        }
+    }
+    if (!profile_found) {
+        assert(qa_action_profile_count < sizeof(qa_action_profiles) / sizeof(qa_action_profiles[0]));
+        qa_action_profiles[qa_action_profile_count++] = profile;
+    }
+    qa_dump_action_profile(room_id, object, carried, actions, count);
 
     bool has_menu = count && actions[count - 1].kind == SHOW_CATEGORIES;
     if (has_menu)
@@ -238,8 +519,6 @@ static void audit_default_action_menu(unsigned room_id, unsigned object, bool ca
     }
     assert(has_examine);
 }
-
-static bool action_reply_rejects(Action action, unsigned object);
 
 static void audit_enter_exit_menu(unsigned object) {
     char name[Z_NAME_MAX];
@@ -396,9 +675,16 @@ static void audit_opening_action_family(unsigned room_id, unsigned object, bool 
     *checked = true;
 
     Action candidates[MAX_ACTIONS], visible[MAX_ACTIONS];
+    story_menu_probe_begin();
     unsigned candidate_count = story_actions(chapter, object, carried, PRIMARY, candidates);
     memcpy(visible, candidates, candidate_count * sizeof(*visible));
     unsigned visible_count = story_filter_defaults(object, visible, candidate_count);
+    unsigned reference_probes = story_menu_probes_used();
+    story_menu_probe_end();
+    qa_total_reference_probes += reference_probes;
+    if (reference_probes > qa_max_reference_probes) qa_max_reference_probes = reference_probes;
+    qa_check_masked_menu(room_id, object, carried, visible, visible_count);
+    qa_dump_action_profile(room_id, object, carried, visible, visible_count);
     const char *expected = open ? "Close" : "Open";
     const char *opposite = open ? "Open" : "Close";
     assert(action_list_has(candidates, candidate_count, expected));
@@ -423,12 +709,20 @@ static void audit_climb_action_family(unsigned room_id, unsigned object) {
     *checked = true;
 
     Action actions[MAX_ACTIONS];
+    story_menu_probe_begin();
     unsigned count = story_actions(chapter, object, false, PRIMARY, actions);
     count = story_filter_defaults(object, actions, count);
+    unsigned reference_probes = story_menu_probes_used();
+    story_menu_probe_end();
+    qa_total_reference_probes += reference_probes;
+    if (reference_probes > qa_max_reference_probes) qa_max_reference_probes = reference_probes;
+    qa_check_masked_menu(room_id, object, false, actions, count);
+    qa_dump_action_profile(room_id, object, false, actions, count);
     const Action *climb = NULL;
     for (unsigned i = 0; i < count; i++) {
         if (strcmp(actions[i].name, "Climb") == 0 || strcmp(actions[i].name, "Climb up") == 0 ||
-            strcmp(actions[i].name, "Climb down") == 0) {
+            strcmp(actions[i].name, "Climb down") == 0 || strcmp(actions[i].name, "Go up") == 0 ||
+            strcmp(actions[i].name, "Go down") == 0) {
             climb = &actions[i];
             break;
         }
@@ -442,8 +736,10 @@ static void audit_climb_action_family(unsigned room_id, unsigned object) {
     assert(!text_has(reply, "I don't understand that sentence"));
     assert(!text_has(reply, "That sentence isn't one I recognize"));
     assert(!text_has(reply, "That sentence is not one I recognize"));
-    if (strcmp(climb->name, "Climb up") == 0) assert(!reply_blocks_climb_direction(reply, true));
-    else if (strcmp(climb->name, "Climb down") == 0) assert(!reply_blocks_climb_direction(reply, false));
+    if (strcmp(climb->name, "Climb up") == 0 || strcmp(climb->name, "Go up") == 0)
+        assert(!reply_blocks_climb_direction(reply, true));
+    else if (strcmp(climb->name, "Climb down") == 0 || strcmp(climb->name, "Go down") == 0)
+        assert(!reply_blocks_climb_direction(reply, false));
     else if (reply_blocks_climb_direction(reply, true) || reply_blocks_climb_direction(reply, false)) {
         fprintf(stderr, "climb audit: room %u object %u action %s reply '%s'\n",
                 room_id, object, climb->name, reply);
@@ -451,6 +747,26 @@ static void audit_climb_action_family(unsigned room_id, unsigned object) {
     }
     qa_climb_family_checks++;
 }
+
+// Name-row only: the story keeps these off the room view (carried, in a
+// container, or no scene art), so a scene box would frame the wrong thing.
+static bool focus_allowlisted(unsigned chapter_id, unsigned room, unsigned object) {
+    if (chapter_id == 1 && room == 59 && object == 109)
+        return z_attr(137, ATTR_OPEN); // The lid is only drawn while the door is shut.
+    if (chapter_id == 2 && room == 54 && object == 80)
+        return true; // The south wooden wall is behind the camera in the mirror-hall view.
+    static const struct { uint8_t chapter; uint16_t room, object; } hidden[] = {
+        {0, 82, 94}, {0, 82, 105}, {0, 82, 246}, {0, 89, 60}, {0, 117, 94},
+        {0, 117, 246}, {0, 245, 60}, {0, 249, 60},
+        {0, 33, 231}, {1, 233, 31}, {2, 103, 205}
+    };
+    for (unsigned i = 0; i < sizeof(hidden) / sizeof(hidden[0]); i++)
+        if (hidden[i].chapter == chapter_id && hidden[i].room == room && hidden[i].object == object)
+            return true;
+    return false;
+}
+
+static unsigned qa_box_mismatch;
 
 static void audit_scene_target_boxes(void) {
     unsigned room_id = z_global(0);
@@ -460,6 +776,7 @@ static void audit_scene_target_boxes(void) {
     story_targets(chapter, &targets, &carried);
     audit_parser_targets(&targets);
     audit_parser_targets(&carried);
+    audit_room_target_visibility(&targets);
     for (unsigned i = 0; i < targets.count; i++)
     {
         audit_default_action_menu(room_id, targets.id[i], false);
@@ -474,47 +791,90 @@ static void audit_scene_target_boxes(void) {
     if (!targets.count) return;
     char room_name[Z_NAME_MAX];
     z_name(room_id, room_name, sizeof(room_name));
-    const Color *background = story_scene(chapter, room_name);
     qa_scene_checks++;
 
     for (unsigned i = 0; i < targets.count; i++) {
         unsigned object = targets.id[i];
         qa_target_checks++;
         qa_marker_count = qa_bad_marker_bounds = 0;
-        qa_ui_focus_count = 0;
-        fill(0, 15, SCREEN_W, 76, RGB(20, 25, 24));
-        if (story_dark(chapter)) {
-            if (chapter == 1 && room_id == 125)
-                draw_room_details(chapter, room_id, background, &targets, object);
-        } else if (chapter == 2 && room_id == ROYAL_PUZZLE_ROOM) {
-            PuzzleMap map = {0};
-            draw_puzzle_map(&map, &targets, object);
-        } else {
-            draw_room_details(chapter, room_id, background, &targets, object);
+        qa_box_seen = qa_visual_seen = false;
+        qa_box_object = qa_visual_object = 0;
+        extern bool visual_qa_render_focus_frame(unsigned chapter_id, unsigned room, unsigned object);
+        assert(visual_qa_render_focus_frame(chapter, room_id, object));
+        if (chapter == 0 && room_id == 2 && object == ZORK1_STAIRS) {
+            assert(qa_box_rect[0] >= 180); // Temple stairs are on the right, beyond the entrance.
+            assert(qa_box_rect[1] >= 50);  // They descend from the right-hand floor opening.
         }
-        draw_target_focus_box(true);
+        if (chapter == 1 && room_id == 8 && object == 6)
+            assert(qa_box_rect[0] + qa_box_rect[2] <= 160); // keep the well box clear of the doorway
+        if (chapter == 2 && room_id == 160 && object == 107)
+            assert(qa_box_rect[1] >= 75); // stone channel is on the floor, below the pole
+        extern Color visual_qa_pixel(int x, int y);
+        Color focus_gold = RGB(249, 192, 93);
+        assert(visual_qa_pixel(2, 92) == focus_gold);
+        assert(visual_qa_pixel(237, 92) == focus_gold);
+        assert(visual_qa_pixel(2, 102) == focus_gold);
+        assert(visual_qa_pixel(237, 102) == focus_gold);
         bool scene_is_visible = !story_dark(chapter) || (chapter == 1 && room_id == 125);
-        if (scene_is_visible && !qa_marker_count && !qa_missing[chapter][room_id][object]) {
+        if (scene_is_visible && !focus_allowlisted(chapter, room_id, object))
+            qa_capture_focus_frame(chapter, room_id, object);
+        if (scene_is_visible && !focus_allowlisted(chapter, room_id, object)) {
+            // The box owner and the separately reported drawn visual must both
+            // identify this target; a box can no longer label itself as proof.
+            if (!qa_box_seen || qa_box_object != object) {
+                fprintf(stderr, "No focus report: Z%u room %u object %u (got %u, parent %u, "
+                                "%u box markers, visual %u)\n",
+                        chapter + 1, room_id, object, qa_box_object, z_parent(object),
+                        qa_marker_count, qa_visual_object);
+                assert(false);
+            }
+            if (!qa_visual_seen || qa_visual_object != object) {
+                fprintf(stderr, "No focused visual: Z%u room %u object %u (got %u)\n",
+                        chapter + 1, room_id, object, qa_visual_object);
+                assert(false);
+            }
+            int mx = qa_box_rect[0], my = qa_box_rect[1];
+            int mw = qa_box_rect[2], mh = qa_box_rect[3];
+            assert(mx == qa_first_marker[0] && my == qa_first_marker[1] &&
+                   mw == qa_first_marker[2] && mh == qa_first_marker[3]);
+            bool mismatch = mx > qa_visual_rect[0] + 3 || my > qa_visual_rect[1] + 3 ||
+                mx + mw < qa_visual_rect[0] + qa_visual_rect[2] - 3 ||
+                my + mh < qa_visual_rect[1] + qa_visual_rect[3] - 3 ||
+                mw > qa_visual_rect[2] + 6 || mh > qa_visual_rect[3] + 6;
+            if (mismatch) {
+                fprintf(stderr, "Box mismatch: Z%u room %u object %u box %d,%d %dx%d visual %d,%d %dx%d kind %u\n",
+                        chapter + 1, room_id, object, mx, my, mw, mh,
+                        qa_visual_rect[0], qa_visual_rect[1], qa_visual_rect[2], qa_visual_rect[3],
+                        qa_visual_kind);
+                qa_box_mismatch++;
+            }
+        }
+        if (scene_is_visible && !focus_allowlisted(chapter, room_id, object) &&
+            !qa_marker_count && !qa_missing[chapter][room_id][object]) {
             char object_name[Z_NAME_MAX];
             story_name(chapter, object, object_name);
             fprintf(stderr, "No scene box: Z%u room %u (%s) object %u (%s)\n",
                     chapter + 1, room_id, room_name, object, object_name);
             qa_missing[chapter][room_id][object] = true;
         }
-        assert(qa_ui_focus_count == 1);
         if (qa_distinct_markers > 1) {
             char object_name[Z_NAME_MAX];
             story_name(chapter, object, object_name);
-            fprintf(stderr, "Two scene boxes: Z%u room %u (%s) object %u (%s)\n",
-                    chapter + 1, room_id, room_name, object, object_name);
+            fprintf(stderr, "Two scene boxes: Z%u room %u (%s) object %u (%s): "
+                            "%d,%d %dx%d and %d,%d %dx%d\n",
+                    chapter + 1, room_id, room_name, object, object_name,
+                    qa_first_marker[0], qa_first_marker[1], qa_first_marker[2], qa_first_marker[3],
+                    qa_conflicting_marker[0], qa_conflicting_marker[1],
+                    qa_conflicting_marker[2], qa_conflicting_marker[3]);
         }
         assert(qa_distinct_markers <= 1);
         qa_distinct_markers = 0;
         if (qa_bad_marker_bounds && !qa_bad_bounds[chapter][room_id][object]) {
             char object_name[Z_NAME_MAX];
             story_name(chapter, object, object_name);
-            fprintf(stderr, "Box outside art: Z%u room %u (%s) object %u (%s)\n",
-                    chapter + 1, room_id, room_name, object, object_name);
+            fprintf(stderr, "Box outside art: Z%u room %u (%s) object %u (%s) box %d,%d %dx%d\n",
+                    chapter + 1, room_id, room_name, object, object_name,
+                    qa_first_marker[0], qa_first_marker[1], qa_first_marker[2], qa_first_marker[3]);
             qa_bad_bounds[chapter][room_id][object] = true;
         }
     }
@@ -533,6 +893,8 @@ static void audit_dropped_item_box(const Targets *previous_carried) {
     z_name(room_id, room_name, sizeof(room_name));
     const Color *background = story_scene(chapter, room_name);
     qa_marker_count = qa_bad_marker_bounds = 0;
+    qa_box_seen = qa_visual_seen = false;
+    qa_box_object = qa_visual_object = 0;
     fill(0, 15, SCREEN_W, 76, RGB(20, 25, 24));
     if (chapter == 2 && room_id == ROYAL_PUZZLE_ROOM) {
         PuzzleMap map = {0};
@@ -542,6 +904,16 @@ static void audit_dropped_item_box(const Targets *previous_carried) {
     }
     assert(qa_marker_count > 0);
     assert(qa_bad_marker_bounds == 0);
+    assert(qa_box_seen && qa_box_object == targets.id[selected]);
+    assert(qa_visual_seen && qa_visual_object == targets.id[selected]);
+    int mx = qa_box_rect[0], my = qa_box_rect[1];
+    int mw = qa_box_rect[2], mh = qa_box_rect[3];
+    assert(mx == qa_first_marker[0] && my == qa_first_marker[1] &&
+           mw == qa_first_marker[2] && mh == qa_first_marker[3]);
+    assert(mx <= qa_visual_rect[0] + 3 && my <= qa_visual_rect[1] + 3);
+    assert(mx + mw >= qa_visual_rect[0] + qa_visual_rect[2] - 3);
+    assert(my + mh >= qa_visual_rect[1] + qa_visual_rect[3] - 3);
+    assert(mw <= qa_visual_rect[2] + 6 && mh <= qa_visual_rect[3] + 6);
     qa_dropped_item_checks++;
 }
 
@@ -560,15 +932,34 @@ static void report_target_box_gaps(void) {
         }
     }
     printf("Scene target-box audit: %u states, %u focused targets, %u without a scene-specific box, "
-           "%u scene boxes outside the art band; every target had at most one scene box and one yellow name-row frame.\n",
-           qa_scene_checks, qa_target_checks, missing, outside);
+           "%u scene boxes outside the art band, %u boxes reported, %u focused visuals "
+           "(%u sprites, %u scene features), %u box mismatches; "
+           "every visible target had a visual report and at most one distinct box.\n",
+           qa_scene_checks, qa_target_checks, missing, outside, qa_reported,
+           qa_visual_reports, qa_sprite_visual_reports, qa_feature_visual_reports, qa_box_mismatch);
+    assert(qa_reported > 0); // The correspondence hook must be wired up.
+    assert(qa_box_mismatch == 0);
+    assert(missing == 0); // Every visible room-screen target has a scene box or is allowlisted.
     printf("Parser target audit: %u visible and carried target appearances had usable parser nouns.\n",
            qa_parser_target_checks);
+    printf("Room target visibility audit: %u appearances checked; %u room/object pairs were rejected by examine.\n",
+           qa_target_visibility_appearances, qa_hidden_target_rejections);
+    assert(qa_hidden_target_rejections == 0);
     printf("All-room parser audit: %u room definitions checked; %u distinct target names accepted by the interpreter.\n",
            qa_room_definition_checks, qa_parser_probe_checks);
     printf("Default-action audit: %u room/inventory menus checked; %u direct action commands parsed; "
            "%u parser-rejected or explicitly impossible defaults filtered.\n",
            qa_action_menu_checks, qa_action_command_checks, qa_filtered_default_actions);
+    printf("No-probe rule coverage: %u proposed actions (%u rejected), %u current-menu actions missing from rules.\n",
+           qa_fast_proposed_actions, qa_fast_rejected_actions, qa_fast_missing_actions);
+    printf("Audited action states: %u unique room/object/attribute keys, %u conflicting repeats.\n",
+           qa_action_profile_count, qa_action_profile_conflicts);
+    printf("Masked action probes: %u total across %u audited states; max %u per state.\n",
+           qa_total_masked_probes, qa_masked_menu_checks, qa_max_masked_probes);
+    printf("Full-sweep action probes: %u total; max %u per state.\n",
+           qa_total_reference_probes, qa_max_reference_probes);
+    printf("Duplicate-result verification: at most %u effect probes in one menu (24-probe cap).\n",
+           qa_max_action_menu_effect_probes);
     assert(qa_enter_exit_states[0][QA_BOAT][0] && qa_enter_exit_states[0][QA_BOAT][1]);
     assert(qa_enter_exit_states[1][QA_BUCKET][0] && qa_enter_exit_states[1][QA_BUCKET][1]);
     printf("Enter/exit direction audit: %u vehicle states checked; Zork I boat and Zork II bucket tested inside and outside.\n",
@@ -820,12 +1211,18 @@ static void run_game(unsigned game, unsigned final_room, unsigned final_score) {
 }
 
 int main(int argc, char **argv) {
-    assert(argc == 1 || (argc == 2 && !strcmp(argv[1], "--refresh-route-states")));
+    assert(argc == 1 || (argc == 2 && !strcmp(argv[1], "--refresh-route-states")) ||
+           (argc == 3 && !strcmp(argv[1], "--dump-action-profiles")));
     refresh_route_states = argc == 2;
+    if (argc == 3) {
+        qa_action_profile_output = fopen(argv[2], "w");
+        assert(qa_action_profile_output);
+    }
     run_game(0, 244, 350);
     run_game(1, 230, 400);
     run_game(2, 46, 7);
     report_target_box_gaps();
     puts("All full-route transcript entries decoded byte-for-byte and reached their expected endings.");
+    if (qa_action_profile_output) assert(!fclose(qa_action_profile_output));
     return 0;
 }

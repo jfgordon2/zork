@@ -12,6 +12,8 @@ The sheets below were generated with the built-in ImageGen tool. The packed spri
 
 The November 19 sprite review added distinct sprites for Zork I's nasty knife, Zork II's blue label, Zork III's jewelled knife, and Zork III's strange key. The existing intact unlit lantern and iron key are reused for the burned-out lantern and skeleton key. See [the review prompts](sprite-audit-prompts.md) and [coverage notes](ITEM_COVERAGE.md) for the story-to-sprite bindings.
 
+`pile_bodies.png` is a reusable, non-graphic sprite for the same remains described at Entrance to Hades and in the Land of the Dead. The renderer uses a smaller derived pose through the gate and the full pose in the closer room.
+
 `new_props_source.png` is the source atlas for the small Zork I treasure and household props. `new_props.png` is its 32-pixel-high transparent production strip, indexed by the `new_props` cells in `frames.json`.
 
 ## Shared prompt

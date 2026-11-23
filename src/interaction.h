@@ -4,6 +4,7 @@
 #include "chapter.h"
 
 enum { MAX_ACTIONS = 18, COMMAND_SIZE = 128, WORDS_PER_PHRASE = 3 };
+enum { STORY_MENU_PROBE_BUDGET = 5000 };
 
 typedef enum {
     DO_OBJECT, DO_LITERAL, PICK_TARGET, PICK_SELF, PICK_ITEM, PICK_DIRECTION, PICK_DIGIT, PICK_YEAR,
@@ -18,9 +19,14 @@ typedef struct {
 typedef enum { PRIMARY, INSPECT, HANDLE, USE, COMBINE, TOOLS, MOVE, ORDERS } ActionGroup;
 
 unsigned story_actions(unsigned chapter, unsigned id, bool carried, ActionGroup group, Action list[MAX_ACTIONS]);
+unsigned story_actions_fast(unsigned chapter, unsigned id, bool carried, ActionGroup group, Action list[MAX_ACTIONS]);
 unsigned story_filter_defaults(unsigned id, Action list[MAX_ACTIONS], unsigned count);
+unsigned story_filter_defaults_masked(unsigned chapter, unsigned id, Action list[MAX_ACTIONS], unsigned count);
 void story_menu_probe_begin(void);
 void story_menu_probe_end(void);
+void story_menu_probe_set_budget(unsigned budget);
+unsigned story_menu_probes_used(void);
+unsigned story_menu_effect_probes_used(void);
 void action_reply_normalized(const char *reply, char *out, unsigned capacity);
 bool action_reply_is_no_effect(const char *reply);
 bool action_command(Action action, unsigned object, const char *value, char line[COMMAND_SIZE]);

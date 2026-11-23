@@ -7,11 +7,18 @@
 static Color framebuffer[SCREEN_W * SCREEN_H] __attribute__((aligned(4)));
 
 static void copy_words(void *dst, const void *src, unsigned words) {
+#ifdef VISUAL_QA
+    // Host replay builds have no GBA DMA registers; copy directly.
+    uint16_t *out = dst;
+    const uint16_t *in = src;
+    for (unsigned i = 0; i < words; i++) out[i] = in[i];
+#else
     REG32(0x040000D4) = (uint32_t)(uintptr_t)src;
     REG32(0x040000D8) = (uint32_t)(uintptr_t)dst;
     __asm__ volatile("" ::: "memory");
     REG32(0x040000DC) = 0x84000000 | words;
     __asm__ volatile("" ::: "memory");
+#endif
 }
 
 void video_init(void) {
@@ -39,7 +46,14 @@ void scene(int y, const Color *pixels) {
 }
 
 void scene_rows(int y, const Color *pixels, int rows) {
+#ifdef VISUAL_QA
+    // Host replay tests render complete frames without GBA DMA registers.
+    for (int row = 0; row < rows; row++)
+        for (int col = 0; col < SCREEN_W; col++)
+            framebuffer[(y + row) * SCREEN_W + col] = pixels[row * SCREEN_W + col];
+#else
     copy_words(framebuffer + y * SCREEN_W, pixels, SCREEN_W * rows / 2);
+#endif
 }
 
 void draw_masked_pixels(int x, int y, int width, int height, const Color *pixels, bool mirrored) {

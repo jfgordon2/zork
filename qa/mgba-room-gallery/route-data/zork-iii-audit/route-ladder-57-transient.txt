@@ -1,2 +1,3 @@
-@build/zork-iii-audit/route-15-lit.sav
+@qa/mgba-room-gallery/route-data/zork-iii-audit/route-15-lit.sav
 east
+| ladder-transient-return 0

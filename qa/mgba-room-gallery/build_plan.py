@@ -415,6 +415,95 @@ rows.append({
     'start_room': 206, 'route': [(0, 184), (9, 161)],
 })
 
+# Current-ROM path replays for Zork III route evidence. These start from traced
+# reachable saves and use the same Paths menu as the player. The Ladder Bottom
+# and Machine Room visits are transient; both narrate the room and return to
+# Scenic Vista before another prompt.
+z3_route_root = 'qa/mgba-room-gallery/route-data/zork-iii-audit/'
+z3_routes = [
+    {
+        'room_id': 194, 'title': 'Royal Puzzle Entrance → Room in a Puzzle',
+        'scene': 'z3_puzzle_room', 'start_room': 143, 'direction': 9,
+        'start_save': 'route-143-lit.sav', 'target_room': 194,
+        'screenshot': 'zork-iii/routes/royal-entrance-down.png',
+        'trace': 'route-royal-puzzle-entry.txt',
+    },
+    {
+        'room_id': 119, 'title': 'Mirror Hallway → east-mirror Narrow Room (southwest)',
+        'scene': 'z3_narrow_mirror', 'start_room': 54, 'direction': 6,
+        'start_save': 'route-54-lit.sav', 'target_room': 119,
+        'screenshot': 'zork-iii/routes/mirror-southwest-119.png',
+        'trace': 'route-mirror-exits.txt',
+    },
+    {
+        'room_id': 221, 'title': 'Mirror Hallway → west-mirror Narrow Room (southeast)',
+        'scene': 'z3_narrow_mirror_west', 'start_room': 54, 'direction': 5,
+        'start_save': 'route-54-lit.sav', 'target_room': 221,
+        'screenshot': 'zork-iii/routes/mirror-southeast-221.png',
+        'trace': 'route-mirror-exits.txt',
+    },
+    {
+        'room_id': 124, 'title': 'Scenic Vista after transient Ladder Bottom visit',
+        'scene': 'z3_scenic_vista', 'start_room': 15, 'direction': 1,
+        'start_save': 'route-15-lit.sav', 'target_room': 124,
+        'screenshot': 'zork-iii/routes/ladder-transient-return.png',
+        'trace': 'route-ladder-57-transient.txt',
+    },
+    {
+        'room_id': 124, 'title': 'Scenic Vista after transient Machine Room passage',
+        'scene': 'z3_scenic_vista', 'start_room': 228, 'direction': 2,
+        'start_save': 'route-drafty-228.sav', 'target_room': 124,
+        'screenshot': 'zork-iii/routes/machine-room-transient-return.png',
+        'trace': 'route-machine-70-transient.txt',
+    },
+]
+for route in z3_routes:
+    rows.append({
+        'game': 'Zork III', 'kind': 'alternate route', 'chapter': 2,
+        'room_id': route['room_id'], 'title': route['title'],
+        'scene': route['scene'],
+        'save_file': z3_route_root + route['start_save'],
+        'screenshot': route['screenshot'],
+        'trace_log': z3_route_root + route['trace'],
+        'dark': 0, 'capture_status': 'pending route replay', 'capture_view': 'route',
+        'start_room': route['start_room'],
+        'route': [(route['direction'], route['target_room'])],
+    })
+
+# Native UI checks after route restoration: restore the Royal Puzzle through
+# the Pause menu, then complete Zork III from the traced prison checkpoint and
+# capture its actual GBA ending screen and controller-driven ending choices.
+z3_ui_script = 'qa/mgba-room-gallery/capture-z3-ui-refresh.lua'
+rows.extend([
+    {
+        'game': 'Zork III', 'kind': 'story state', 'chapter': 2,
+        'room_id': 194, 'title': 'Royal Puzzle · after in-game Restore',
+        'scene': 'z3_puzzle_room',
+        'save_file': z3_route_root + 'puzzle-initial.sav',
+        'screenshot': 'zork-iii/states/puzzle-restored.png',
+        'trace_log': z3_ui_script, 'dark': 0,
+        'capture_status': 'pending UI replay', 'capture_view': 'route',
+    },
+    {
+        'game': 'Zork III', 'kind': 'story state', 'chapter': 2,
+        'room_id': 46, 'title': 'Treasury · successful ending',
+        'scene': 'z3_treasury',
+        'save_file': z3_route_root + 'route-204-lit.sav',
+        'screenshot': 'zork-iii/states/ending-story.png',
+        'trace_log': z3_route_root + 'route-z3-ending.txt', 'dark': 0,
+        'capture_status': 'pending UI replay', 'capture_view': 'route',
+    },
+    {
+        'game': 'Zork III', 'kind': 'story state', 'chapter': 2,
+        'room_id': 46, 'title': 'Treasury · Restart / Restore / Quit menu',
+        'scene': 'z3_treasury',
+        'save_file': z3_route_root + 'route-204-lit.sav',
+        'screenshot': 'zork-iii/states/ending-options.png',
+        'trace_log': z3_ui_script, 'dark': 0,
+        'capture_status': 'pending UI replay', 'capture_view': 'route',
+    },
+])
+
 # Keep one physical-room screenshot per room; encode alternate states separately.
 STATE_TITLE_OVERRIDES = {
     'cellar': 'Cellar · trap door barred from above',
@@ -449,7 +538,7 @@ for row in rows:
     (OUT / row['screenshot']).parent.mkdir(parents=True, exist_ok=True)
 fields = ['game','kind','chapter','room_id','title','scene','save_file','screenshot','trace_log','dark','capture_status','capture_view']
 with (OUT / 'manifest.csv').open('w', newline='') as f:
-    w = csv.DictWriter(f, fieldnames=fields, extrasaction='ignore'); w.writeheader(); w.writerows(rows)
+    w = csv.DictWriter(f, fieldnames=fields, extrasaction='ignore', lineterminator='\n'); w.writeheader(); w.writerows(rows)
 
 lua = ['roomCapturePlan = {']
 for row in rows:

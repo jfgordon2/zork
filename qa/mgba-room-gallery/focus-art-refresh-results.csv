@@ -1,0 +1,8 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-ii/room-157.png,captured,zork-ii-route-room-157-room-157,1,157,157
+zork-ii/room-234.png,captured,zork-ii-route-room-234-room-234,1,234,234
+zork-ii/room-224.png,captured,zork-ii-death-route-224-room-224,1,224,224
+zork-ii/room-227.png,captured,zork-ii-death-route-227-room-227,1,227,227
+zork-iii/room-81.png,captured,zork-iii-route-room-81-room-81,2,81,81
+zork-iii/room-179.png,captured,zork-iii-route-room-179-room-179,2,179,179
+zork-iii/room-204.png,captured,zork-iii-route-room-204-room-204,2,204,204

@@ -1,0 +1,3 @@
+@qa/mgba-room-gallery/route-data/zork-iii-audit/route-143-lit.sav
+down
+| royal-puzzle-entry 0

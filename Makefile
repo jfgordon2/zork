@@ -52,22 +52,31 @@ test-transcripts: build/transcript-replay-test
 
 TEST_SOURCES = tests/story_test.c src/zmachine.c src/save.c src/chapter.c src/interaction.c src/puzzle_map.c src/trail.c src/room_map.c src/video.c src/visual_state.c src/transcript_codec.c
 TEST_SOURCES += tests/scene_stubs.c tests/z3_scene_stubs.c
-TEST_HEADERS = src/zmachine.h src/save.h src/chapter.h src/interaction.h src/puzzle_map.h src/video.h src/trail.h src/room_map.h src/visual_state.h src/transcript_codec.h
+TEST_HEADERS = src/zmachine.h src/save.h src/chapter.h src/interaction.h src/action_probe_verbs.def src/puzzle_map.h src/video.h src/trail.h src/room_map.h src/visual_state.h src/transcript_codec.h
 TEST_HEADERS += src/zork1_scenes.h src/zork1_scenes.def src/zork2_scenes.h src/zork2_scenes.def
 
-build/story-test: $(TEST_SOURCES) $(TEST_HEADERS) vendor/mojozork/mojozork.c | build
-	$(HOST_CC) -O2 -std=c11 -Wall -Wextra -Werror -fno-builtin -Isrc $(TEST_SOURCES) -o $@
+build/story-test: $(TEST_SOURCES) $(TEST_HEADERS) build/action_profiles.inc vendor/mojozork/mojozork.c | build
+	$(HOST_CC) -O2 -std=c11 -Wall -Wextra -Werror -fno-builtin -Isrc -Ibuild $(TEST_SOURCES) -o $@
 
 build/transcript-replay-test: tests/transcript_replay_test.c tests/fixtures/zork1-winning-route.tsv \
 	                             tests/fixtures/zork2-winning-route.tsv tests/fixtures/zork3-winning-route.tsv \
-	                             src/zmachine.c src/zmachine.h src/chapter.c src/chapter.h src/interaction.c src/interaction.h \
+	                             build/action_profiles.inc \
+	                             src/zmachine.c src/zmachine.h src/chapter.c src/chapter.h src/interaction.c src/interaction.h src/action_probe_verbs.def \
+	                             src/save.c src/puzzle_map.c src/trail.c src/room_map.c build/trilogy-qa.o \
 	                             src/room_visuals.c src/room_visuals.h src/visual_state.c src/visual_state.h \
 	                             src/video.c src/video.h src/transcript_codec.c src/transcript_codec.h \
-	                             tests/scene_stubs.c tests/z3_scene_stubs.c build/encounter_art.h build/item_art.h \
+	                             tests/story_stubs.c build/trilogy-scenes-host.o build/encounter_art.h build/item_art.h \
 	                             stories/zork1.z3 stories/zork2.z3 stories/zork3.z3 | build
 	$(HOST_CC) -O2 -std=c11 -Wall -Wextra -Werror -fno-builtin -DVISUAL_QA -Isrc -Ibuild \
 		tests/transcript_replay_test.c src/zmachine.c src/chapter.c src/interaction.c src/room_visuals.c src/visual_state.c \
-		src/video.c src/transcript_codec.c tests/scene_stubs.c tests/z3_scene_stubs.c -o $@
+		src/save.c src/puzzle_map.c src/trail.c src/room_map.c src/video.c src/transcript_codec.c \
+		tests/story_stubs.c build/trilogy-scenes-host.o build/trilogy-qa.o -o $@
+
+build/trilogy-qa.o: src/trilogy.c src/room_visuals.h src/chapter.h src/interaction.h src/video.h \
+	                  src/save.h src/trail.h src/room_map.h src/puzzle_map.h src/visual_state.h \
+	                  src/transcript_codec.h | build
+	$(HOST_CC) -O2 -std=c11 -Wall -Wextra -Werror -fno-builtin -DVISUAL_QA \
+		-Dmain=trilogy_qa_main -Isrc -Ibuild -c $< -o $@
 
 zork-trilogy.gba: build/trilogy.elf tools/rom.py
 	$(OBJCOPY) -O binary $< $@
@@ -89,6 +98,12 @@ build/%.o: src/%.c | build
 build/%.o: src/%.S | build
 	$(CC) -mcpu=arm7tdmi -marm -c $< -o $@
 
+build/interaction.o: CFLAGS += -Ibuild
+build/interaction.o: build/action_profiles.inc
+
+build/action_profiles.inc: tests/fixtures/action-profiles.tsv tools/action_profiles.py src/action_probe_verbs.def | build
+	$(PYTHON) tools/action_profiles.py tests/fixtures/action-profiles.tsv $@ src/action_probe_verbs.def
+
 build/room_visuals.o: CFLAGS += -Ibuild
 build/room_visuals.o: build/encounter_art.h build/item_art.h
 
@@ -101,6 +116,10 @@ build/item_art.h: $(ITEM_ART)/frames.json $(wildcard $(ITEM_ART)/*.png) tools/en
 build/scenes.o: $(ART)
 build/trilogy-scenes.o: src/scenes.S Makefile src/zork1_scenes.def src/zork2_scenes.def $(ART) $(EXTRA_ART) | build
 	$(CC) -mcpu=arm7tdmi -marm -DTRILOGY -c $< -o $@
+build/trilogy-scenes-host.S: tools/host_scenes.py src/scenes.S src/zork1_scenes.def src/zork2_scenes.def $(ART) $(EXTRA_ART) | build
+	$(PYTHON) tools/host_scenes.py $@
+build/trilogy-scenes-host.o: build/trilogy-scenes-host.S
+	$(HOST_CC) -c $< -o $@
 
 build/stories.o: stories/zork1.z3 stories/zork2.z3 stories/zork3.z3
 

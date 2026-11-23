@@ -1,0 +1,6 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-iii/routes/mirror-southwest-119.png,captured,zork-iii-alternate-route-119-mirror-southwest-119,2,119,119
+zork-iii/routes/ladder-transient-return.png,captured,zork-iii-alternate-route-124-ladder-transient-return,2,124,124
+zork-iii/routes/machine-room-transient-return.png,captured,zork-iii-alternate-route-124-machine-room-transient-return,2,124,124
+zork-iii/routes/royal-entrance-down.png,captured,zork-iii-alternate-route-194-royal-entrance-down,2,194,194
+zork-iii/routes/mirror-southeast-221.png,captured,zork-iii-alternate-route-221-mirror-southeast-221,2,221,221

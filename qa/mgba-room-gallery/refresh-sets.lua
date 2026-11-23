@@ -10,6 +10,13 @@
 local root = assert(galleryCaptureRoot, 'Set galleryCaptureRoot before loading refresh-sets.lua')
 
 local sets = {
+  ['z3-routes'] = { -- Paths-menu replays for stable branches and two transient returns.
+    'zork-iii-alternate-route-194-royal-entrance-down',
+    'zork-iii-alternate-route-119-mirror-southwest-119',
+    'zork-iii-alternate-route-221-mirror-southeast-221',
+    'zork-iii-alternate-route-124-ladder-transient-return',
+    'zork-iii-alternate-route-124-machine-room-transient-return',
+  },
   ['art-followup'] = {  -- Art/state pairs changed in the latest consistency pass.
     'zork-i-route-room-16-room-16', 'zork-i-route-room-31-room-31', 'zork-i-route-room-72-room-72',
     'zork-i-route-room-86-room-86', 'zork-i-route-room-167-room-167', 'zork-i-route-room-202-room-202',

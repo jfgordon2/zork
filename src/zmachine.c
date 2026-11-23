@@ -13,6 +13,8 @@ static unsigned depth;
 // Shared scratch for a saved game being restored and for z_probe's rewind point;
 // the two never overlap.
 static uint8_t scratch_dynamic[Z_DYNAMIC_MAX], scratch_stack[Z_STACK_WORDS * 2];
+static ZResume probe_batch_state;
+static bool probe_batch_active;
 static char *probe_reply;
 static size_t probe_size, probe_capacity;
 
@@ -392,6 +394,18 @@ void z_scratch(uint8_t **dynamic, uint8_t **stack) {
     *stack = scratch_stack;
 }
 
+void z_probe_batch_begin(void) {
+    if (probe_batch_active || !vm.waiting_for_line) return;
+    probe_batch_state = z_resume();
+    memcpy(scratch_dynamic, memory, vm.header.staticmem_addr);
+    memcpy(scratch_stack, vm.stack, probe_batch_state.sp * 2u);
+    probe_batch_active = true;
+}
+
+void z_probe_batch_end(void) {
+    probe_batch_active = false;
+}
+
 static void effect_hash_word(ZProbeEffect *effect, uint32_t word) {
     for (unsigned shift = 0; shift < 32; shift += 8) {
         uint8_t byte = (uint8_t)(word >> shift);
@@ -455,9 +469,11 @@ static bool z_probe_run(const char *line, char *reply, size_t capacity, unsigned
     if (!capacity) return false;
     reply[0] = 0;
     if (!vm.waiting_for_line) return false;
-    ZResume state = z_resume();
-    memcpy(scratch_dynamic, memory, vm.header.staticmem_addr);
-    memcpy(scratch_stack, vm.stack, state.sp * 2u);
+    ZResume state = probe_batch_active ? probe_batch_state : z_resume();
+    if (!probe_batch_active) {
+        memcpy(scratch_dynamic, memory, vm.header.staticmem_addr);
+        memcpy(scratch_stack, vm.stack, state.sp * 2u);
+    }
     probe_reply = reply;
     probe_size = 0;
     probe_capacity = capacity - 1;

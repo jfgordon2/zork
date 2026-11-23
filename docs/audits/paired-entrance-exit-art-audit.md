@@ -1,6 +1,6 @@
 # Paired entrance, exit, and door-state art audit
 
-Reviewed November 18, 2026. This pass compares current background PNGs, room-to-art state selection, story descriptions, and existing route captures. It covers both closed/open views within one room and views from the connected room. The review uses the existing route captures; a later full container build embedded the current artwork but did not include a fresh mGBA replay.
+Reviewed November 18, 2026. This pass compares current background PNGs, room-to-art state selection, story descriptions, and existing route captures. It covers both closed/open views within one room and views from the connected room. At the time, the review used existing route captures and the later full container build did not include a fresh mGBA replay. That evidence gap was closed in the November 22 current-ROM refresh: 528 full-gallery frames and eight targeted Zork III route/UI frames were captured in mGBA. See the [route-driven QA update](visual-route-qa-audit.md) and [Zork III route register](zork-iii-route-coverage.md).
 
 ## Summary
 
@@ -90,4 +90,4 @@ Validation: reviewed the updated image at native 240×102 and in the game's 240�
 - Route/state transcripts: `build/zork-i-audit/dam-actions.log`, `build/zork-ii-art/re-audit/door-check.log`, `build/zork-ii-art/re-audit/keyhole-failures.log`, and `build/zork-iii-audit/master-prison-branches.log`.
 - Existing route and state evidence: [Zork I repeat audit](zork-i-re-audit.md), [Zork II completion audit](zork-ii-completion-audit.md), and [Zork III route coverage](zork-iii-route-coverage.md).
 - Shared acceptance rules: [Scenery rules](../../assets/SCENERY_RULES.md), including same-object door identity, fixed architecture across state changes, and actual destination views through open doors.
-- The review checked the listed source images and existing route captures. It did not perform a new full-ROM or mGBA replay; proposed changes should be rechecked at the native 240×160 crop and through both route directions.
+- This section describes the November 18 review, which checked source images and existing route captures without a new mGBA replay. The subsequent November 22 current-ROM pass verified the full gallery and the Zork III route frames linked above.

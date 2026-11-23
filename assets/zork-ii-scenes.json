@@ -540,7 +540,8 @@
       ],
       "review_document": "../zork-ii-re-audit.md",
       "story_description": "Formal Garden\nThis is the middle part of a formal garden. Hedges hide the cavern walls and a dim illumination comes from mosses far above. The path is of small crushed white stones. It winds among bushes and flower beds from south to north. To the north a small structure can be seen. To the south are peculiarly shaped bushes. There is a small gap in the hedges to the west.\nA strange little man in a long cloak appears suddenly in the room. He is wearing a high pointed hat embroidered with astrological signs. He has a long, stringy, and unkempt beard.\nHe mutters something (muffled by his beard) and disappears as suddenly as he came.",
-      "prompt_status": "Exact original prompt unavailable; regenerate from bundled story and SCENERY_RULES.md, using this final PNG as the layout reference."
+      "prompt_status": "Approved ImageGen edit: added a small unicorn-shaped hedge in the side bed while preserving the gravel path and gazebo.",
+      "generated_source": "exec-f11c130f-bef3-460d-9e42-ae0a45d60115.png"
     },
     {
       "name": "marble_hall",
@@ -1675,8 +1676,8 @@
       ],
       "review_document": "../zork-ii-re-audit.md",
       "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory: You are INSIDE a HUGE CRYSTALLINE SPHERE filled with thin red mist. The mist becomes blue to the WEST. First-person interior camera encircled by a curved faceted transparent shell, softly suggested by arcs across the upper and side edges. Beyond hazy curved glass, a SMALL plain stone room with a tiny BLURRY unreadable rectangular sign. No legible text. The WEST left edge is a narrow MIST corridor tinted blue, connected to the spherical interior, not a floating masonry door. No ordinary foreground floor, furniture INSIDE sphere, characters, props, labels or interface. Match pixel materials of reference but radically different mystical spherical setting, not reuse a hall.",
-      "prompt_status": "Preserved generation or final edit prompt",
-      "generated_source": "exec-50d88544-df77-47de-9ac2-7f78760550e7.png"
+      "prompt_status": "Approved ImageGen edit: clarified the curved crystalline sphere shell and red mist while keeping the small room and westward blue haze visible through it.",
+      "generated_source": "exec-ccb85907-f98d-490c-998a-3edf886fa398.png"
     },
     {
       "name": "mist_blue",
@@ -1704,8 +1705,8 @@
       ],
       "review_document": "../zork-ii-re-audit.md",
       "prompt": "Use case: illustration-story. ONE first-person Zork II underground location background, in the reference game's detailed late 16-bit clustered pixel art, colored edges with limited black outlines, subdued slate and earth palette. Final game size 240x102; source rows 10..85 must contain every important entrance, its floor and its approach. ARCHITECTURAL RULES: establish one consistent eye level and floor plane. Trace continuous walkable ground from foreground THROUGH every traversable doorway; every door sill is FLUSH with that ground at its local depth and has visible floor just inside. NEVER put a vertical wall strip underneath a door opening, disconnect a path from its entrance, invent unexplained stairs/platforms, or make a human crawlway into an animal hole. Human routes have adult shoulder clearance and plausible headroom for their required posture. Elevation changes only as described by story. Entire environment remains UNDERGROUND, no outdoor sky or forest unless explicitly described. No invented extra entrances or fixed light sources. All portable items, creatures, characters and vehicles are separate runtime sprites: leave their supported space empty. Leave real near foreground floor for dropped items except explicitly airborne scenes. No text, UI, captions, border, logos or loose treasure. \nStory: You are INSIDE a HUGE CRYSTALLINE SPHERE filled with thin blue mist. The mist becomes white to the WEST. First-person interior camera encircled by a curved faceted transparent shell, softly suggested by arcs across the upper and side edges. Beyond hazy curved glass, a LARGE dreary room, a great OAK DOOR at left and a HUGE table at right, distorted by an odd blue glow. The WEST left edge is a narrow MIST corridor tinted white, connected to the spherical interior, not a floating masonry door. No ordinary foreground floor, furniture INSIDE sphere, characters, props, labels or interface. Match pixel materials of reference but radically different mystical spherical setting, not reuse a hall.",
-      "prompt_status": "Preserved generation or final edit prompt",
-      "generated_source": "exec-c5da96ee-e591-4b00-a548-2ede6b25bb5b.png"
+      "prompt_status": "Approved ImageGen edit: clarified the curved crystalline sphere shell and blue mist while preserving the oak door, large table, and westward white haze.",
+      "generated_source": "exec-c29eab1e-ccfe-4a70-ae10-d28c62df35a4.png"
     },
     {
       "name": "mist_white",

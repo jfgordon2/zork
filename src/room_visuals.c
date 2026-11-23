@@ -504,7 +504,7 @@ static const RoomAnchor anchors[] = {
     {0, 52, 183, 39, 22, 159, 40},
     {0, 52, 234, 39, 22, 159, 40},
     {0, ZORK1_LADDER_BOTTOM, ZORK1_MINE_LADDER, 164, 17, 24, 65},
-    {0, 89, 101, 198, 47, 8, 9},
+    {0, 89, 101, 198, 40, 8, 9},
     {0, 75, 100, 7, 17, 34, 43},
     {0, 75, 240, 81, 70, 97, 17},
     {0, 85, 243, 45, 21, 101, 50},
@@ -515,7 +515,7 @@ static const RoomAnchor anchors[] = {
     {0, 129, 35, 74, 64, 91, 17},
     {0, 245, 203, 60, 27, 54, 47},
     {0, 249, 203, 94, 48, 49, 31},
-    {1, 238, 7, 91, 19, 101, 48},
+    {1, 238, 7, 90, 29, 118, 59},
     {1, 87, 1, 202, 26, 8, 10},
     {1, 87, 4, 211, 26, 8, 10},
     {1, 87, 27, 220, 26, 8, 10},
@@ -537,6 +537,7 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_NARROW_GUARDIANS_WEST, 152, 70, 20, 99, 47},
     {2, ZORK3_NARROW_STATUES_EAST, 152, 103, 34, 34, 22},
     {2, ZORK3_NARROW_STATUES_WEST, 152, 103, 34, 34, 22},
+    {2, ZORK3_PUZZLE_ENTRANCE, 154, 92, 17, 47, 36},
     {2, ZORK3_NARROW_GUARDIANS_EAST, 106, 145, 8, 82, 59},
     {2, ZORK3_NARROW_GUARDIANS_EAST, 29, 145, 8, 82, 59},
     {2, ZORK3_NARROW_GUARDIANS_WEST, 106, 13, 8, 82, 59},
@@ -553,14 +554,25 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_SCENIC_VISTA, 17, 8, 43, 45, 31},
     {2, ZORK3_SCENIC_VISTA, 3, 12, 17, 26, 24},
     {2, ZORK3_BUTTON_ROOM, 191, 166, 38, 24, 24},
-    {2, ZORK3_PARAPET, 88, 67, 46, 108, 34},
+    {2, ZORK3_PARAPET, 88, 68, 44, 130, 43},
     {2, ZORK3_NORTH_CORRIDOR, 183, 42, 20, 36, 44},
     {2, ZORK3_NORTH_CORRIDOR, 206, 84, 42, 108, 12},
     {2, ZORK3_NORTH_CORRIDOR, 4, 84, 17, 108, 29},
     {2, 143, 215, 97, 53, 46, 31},
     {2, 143, 154, 92, 17, 47, 36},
     {2, 45, 183, 166, 25, 35, 43},
-    {2, 204, 153, 166, 25, 35, 43},
+    {2, 204, 153, 186, 17, 42, 36},
+    // Zork III room 113: the shallow channel and the compass rose around its hole.
+    {2, 113, 96, 70, 72, 104, 19},
+    {2, 113, 107, 118, 48, 6, 22},
+    // The other guardian hallways show the same floor features. 44/224 use the
+    // long guardian-hallway art; 54 uses the mirror-hall view.
+    {2, 44, 96, 70, 72, 104, 19},
+    {2, 44, 107, 118, 48, 6, 22},
+    {2, 54, 96, 83, 74, 83, 17},
+    {2, 54, 107, 121, 68, 8, 23},
+    {2, 224, 96, 70, 72, 104, 19},
+    {2, 224, 107, 118, 48, 6, 22},
     {2, 204, 209, 84, 21, 74, 53},
     {2, ZORK3_LADDER_TOP, 68, 158, 59, 37, 31},
     {2, ZORK3_LADDER_TOP, 154, 5, 19, 66, 59},
@@ -583,14 +595,14 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_PARAPET, 4, 8, 27, 224, 29},
     {2, ZORK3_PARAPET, 206, 4, 65, 232, 20},
     {2, 45, 209, 188, 29, 33, 43},
-    {2, ZORK3_BUTTON_ROOM, 154, 120, 43, 28, 23},
+    {2, ZORK3_BUTTON_ROOM, 154, 84, 57, 72, 27},
     {2, ZORK3_BUTTON_ROOM, 222, 181, 39, 25, 30},
     {2, 103, 25, 112, 59, 26, 16},
     {2, 103, 131, 100, 24, 26, 15},
     {2, ZORK3_DUNGEON_ENTRANCE, 80, 8, 34, 57, 44},
     {2, ZORK3_DUNGEON_ENTRANCE, 147, 176, 33, 42, 34},
     {2, ZORK3_CRYSTAL_GROTTO, 50, 10, 30, 67, 46},
-    {2, ZORK3_CRYSTAL_GROTTO, 198, 74, 65, 92, 18},
+    {2, ZORK3_CRYSTAL_GROTTO, 198, 140, 51, 34, 19},
     {2, ZORK3_DAMP_PASSAGE, 14, 8, 30, 48, 35},
     {2, ZORK3_DAMP_PASSAGE, 71, 66, 52, 108, 23},
     {2, ZORK3_DAMP_PASSAGE, 198, 72, 64, 96, 18},
@@ -618,7 +630,7 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_NARROW_GUARDIANS_EAST, 147, 13, 30, 55, 38},
     {2, ZORK3_NARROW_GUARDIANS_WEST, 207, 13, 30, 55, 38},
     {2, ZORK3_ENGRAVINGS_ROOM, 32, 41, 23, 62, 32},
-    {2, ZORK3_ENGRAVINGS_ROOM, 154, 170, 31, 49, 36},
+    {2, ZORK3_ENGRAVINGS_ROOM, 154, 103, 36, 34, 44},
     {2, ZORK3_ENGRAVINGS_ROOM, 222, 178, 31, 32, 43},
     {2, 159, 207, 106, 30, 28, 35},
     {2, ZORK3_HIGH_ARCH, 71, 12, 57, 216, 24},
@@ -627,6 +639,7 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_AQUEDUCT, 71, 17, 61, 206, 27},
     {2, ZORK3_AQUEDUCT, 156, 64, 31, 111, 40},
     {2, ZORK3_AQUEDUCT, 198, 8, 32, 224, 30},
+    {2, ZORK3_AQUEDUCT_VIEW, 154, 5, 25, 48, 43},
     {2, ZORK3_WATER_SLIDE, 71, 18, 59, 204, 27},
     {2, ZORK3_WATER_SLIDE, 156, 69, 33, 105, 38},
     {2, ZORK3_WATER_SLIDE, 198, 11, 33, 218, 34},
@@ -639,9 +652,9 @@ static const RoomAnchor anchors[] = {
     {2, 159, 147, 14, 30, 74, 36},
     {2, 169, 29, 165, 25, 28, 42},
     {2, 169, 80, 165, 25, 28, 42},
-    {2, 169, 96, 86, 57, 66, 25},
+    {2, 169, 96, 83, 74, 83, 17},
     {2, 169, 106, 165, 25, 28, 42},
-    {2, 169, 107, 112, 59, 16, 30},
+    {2, 169, 107, 121, 68, 8, 23},
     {2, 179, 61, 104, 60, 31, 13},
     {2, 179, 79, 164, 54, 35, 26},
     {2, 179, 205, 200, 28, 34, 58},
@@ -685,6 +698,10 @@ static const RoomAnchor anchors[] = {
     {1, 21, 105, 8, 37, 224, 40},
     {1, 183, 217, 8, 17, 224, 59},
     {1, 53, 5, 19, 71, 186, 17},
+    // In each mist room the player is inside the crystal sphere. Frame its
+    // curved shell around the scene rather than an absent loose sphere sprite.
+    {1, 224, 188, 4, 18, 232, 72},
+    {1, 227, 188, 4, 18, 232, 72},
 
     // Zork III lake-side stair and water surface.
     {2, 102, 223, 62, 33, 127, 50},
@@ -696,10 +713,9 @@ static const RoomAnchor anchors[] = {
     {2, 160, 52, 3, 17, 10, 68},
     {2, 160, 62, 184, 22, 52, 58},
     {2, 160, 87, 121, 27, 58, 42},
-    {2, 160, 96, 76, 62, 88, 25},
-    {2, 160, 107, 113, 28, 14, 61},
+    {2, 160, 96, 70, 74, 94, 17},
+    {2, 160, 107, 113, 78, 14, 12}, // floor channel below the compass depression
     {2, 160, 127, 113, 70, 14, 14},
-    {2, 160, 152, 87, 18, 66, 29},
     {2, 160, 157, 20, 50, 200, 9},
     {2, 160, 175, 106, 72, 28, 11},
     {2, 160, 196, 114, 17, 12, 62},
@@ -712,12 +728,13 @@ static const RoomAnchor anchors[] = {
     {2, 176, 79, 175, 44, 39, 31},
     {2, 176, 82, 100, 26, 41, 34},
     {2, 176, 92, 30, 39, 39, 29},
-    {2, 176, 121, 108, 63, 30, 15},
     {2, 176, 132, 175, 44, 39, 31},
     {2, 227, 79, 175, 44, 39, 31},
     {2, 227, 82, 100, 26, 41, 34},
     {2, 227, 89, 9, 34, 36, 28},
-    {2, 227, 154, 188, 57, 31, 14},
+    {2, ZORK3_MUSEUM_ENTRANCE, 154, 89, 65, 62, 20},
+    {2, ZORK3_MUSEUM_ENTRANCE_ALT, 154, 89, 65, 62, 20},
+    {2, 227, 154, 89, 65, 62, 20},
     {2, 227, 199, 29, 27, 25, 35},
     {2, 227, 205, 181, 27, 25, 35},
 
@@ -752,23 +769,24 @@ static const RoomAnchor anchors[] = {
     {0, 87, 56, 119, 35, 16, 14},
     {0, 87, 65, 154, 27, 54, 41},
     {0, 87, 1, 6, 17, 95, 67},
-    {0, 27, 169, 46, 59, 94, 18},
+    {0, 27, 169, 41, 59, 120, 20},
     {0, 27, 243, 178, 19, 46, 34},
     {0, 27, 43, 8, 18, 34, 39},
     // Kitchen's two stair treads sit at the far right edge and continue offscreen.
     {0, 27, 177, 214, 63, 24, 25},
-    {0, 75, 55, 35, 55, 124, 29},
+    // The living-room rug is a separate target in both arrangements; its
+    // position is chosen in draw_room_target_anchor from the trap-door state.
     {0, 75, 197, 181, 27, 41, 37},
     {0, 75, 177, 105, 60, 31, 21},
-    {0, 187, 250, 110, 55, 66, 20},
-    {0, 187, 177, 95, 17, 49, 29},
+    {0, 187, 250, 104, 52, 124, 23},
     {0, 33, 177, 92, 22, 55, 41},
-    {0, 127, 36, 100, 54, 16, 18},
     {0, 78, 177, 172, 28, 66, 60},
     {0, 82, 177, 2, 48, 30, 40},
-    {0, 117, 177, 99, 19, 48, 33},
     {0, 31, 231, 88, 24, 59, 37},
-    {0, 178, 9, 87, 53, 42, 26},
+    // The troll holds this axe in some states; its floor sprite is framed by
+    // the ordinary item renderer once the story drops it into the room.
+    {0, 127, 36, 100, 54, 16, 18},
+    {0, 178, 9, 82, 51, 74, 31},
     {0, 178, 223, 64, 19, 112, 48},
     {0, 178, 6, 2, 28, 236, 30},
     {0, 95, 6, 25, 63, 190, 23},
@@ -780,11 +798,9 @@ static const RoomAnchor anchors[] = {
 
     // Zork I stairs, engravings, and temple fixtures.
     {0, 130, ZORK1_STAIRS, 91, 64, 58, 22},
-    {0, 106, ZORK1_STAIRS, 172, 56, 55, 31},
-    {0, 191, ZORK1_STAIRS, 178, 35, 56, 34},
     {0, 4, ZORK1_STAIRS, 188, 47, 48, 41},
-    {0, 18, ZORK1_STAIRS, 92, 22, 74, 39},
-    {0, 2, ZORK1_STAIRS, 90, 18, 61, 48},
+    {0, 18, ZORK1_STAIRS, 6, 26, 44, 34},
+    {0, 2, ZORK1_STAIRS, 190, 58, 48, 30},
     {0, 241, ZORK1_STAIRS, 3, 39, 34, 43},
     {0, 176, ZORK1_STAIRS, 174, 53, 48, 31},
     {0, 205, ZORK1_STAIRS, 195, 55, 40, 31},
@@ -805,6 +821,7 @@ static const RoomAnchor anchors[] = {
     {1, 218, 48, 12, 60, 79, 17},
     {1, 157, 217, 8, 19, 224, 48},
     {1, 157, 48, 23, 56, 72, 16},
+    {1, 157, 154, 34, 40, 32, 29},
     {1, 234, 73, 158, 53, 14, 10},
     {1, 234, 127, 158, 55, 12, 10},
 
@@ -816,7 +833,7 @@ static const RoomAnchor anchors[] = {
     {1, 119, 6, 50, 43, 139, 38},
     {1, 119, 186, 128, 50, 20, 8},
     {1, 8, 191, 10, 17, 160, 20},
-    {1, 8, 6, 12, 54, 216, 34},
+    {1, 8, 6, 4, 34, 150, 56},
     {1, 190, 155, 28, 48, 184, 30},
     {1, 122, 195, 7, 18, 226, 62},
     {1, 122, 105, 73, 37, 91, 41},
@@ -831,7 +848,7 @@ static const RoomAnchor anchors[] = {
     {1, 46, 137, 128, 18, 50, 70},
     {1, 46, 173, 143, 31, 20, 18},
     {1, 46, 105, 17, 18, 219, 66},
-    {1, 46, 130, 130, 50, 10, 11},
+    {1, 46, 130, 130, 53, 10, 11},
     {1, 46, 112, 126, 50, 20, 19},
     {1, 59, 108, 18, 22, 57, 55},
     {1, 59, 77, 182, 33, 31, 21},
@@ -844,10 +861,10 @@ static const RoomAnchor anchors[] = {
     {1, 172, 74, 45, 54, 145, 22},
     {1, 94, 76, 16, 50, 208, 33},
     {1, 94, 203, 177, 34, 48, 35},
-    {1, 233, 250, 40, 25, 160, 48},
-    {1, 182, 163, 162, 24, 53, 20},
+    {1, 233, 250, 34, 16, 154, 60},
+    {1, 182, 163, 195, 50, 17, 9},
     {1, 182, 132, 150, 30, 46, 38},
-    {1, 182, 101, 153, 23, 64, 39},
+    {1, 182, 101, 143, 62, 71, 13},
     {1, 200, 20, 34, 18, 172, 60},
     {1, 200, 160, 72, 44, 97, 39},
     {1, 200, 50, 8, 19, 222, 62},
@@ -857,7 +874,7 @@ static const RoomAnchor anchors[] = {
     {1, 2, 50, 75, 17, 90, 25}, {1, 2, 199, 75, 61, 90, 24},
     {1, 102, 145, 166, 24, 55, 58}, {1, 102, 211, 16, 24, 55, 58},
     {1, 102, 50, 75, 17, 90, 25}, {1, 102, 199, 75, 61, 90, 24},
-    {1, 91, 209, 71, 23, 91, 42},
+    {1, 91, 209, 48, 55, 145, 34},
     {1, 91, 166, 38, 31, 45, 48},
     {1, 91, 208, 98, 33, 52, 44},
     {1, 91, 222, 175, 31, 49, 30},
@@ -865,7 +882,7 @@ static const RoomAnchor anchors[] = {
     {1, 19, 180, 2, 20, 70, 68},
     {1, 19, 216, 165, 30, 51, 42},
     {1, 162, 180, 15, 30, 72, 58},
-    {1, 194, 245, 86, 22, 67, 53},
+    {1, 194, 245, 102, 30, 50, 59},
     {1, 125, 116, 55, 34, 139, 33},
     {1, 125, 118, 18, 45, 204, 28},
     {1, 125, 245, 87, 22, 68, 52},
@@ -876,9 +893,6 @@ static const RoomAnchor anchors[] = {
     {2, 45, 4, 202, 22, 30, 18},
     {2, 204, 4, 177, 52, 50, 34},
 
-    // Zork I's Hades entrances describe the bodies as a foreground landmark.
-    {0, 38, 144, 84, 68, 72, 17},
-    {0, 13, 144, 84, 68, 72, 17},
 
     // Zork II balloon hooks are fixed fittings at the cable endpoints.
     {1, 13, 88, 70, 34, 18, 15},
@@ -960,6 +974,7 @@ static const RoomItem items[] = {
     VARIANT(0, 138, BottleEmpty, BottleFull, ITEM_WHEN_BOTTLE_FULL),
     ART(0, 140, SkullCrystal),
     ART(0, 142, NewPropsSlag),
+    ART(0, 144, PileBodiesPile),
     VARIANT(0, 146, LanternOff, LanternOn, ITEM_WHEN_LIT),
     ART(0, 149, NewPropsBrokenCanary),
     ART(0, 154, PotOfGoldFull),
@@ -1108,6 +1123,10 @@ static const ItemPlacement item_placements[] = {
     {0, 38, 168, 38, {86, 82}, true, NULL},
     {0, 38, 26, 38, {105, 85}, true, NULL},
     {0, 38, 196, 38, {153, 82}, true, NULL},
+    // The shared remains are small and distant through the open Hades gate,
+    // then appear in the left corner once the player reaches the Land of the Dead.
+    {0, 38, 144, 38, {93, 65}, false, &ArtPileBodiesDistant},
+    {0, 13, 144, 13, {46, 76}, false, NULL},
     {0, 45, 208, 45, {123, 86}, false, NULL},
     {0, ZORK1_GAS_ROOM, ZORK1_BRACELET, ZORK1_GAS_ROOM, {146, 82}, true, NULL},
     {0, 53, 208, 53, {125, 86}, false, NULL},
@@ -1135,14 +1154,16 @@ static const ItemPlacement item_placements[] = {
     {0, 182, 185, 182, {82, 72}, false, NULL},
     {0, 184, 208, 184, {168, 85}, true, NULL},
     {0, 187, 58, 187, {129, 73}, true, NULL},
-    {0, 187, 165, 187, {171, 72}, true, NULL},
+    {0, 187, 165, 250, {171, 72}, true, NULL}, // knife lies on the attic table
+    {0, 187, ZORK1_STAIRS, 48, {27, 84}, false, &ArtAtticRailingRail}, // stairs are global scenery
     {0, 191, 109, 191, {176, 84}, true, NULL},
     {0, 218, 206, 218, {96, 77}, true, NULL},
     {0, 218, 96, 218, {130, 77}, false, NULL},
     {0, 218, 97, 218, {143, 82}, true, NULL},
     {0, 218, 232, 218, {74, 83}, false, NULL},
-    // The Studio's ZORK owner's manual is the small paper attached to the wall.
-    {0, 220, 41, 220, {68, 58}, false, NULL},
+    // The Studio's manual is loosely attached to the wall. Keep it fully on
+    // the painted wall panel, clear of the doorway edge so it reads as affixed.
+    {0, 220, 41, 220, {48, 50}, false, NULL},
     {0, 224, 236, 224, {115, 81}, false, NULL},
     {0, 224, 114, 224, {144, 83}, false, NULL},
     {0, 224, 195, 224, {163, 79}, false, NULL},
@@ -1219,16 +1240,47 @@ static const ItemPlacement item_placements[] = {
 // Redrawing the identical box (an item re-drawn on top) stays allowed.
 static bool focus_box_drawn;
 static int focus_box[4];
+static unsigned current_focused;
 
-static void corners(int x, int y, int width, int height, int length) {
+// The focused sprite's actual drawn rect, reported independently of the gold
+// box so the replay audit can prove the box surrounds the right thing.
+static void report_focused(unsigned object, int x, int y, int width, int height) {
+#ifdef VISUAL_QA
+    extern void visual_qa_focused_visual(unsigned object, int kind, int x, int y, int width, int height);
+    visual_qa_focused_visual(object, 0, x, y, width, height);
+#else
+    (void)object; (void)x; (void)y; (void)width; (void)height;
+#endif
+}
+
+static void report_focused_feature(unsigned object, int x, int y, int width, int height) {
+#ifdef VISUAL_QA
+    extern void visual_qa_focused_visual(unsigned object, int kind, int x, int y, int width, int height);
+    visual_qa_focused_visual(object, 1, x, y, width, height);
+#else
+    (void)object; (void)x; (void)y; (void)width; (void)height;
+#endif
+}
+
+static void corners(unsigned object, int x, int y, int width, int height, int length) {
+    if (object != current_focused) return;
+    // A border around an edge-of-band sprite can spill above row 15 or below
+    // row 90; keep the whole box inside the art band.
+    if (y < 15) { height -= 15 - y; y = 15; }
+    if (y + height > 91) height = 91 - y;
+    if (x < 0) { width += x; x = 0; }
+    if (x + width > SCREEN_W) width = SCREEN_W - x;
+    if (width <= 0 || height <= 0) return;
+#ifdef VISUAL_QA
+    extern void visual_qa_marker(int x, int y, int width, int height);
+    extern void visual_qa_focused_box(unsigned object, int x, int y, int width, int height);
+    visual_qa_marker(x, y, width, height);
+    if (!focus_box_drawn) visual_qa_focused_box(object, x, y, width, height);
+#endif
     if (focus_box_drawn && (x != focus_box[0] || y != focus_box[1] ||
                             width != focus_box[2] || height != focus_box[3])) return;
     focus_box_drawn = true;
     focus_box[0] = x, focus_box[1] = y, focus_box[2] = width, focus_box[3] = height;
-#ifdef VISUAL_QA
-    extern void visual_qa_marker(int x, int y, int width, int height);
-    visual_qa_marker(x, y, width, height);
-#endif
     fill(x, y, length, 1, GOLD);
     fill(x + width - length, y, length, 1, GOLD);
     fill(x, y + height - 1, length, 1, GOLD);
@@ -1239,12 +1291,14 @@ static void corners(int x, int y, int width, int height, int length) {
     fill(x + width - 1, y + height - length, 1, length, GOLD);
 }
 
+static void focus_feature_box(unsigned object, int x, int y, int width, int height, int length) {
+    if (object != current_focused) return;
+    report_focused_feature(object, x, y, width, height);
+    corners(object, x, y, width, height, length);
+}
+
 void draw_target_focus_box(bool visible) {
     if (!visible) return;
-#ifdef VISUAL_QA
-    extern void visual_qa_ui_focus(void);
-    visual_qa_ui_focus();
-#endif
     const int x = 2, y = 92, width = 236, height = 11, length = 4;
     // Scene-only concepts can be selectable without having a separate sprite
     // footprint. Frame the selected name row so every L/R target stays explicit.
@@ -1469,8 +1523,10 @@ static ScenePoint encounter_position(const Encounter *figure, unsigned room, con
     if (figure->chapter == 2 && figure->icon == DUNGEON_MASTER && room == ZORK3_PARAPET)
         return (ScenePoint){54, 89};
     if (figure->home_room == room) return figure->at;
-    if (figure->chapter == 1 && room == 16) {
+    if (figure->chapter == 1 && room == 234) {
         if (figure->icon == UNICORN) return (ScenePoint){161, 55};
+    }
+    if (figure->chapter == 1 && room == 16) {
         if (figure->icon == PRINCESS) return (ScenePoint){145, 85};
     }
     const RoomFloor *floor = room_floor(background);
@@ -1498,16 +1554,24 @@ static void draw_encounter(const Encounter *figure, unsigned room, const Color *
         if (baseline - pose->height < 17) baseline = pose->height + 17;
     }
     int x = at.x - pose->width / 2, y = baseline - pose->height;
+    // Keep the whole sprite inside the visible art band so its focus box is
+    // always on screen (Zork II's garden unicorn otherwise frames above row 15).
+    if (y < 15) y = 15;
+    if (y + pose->height > 90) y = 90 - pose->height;
+    int feet = y + pose->height; // follow the clamped sprite, not the raw anchor
     if (figure->floor_shadow) {
-        ground_shadow(x + pose->width / 8, at.y - 3, pose->width * 3 / 4);
+        ground_shadow(x + pose->width / 8, feet - 3, pose->width * 3 / 4);
         if ((figure->chapter == 2 && figure->icon == OLD_MAN && room == ZORK3_ENGRAVINGS_ROOM) ||
             (figure->chapter == 2 && figure->icon == DUNGEON_MASTER && room == ZORK3_PARAPET))
-            ground_shadow(x + pose->width / 8, at.y - 3, pose->width * 3 / 4);
+            ground_shadow(x + pose->width / 8, feet - 3, pose->width * 3 / 4);
     }
     bool mirrored = (figure->facing == FACE_LEFT && at.x < 111) ||
                     (figure->facing == FACE_RIGHT && at.x > 129);
     draw_masked_pixels(x, y, pose->width, pose->height, pose->pixels, mirrored);
-    if (focused == figure->object) corners(x - 2, y - 2, pose->width + 4, pose->height + 4, 4);
+    if (focused == figure->object) {
+        report_focused(figure->object, x, y, pose->width, pose->height);
+        corners(figure->object, x - 2, y - 2, pose->width + 4, pose->height + 4, 4);
+    }
 }
 
 typedef struct {
@@ -1532,14 +1596,18 @@ static ItemBounds item_bounds(const SceneSprite *art, ScenePoint at) {
     return (ItemBounds){at.x - art->width / 2, at.y - art->height, art->width, art->height};
 }
 
-static void draw_room_item(const SceneSprite *art, ItemBounds bounds, bool shadow, bool selected) {
+static void draw_room_item(unsigned focused_object, const SceneSprite *art,
+                           ItemBounds bounds, bool shadow, bool selected) {
     int x = bounds.x, y = bounds.y, width = bounds.width, height = bounds.height;
     if (shadow && width >= 10) ground_shadow(x + width / 8, y + height - 3, width * 3 / 4);
     draw_masked_pixels(x, y, width, height, art->pixels, false);
-    if (selected) corners(x - 1, y - 1, width + 2, height + 2, 3);
+    if (selected) {
+        report_focused(focused_object, x, y, width, height);
+        corners(focused_object, x - 1, y - 1, width + 2, height + 2, 3);
+    }
 }
 
-static void draw_boat_cargo(const SceneSprite *art, ScenePoint at, bool selected) {
+static void draw_boat_cargo(unsigned focused_object, const SceneSprite *art, ScenePoint at, bool selected) {
     unsigned largest = art->width > art->height ? art->width : art->height;
     unsigned shift = largest > 28 ? 2 : largest > 14;
     unsigned step = 1u << shift;
@@ -1552,21 +1620,24 @@ static void draw_boat_cargo(const SceneSprite *art, ScenePoint at, bool selected
             if (sample & 0x8000) pixel(x + col, y + row, sample & 0x7fff);
         }
     }
-    if (selected) corners(x - 1, y - 1, width + 2, height + 2, 2);
+    if (selected) {
+        report_focused(focused_object, x, y, width, height);
+        corners(focused_object, x - 1, y - 1, width + 2, height + 2, 2);
+    }
 }
 
-static void draw_contents_sprite(const SceneSprite *art, ScenePoint at, unsigned max_width,
-                                unsigned max_height, bool selected);
+static void draw_contents_sprite(unsigned object, const SceneSprite *art, ScenePoint at,
+                                unsigned max_width, unsigned max_height, bool selected);
 
 static void draw_zork1_item_contents(unsigned object, ItemBounds bounds,
                                      const Targets *targets, unsigned focused) {
     int center = bounds.x + bounds.width / 2, baseline = bounds.y + bounds.height;
     if (object == 179 && z_parent(204) == object && in_scene(targets, 204)) {
         ScenePoint at = {center - 2, baseline - 9};
-        draw_room_item(&ArtSceptreInside, item_bounds(&ArtSceptreInside, at), false, focused == 204);
+        draw_room_item(204, &ArtSceptreInside, item_bounds(&ArtSceptreInside, at), false, focused == 204);
     }
     if (object == 138 && z_parent(ZORK1_BOTTLE_WATER) == object && focused == ZORK1_BOTTLE_WATER)
-        corners(bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 2);
+        focus_feature_box(focused, bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 2);
 
     if (object == 99 || object == 105 || object == 115 || object == 185 || object == 195) {
         for (unsigned i = 0; i < targets->count; i++) {
@@ -1578,7 +1649,7 @@ static void draw_zork1_item_contents(unsigned object, ItemBounds bounds,
                 // Once opened, the clove is visible on the tabletop beside the sack.
                 // Keep its native sprite size so the pre-pickup scene reads clearly.
                 ScenePoint at = {center - 16, baseline};
-                draw_room_item(art, item_bounds(art, at), false, child == focused);
+                draw_room_item(child, art, item_bounds(art, at), false, child == focused);
                 continue;
             }
             ScenePoint at = {center, baseline - 4};
@@ -1601,7 +1672,7 @@ static void draw_zork1_item_contents(unsigned object, ItemBounds bounds,
                 max_width = 9;
                 max_height = 5;
             }
-            draw_contents_sprite(art, at, max_width, max_height, child == focused);
+            draw_contents_sprite(child, art, at, max_width, max_height, child == focused);
         }
     }
     if (object != 208) return;
@@ -1616,13 +1687,13 @@ static void draw_zork1_item_contents(unsigned object, ItemBounds bounds,
         const SceneSprite *art = child == 180 ? &ArtBoatLabelTan : item_pose(0, child);
         if (!art) continue;
         ScenePoint at = {center + cargo_x[drawn], baseline + cargo_y[drawn]};
-        draw_boat_cargo(art, at, child == focused);
+        draw_boat_cargo(child, art, at, child == focused);
         drawn++;
     }
 }
 
-static void draw_contents_sprite(const SceneSprite *art, ScenePoint at, unsigned max_width,
-                                unsigned max_height, bool selected) {
+static void draw_contents_sprite(unsigned object, const SceneSprite *art, ScenePoint at,
+                                unsigned max_width, unsigned max_height, bool selected) {
     unsigned step = 1, shift = 0;
     while (((art->width + step - 1) >> shift) > max_width ||
            ((art->height + step - 1) >> shift) > max_height) { step <<= 1; shift++; }
@@ -1634,7 +1705,10 @@ static void draw_contents_sprite(const SceneSprite *art, ScenePoint at, unsigned
             if (sample & 0x8000) pixel(x + col, y + row, sample & 0x7fff);
         }
     }
-    if (selected) corners(x - 1, y - 1, width + 2, height + 2, 2);
+    if (selected) {
+        report_focused(object, x, y, width, height);
+        corners(object, x - 1, y - 1, width + 2, height + 2, 2);
+    }
 }
 
 static ItemBounds contents_bounds(const SceneSprite *art, ScenePoint at,
@@ -1646,10 +1720,11 @@ static ItemBounds contents_bounds(const SceneSprite *art, ScenePoint at,
     return (ItemBounds){at.x - width / 2, at.y - height, width, height};
 }
 
-static void draw_contents_marker(const SceneSprite *art, ScenePoint at,
+static void draw_contents_marker(unsigned object, const SceneSprite *art, ScenePoint at,
                                  unsigned max_width, unsigned max_height) {
     ItemBounds bounds = contents_bounds(art, at, max_width, max_height);
-    corners(bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 2);
+    report_focused(object, bounds.x, bounds.y, bounds.width, bounds.height);
+    corners(object, bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 2);
 }
 
 static void draw_zork2_item_contents(unsigned object, ItemBounds bounds,
@@ -1658,7 +1733,7 @@ static void draw_zork2_item_contents(unsigned object, ItemBounds bounds,
         int x = bounds.x + bounds.width - 3, y = bounds.y + bounds.height / 2;
         fill(x - 3, y, 4, 1, SHADOW);
         if (zork2_fuse_burning()) draw_fuse_spark(x, y);
-        if (focused == 213) corners(x - 4, y - 6, 8, 10, 2);
+        if (focused == 213) focus_feature_box(213, x - 4, y - 6, 8, 10, 2);
         return;
     }
     if (object != 22 && object != 81 && object != 198) return;
@@ -1675,7 +1750,8 @@ static void draw_zork2_item_contents(unsigned object, ItemBounds bounds,
             at.x += (slot & 1) ? 6 : -6;
             at.y -= (slot < 2) ? 5 : 0;
         }
-        draw_contents_sprite(art, at, object == 198 ? 12 : 10, object == 198 ? 8 : 5, child == focused);
+        draw_contents_sprite(child, art, at, object == 198 ? 12 : 10, object == 198 ? 8 : 5,
+                             child == focused);
         slot++;
       }
     }
@@ -1686,9 +1762,12 @@ static void draw_zork3_item_contents(unsigned object, ItemBounds bounds,
     // The seat, dial and button are drawn as part of the time machine sprite,
     // so frame them wherever the machine itself was placed.
     if (object == ZORK3_TIME_MACHINE && in_scene(targets, focused)) {
-        if (focused == 25 || focused == 121) corners(bounds.x + 26, bounds.y, 26, 14, 3);
-        else if (focused == 76) corners(bounds.x + 9, bounds.y + 4, 8, 8, 3);
-        else if (focused == 120) corners(bounds.x + 4, bounds.y + 4, 7, 7, 3);
+        if (focused == 25 || focused == 121)
+            focus_feature_box(focused, bounds.x + 26, bounds.y, 26, 14, 3);
+        else if (focused == 76)
+            focus_feature_box(focused, bounds.x + 9, bounds.y + 4, 8, 8, 3);
+        else if (focused == 120)
+            focus_feature_box(focused, bounds.x + 4, bounds.y + 4, 7, 7, 3);
         return;
     }
     if (object != 61) return;
@@ -1707,14 +1786,15 @@ static void draw_z3_jewel_display(unsigned room, const Color *background,
 
     static const unsigned jewels[] = {111, 174, 180};
     static const int8_t shifts[] = {-10, 0, 10};
-    int baseline = room == ZORK3_JEWEL_PRESENT ? 57 : 70;
+    int baseline = room == ZORK3_JEWEL_PRESENT ? 57 :
+                   room == ZORK3_JEWEL_PAST ? 66 : 70;
     bool focused_drawn = false;
     for (unsigned i = 0; i < sizeof(jewels) / sizeof(jewels[0]); i++) {
         unsigned object = jewels[i];
         if (!in_scene(targets, object) || z_parent(object) != 61) continue;
         const SceneSprite *art = item_pose(2, object);
         if (!art) continue;
-        draw_contents_sprite(art, (ScenePoint){120 + shifts[i], baseline}, 13, 9, false);
+        draw_contents_sprite(object, art, (ScenePoint){120 + shifts[i], baseline}, 13, 9, false);
         if (object == focused) focused_drawn = true;
     }
 
@@ -1740,7 +1820,7 @@ static void draw_z3_jewel_display(unsigned room, const Color *background,
         while (index < sizeof(jewels) / sizeof(jewels[0]) && jewels[index] != focused) index++;
         if (index < sizeof(jewels) / sizeof(jewels[0])) {
             const SceneSprite *art = item_pose(2, focused);
-            if (art) draw_contents_marker(art, (ScenePoint){120 + shifts[index], baseline}, 13, 9);
+            if (art) draw_contents_marker(focused, art, (ScenePoint){120 + shifts[index], baseline}, 13, 9);
         }
     }
 }
@@ -1898,7 +1978,7 @@ static unsigned draw_stand_spheres(const ItemPlacement *stand, const Targets *ta
         ScenePoint at = {stand->at.x + shifts[rendered], stand->at.y};
         if (!rendered) at.y -= socket_height;
         ItemBounds bounds = item_bounds(art, at);
-        draw_room_item(art, bounds, rendered != 0, object == focused);
+        draw_room_item(object, art, bounds, rendered != 0, object == focused);
         occupied[rendered++] = bounds;
         drawn[object] = true;
     }
@@ -1936,6 +2016,20 @@ static bool choose_item_place(const SceneSprite *art, const RoomFloor *floor, co
 
 static void draw_scaled_scene_sprite(const SceneSprite *art, int x, int y, int width, int height);
 
+// Story-local targets whose object-tree parent is another room or container, but
+// whose description and art place them in this room (thief's loot, the shared
+// coal pile and diamond, the attic knife, the nest egg).
+static const struct { uint8_t chapter; uint16_t room, object; } loose_extras[] = {
+    {0, 89, 192}, {0, 245, 192}, {0, 249, 192}
+};
+
+static bool loose_extra(unsigned chapter, unsigned room, unsigned object) {
+    for (unsigned i = 0; i < sizeof(loose_extras) / sizeof(loose_extras[0]); i++)
+        if (loose_extras[i].chapter == chapter && loose_extras[i].room == room &&
+            loose_extras[i].object == object) return true;
+    return false;
+}
+
 static void draw_room_items(unsigned chapter, unsigned room, const Color *background,
                             const Targets *targets, unsigned focused) {
     bool drawn[256] = {false};
@@ -1959,8 +2053,16 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
     for (unsigned i = 0; i < sizeof(item_placements) / sizeof(item_placements[0]); i++) {
         const ItemPlacement *place = &item_placements[i];
         unsigned object = place->object;
+        bool shared_hades_bodies = chapter == 0 && object == 144 &&
+                                   (room == 13 || room == 38);
         if (chapter != place->chapter || room != place->room || drawn[object] || !in_scene(targets, object) ||
-            z_parent(object) != place->parent) continue;
+            (!shared_hades_bodies && z_parent(object) != place->parent)) continue;
+        if (chapter == 2 && room == 30 && object == 59 && in_scene(targets, 110)) {
+            // The encounter sprite includes the cloak while the hooded figure
+            // wears it. Don't also draw a loose cloak at its post-encounter spot.
+            drawn[object] = true;
+            continue;
+        }
         // When the player is aboard, replace the shore-side boat sprite with
         // a foreground view from inside the boat (drawn after the room items).
         if (chapter == 0 && object == 208 && z_parent(chapters[0].player) == 208) {
@@ -1997,6 +2099,7 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
         }
         if (chapter == 0 && room == 160 && object == 157 && in_scene(targets, 29)) at.x += 48;
         ItemBounds bounds = item_bounds(art, at);
+        bool represented_by_scene_anchor = chapter == 2 && room == ZORK3_CLIFF_LEDGE && object == 137;
         bool selected = object == focused ||
                         (chapter == 2 && object == ZORK3_SWORD_ROCK &&
                          focused == ZORK3_SWORD && z_parent(focused) == object);
@@ -2005,9 +2108,14 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
             // belongs on the smaller, lighter wall patch to the right.
             bounds = (ItemBounds){at.x - 12, at.y - 22, 24, 22};
             draw_scaled_scene_sprite(art, bounds.x, bounds.y, bounds.width, bounds.height);
-            if (selected) corners(bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 3);
+            if (selected) {
+                unsigned focus_object = selected ? focused : object;
+                report_focused(focus_object, bounds.x, bounds.y, bounds.width, bounds.height);
+                corners(focus_object, bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 3);
+            }
         } else {
-            draw_room_item(art, bounds, place->shadow, selected);
+            draw_room_item(selected ? focused : object, art, bounds, place->shadow,
+                           selected && !represented_by_scene_anchor);
         }
         if (chapter == 0) draw_zork1_item_contents(object, bounds, targets, focused);
         if (chapter == 1) draw_zork2_item_contents(object, bounds, targets, focused);
@@ -2024,8 +2132,11 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
       for (unsigned i = 0; i < targets->count; i++) {
         unsigned object = targets->id[i];
         if ((object == focused) != (pass == 0)) continue;
-        if (object >= sizeof(drawn) / sizeof(drawn[0]) || drawn[object] || z_parent(object) != room ||
-            (!z_attr(object, ATTR_PORTABLE) && !(chapter == 2 && object == ZORK3_TIME_MACHINE))) continue;
+        bool represented_by_scene_anchor = chapter == 2 && room == ZORK3_CLIFF_LEDGE && object == 137;
+        bool extra = loose_extra(chapter, room, object);
+        if (object >= sizeof(drawn) / sizeof(drawn[0]) || drawn[object] ||
+            (!extra && (z_parent(object) != room ||
+             (!z_attr(object, ATTR_PORTABLE) && !(chapter == 2 && object == ZORK3_TIME_MACHINE))))) continue;
         // The boat has no shore-side placement in several river rooms, so it
         // reaches this generic dropped-item pass while the player is aboard.
         // The interior POV below already depicts the boat around the player.
@@ -2041,26 +2152,34 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
             unsigned slot = overflow++ % 96;
             ScenePoint at = {floor->right.x + (int)(slot % 12) * 4 - 22,
                              floor->right.y - (int)(slot / 12) * 4};
-            draw_contents_sprite(art, at, object == focused ? 20 : 5,
-                                 object == focused ? 18 : 4, object == focused);
-            if (object == focused) { focused_compact = art; focused_compact_at = at; }
+            draw_contents_sprite(object, art, at, object == focused ? 20 : 5,
+                                 object == focused ? 18 : 4,
+                                 object == focused && !represented_by_scene_anchor);
+            if (object == focused && !represented_by_scene_anchor) {
+                ItemBounds compact = contents_bounds(art, at, 20, 18);
+                report_focused(object, compact.x, compact.y, compact.width, compact.height);
+                focused_compact = art; focused_compact_at = at;
+            }
             continue;
         }
-        draw_room_item(art, bounds, true, object == focused);
+        draw_room_item(object, art, bounds, true, object == focused && !represented_by_scene_anchor);
         if (chapter == 0) draw_zork1_item_contents(object, bounds, targets, focused);
         if (chapter == 1) draw_zork2_item_contents(object, bounds, targets, focused);
         if (chapter == 2) draw_zork3_item_contents(object, bounds, targets, focused);
         occupied[count++] = bounds;
-        if (object == focused) { focused_art = art; focused_bounds = bounds; }
+        if (object == focused && !represented_by_scene_anchor) {
+            focused_art = art;
+            focused_bounds = bounds;
+        }
       }
     }
     if (focused_art) {
         // Keep the inspected object legible in front of compact overflow piles.
-        draw_room_item(focused_art, focused_bounds, false, true);
+        draw_room_item(focused, focused_art, focused_bounds, false, true);
         if (chapter == 1) draw_zork2_item_contents(focused, focused_bounds, targets, focused);
         if (chapter == 2) draw_zork3_item_contents(focused, focused_bounds, targets, focused);
     }
-    if (focused_compact) draw_contents_sprite(focused_compact, focused_compact_at, 20, 18, true);
+    if (focused_compact) draw_contents_sprite(focused, focused_compact, focused_compact_at, 20, 18, true);
 }
 
 static void draw_zork1_trophy_case(const Targets *targets, unsigned focused) {
@@ -2069,10 +2188,11 @@ static void draw_zork1_trophy_case(const Targets *targets, unsigned focused) {
     for (unsigned i = 0; i < targets->count; i++) {
         unsigned object = targets->id[i];
         if (z_parent(object) != 197) continue;
+        if (object == 24) continue; // The ancient map has its own full-size case placement.
         const SceneSprite *art = item_pose(0, object);
         if (!art) continue;
         unsigned column = slot % 5, row = slot / 5;
-        draw_contents_sprite(art, (ScenePoint){187 + (int)column * 7, 53 - (int)row * 6},
+        draw_contents_sprite(object, art, (ScenePoint){187 + (int)column * 7, 53 - (int)row * 6},
                              5, 5, object == focused);
         slot++;
     }
@@ -2098,20 +2218,25 @@ static void draw_menhir(unsigned focused) {
             pixel(bounds.x + bounds.width + 1, y + 2, aura);
         }
     }
-    draw_room_item(art, bounds, position != 3, focused == 84 || focused == 166);
+    draw_room_item(focused, art, bounds, position != 3, focused == 84 || focused == 166);
     if (position != 1)
         label(at.x - 1, bounds.y + art->height / 3, "F", enchanted ? RGB(157, 207, 167) : EDGE);
 }
 
 static void draw_grating(unsigned room, const Targets *targets, unsigned focused) {
     if (room == 160) {
-        if (focused == 29 && in_scene(targets, 29))
-            corners(102, 56, 36, 19, 3);
+        if (focused == 29 && in_scene(targets, 29)) {
+            report_focused_feature(29, 102, 56, 36, 19);
+            corners(29, 102, 56, 36, 19, 3);
+        }
         if (focused == 157 && in_scene(targets, 157) &&
-            z_parent(157) == room && z_attr(29, ATTR_INVISIBLE))
-            corners(94, 56, 52, 21, 3);
+            z_parent(157) == room && z_attr(29, ATTR_INVISIBLE)) {
+            report_focused_feature(157, 94, 56, 52, 21);
+            corners(157, 94, 56, 52, 21, 3);
+        }
     } else if (room == 216 && focused == 29 && in_scene(targets, 29)) {
-        corners(56, 15, 128, 25, 3);
+        report_focused_feature(29, 56, 15, 128, 25);
+        corners(29, 56, 15, 128, 25, 3);
     }
 }
 
@@ -2134,7 +2259,7 @@ static void draw_dam_indicator(unsigned focused) {
     fill(117, 56, 6, 1, STEEL);
     fill(117, 57, 6, 3, glass);
     pixel(118, 57, enabled ? RGB(223, 255, 191) : EDGE);
-    if (focused == 200) corners(114, 54, 12, 9, 3);
+    if (focused == 200) focus_feature_box(200, 114, 54, 12, 9, 3);
 }
 
 static void draw_maintenance_buttons(unsigned focused) {
@@ -2148,7 +2273,7 @@ static void draw_maintenance_buttons(unsigned focused) {
         fill(x - 2, 34, 5, 1, buttons[i].color);
         fill(x - 2, 39, 5, 1, SHADOW);
         pixel(x - 2, 35, RGB(235, 220, 177));
-        if (focused == buttons[i].id) corners(x - 6, 31, 13, 12, 3);
+        if (focused == buttons[i].id) focus_feature_box(buttons[i].id, x - 6, 31, 13, 12, 3);
     }
 }
 
@@ -2172,10 +2297,12 @@ static void draw_vehicle_contents(unsigned parent, const Targets *targets, unsig
     for (unsigned pass = 0; pass < 2; pass++) {
       for (unsigned i = 0; i < targets->count && slot < capacity; i++) {
         unsigned child = targets->id[i];
-        if (child == 40 || ((child == focused) != (pass == 0)) || z_parent(child) != parent) continue;
+        if (child == 40 || (parent == 52 && child == 186) ||
+            ((child == focused) != (pass == 0)) || z_parent(child) != parent) continue;
         const SceneSprite *art = item_pose(1, child);
         if (!art) continue;
-        draw_contents_sprite(art, (ScenePoint){first.x + (int)slot * spacing, first.y}, width, height, focused == child);
+        draw_contents_sprite(child, art, (ScenePoint){first.x + (int)slot * spacing, first.y},
+                             width, height, focused == child);
         slot++;
       }
     }
@@ -2217,10 +2344,10 @@ static void draw_zork2_bucket(unsigned room, const Targets *targets, unsigned fo
     if ((room != 119 && room != 8) || !in_scene(targets, 52) || z_parent(52) != room) return;
     if (z_parent(40) == 52) {
         const SceneSprite *rim = &ArtBucketPovRim;
-        draw_room_item(rim, item_bounds(rim, (ScenePoint){120, 90}), false, focused == 52);
+        draw_room_item(52, rim, item_bounds(rim, (ScenePoint){120, 90}), false, focused == 52);
         draw_vehicle_contents(52, targets, focused, (ScenePoint){65, 81}, 22, 6, 18, 11);
         // The puddle is below the rider's view; focus locates it inside this bucket.
-        if (focused == 186 && z_parent(186) == 52) corners(106, 78, 28, 8, 2);
+        if (focused == 186 && z_parent(186) == 52) focus_feature_box(186, 106, 78, 28, 8, 2);
         return;
     }
     const SceneSprite *art = &ArtBucketWooden;
@@ -2231,7 +2358,7 @@ static void draw_zork2_bucket(unsigned room, const Targets *targets, unsigned fo
         // wellhead. The braided cable reaches the bail at the top of the scene.
         draw_z2_bucket_tether(at.x, bounds.y - 3);
     }
-    draw_room_item(art, bounds, room == 119, focused == 52);
+    draw_room_item(52, art, bounds, room == 119, focused == 52);
     // The handle is raised while suspended and gives the rope a visible anchor.
     draw_z2_bucket_bail(at.x, bounds.y + 2);
     if (z_parent(186) == 52) {
@@ -2239,7 +2366,7 @@ static void draw_zork2_bucket(unsigned room, const Targets *targets, unsigned fo
         int y = bounds.y + 8;
         fill(at.x - 5, y, 10, 1, RGB(42, 83, 91));
         fill(at.x - 3, y + 1, 6, 1, RGB(79, 119, 128));
-        if (focused == 186) corners(at.x - 7, y - 1, 14, 4, 2);
+        if (focused == 186) focus_feature_box(186, at.x - 7, y - 1, 14, 4, 2);
     }
     draw_vehicle_contents(52, targets, focused, (ScenePoint){at.x - 6, bounds.y + 10}, 6, 3, 5, 5);
 }
@@ -2281,7 +2408,7 @@ static void draw_scaled_scene_sprite(const SceneSprite *art, int x, int y, int w
     }
 }
 
-static void draw_z3_guardians(unsigned room) {
+static void draw_z3_guardians(unsigned room, unsigned focused) {
     int left_center, right_center, width, height, baseline;
     switch (room) {
         case ZORK3_GUARDIANS_HALL:
@@ -2300,10 +2427,18 @@ static void draw_z3_guardians(unsigned room) {
         default:
             return;
     }
-    draw_scaled_scene_sprite(&ArtGuardiansLeft, left_center - width / 2, baseline - height,
-                             width, height);
-    draw_scaled_scene_sprite(&ArtGuardiansRight, right_center - width / 2, baseline - height,
-                             width, height);
+    int left_x = left_center - width / 2;
+    int right_x = right_center - width / 2;
+    int top = baseline - height;
+    draw_scaled_scene_sprite(&ArtGuardiansLeft, left_x, top, width, height);
+    draw_scaled_scene_sprite(&ArtGuardiansRight, right_x, top, width, height);
+    if (focused == 152) {
+        // The target is the identical pair; frame both statues as one object.
+        int x = left_x < right_x ? left_x : right_x;
+        int right = (left_x > right_x ? left_x : right_x) + width;
+        report_focused(152, x, top, right - x, height);
+        corners(152, x - 2, top - 2, right - x + 4, height + 4, 4);
+    }
 }
 
 static void draw_z3_museum_plaque(unsigned room, const Targets *targets) {
@@ -2320,12 +2455,13 @@ static void draw_z3_museum_plaque(unsigned room, const Targets *targets) {
     fill(200, 49, 12, 1, RGB(119, 91, 58));
 }
 
-static void draw_z3_prison_master(unsigned room, const Targets *targets) {
+static void draw_z3_prison_master(unsigned room, const Targets *targets, unsigned focused) {
     if (room != 45 || !z_attr(183, ATTR_OPEN) || !in_scene(targets, 11)) return;
     // He stays in the corridor when the player enters the cell. Through the
     // open doorway he is visible at a distance; the closed door occludes him.
     ground_shadow(222, 58, 12);
     draw_scaled_scene_sprite(&ArtMasterEncounter, 222, 34, 12, 25);
+    if (focused == 11) report_focused(11, 222, 34, 12, 25);
 }
 
 static void draw_zork2_balloon(unsigned room, const Targets *targets, unsigned focused) {
@@ -2335,7 +2471,7 @@ static void draw_zork2_balloon(unsigned room, const Targets *targets, unsigned f
                             z_global(133) ? &ArtBalloonInflatedVehicle : &ArtBalloonDeflatedVehicle;
     ScenePoint at = aboard ? (ScenePoint){120, 90} :
                     (room == 13 || room == 143) ? (ScenePoint){109, 89} : (ScenePoint){165, 89};
-    draw_room_item(art, item_bounds(art, at), !aboard, focused == 169 || focused == 93);
+    draw_room_item(focused, art, item_bounds(art, at), !aboard, focused == 169 || focused == 93);
     if (aboard) {
         draw_vehicle_contents(169, targets, focused, (ScenePoint){62, 76}, 20, 6, 17, 10);
     } else draw_vehicle_contents(169, targets, focused, (ScenePoint){at.x - 6, 82}, 5, 3, 4, 4);
@@ -2345,10 +2481,10 @@ static void draw_zork2_balloon(unsigned room, const Targets *targets, unsigned f
             fill(x - 1, y, 3, 4, RGB(210, 114, 43));
             fill(x, y - 2, 1, 5, RGB(242, 190, 92));
             pixel(x, y, CREAM);
-            if (focused == 181) corners(x - 4, y - 4, 9, 9, 2);
+            if (focused == 181) focus_feature_box(181, x - 4, y - 4, 9, 9, 2);
         } else {
             const SceneSprite *fuel = item_pose(1, 181);
-            if (fuel) draw_contents_sprite(fuel, (ScenePoint){x, y + 2}, 10, 6, focused == 181);
+            if (fuel) draw_contents_sprite(181, fuel, (ScenePoint){x, y + 2}, 10, 6, focused == 181);
         }
     }
     if ((room == 13 || room == 143) && z_global(51)) {
@@ -2362,8 +2498,8 @@ static void draw_zork2_balloon(unsigned room, const Targets *targets, unsigned f
         ScenePoint basket = aboard ? (ScenePoint){201, 81} : (ScenePoint){at.x + 9, 82};
         wire_segment(basket, hook);
     }
-    if (focused == 126) corners(167, 71, 13, 13, 2);
-    if (focused == 170) corners(198, 72, 21, 15, 2);
+    if (focused == 126) focus_feature_box(126, 167, 71, 13, 13, 2);
+    if (focused == 170) focus_feature_box(170, 198, 72, 21, 15, 2);
 }
 
 static void draw_zork2_cage(void) {
@@ -2393,15 +2529,15 @@ static void draw_zork2_cage(void) {
 static void draw_zork2_cues(unsigned room, const Targets *targets, unsigned focused) {
     draw_zork2_bucket(room, targets, focused);
     draw_zork2_balloon(room, targets, focused);
-    if (focused == 43 && room == 45) corners(179, 16, 56, 65, 3);
-    if (focused == 43 && room == 28) corners(137, 16, 66, 65, 3);
+    if (focused == 43 && room == 45) focus_feature_box(43, 179, 16, 56, 65, 3);
+    if (focused == 43 && room == 28) focus_feature_box(43, 137, 16, 66, 65, 3);
     if (room == 182 && z_parent(225) == 163) {
         // The charge occupies the chipped oblong hole in the safe's front door.
-        draw_contents_sprite(&ArtBrickClay, (ScenePoint){181, 51}, 11, 6, focused == 225);
+        draw_contents_sprite(225, &ArtBrickClay, (ScenePoint){181, 51}, 11, 6, focused == 225);
         if (z_parent(213) == 225) {
             wire_segment((ScenePoint){182, 48}, (ScenePoint){186, 52});
             if (zork2_fuse_burning()) draw_fuse_spark(186, 52);
-            if (focused == 213) corners(180, 46, 9, 8, 2);
+            if (focused == 213) focus_feature_box(213, 180, 46, 9, 8, 2);
         }
     }
     if (room == 87 && z_global(149) == 1) {
@@ -2439,7 +2575,7 @@ static void draw_zork2_cues(unsigned room, const Targets *targets, unsigned focu
         int front = height / 2;
         draw_masked_pixels(x, y + front, width, height - front,
                            collar->pixels + front * width, false);
-        if (focused == 72) corners(x - 1, y - 1, width + 2, height + 2, 3);
+        if (focused == 72) focus_feature_box(72, x, y, width, height, 3);
     }
     if ((room == 46 || room == 59) && !z_attr(137, ATTR_OPEN)) {
         unsigned lid = room == 46 ? 112 : 109;
@@ -2449,8 +2585,8 @@ static void draw_zork2_cues(unsigned room, const Targets *targets, unsigned focu
             fill(x, y - 1, 1, 3, SHADOW);
             fill(x + 3, y - 4, 2, 3, STEEL);
         }
-        if (focused == lid || focused == (room == 46 ? 130u : 108u))
-            corners(x - 3, y - 5, 10, 10, 2);
+        if (room == 59 && focused == lid)
+            focus_feature_box(lid, x - 3, y - 5, 10, 10, 2);
     }
     if (room == 202 || room == 121 || room == 242 || room == 75 ||
         room == 95 || room == 142 || room == 185 || room == 226) {
@@ -2462,7 +2598,7 @@ static void draw_zork2_cues(unsigned room, const Targets *targets, unsigned focu
             int half = y < 2 ? y + 1 : 5 - y;
             fill(120 - half, 74 + y, half * 2, 1, color);
         }
-        if (focused == 216) corners(113, 72, 14, 9, 2);
+        if (focused == 216) focus_feature_box(216, 113, 72, 14, 9, 2);
     }
     if (room == 106) draw_zork2_cage();
     if (room == 230 && (finale_stage == 0 || (finale_stage == 1 && finale_age < 64))) {
@@ -2495,10 +2631,10 @@ static void draw_zork1_boat_pov(unsigned room, const Targets *targets, unsigned 
         const SceneSprite *art = child == 180 ? &ArtBoatLabelTan : item_pose(0, child);
         if (!art) continue;
         ScenePoint at = {120 + (int)(slot % 3) * 10 - 10, 87 - (int)(slot / 3) * 4};
-        draw_boat_cargo(art, at, child == focused);
+        draw_boat_cargo(child, art, at, child == focused);
         slot++;
     }
-    if (focused == 208) corners(0, 68, 240, 23, 3);   // boat seen from inside: rows 68-90, the bottom of the art band
+    if (focused == 208) focus_feature_box(208, 0, 68, 240, 23, 3);   // boat seen from inside: rows 68-90, the bottom of the art band
 }
 
 static void draw_z3_room8_temporal_exit(void) {
@@ -2536,39 +2672,70 @@ static void draw_z3_manhole(unsigned focused) {
     } else {
         draw_manhole_disc(188, 60);
     }
-    if (focused == 135) corners(open ? 175 : 175, open ? 52 : 52, 35, 20, 3);
+    if (focused == 135) focus_feature_box(135, 175, 52, 35, 20, 3);
 }
 
 static void draw_room_target_anchor(unsigned chapter, unsigned room, const Targets *targets, unsigned focused) {
-    if (chapter == 2 && room == 45 && focused == 11 && in_scene(targets, 11)) {
-        // When the cell door is shut, the Master is outside the player's view and
-        // only the target row identifies him. Through the
-        // open door, frame his distant sprite in the corridor instead.
-        // The screen code always frames the selected name row, so a shut door needs no scene box.
-        if (z_attr(183, ATTR_OPEN)) corners(220, 32, 16, 29, 3);
+    if (chapter == 0 && room == 127 && focused == 36 && z_parent(36) == room)
+        return; // The axe's floor sprite has its own focus box in this state.
+    if (chapter == 0 && room == 75 && focused == 55 && in_scene(targets, 55)) {
+        // The rug is spread across the floor until the trap door is moved; after
+        // that the same carpet is the rolled bundle at the left of the frame.
+        if (z_attr(ZORK1_TRAP_DOOR, ATTR_INVISIBLE))
+            focus_feature_box(55, 52, 72, 186, 18, 4);
+        else
+            focus_feature_box(55, 28, 57, 40, 33, 4);
+        return;
+    }
+    if (chapter == 2 && focused == 11 && in_scene(targets, 11) &&
+        (room == 45 || room == 204 || room == 225)) {
+        unsigned door = room == 45 ? 183 : (room == 204 ? 153 : 72);
+        if (room == 45 && z_attr(door, ATTR_OPEN)) {
+            // He stays in the corridor; through the open doorway he is visible
+            // at a distance, so frame that sprite.
+            focus_feature_box(11, 220, 32, 16, 29, 3);
+        } else {
+            // He is outside the shut cell door. The barred window is the only
+            // view of him and the place the conversation happens.
+            focus_feature_box(11, 203, 15, 32, 17, 3);
+        }
+        return;
+    }
+    if (chapter == 2 && room == 54 && in_scene(targets, focused) &&
+        (focused == 29 || focused == 106)) {
+        // The mirror/panel at the north end; room 54 always uses the closed view.
+        focus_feature_box(focused, 82, 31, 76, 36, 4);
         return;
     }
     if (chapter == 2 && room == 169 && in_scene(targets, focused) &&
         (focused == 29 || focused == 80 || focused == 106)) {
-        if (zork3_mirror_panel_open()) corners(163, 23, 33, 44, 4);
-        else corners(82, 31, 76, 36, 4);
+        if (zork3_mirror_panel_open()) focus_feature_box(focused, 158, 20, 82, 70, 4);
+        else focus_feature_box(focused, 82, 31, 76, 36, 4);
         return;
     }
     for (unsigned i = 0; i < sizeof(anchors) / sizeof(anchors[0]); i++) {
         const RoomAnchor *anchor = &anchors[i];
         if (anchor->chapter == chapter && anchor->room == room && anchor->object == focused &&
-            in_scene(targets, focused))
-            corners(anchor->x - 2, anchor->y - 2, anchor->width + 4, anchor->height + 4, 4);
+            in_scene(targets, focused)) {
+            // During the encounter the cloak is worn by the hooded figure;
+            // after the figure vanishes, the same object is a loose floor item.
+            // Only use this figure-sized target while the wearer is present.
+            if (chapter == 2 && room == 30 && focused == 59 && !in_scene(targets, 110))
+                continue;
+            report_focused_feature(focused, anchor->x, anchor->y, anchor->width, anchor->height);
+            corners(focused, anchor->x - 2, anchor->y - 2, anchor->width + 4, anchor->height + 4, 4);
+        }
     }
 }
 
 void draw_room_details(unsigned chapter, unsigned room, const Color *background,
                        const Targets *targets, unsigned focused) {
     focus_box_drawn = false;
+    current_focused = focused;
     if (chapter == 1 && room == 125 &&
         (background == art_z2_crypt_dark || background == art_z2_crypt_secret_open)) {
         if (!z_attr(151, ATTR_OPEN)) label(119, 49, "F", RGB(92, 112, 101));
-        if (focused == 151) corners(103, 24, 35, 43, 3);
+        if (focused == 151) focus_feature_box(151, 103, 24, 35, 43, 3);
         draw_room_target_anchor(chapter, room, targets, focused);
         return;
     }
@@ -2612,8 +2779,8 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     }
     if (chapter == 2) {
         draw_z3_museum_plaque(room, targets);
-        draw_z3_prison_master(room, targets);
-        draw_z3_guardians(room);
+        draw_z3_prison_master(room, targets, focused);
+        draw_z3_guardians(room, focused);
     }
     draw_room_items(chapter, room, background, targets, focused);
     if (chapter == 2 && room == ZORK3_CLIFF_LEDGE &&
@@ -2632,7 +2799,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     if (chapter == 0 && room == 75) draw_zork1_trophy_case(targets, focused);
     if (chapter == 1 && in_scene(targets, 18) && z_parent(18) == room && z_parent(24) == 18) {
         const SceneSprite *wand = item_pose(1, 24);
-        if (wand) draw_room_item(wand, item_bounds(wand, (ScenePoint){184, 47}), false, focused == 24);
+        if (wand) draw_room_item(24, wand, item_bounds(wand, (ScenePoint){184, 47}), false, focused == 24);
     }
     if (chapter == 2) draw_z3_jewel_display(room, background, targets, focused);
     if (chapter == 1) draw_zork2_cues(room, targets, focused);
@@ -2719,7 +2886,7 @@ static void draw_puzzle_floor_items(const Targets *targets, unsigned focused) {
     for (unsigned i = 0; i < count; i++) {
         unsigned object = floor_items[first + i];
         const SceneSprite *art = item_pose(2, object);
-        if (art) draw_contents_sprite(art, (ScenePoint){FIRST_X + (int)i * SLOT_STEP, 88}, 13, 9,
+        if (art) draw_contents_sprite(object, art, (ScenePoint){FIRST_X + (int)i * SLOT_STEP, 88}, 13, 9,
                                       object == focused);
     }
     if (visible > count) {
@@ -2747,7 +2914,7 @@ static void draw_puzzle_directions(unsigned focused) {
     label(51, 44, "?", CREAM);
     for (unsigned i = 0; i < 4; i++) {
         label(x[i], y[i], labels[i], focused == ids[i] ? GOLD : TEAL);
-        if (focused == ids[i]) corners(x[i] - 3, y[i] - 3, 12, 12, 3);
+        if (focused == ids[i]) focus_feature_box(ids[i], x[i] - 3, y[i] - 3, 12, 12, 3);
     }
 }
 
@@ -2762,12 +2929,14 @@ static void draw_puzzle_special_targets(const Targets *targets, unsigned focused
         if (!available) continue;
         label(features[i].x, features[i].y, features[i].name, CREAM);
         if (focused == features[i].id)
-            corners(features[i].x - 3, features[i].y - 3, i ? 40 : 36, 14, 3);
+            focus_feature_box(features[i].id, features[i].x - 3, features[i].y - 3,
+                              i ? 40 : 36, 14, 3);
     }
 }
 
 void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focused) {
     focus_box_drawn = false;
+    current_focused = focused;
     fill(0, 15, SCREEN_W, 76, RGB(32, 45, 41));
     if (!map->valid) {
         draw_puzzle_directions(focused);
@@ -2793,7 +2962,7 @@ void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focu
     for (unsigned i = 0; i < 9; i++) {
         int x = 14 + (i % 3) * 18, y = 19 + (i / 3) * 18;
         map_tile(x, y, 16, map->tiles[i]);
-        if (i == selected) corners(x - 1, y - 1, 18, 18, 5);
+        if (i == selected) focus_feature_box(focused, x - 1, y - 1, 18, 18, 5);
     }
     const PuzzleTile legend[] = {PUZZLE_MARBLE, PUZZLE_SANDSTONE, PUZZLE_FLOOR, PUZZLE_UNKNOWN, PUZZLE_PLAYER};
     const char *const names[] = {"Marble", "Sandstone", "Open floor", "Unseen", "You"};

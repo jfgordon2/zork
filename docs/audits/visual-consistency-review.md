@@ -358,3 +358,94 @@ All 275 named rooms were reviewed. Each room's text was shown with every capture
 **Consistent across neighbours and states:** the house exterior ring and window states; forest/clearing/canyon/rainbow; the mine, ladder and coal-mine chain; dam, reservoir, river and boat views in order; maze and dead ends; temple/Egyptian/altar; Zork II gardens, bank wing, volcano and balloon ledges, Wizard's rooms and quarters variants, crypt states, mist spheres and aquarium states; and Zork III lake/shore/underwater, aqueduct chain, cliff chain, Land of Shadow → clifftop → ocean, museum and puzzle entrances, marble corridors, prison/parapet, and all narrow-mirror rooms (mirror on the side the text names). Generic Land of Shadow art for the hill rooms fits their shared description.
 
 **Not reviewable:** the Murky Room (fatal to enter), the dark rooms 155/177/228 (black by design), and the documented transient or trap rooms in Zork III.
+
+## Room-screen focus-box coverage and correspondence (November 22, 2026)
+
+The replay audit now proves the gold focus box is around the right thing, not merely that
+one exists. Every draw path that can render the focused object reports its actual sprite
+rect through `visual_qa_focused_sprite`; the audit requires:
+
+- exactly one scene box and one name-row box per focused target;
+- every gold box to report itself with the focused object (presence and identity);
+- where a sprite draw reports its actual rect, the box to contain it within the border;
+- the box to stay inside the visible art band (rows 15–90);
+- zero targets without a box report unless explicitly allowlisted.
+
+Current result: 1,017 states, 4,410 focused targets, 4,412 box reports, 1,925
+independent sprite rects and 2,487 scene-feature rects, 0 missing, 0 out-of-band,
+0 mismatches. The room-target visibility audit now treats “isn’t here” / “is not here”
+as absent, with a documented exception for the Master outside a shut cell door. The
+allowlisted targets are carried or contained items with no separate scene footprint.
+
+Phantom-target corrections: the North Corridor/Parapet Master proxy is filtered when
+the actor (object 1) is absent, and the Kennel’s room-local mention of the Menhir Room
+stone is filtered there because the Kennel text and art show only the collar and bones.
+The actor Master still draws and boxes when he is following the player.
+
+Fixes that came out of it: encounter sprites and boxes are clamped into the art band
+(Zork II's garden unicorn framed above row 15) and the floor shadow now follows the
+clamped sprite; the Zork III prison cell door anchor was moved right and up into the
+band; a `loose_extras` table draws the shared coal/diamond where their object-tree parent
+is another room. Carried and contained items (thief's loot, nest egg, basket contents,
+machine coal) are not drawn on the floor; they stay name-row only. The attic knife and
+stair railing already had placement rows, but those rows used the wrong parents; with
+the parents corrected they draw on the table and at the left of the attic.
+
+Name-row-only allowlist (carried, contained, or no scene art): Zork I Treasure Room bag
+and egg, Machine Room coal, Strange Passage bag and stiletto, Shaft/Drafty coal, Cellar
+chute; Zork II Aquarium sphere; Zork III Jewel Room stone door; and the Dreary Room lid
+while the door is open. These keep the L/R affordance and are boxed in the name row.
+
+In the North Corridor and Parapet the stale Master proxy is filtered from the target
+list entirely when object 1 is absent, so the name row never offers a Master who is not
+in the room. When the actor is present, his sprite is drawn and boxed.
+
+When the Master is outside a shut prison-cell door, he is now boxed on the barred
+window in that door: the cell shows the corridor only through that opening, and the
+story still lets the player address him from inside the cell (`Dungeon Master
+(outside)`). With the door open in room 45 the box follows his distant corridor sprite
+instead. The three cell views use different door objects (183, 153, 72), so the check is
+per-room rather than hard-coded to room 45.
+
+### Scene-anchor placement pass
+
+The automated audit can prove presence and sprite correspondence, but scene-feature
+anchors frame painted scenery and therefore need visual review. Rendering representative
+room frames with the real art exposed four anchors that pointed at the wrong part of the
+picture; all were corrected:
+
+- Living Room carpet: the box now follows the rug's two arrangements — spread across
+  the floor while the trap door is hidden, and the rolled bundle at the left after the
+  rug is moved.
+- Kitchen and Attic tables: the boxes covered only the left part of the tabletop; both
+  now span the full table edge.
+- Zork III Parapet sundial: the box stopped short of the dial's right limb and top.
+- Zork III Hallway (113/169) compass rose and stone channel: the boxes were on the
+  mirror frame or bare wall above the floor carving.
+- Compass roses in Hallways 113/169 and the Inside Mirror room 160 now frame the whole
+  floor medallion (the story's "compass rose engraved around the hole"), not just its
+  central star, and the channel boxes sit on the visible groove.
+- The other guardian hallways (44, 54, 224) now box their compass rose and stone
+  channel using the same floor rectangles as the matching art. Room 54's mirror/panel
+  use the mirror-hall box; its south wooden wall remains name-row only because it is
+  behind the camera.
+- **Guardians of Zork (152)** are now addressable as “guardians” in hallways 44/54/224
+  and are boxed as one frame around the pair of statues. The narrow-mirror rooms and
+  the Inside Mirror list the same local name but do not draw the statues, so the target
+  is filtered there rather than boxed on empty scenery.
+
+The attic and coal-room views still allowlist scenery the art does not draw, and the
+Cellar chute remains name-row only because the cellar view shows an archway rather than
+the ramp. `make test` reports zero missing boxes and zero mismatches after the pass; the
+ARM ROM builds and contains no `visual_qa` symbols.
+
+## Follow-up focus-box alignment (November 22)
+
+Adjusted the remaining scene anchors called out in the latest screenshot review:
+Zork I Machine Room switch raised; Dam control-panel box widened over the full panel;
+Studio manual moved left onto the painted wall clear of the doorway; Zork II Tiny Room
+keyhole lowered; Pentagram target moved down onto the floor marking; Dusty Room hole
+snapped to the small aperture and the explosion debris target lowered to the rubble;
+Crypt Anteroom door narrowed and extended to the floor; Aquarium box tightened around
+the tank and raised to its top; Riddle Room stone-door box moved down and widened to the
+door face. `make test` reports zero target-box mismatches, and the ARM ROM builds.

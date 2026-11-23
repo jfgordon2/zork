@@ -1,0 +1,4 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-iii/states/puzzle-restored.png,captured,Royal Puzzle after in-game Restore,2,194,194
+zork-iii/states/ending-story.png,captured,Zork III successful ending,2,46,46
+zork-iii/states/ending-options.png,captured,Zork III ending options,2,46,46

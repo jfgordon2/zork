@@ -21,4 +21,4 @@ No stable room route was missing from the Zork I or Zork II screenshot set. The 
 
 ## Last full mGBA checkpoint verification
 
-The last full gallery pass verified 527 of 527 save-restoration captures, plus 1 route-only frame was verified by targeted input replay. The last completed full pass predates the current ROM build, so the full gallery still needs a refresh against this build. All 104 Zork III entries reached their expected room ID in mGBA.
+The last full gallery pass verified 527 of 527 save-restoration captures, plus 9 route-only frames were verified by route replay. The last completed full pass predates the current ROM build, so the full gallery still needs a refresh against this build. All 112 Zork III entries reached their expected room ID in mGBA.

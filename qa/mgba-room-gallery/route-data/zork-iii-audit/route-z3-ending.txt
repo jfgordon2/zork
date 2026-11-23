@@ -1,0 +1,4 @@
+@qa/mgba-room-gallery/route-data/zork-iii-audit/route-204-lit.sav
+unlock bronze door with key
+open bronze door
+south

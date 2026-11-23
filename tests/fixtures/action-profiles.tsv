@@ -1,0 +1,1014 @@
+0	64	230	64	0	00042000	4	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	64	230	64	0	00042000	4	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	64	121	64	0	00404000	5	Examine	examine	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	64	121	64	0	00404000	5	Examine	examine	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	64	65	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	64	77	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	64	1	48	0	00004000	4	Examine	examine	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	209	213	48	0	00004000	4	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	209	213	48	0	00004000	4	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	209	77	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	209	65	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	209	1	48	0	00004000	4	Examine	examine	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	85	65	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	85	243	48	0	00404000	7	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	85	243	48	0	00404000	7	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	85	1	48	0	00004000	4	Examine	examine	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	85	243	48	0	00404800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	169	27	0	00044c00	5	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	169	27	0	00044c00	5	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	138	169	0	00061000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	138	169	0	00061000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	186	138	0	00222000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	99	169	0	04060000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	99	169	0	04060000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	243	48	0	00404800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Open	open	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	243	48	0	00404800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Open	open	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	43	48	0	00804000	4	Examine	examine	-	0	Climb down	climb down	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	43	48	0	00804000	4	Examine	examine	-	0	Climb down	climb down	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	227	75	0	20022000	5	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	100	75	0	00415000	6	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	100	75	0	00415000	6	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	146	75	0	80020000	6	Examine	examine	-	0	Switch on	turn on	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	55	75	0	00006000	7	Examine	examine	-	0	Look under	look under	-	0	Move	move	-	0	Lift	lift	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	197	75	0	00047100	5	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	197	75	0	00047100	5	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	177	48	0	00804000	4	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	177	48	0	00804000	4	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	146	44	1	80020008	8	Examine	examine	-	0	Switch on	turn on	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	227	44	1	20022008	7	Examine	examine	-	0	Swing at...	swing	at	2	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	240	75	0	00404000	8	Examine	examine	-	0	Open	open	-	0	Descend	down	-	1	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	75	240	75	0	00404000	8	Examine	examine	-	0	Open	open	-	0	Descend	down	-	1	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	75	240	75	0	00404800	9	Examine	examine	-	0	Close	close	-	0	Descend	down	-	1	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	197	75	0	00047908	5	Examine	examine	-	0	Close	close	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	137	213	48	0	00004000	4	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	137	213	48	0	00004000	4	Examine	examine	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	137	77	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	137	65	48	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	137	1	48	0	00004000	4	Examine	examine	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	238	107	48	0	00804000	4	Examine	examine	-	0	Climb up	climb up	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	238	107	48	0	00804000	4	Examine	examine	-	0	Climb up	climb up	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	238	1	48	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	5	135	5	0	04060900	8	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	5	135	5	0	04060900	8	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	5	105	135	0	00060100	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	5	105	135	0	00060100	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	5	107	48	0	00804000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	5	107	48	0	00804000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	5	1	48	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	5	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	238	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	137	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	85	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	58	187	0	00022200	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	250	187	0	00044c00	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	187	250	187	0	00044c00	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	187	165	250	0	20022000	6	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	165	44	1	20022008	7	Examine	examine	-	0	Swing at...	swing	at	2	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	187	58	44	1	00022208	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	240	75	0	00404008	8	Examine	examine	-	0	Descend	down	-	1	Take	take	-	0	Close	close	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	240	75	0	00404008	8	Examine	examine	-	0	Descend	down	-	1	Take	take	-	0	Close	close	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	231	48	0	00800000	5	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	231	48	0	00800000	5	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	127	150	127	0	40002800	8	Examine	examine	-	0	Throw item...	throw	at	4	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	127	36	150	0	20026000	5	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	127	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	104	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	193	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	54	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	218	96	218	0	10020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	218	232	218	0	30022000	6	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	218	97	218	0	00020000	8	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	218	91	218	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	218	206	218	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Lower	lower	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	218	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	218	97	44	1	00020008	9	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Open	open	-	0	Close	close	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	218	96	44	1	10020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	134	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	158	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	170	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	78	199	78	0	40006000	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	78	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	78	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	78	105	44	1	00060108	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	164	82	0	40042804	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	82	164	82	0	40042804	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	82	246	164	0	20026000	5	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	94	164	0	00006000	7	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	82	242	82	0	00062000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	242	82	0	00062000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	177	48	0	00804000	4	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	177	48	0	00804000	4	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	105	44	1	00060108	7	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	105	164	0	00060108	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	117	164	117	0	40042800	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	117	164	117	0	40042800	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	117	246	164	0	20026000	5	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	117	94	164	0	00006000	7	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	97	197	0	00020008	7	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	96	75	0	10020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	33	240	75	0	00404808	10	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Descend	down	-	1	Open	open	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	130	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	130	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	106	222	48	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	106	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	106	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	123	6	48	0	00200000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	178	9	178	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	178	223	178	0	00006000	7	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	178	200	178	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	178	210	178	0	0000e000	5	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	178	6	48	0	00200000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	120	215	120	0	04030000	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	120	17	120	0	00030000	8	Examine	examine	-	0	Light	light	-	0	Read	read	-	0	Take	take	-	0	Open	open	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	120	17	44	1	00030008	9	Examine	examine	-	0	Light	light	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Open	open	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	236	224	0	10020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	195	224	0	00070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	195	224	0	00070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	114	224	0	10020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	225	224	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Read	read	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	212	224	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Read	read	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	151	224	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Read	read	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	63	224	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Read	read	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	237	224	0	00042a00	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	224	237	224	0	00042a00	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	224	236	44	1	10020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	178	236	178	0	10020008	6	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	95	229	95	0	00020000	10	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	95	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	95	229	44	1	00020008	11	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Open	open	-	0	Close	close	-	0	Fill	fill	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	191	109	191	0	10020000	6	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	191	6	48	0	00200000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	191	177	48	0	00804000	7	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	191	177	48	0	00804000	7	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	191	109	44	1	10020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	4	23	4	0	00020000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	4	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	4	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	4	23	44	1	00020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	229	197	0	00020008	7	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	23	197	0	00020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	105	82	0	00060908	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	82	80	105	0	00020100	6	Examine	examine	-	0	Take	take	-	0	Wind	wind	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	242	44	1	00062008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	82	80	105	1	00020100	9	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Take	take	-	0	Wind	wind	-	0	Enter	enter	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	78	105	44	1	00060908	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	78	242	44	1	00062008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	117	105	44	1	00060908	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	117	242	44	1	00062008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	105	44	1	00060908	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	242	44	1	00062008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	242	197	0	00062008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	105	197	0	00060908	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	238	133	238	0	00020000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	238	133	44	1	00020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	80	197	0	00020108	6	Examine	examine	-	0	Take	take	-	0	Wind	wind	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	133	197	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	165	75	0	20022008	6	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	69	84	69	0	00010200	5	Examine	examine	-	0	Read	read	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	11	57	11	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	11	58	11	0	00026208	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	18	79	18	0	00044c00	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	18	79	18	0	00044c00	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	18	12	79	0	820a0000	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	18	177	48	0	00804000	5	Examine	examine	-	0	Climb down	climb down	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	18	177	48	0	00804000	5	Examine	examine	-	0	Climb down	climb down	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	18	12	44	1	820a0008	9	Examine	examine	-	0	Switch off	turn off	-	0	Drop	drop	-	0	Put in...	put	in	2	Extinguish	extinguish	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	2	71	2	0	00014200	5	Examine	examine	-	0	Read	read	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	2	83	2	0	00020000	6	Examine	examine	-	0	Take	take	-	0	Ring	ring	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	2	177	48	0	00804000	5	Examine	examine	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	2	177	48	0	00804000	5	Examine	examine	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	2	83	44	1	00020008	8	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Ring	ring	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	179	241	0	00060300	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	179	241	0	00060300	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	179	241	0	00060b08	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	241	204	179	0	20020000	8	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Climb	climb	-	0	Lift	lift	-	0	Wave	wave	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	204	44	1	20020008	9	Examine	examine	-	0	Swing at...	swing	at	2	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Lift	lift	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	129	26	129	0	820a0000	7	Examine	examine	-	0	Light with...	light	with	2	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	129	35	129	0	00044c00	4	Examine	examine	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	129	35	129	0	00044c00	4	Examine	examine	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	129	196	35	0	04078000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Close	close	-	0	Light	light	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	129	196	35	0	04078000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Close	close	-	0	Light	light	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	129	196	44	1	04078008	10	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Close	close	-	0	Light	light	-	0	Turn	turn	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	129	26	44	1	820a0008	9	Examine	examine	-	0	Light with...	light	with	2	Switch off	turn off	-	0	Drop	drop	-	0	Put in...	put	in	2	Extinguish	extinguish	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	176	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	176	177	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	176	196	44	1	04078008	10	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Close	close	-	0	Light	light	-	0	Turn	turn	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	38	211	38	0	40004000	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Close	close	-	0	Eat	eat	-	0	Knock on	knock on	-	0	More actions...	-	-	8
+0	38	144	48	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	38	196	44	1	04078008	11	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Close	close	-	0	Light	light	-	0	Climb	climb	-	0	Turn	turn	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	38	26	38	0	82020008	8	Examine	examine	-	0	Light with...	light	with	2	Switch on	turn on	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	38	168	38	0	00002000	6	Examine	examine	-	0	Take	take	-	0	Ring	ring	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	38	196	38	0	04078008	9	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Close	close	-	0	Light	light	-	0	Climb	climb	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	13	140	13	0	00020000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	13	144	48	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	13	140	44	1	00020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	52	183	52	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	140	197	0	00020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	122	92	122	0	04020000	5	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	122	92	44	1	04020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	92	197	0	04020008	5	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	205	201	205	0	00020200	2	Examine	examine	-	0	More actions...	-	-	8
+0	205	177	48	0	00804000	2	Examine	examine	-	0	More actions...	-	-	8
+0	205	177	48	0	00804000	2	Examine	examine	-	0	More actions...	-	-	8
+0	205	201	44	1	00020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	201	197	0	00020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	128	107	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	128	107	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	128	1	48	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	22	98	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	22	98	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	22	226	48	0	00004000	4	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	22	59	48	0	00804000	6	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	22	59	48	0	00804000	6	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	21	98	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	21	98	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	21	226	48	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	74	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	74	98	48	0	00804000	5	Examine	examine	-	0	Climb	climb	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	74	98	48	0	00804000	5	Examine	examine	-	0	Climb	climb	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	74	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	125	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	125	59	48	0	00804000	7	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Fill	fill	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	125	59	48	0	00804000	7	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Fill	fill	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	125	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	125	154	125	0	00020000	6	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	125	154	44	1	00020008	8	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	154	197	0	00020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	204	197	0	20020008	7	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Lift	lift	-	0	Wave	wave	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	109	75	0	10020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	241	179	44	1	00060b08	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	2	179	44	1	00060b08	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	129	179	44	1	00060b08	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	87	107	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	87	107	48	0	00804000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	87	1	48	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+0	87	179	44	1	00060b08	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	238	179	44	1	00060b08	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	137	179	44	1	00060b08	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	85	179	44	1	00060b08	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	179	44	1	00060b08	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	179	44	1	00060b08	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	75	179	197	0	00060b08	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	99	44	1	04060008	9	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	99	44	1	04060808	10	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	27	217	99	1	00120000	10	Examine	examine	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Take	take	-	0	Drink	drink	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	14	99	1	00120000	10	Examine	examine	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Take	take	-	0	Drink	drink	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	27	14	99	0	00120000	7	Examine	examine	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	224	114	44	1	10020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	62	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	62	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	110	234	110	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	31	231	48	0	00800000	5	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	31	231	48	0	00800000	5	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	235	10	235	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	235	70	235	0	40002000	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	235	10	44	1	00020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	245	108	245	0	00043800	7	Examine	examine	-	0	Close	close	-	0	Lift	lift	-	0	Lower	lower	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	245	108	245	0	00043800	7	Examine	examine	-	0	Close	close	-	0	Lift	lift	-	0	Lower	lower	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	245	12	108	0	820a0008	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	245	114	108	0	10020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	93	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	93	177	48	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	46	214	46	0	00020000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	46	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	46	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	46	214	44	1	00020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	16	88	48	0	00804000	5	Examine	examine	-	0	Climb down	climb down	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	16	88	48	0	00804000	5	Examine	examine	-	0	Climb down	climb down	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	16	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	16	177	48	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	72	88	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	72	88	48	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	156	60	156	0	04020000	6	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	156	60	44	1	04020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	245	60	108	0	04020008	6	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	245	203	245	0	00002000	8	Examine	examine	-	0	Enter	enter	-	0	Lift	lift	-	0	Lower	lower	-	0	Take	take	-	0	Eat	eat	-	0	Knock on	knock on	-	0	More actions...	-	-	8
+0	8	181	8	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	8	146	8	0	800a0008	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	8	17	8	0	00030008	8	Examine	examine	-	0	Light	light	-	0	Read	read	-	0	Take	take	-	0	Open	open	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	8	217	8	0	00120008	7	Examine	examine	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	8	10	8	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	8	214	8	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	249	108	249	0	00043800	7	Examine	examine	-	0	Close	close	-	0	Lift	lift	-	0	Lower	lower	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	249	108	249	0	00043800	7	Examine	examine	-	0	Close	close	-	0	Lift	lift	-	0	Lower	lower	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	249	60	108	0	04020008	6	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	249	114	108	0	10020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	249	12	108	0	820a0008	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	89	101	89	0	0000c000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	89	207	89	0	00046000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Close	close	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	89	207	89	0	00046000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Close	close	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	89	207	89	0	00046800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	89	60	207	0	04020008	6	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	89	192	207	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	89	192	44	1	00020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	249	192	108	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	245	192	108	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	192	197	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	10	197	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	214	197	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	111	219	111	0	04020000	7	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	111	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	111	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	111	208	111	0	0c020900	8	Examine	examine	-	0	Enter	enter	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	111	180	208	0	04030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	111	109	111	0	10020008	6	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	37	208	37	0	0c020900	7	Examine	examine	-	0	Get out	get out of	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	37	180	208	0	04030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	37	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	37	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	174	208	174	0	0c020900	7	Examine	examine	-	0	Get out	get out of	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	174	180	208	0	04030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	174	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	174	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	45	208	45	0	0c020900	7	Examine	examine	-	0	Get out	get out of	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	45	180	208	0	04030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	45	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	45	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	208	182	0	0c020900	7	Examine	examine	-	0	Get out	get out of	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	180	208	0	04030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	185	182	0	00060000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	185	182	0	00060000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	182	185	44	1	00060008	9	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	208	30	0	0c020900	6	Examine	examine	-	0	Get out	get out of	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	180	208	0	04030000	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	132	30	0	10020000	5	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	6	48	0	00200000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	226	48	0	00004000	5	Examine	examine	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	185	44	1	00060008	8	Examine	examine	-	0	Open	open	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	185	44	1	00060808	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	30	119	185	1	00020000	8	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Take	take	-	0	Fill	fill	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	30	185	30	0	00060808	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	30	132	44	1	10020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	155	131	155	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	155	126	155	0	00020000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	155	126	44	1	00020008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	155	132	155	0	10020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	40	6	48	0	00200000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	40	226	48	0	00004000	5	Examine	examine	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	47	6	48	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	47	226	48	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	47	59	48	0	00804000	7	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Fill	fill	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	47	59	48	0	00804000	7	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Fill	fill	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	202	59	48	0	00804000	6	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	202	59	48	0	00804000	6	Examine	examine	-	0	Cross	cross	-	0	Climb up	climb up	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+0	75	119	197	0	00020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	126	197	0	00020008	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	12	197	0	820a0008	6	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	24	197	0	00030000	5	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	75	24	44	1	00030008	7	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	244	113	244	0	00004000	4	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+0	244	190	244	0	00404800	7	Examine	examine	-	0	Close	close	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+0	244	190	244	0	00404800	7	Examine	examine	-	0	Close	close	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	51	223	51	0	20022000	6	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	51	149	51	0	80020000	7	Examine	examine	-	0	Switch on	turn on	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	51	149	40	1	80020004	8	Examine	examine	-	0	Switch on	turn on	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	51	223	40	1	20022004	7	Examine	examine	-	0	Swing at...	swing	at	2	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	168	74	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	168	105	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	168	104	44	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	168	217	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	21	74	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	21	105	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	183	217	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	53	5	44	0	00200000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	154	44	0	40000000	17	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	234	235	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	217	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	48	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	178	16	0	00044900	4	Examine	examine	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	16	178	16	0	00044900	4	Examine	examine	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	16	107	178	0	00060880	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	16	107	178	0	00060880	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	16	100	178	0	00060900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	16	100	178	0	00060900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	16	181	178	0	04030000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	247	178	0	10020000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	23	178	0	00030000	6	Examine	examine	-	0	Light	light	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	154	44	0	40000000	17	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	16	235	44	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	234	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	158	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	53	107	40	1	00060884	9	Examine	examine	-	0	Fill	fill	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	53	186	107	1	00220000	11	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	212	74	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	212	105	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	212	104	44	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	212	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	144	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	238	7	238	0	00444000	5	Examine	examine	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	238	7	238	0	00444000	5	Examine	examine	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	238	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	238	7	238	0	00444800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	38	134	38	0	00020400	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	38	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	38	134	40	1	00020404	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	119	52	119	0	08040800	8	Examine	examine	-	0	Enter	enter	-	0	Close	close	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	119	52	119	0	08040800	8	Examine	examine	-	0	Enter	enter	-	0	Close	close	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	119	9	119	0	00014000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	119	6	44	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	119	107	40	1	00060884	9	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	8	52	8	0	08040800	8	Examine	examine	-	0	Stand up	stand	-	1	Close	close	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	8	52	8	0	08040800	8	Examine	examine	-	0	Stand up	stand	-	1	Close	close	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	8	186	52	0	00220000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	8	191	8	0	00014000	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	8	6	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	8	107	40	1	00060884	9	Examine	examine	-	0	Fill	fill	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	190	155	190	0	00040900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	190	155	190	0	00040900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	190	147	155	0	00130000	8	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	35	155	0	00130000	8	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	103	155	0	00130000	8	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	83	155	0	00130000	8	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	190	83	40	1	00130004	9	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Drink	drink	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	103	40	1	00130004	9	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Drink	drink	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	35	40	1	00130004	9	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Drink	drink	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	190	147	40	1	00130004	9	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Drink	drink	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	122	195	122	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Close	close	-	0	Eat	eat	-	0	Extinguish	extinguish	-	0	More actions...	-	-	8
+1	122	105	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	122	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	82	39	82	0	00000000	7	Examine	examine	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+1	82	47	82	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	82	42	82	0	00030080	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Open	open	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	82	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	82	35	82	0	00130004	8	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	82	147	82	0	00130004	8	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	82	131	82	0	00130400	9	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Take	take	-	0	Open	open	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	82	131	40	1	00130404	10	Examine	examine	-	0	Read	read	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Open	open	-	0	Drink	drink	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	187	98	187	0	40040800	10	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	187	98	187	0	40040800	10	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	187	244	187	0	04030000	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	187	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	187	244	40	1	04030004	8	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	87	98	87	0	40040800	9	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	87	98	87	0	40040800	9	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	87	4	87	0	00004000	5	Examine	examine	-	0	Push	push	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	87	27	87	0	00004000	5	Examine	examine	-	0	Push	push	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	87	1	87	0	00004000	5	Examine	examine	-	0	Push	push	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	87	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	54	98	54	0	40040800	10	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	54	98	54	0	40040800	10	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	54	29	54	0	00022480	8	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	54	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	106	11	106	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	106	98	106	0	40044800	10	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	106	98	106	0	40044800	10	Examine	examine	-	0	Give orders...	-	-	9	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	106	107	40	1	00060884	8	Examine	examine	-	0	Close	close	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	54	241	54	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	54	29	40	1	00022484	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	119	107	119	0	00060884	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	119	186	107	0	00220000	8	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	144	22	144	0	00060000	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	144	22	144	0	00060000	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	144	22	144	0	00060804	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	144	140	22	0	00020400	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	144	140	40	1	00020404	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	206	213	206	0	04020000	6	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	206	213	40	1	04020004	8	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	79	28	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	43	44	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	43	44	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	134	28	0	00020404	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	140	28	0	00020404	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	29	28	0	00022484	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	218	120	218	0	00004000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	218	154	44	0	40000000	17	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	218	217	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	218	48	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	157	154	44	0	40000000	17	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	157	217	44	0	00006000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	23	40	1	00030004	8	Examine	examine	-	0	Light	light	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	247	40	1	10020004	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	181	40	1	04030004	8	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	234	26	234	0	40042800	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	26	234	0	40042800	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	73	26	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	127	26	0	00026400	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	157	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	212	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	144	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	30	225	30	0	04020810	5	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	30	104	44	0	00004000	5	Examine	examine	-	0	Enter	enter	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	30	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	30	225	40	1	04020814	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	231	5	44	0	00200000	9	Examine	examine	-	0	Take	take	-	0	Eat	eat	-	0	Drink	drink	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	231	105	44	0	00004000	6	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	231	104	44	0	00004000	7	Examine	examine	-	0	Fill	fill	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	231	100	40	1	00060904	9	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Fill	fill	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	124	105	44	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	124	100	40	1	00060904	8	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	130	46	0	00004810	4	Examine	examine	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	112	46	0	00044000	9	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Pull	pull	-	0	Lift	lift	-	0	Lower	lower	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	112	46	0	00044000	9	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Pull	pull	-	0	Lift	lift	-	0	Lower	lower	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	137	44	0	00440000	4	Examine	examine	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	137	44	0	00440000	4	Examine	examine	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	173	44	0	00400000	7	Examine	examine	-	0	Open	open	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	173	44	0	00400000	7	Examine	examine	-	0	Open	open	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	105	44	0	00004000	4	Examine	examine	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	100	40	1	00060904	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	100	46	0	00064904	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	112	46	0	00044800	10	Examine	examine	-	0	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Lift	lift	-	0	Lower	lower	-	0	Move	move	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	46	247	130	0	10020004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	14	46	0	10028000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	14	40	1	10028004	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	46	137	44	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	33	59	0	00020480	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	108	59	0	00004810	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	77	59	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	59	251	59	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	251	59	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	109	59	0	00044800	11	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Pull	pull	-	0	Lift	lift	-	0	Lower	lower	-	0	Move	move	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	109	59	0	00044800	11	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Pull	pull	-	0	Lift	lift	-	0	Lower	lower	-	0	Move	move	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	137	44	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	137	44	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	173	44	0	00400000	8	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	173	44	0	00400000	8	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	59	33	40	1	00020484	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	248	192	248	0	40000000	7	Examine	examine	-	0	Kick	kick	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	248	74	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	80	192	80	0	40000000	6	Examine	examine	-	0	Kick	kick	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	80	74	44	0	00004000	4	Examine	examine	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	80	105	44	0	00004000	4	Examine	examine	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	172	192	172	0	40000000	7	Examine	examine	-	0	Kick	kick	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	172	74	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Cross	cross	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	201	150	201	0	40000000	17	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	201	81	201	0	00060000	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	201	81	201	0	00060000	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	248	150	248	0	40000000	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	171	150	171	0	40000000	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	124	150	124	0	40000000	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	231	150	231	0	40000000	8	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	231	57	231	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Fill	fill	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	30	150	30	0	40000000	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	212	150	212	0	40000000	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	150	16	0	40000000	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	16	127	40	1	00022400	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	16	110	40	1	00020000	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	18	234	0	40040800	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	234	18	234	0	40040800	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	234	24	18	0	00026400	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	110	234	0	00020000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	234	14	234	0	10028004	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	43	44	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	45	43	44	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	45	43	44	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	76	94	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	76	94	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	99	76	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	99	76	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	219	76	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	219	76	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	89	76	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	89	76	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	233	250	233	0	00040800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	233	250	233	0	00040800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	233	32	250	0	40000000	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	233	17	233	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	233	223	233	0	20022004	6	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	233	31	250	0	00020480	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	233	31	40	1	00020484	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	31	99	0	00020484	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	29	89	0	00022484	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	197	76	0	00040900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	197	76	0	00040900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	36	197	0	00020480	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	94	36	40	1	00020484	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	15	97	15	0	00020400	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	15	97	40	1	00020404	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	169	176	0	08000800	5	Examine	examine	-	0	Enter	enter	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	126	169	0	00044010	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	126	169	0	00044010	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	176	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	126	169	0	00044814	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	176	181	126	0	04034004	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	138	169	0	04030000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	138	40	1	04030004	8	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	34	169	34	0	08000800	5	Examine	examine	-	0	Stand up	stand	-	1	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	34	138	169	0	04030004	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	34	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	34	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	34	181	126	0	06084004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	34	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	34	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	113	169	113	0	08000800	5	Examine	examine	-	0	Stand up	stand	-	1	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	113	138	169	0	04030004	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	113	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	113	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	113	181	126	0	06084004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	113	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	113	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	169	13	0	08000800	5	Examine	examine	-	0	Stand up	stand	-	1	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	138	169	0	04030004	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	13	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	13	181	126	0	06084004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	13	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	246	13	0	00030400	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	88	13	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	13	246	40	1	00030404	7	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	198	136	0	04070010	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	198	136	0	04070010	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	232	136	0	04070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	232	136	0	04070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	61	136	0	04070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	61	136	0	04070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	41	136	0	04070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	41	136	0	04070000	7	Examine	examine	-	0	Open	open	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	198	136	0	04070814	8	Examine	examine	-	0	Close	close	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	136	78	198	0	04030400	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	136	78	40	1	04030404	8	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	86	169	86	0	08000800	5	Examine	examine	-	0	Stand up	stand	-	1	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	86	138	169	0	04030004	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	86	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	86	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	86	181	126	0	06084004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	86	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	86	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	177	169	177	0	08000800	5	Examine	examine	-	0	Stand up	stand	-	1	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	177	138	169	0	04030004	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	177	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	177	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	177	181	126	0	06084004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	177	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	177	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	143	169	143	0	08000800	5	Examine	examine	-	0	Stand up	stand	-	1	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	143	138	169	0	04030004	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	143	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	143	126	169	0	00044814	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	143	181	126	0	06084004	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	143	93	169	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	143	170	169	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	143	65	143	0	00000000	3	Examine	examine	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	163	182	0	00004800	4	Examine	examine	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	182	132	182	0	00044000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Close	close	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	132	182	0	00044000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Close	close	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	225	163	0	04020814	5	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	213	225	0	04020004	5	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	101	182	0	00000000	9	Examine	examine	-	0	Extinguish	extinguish	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Listen to	listen to	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	182	132	182	0	00044800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	182	146	132	0	00020408	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	55	132	0	04030000	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	146	40	1	0002040c	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	182	55	40	1	04030004	8	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	143	126	169	0	00044014	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	177	126	169	0	00044014	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	86	126	169	0	00044014	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	113	126	169	0	00044014	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	34	126	169	0	00044014	5	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	176	55	169	0	04030004	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	146	28	0	0002040c	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	78	28	0	04030404	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	246	28	0	00030404	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	28	97	28	0	00020404	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	201	81	201	0	00060804	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	201	3	81	0	00020400	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	201	3	40	1	00020404	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	200	20	200	0	00004000	9	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	200	160	200	0	00014000	4	Examine	examine	-	0	Read	read	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	200	220	200	0	04030000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	200	50	44	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	49	56	49	0	04020400	11	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Wave	wave	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+1	49	56	40	1	04020404	11	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Push	push	-	0	Press	press	-	0	Shake	shake	-	0	Wave	wave	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+1	64	145	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	64	211	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	64	50	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	64	199	44	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	2	179	2	0	04030400	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Eat	eat	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	2	145	44	0	00004000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	2	211	44	0	00004000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	2	50	44	0	00004000	5	Examine	examine	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	2	199	44	0	00004000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	2	179	40	1	04030404	9	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Eat	eat	-	0	Light	light	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	200	179	200	0	04030404	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Eat	eat	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	200	56	200	0	04020404	12	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Wave	wave	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+1	102	145	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	102	211	44	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	102	50	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	102	199	44	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	207	214	207	0	00030000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	207	214	40	1	00030004	7	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	209	91	0	00044900	5	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	91	209	91	0	00044900	5	Examine	examine	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	91	166	44	0	00014000	17	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	Pull	pull	-	0	Lift	lift	-	0	More actions...	-	-	8
+1	91	208	44	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	Pull	pull	-	0	Lift	lift	-	0	More actions...	-	-	8
+1	91	222	44	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	134	91	0	00020404	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	127	91	0	00022400	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	3	91	0	00020404	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	56	91	0	04020404	12	Examine	examine	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Wave	wave	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+1	91	179	91	0	04030404	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Eat	eat	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	140	91	0	00020404	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	97	91	0	00020404	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	146	91	0	0002040c	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	78	91	0	04030404	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	246	91	0	00030404	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	229	91	0	40000000	6	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	91	18	91	0	40040800	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	91	18	91	0	40040800	5	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Smell	smell	-	0	More actions...	-	-	8
+1	91	24	18	0	00026400	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	91	24	40	1	00022404	8	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Lift	lift	-	0	Shake	shake	-	0	Wave	wave	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	159	84	44	0	0001c000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+1	128	72	128	0	00020400	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	128	84	44	0	0001c000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+1	128	72	40	1	00020404	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	240	180	44	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	240	180	44	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	19	180	44	0	00804000	6	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	19	180	44	0	00804000	6	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	19	216	44	0	00006000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	19	216	44	0	00006000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	202	68	202	0	24030000	7	Examine	examine	-	0	Read	read	-	0	Swing at...	swing	at	2	Take	take	-	0	Light	light	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	202	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	202	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	121	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	121	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	242	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	242	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	75	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	75	216	44	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	162	58	162	0	40040800	17	Examine	examine	-	0	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	162	58	162	0	40040800	17	Examine	examine	-	0	Close	close	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	More actions...	-	-	8
+1	162	180	44	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	162	180	44	0	00804000	5	Examine	examine	-	0	Climb up	climb up	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	162	72	58	0	00026404	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	194	245	44	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	194	245	44	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	194	245	44	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	125	116	125	0	00014000	5	Examine	examine	-	0	Read	read	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	125	118	125	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	125	245	44	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	125	245	44	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	125	151	44	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	125	151	44	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+1	125	151	44	0	00440800	7	Examine	examine	-	0	Close	close	-	0	Open	open	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+1	95	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	95	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	142	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	142	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	185	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	185	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	226	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+1	226	216	44	0	00006000	2	Examine	examine	-	0	More actions...	-	-	8
+2	211	126	211	0	80020000	8	Examine	examine	-	0	Switch on	turn on	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	211	154	41	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	211	154	41	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	211	126	35	1	80020200	9	Examine	examine	-	0	Switch on	turn on	-	0	Drop	drop	-	0	Put in...	put	in	2	Light	light	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	217	146	217	0	00040800	12	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	217	146	217	0	00040800	12	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Open	open	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	217	202	146	0	20022000	8	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	102	223	41	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	102	154	41	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	102	154	41	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	102	126	102	0	800a0200	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	184	223	41	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	12	129	12	0	00006000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	12	144	12	0	00004000	17	Examine	examine	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Light	light	-	0	Extinguish	extinguish	-	0	Fill	fill	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Pull	pull	-	0	More actions...	-	-	8
+2	12	114	12	0	00004000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	12	223	41	0	00000000	6	Examine	examine	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	12	90	35	1	00020008	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	140	67	140	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	140	223	41	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	124	3	124	0	00014000	5	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	124	18	124	0	820a0000	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	124	17	124	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	124	18	35	1	820a0200	8	Examine	examine	-	0	Switch off	turn off	-	0	Drop	drop	-	0	Put in...	put	in	2	Extinguish	extinguish	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	192	195	192	0	00030000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	192	195	35	1	00030200	7	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	93	198	41	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Light	light	-	0	Extinguish	extinguish	-	0	Fill	fill	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	93	14	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	93	71	41	0	00000000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	93	18	93	0	820a0200	8	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	12	195	12	0	00030200	7	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	216	223	41	0	00000000	7	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	39	13	39	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	39	135	39	0	00004000	8	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	39	13	35	1	00020200	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	203	156	41	0	00000000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	203	71	41	0	00000000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	203	198	41	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Light	light	-	0	Extinguish	extinguish	-	0	Fill	fill	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	182	156	41	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	182	71	41	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	182	198	41	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Light	light	-	0	Extinguish	extinguish	-	0	Fill	fill	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	163	156	41	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	163	71	41	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	163	198	41	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Light	light	-	0	Extinguish	extinguish	-	0	Fill	fill	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	112	14	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	112	193	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	78	14	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	73	31	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	95	109	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	109	47	109	0	00006000	7	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	99	109	0	00120000	8	Examine	examine	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	14	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	193	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	220	41	0	00000000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	99	35	1	00120200	9	Examine	examine	-	0	Eat	eat	-	0	Drop	drop	-	0	Put in...	put	in	2	Drink	drink	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	218	65	218	0	00060000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	218	65	218	0	00060000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	218	14	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	218	137	41	0	00000000	4	Examine	examine	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	218	31	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	218	220	41	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	Pull	pull	-	0	Lift	lift	-	0	More actions...	-	-	8
+2	218	189	41	0	40000000	7	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	139	109	0	40040800	7	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	139	109	0	40040800	7	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	26	139	0	00024000	8	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	109	65	109	0	00060a00	8	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	109	65	109	0	00060a00	8	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	109	213	35	1	00020000	7	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	81	198	41	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Light	light	-	0	Extinguish	extinguish	-	0	Fill	fill	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	116	38	116	0	00014000	5	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	136	199	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	136	199	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	136	89	41	0	00400800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	136	89	41	0	00400800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	199	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	199	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	205	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	205	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	82	41	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	82	41	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	154	41	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	154	41	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	89	41	0	00400800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	89	41	0	00400800	7	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	219	176	0	00014000	5	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	176	132	176	0	00000000	8	Examine	examine	-	0	Take	take	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	176	92	176	0	00000000	8	Examine	examine	-	0	Take	take	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	176	122	176	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	122	176	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	76	122	0	0000c000	6	Examine	examine	-	0	Set dial...	set dial to	-	7	Take	take	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	176	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	25	122	0	00044800	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	25	122	0	00044800	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	120	122	0	00004000	6	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	176	82	41	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	82	41	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Listen to	listen to	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	122	227	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	122	227	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	76	122	0	0000c000	6	Examine	examine	-	0	Set dial...	set dial to	-	7	Take	take	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	25	122	0	00044800	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	25	122	0	00044800	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	227	120	122	0	00004000	6	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	227	205	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	122	103	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	122	103	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	76	122	0	0000c000	6	Examine	examine	-	0	Set dial...	set dial to	-	7	Take	take	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	25	122	0	00044800	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	25	122	0	00044800	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	120	122	0	00004000	6	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	10	103	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	10	103	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	131	10	0	00014000	5	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	61	103	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	61	103	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	111	61	0	00026008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	174	61	0	00026000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	180	61	0	00026000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	205	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	103	205	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	179	61	179	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	179	61	179	0	00044900	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	179	111	61	0	00026008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	179	174	61	0	00026000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	179	180	61	0	00026000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	179	205	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	179	205	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	179	111	35	1	00022208	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	179	205	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	28	82	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	28	82	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	28	205	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	28	205	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	28	199	41	0	00440000	5	Examine	examine	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	28	199	41	0	00440000	5	Examine	examine	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	28	82	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	66	219	66	0	00014000	5	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	66	92	66	0	00000000	8	Examine	examine	-	0	Take	take	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	66	132	66	0	00000000	8	Examine	examine	-	0	Take	take	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	66	122	66	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	66	122	66	0	08040800	11	Examine	examine	-	0	Enter	enter	-	0	Push toward...	push	-	5	Close	close	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	66	76	122	0	0000c000	6	Examine	examine	-	0	Set dial...	set dial to	-	7	Take	take	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	66	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	66	121	122	0	00044900	9	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Lift	lift	-	0	Move	move	-	0	Smell	smell	-	0	Look under	look under	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	66	120	122	0	00004000	6	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	66	82	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	66	82	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	176	82	41	0	00440000	7	Examine	examine	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	90	103	0	00020008	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	195	103	0	00030200	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	13	103	0	00020200	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	18	103	0	820a0200	7	Examine	examine	-	0	Switch off	turn off	-	0	Take	take	-	0	Extinguish	extinguish	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	99	103	0	00120200	7	Examine	examine	-	0	Eat	eat	-	0	Take	take	-	0	Drink	drink	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	103	213	103	0	00020000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	143	215	143	0	00004000	6	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	143	171	143	0	04030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Light	light	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	143	154	41	0	00804000	6	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	143	154	41	0	00804000	6	Examine	examine	-	0	Climb	climb	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	257	0	0	00000000	9	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	258	0	0	00000000	9	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	259	0	0	00000000	9	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	260	0	0	00000000	9	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	77	194	0	00030000	8	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Open	open	-	0	Climb	climb	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	77	35	1	00030200	9	Examine	examine	-	0	Read	read	-	0	Drop	drop	-	0	Put in...	put	in	2	Open	open	-	0	Climb	climb	-	0	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	194	85	49	0	00000000	17	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Cross	cross	-	0	Push	push	-	0	Pull	pull	-	0	Lift	lift	-	0	Lower	lower	-	0	More actions...	-	-	8
+2	30	110	30	0	40040840	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	30	110	30	0	40040840	6	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	30	59	110	0	00026008	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	30	148	110	0	00026008	6	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	Look under	look under	-	0	More actions...	-	-	8
+2	30	202	35	1	20022000	7	Examine	examine	-	0	Swing at...	swing	at	2	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	30	148	35	1	00022008	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	30	59	35	1	00022208	6	Examine	examine	-	0	Drop	drop	-	0	Put in...	put	in	2	Shake	shake	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	172	97	172	0	40000000	8	Examine	examine	-	0	Wake	wake man	-	1	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	Listen to	listen to	-	0	More actions...	-	-	8
+2	172	32	172	0	00014000	6	Examine	examine	-	0	Read	read	-	0	Take	take	-	0	Climb	climb	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	172	154	41	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	172	154	41	0	00804000	5	Examine	examine	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	172	222	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	172	222	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	172	222	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	98	191	98	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	98	222	41	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	98	222	41	0	00440800	9	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	98	154	41	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	98	154	41	0	00804000	6	Examine	examine	-	0	Climb up	climb up	-	0	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	6	27	6	0	00044800	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	6	27	6	0	00044800	6	Examine	examine	-	0	Close	close	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	6	202	6	0	20022000	6	Examine	examine	-	0	Swing at...	swing	at	2	Take	take	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	169	106	41	0	00000000	10	Examine	examine	-	0	Take	take	-	0	Open	open	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	169	29	41	0	00000000	9	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Open	open	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	169	96	41	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	169	107	41	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	157	160	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	52	160	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	212	160	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	2	160	0	00004000	10	Examine	examine	-	0	Lift	lift	-	0	Lower	lower	-	0	Take	take	-	0	Push	push	-	0	Pull	pull	-	0	Move	move	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	197	160	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	62	160	0	00004000	8	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Open	open	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	37	160	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	196	160	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	127	160	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	87	160	0	00004000	7	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Climb	climb	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	175	160	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Turn	turn	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	96	41	0	00000000	6	Examine	examine	-	0	Take	take	-	0	Pull	pull	-	0	Move	move	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	107	41	0	00000000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	160	152	41	0	40000000	9	Examine	examine	-	0	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Close	close	-	0	Eat	eat	-	0	Extinguish	extinguish	-	0	Knock on	knock on	-	0	More actions...	-	-	8
+2	105	207	41	0	00444000	7	Examine	examine	-	0	Knock on	knock on	-	0	Take	take	-	0	Open	open	-	0	Close	close	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	105	147	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	105	80	41	0	00000000	7	Examine	examine	-	0	Take	take	-	0	Climb	climb	-	0	Push	push	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	159	1	159	0	40000000	7	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	159	207	41	0	00444000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	159	207	41	0	00444000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Close	close	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	159	147	41	0	00004000	5	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	190	1	190	0	40000000	7	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	43	1	43	0	40000000	7	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	19	1	19	0	40000000	7	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	19	183	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	19	183	41	0	00440000	6	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	19	206	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	19	4	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	36	1	36	0	40000000	7	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	36	88	36	0	0000c000	5	Examine	examine	-	0	Turn dial...	turn dial to	-	6	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	36	60	36	0	00004000	6	Examine	examine	-	0	Push	push	-	0	Take	take	-	0	Press	press	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	36	206	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	36	4	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	19	183	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	45	11	41	0	40000000	17	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	45	209	41	0	00440000	5	Examine	examine	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	45	209	41	0	00440000	5	Examine	examine	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	45	183	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	45	183	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8
+2	45	206	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	45	4	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	45	183	41	0	00440000	7	Examine	examine	-	0	Open	open	-	0	Take	take	-	0	Knock on	knock on	-	0	Enter	enter	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	204	153	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	204	153	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	204	11	41	0	40000000	17	Examine	examine	-	0	Give orders...	-	-	9	Give item...	give	to	4	Attack with...	attack	with	2	Take	take	-	0	Open	open	-	0	Close	close	-	0	Read	read	-	0	Eat	eat	-	0	Drink	drink	-	0	Wind	wind	-	0	Ring	ring	-	0	Knock on	knock on	-	0	Climb	climb	-	0	Enter	enter	-	0	Cross	cross	-	0	More actions...	-	-	8
+2	204	209	41	0	00440000	5	Examine	examine	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	204	209	41	0	00440000	5	Examine	examine	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	204	4	41	0	00004000	4	Examine	examine	-	0	Take	take	-	0	Smell	smell	-	0	More actions...	-	-	8
+2	204	209	41	0	00440800	8	Examine	examine	-	0	Close	close	-	0	Enter	enter	-	0	Take	take	-	0	Knock on	knock on	-	0	Smell	smell	-	0	Look inside	look in	-	0	More actions...	-	-	8

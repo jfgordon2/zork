@@ -310,7 +310,8 @@ static void check_climb_action_defaults(void) {
     command("south"); command("east"); command("open window"); command("enter window");
     assert(z_global(0) == 27);
     check_action(43, PRIMARY, "Climb down", NULL, "climb down chimney");
-    check_action(177, PRIMARY, "Climb up", NULL, "climb up stairs");
+    check_action(177, PRIMARY, "Go up", NULL, "up");
+    check_action_absent(177, PRIMARY, "Climb");
     char reply[256] = {0};
     assert(z_probe("climb down chimney", reply, sizeof(reply), 20000));
     assert(strstr(reply, "Santa Claus climbs down chimneys"));
@@ -327,6 +328,27 @@ static void check_climb_action_defaults(void) {
     assert(z_probe("climb mountain", reply, sizeof(reply), 20000));
     assert(strstr(reply, "mountains are impassable"));
     assert(z_global(0) == 167);
+}
+
+static void check_living_room_stairs_visibility(void) {
+    start(0);
+    command("south"); command("east"); command("open window"); command("enter window");
+    command("west");
+    assert(z_global(0) == ZORK1_LIVING_ROOM);
+
+    Targets room, bag;
+    story_targets(0, &room, &bag);
+    assert(!has_target(&room, ZORK1_STAIRS));
+
+    command("move rug");
+    assert(story_scene(0, "Living Room") == art_living_moved);
+    story_targets(0, &room, &bag);
+    assert(!has_target(&room, ZORK1_STAIRS));
+
+    command("open trap door");
+    assert(story_scene(0, "Living Room") == art_z1_hatch_open);
+    story_targets(0, &room, &bag);
+    assert(has_target(&room, ZORK1_STAIRS));
 }
 
 // Objects that have an exit property are rooms; their names are displayed, not
@@ -495,7 +517,8 @@ static void check_first_zork_dam(void) {
     };
     for (unsigned i = 0; i < sizeof(mine) / sizeof(*mine); i++) command(mine[i]);
     assert(z_global(0) == ZORK1_GAS_ROOM && story_scene(0, "Gas Room") == art_z1_gas_room);
-    check_action(ZORK1_STAIRS, PRIMARY, "Climb up", NULL, "climb up stairs");
+    check_action(ZORK1_STAIRS, PRIMARY, "Go up", NULL, "up");
+    check_action(ZORK1_STAIRS, MOVE, "Go up", NULL, "up");
     command("take sapphire-encrusted bracelet");
     assert(z_parent(ZORK1_BRACELET) == 44 && save_vm());
     command("up");
@@ -513,16 +536,16 @@ static void check_first_zork_dam(void) {
     const char *const ladder[] = {"east", "ne", "se", "sw", "down"};
     for (unsigned i = 0; i < sizeof(ladder) / sizeof(*ladder); i++) command(ladder[i]);
     assert(z_global(0) == ZORK1_LADDER_TOP && story_scene(0, "Ladder Top") == art_z1_ladder_top);
-    check_action(ZORK1_MINE_LADDER, PRIMARY, "Climb down", NULL, "climb down wooden ladder");
-    check_action(ZORK1_MINE_LADDER, MOVE, "Climb down", NULL, "climb down wooden ladder");
+    check_action(ZORK1_MINE_LADDER, PRIMARY, "Go down", NULL, "down");
+    check_action(ZORK1_MINE_LADDER, MOVE, "Go down", NULL, "down");
     command("climb down wooden ladder");
     assert(z_global(0) == ZORK1_LADDER_BOTTOM && story_scene(0, "Ladder Bottom") == art_z1_ladder_bottom);
-    check_action(ZORK1_MINE_LADDER, PRIMARY, "Climb up", NULL, "climb up wooden ladder");
-    check_action(ZORK1_MINE_LADDER, MOVE, "Climb up", NULL, "climb up wooden ladder");
+    check_action(ZORK1_MINE_LADDER, PRIMARY, "Go up", NULL, "up");
+    check_action(ZORK1_MINE_LADDER, MOVE, "Go up", NULL, "up");
     command("climb up wooden ladder");
     assert(z_global(0) == ZORK1_LADDER_TOP);
-    check_action(ZORK1_STAIRS, PRIMARY, "Climb up", NULL, "climb up stairs");
-    check_action(ZORK1_STAIRS, MOVE, "Climb up", NULL, "climb up stairs");
+    check_action(ZORK1_STAIRS, PRIMARY, "Go up", NULL, "up");
+    check_action(ZORK1_STAIRS, MOVE, "Go up", NULL, "up");
     command("climb up stairs");
     assert(z_global(0) == 3);
 }
@@ -614,8 +637,10 @@ static void check_primary_enrichment(void) {
     command("n"); command("e"); command("open window"); command("climb through window"); command("w");
     assert(z_global(0) == 75);
     Action actions[MAX_ACTIONS];
+    story_menu_probe_begin();
     unsigned count = story_actions(0, 55, false, PRIMARY, actions);
     count = story_filter_defaults(55, actions, count);
+    story_menu_probe_end();
     assert(count <= MAX_ACTIONS - 1);
     // The carpet's heuristic list is Examine, Look under, Move. Enrichment must
     // add at least one further effectful action (currently Lift).
@@ -706,8 +731,11 @@ static void check_primary_dedup(void) {
                                   rug_effect.second != press_effect.second));
 
     Action actions[MAX_ACTIONS];
+    story_menu_probe_begin();
     unsigned count = story_actions(0, 55, false, PRIMARY, actions);
     count = story_filter_defaults(55, actions, count);
+    story_menu_probe_end();
+    assert(story_menu_effect_probes_used() > 0 && story_menu_effect_probes_used() <= 24);
     bool has_move = false;
     bool has_press = false;
     unsigned rug_action_count = 0;
@@ -799,6 +827,7 @@ int main(void) {
     start(0);
     check_first_zork_dam();
     check_climb_action_defaults();
+    check_living_room_stairs_visibility();
     check_window_enter_action();
 
     start(1);

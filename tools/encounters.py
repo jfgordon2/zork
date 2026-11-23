@@ -59,6 +59,13 @@ def compile_art(manifest, output):
                     poses.append(make_pose("ArtCollarWorn", worn))
                 if first and key == "crown":
                     poses.append(make_pose("ArtCrownSafe", pose.resize((16, 11), Image.Resampling.LANCZOS)))
+                if first and key == "pile_bodies":
+                    # The same remains appear through the Hades gate at a
+                    # distance and larger in the Land of the Dead.
+                    poses.append(make_pose(
+                        "ArtPileBodiesDistant",
+                        pose.resize((28, 13), Image.Resampling.LANCZOS),
+                    ))
                 if key == "leaflet" and cell["pose"] == "Folded":
                     poses.append(make_pose("ArtCardSafe", pose.resize((8, 5), Image.Resampling.LANCZOS)))
                 if key in ("lizard_head_awake", "lizard_head_asleep") and cell["pose"] == "Embedded":

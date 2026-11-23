@@ -52,6 +52,8 @@ bool z_valid_resume(const ZResume *state);
 void z_load(const ZResume *state, const uint8_t *dynamic, const uint8_t *stack);
 // Buffers large enough for a dynamic-memory image and a stack image.
 void z_scratch(uint8_t **dynamic, uint8_t **stack);
+void z_probe_batch_begin(void);
+void z_probe_batch_end(void);
 // Runs one command at the prompt with its text captured into reply instead of
 // shown, then rewinds the story to exactly where it was. Uses z_scratch.
 bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget);

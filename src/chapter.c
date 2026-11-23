@@ -108,8 +108,8 @@ bool zork1_barrow_finished(void) {
 
 static const Color *zork1_living_room(void) {
     bool shortcut = z_global(87) != 0;  // CYCLOPS-FLED
-    if (z_attr(240, ATTR_INVISIBLE)) return shortcut ? art_z1_living_shortcut : art_living;
-    if (z_attr(240, ATTR_OPEN)) return shortcut ? art_z1_hatch_open_shortcut : art_z1_hatch_open;
+    if (z_attr(ZORK1_TRAP_DOOR, ATTR_INVISIBLE)) return shortcut ? art_z1_living_shortcut : art_living;
+    if (z_attr(ZORK1_TRAP_DOOR, ATTR_OPEN)) return shortcut ? art_z1_hatch_open_shortcut : art_z1_hatch_open;
     return shortcut ? art_z1_living_moved_shortcut : art_living_moved;
 }
 
@@ -467,7 +467,8 @@ void story_noun(unsigned id, char buffer[Z_NAME_MAX]) {
         {"gigantic dog collar", "collar"}, {"three-headed dog", "cerberus"},
         {"priceless zorkmid", "coin"}, {"heavy but invisible liquid", "potion"},
         {"huge red dragon", "dragon"},
-        {"number of ghosts", "ghosts"}, {"Gnome of Zurich", "gnome"}
+        {"number of ghosts", "ghosts"}, {"Gnome of Zurich", "gnome"},
+        {"Guardians of Zork", "guardians"}
     };
     raw_noun(id, buffer);
     for (unsigned i = 0; i < sizeof(aliases) / sizeof(aliases[0]); i++) {
@@ -550,6 +551,7 @@ void story_name(unsigned chapter, unsigned id, char buffer[Z_NAME_MAX]) {
 
 static bool parser_rejects_command(const char *reply) {
     return text_has(reply, "I don't know the word") ||
+           text_has(reply, "You used the word") ||
            text_has(reply, "I don't understand that sentence") ||
            text_has(reply, "That sentence isn't one I recognize") ||
            text_has(reply, "That sentence is not one I recognize");
@@ -596,12 +598,52 @@ static bool target_noun_resolves(const char *noun) {
 static bool add_object(Targets *list, unsigned id, unsigned chapter) {
     unsigned player = chapters[chapter].player;
     if (list->count == TARGET_LIMIT || !id || id > z_object_count() || id == player) return false;
+    // Object 154 is the static, unicorn-shaped hedge. The live unicorn is
+    // object 26 and appears in the North End only after leaving the gazebo.
+    // Don't offer the hedge proxy in the Gazebo, central garden, or North End
+    // where no such topiary is drawn; the live actor is selectable in the
+    // North End when the story state places it there.
+    if (chapter == 1 && id == 154 &&
+        (z_global(0) == 16 || z_global(0) == 157 || z_global(0) == 234)) return false;
+    // The Kennel's room-local list cites the Menhir Room's stone, but the
+    // Kennel text and art show only bones and the dog collar. Don't offer the
+    // distant menhir as if it were in this view.
+    if (chapter == 1 && id == 84 && z_global(0) == 128) return false;
+    // The Zork I staircase is only exposed after the living-room trap door is
+    // opened. Before that, the rug or closed hatch covers the stairs entirely.
+    if (chapter == 0 && id == ZORK1_STAIRS && z_global(0) == ZORK1_LIVING_ROOM &&
+        !z_attr(ZORK1_TRAP_DOOR, ATTR_OPEN)) return false;
+    // The Chasm description has a crack and paths, but no stairs. Reservoir
+    // North's view faces south across the basin while its stairs leave north,
+    // behind the camera. Keep both routes in Paths without a false scene target.
+    if (chapter == 0 && id == ZORK1_STAIRS &&
+        (z_global(0) == ZORK1_CHASM || z_global(0) == ZORK1_RESERVOIR_NORTH)) return false;
+    // In the Engravings Room, the staircase exists only after the secret door
+    // opens; before that, the target belongs to the carved wall and is misleading.
+    if (chapter == 2 && id == 154 && z_global(0) == ZORK3_ENGRAVINGS_ROOM &&
+        !z_attr(222, ATTR_OPEN)) return false;
+    // In the Jewel Room, the time machine's seat is visually part of the
+    // machine but the story parser explicitly says no seat is visible there.
+    if (chapter == 2 && id == ZORK3_MACHINE_SEAT && z_global(0) == ZORK3_JEWEL_PRESENT) return false;
     if (chapter == 0 && id == ZORK1_TROLL && visual_state_troll_disappeared()) return false;
     // Zork II uses different INVISIBLE and TRANSBIT attributes.
     if (z_attr(id, chapter == 1 ? 9 : ATTR_INVISIBLE)) return false;
     if (chapter == 2 && id == ZORK3_VIKING_SHIP && z_attr(id, ZORK3_SHIP_HIDDEN)) return false;
     if (chapter == 2 && id == ZORK3_CLIFF_MAN && !story_cliff_man_visible()) return false;
     if (chapter == 2 && id == 11 && z_global(0) == ZORK3_DUNGEON_ENTRANCE) return false;
+    // The guardian pair is only drawn in the three guardian hallways. The
+    // narrow-mirror rooms and the Inside Mirror list the same local name, but
+    // the statues are not in those views.
+    if (chapter == 2 && id == 152 && z_global(0) != ZORK3_GUARDIANS_HALL &&
+        z_global(0) != ZORK3_GUARDIANS_SOUTH && z_global(0) != ZORK3_GUARDIANS_NORTH)
+        return false;
+    // The North Corridor and Parapet local lists mention the prison-cell Master,
+    // but the actor (object 1) is the only real presence there. When the actor is
+    // absent the proxy is a stale mention, so don't offer "Dungeon Master" at all.
+    // The cell views keep the proxy because he is outside the shut door there.
+    if (chapter == 2 && id == 11 &&
+        (z_global(0) == ZORK3_NORTH_CORRIDOR || z_global(0) == ZORK3_PARAPET) &&
+        z_parent(1) != z_global(0)) return false;
     char name[Z_NAME_MAX];
     z_name(id, name, sizeof(name));
     if (!*name) return false;

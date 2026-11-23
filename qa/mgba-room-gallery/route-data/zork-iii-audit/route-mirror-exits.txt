@@ -1,0 +1,6 @@
+@qa/mgba-room-gallery/route-data/zork-iii-audit/route-54-lit.sav
+southwest
+| mirror-southwest 0
+@qa/mgba-room-gallery/route-data/zork-iii-audit/route-54-lit.sav
+southeast
+| mirror-southeast 0

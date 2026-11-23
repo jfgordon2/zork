@@ -42,6 +42,8 @@ refresh_paths = [
     GALLERY / 'cliff-man-refresh-results.csv',
     GALLERY / 'boat-interior-refresh-results.csv',
     GALLERY / 'art-followup-refresh-results.csv',
+    GALLERY / 'z3-routes-refresh-results.csv',
+    GALLERY / 'z3-ui-refresh-results.csv',
 ]
 existing_refresh_paths = [path for path in refresh_paths if path.is_file()]
 for refresh_path in existing_refresh_paths:
@@ -97,7 +99,7 @@ for r in rows:
         r['capture_status'] = 'captured'
 
 with manifest_path.open('w', newline='') as f:
-    writer = csv.DictWriter(f, fieldnames=list(rows[0]))
+    writer = csv.DictWriter(f, fieldnames=list(rows[0]), lineterminator='\n')
     writer.writeheader()
     writer.writerows(rows)
 
@@ -339,8 +341,8 @@ if newer_targeted_results:
     )
     noun = 'entry' if current_targeted_verified == 1 else 'entries'
     verb = 'was' if current_targeted_verified == 1 else 'were'
-    capture_summary += (f" {current_targeted_verified} affected {noun} {verb} recaptured after the current ROM build; "
-                        "the gallery uses those newer frames for the refreshed entries.")
+    capture_summary += (f" {current_targeted_verified} targeted {noun} {verb} captured after the current ROM build; "
+                        "the gallery uses those current frames.")
 elif targeted_results:
     capture_summary += " The full pass supersedes the older targeted refresh captures."
 if unverified:
@@ -369,6 +371,9 @@ ROM SHA-256: `{rom_sha256}`
 - [Frozen Ice Room pre-dragon route](ice-frozen-refresh-results.csv)
 - [Cliff Ledge upper-shelf character refresh](cliff-man-refresh-results.csv)
 - [Shared boat interior refresh across five aboard states](boat-interior-refresh-results.csv)
+- [Zork III alternate route captures](z3-routes-refresh-results.csv)
+- [Zork III Restore and ending UI captures](z3-ui-refresh-results.csv)
+- [Zork III route coverage notes](../../docs/audits/zork-iii-route-coverage.md)
 - [Rooms without stable screenshots and route evidence](route-gaps.md)
 
 | Chapter | Room IDs with verified frame | Capture records | Verified PNGs |
@@ -380,7 +385,7 @@ ROM SHA-256: `{rom_sha256}`
 
 The manifest identifies each room/state, its source checkpoint or route replay, the trace log or branch script that establishes the path, and the PNG path. Named state captures preserve variants such as doors, lights, puzzle geometry, water levels, vehicle placement, character states, and dropped/carried items. The shared boat interior was recaptured in all five saved aboard states after the current ROM build. Exact duplicate PNGs within a room are labeled in the gallery; several are aliases for one story moment rather than separate visual states.
 
-Zork III's route notes include the stable mirror-room branches (51, 58, 161, 178) and Drafty Room (228). {('The latest full mGBA pass confirmed all Zork III room and state checkpoints in their expected rooms.' if not unverified_z3 and full_pass_matches_current_rom else 'The last completed full mGBA pass confirmed all Zork III checkpoints then present in their expected rooms; that pass predates the current ROM build.' if not unverified_z3 else 'The latest mGBA report identifies Zork III checkpoints that restored to a different room.')} The three Zork II sphere rooms (224, 227, 228) were generated from the death-recovery route in `checkpoints/zork-ii-mist-rooms.txt`.
+Zork III's route notes include stable mirror-room branches, the Royal Puzzle entrance, and transient or unsafe outcomes such as Ladder Bottom 57 and the Guardian-side mirror rooms. The native route refresh records reachable branches in mGBA, and a separate UI replay captures in-game Restore plus the successful ending and its controller-driven Restart / Restore / Quit menu. {('The latest full mGBA pass confirmed all Zork III room and state checkpoints in their expected rooms.' if not unverified_z3 and full_pass_matches_current_rom else 'The last completed full mGBA pass confirmed all Zork III checkpoints then present in their expected rooms; that pass predates the current ROM build.' if not unverified_z3 else 'The latest mGBA report identifies Zork III checkpoints that restored to a different room.')} The three Zork II sphere rooms (224, 227, 228) were generated from the death-recovery route in `checkpoints/zork-ii-mist-rooms.txt`.
 
 Hallway 169's post-button route and state frames use the open-panel artwork. The story's global 107 records this panel state; it is not represented by the Z-machine `OPEN` attribute.
 
