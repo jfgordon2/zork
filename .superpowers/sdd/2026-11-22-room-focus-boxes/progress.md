@@ -53,3 +53,5 @@ QA-save coverage sweep:
 - make test passes; ROM rebuilt.
 Attic railing placement:
 - Shifted the attic stair railing from center x=27 to x=21 so the 42px sprite starts at the left edge and meets the corner; the focus box now starts at x=0. Verified in the attic route save; make test and the ROM build pass.
+Attic railing vertical seat:
+- Also moved the attic railing baseline from 84 to 86 so the base sits on the floor line; the top still meets the sloped beam. The focus box is 0,61 43x26 with a 0,62 42x24 visual. Verified in the attic route save; test and ROM pass.
