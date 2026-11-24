@@ -1176,7 +1176,7 @@ static const ItemPlacement item_placements[] = {
     {0, 184, 208, 184, {168, 85}, true, NULL},
     {0, 187, 58, 187, {129, 73}, true, NULL},
     {0, 187, 165, 250, {171, 72}, true, NULL}, // knife lies on the attic table
-    {0, 187, ZORK1_STAIRS, 48, {27, 84}, false, &ArtAtticRailingRail}, // stairs are global scenery
+    {0, 187, ZORK1_STAIRS, 48, {21, 84}, false, &ArtAtticRailingRail}, // stairs are global scenery
     {0, 191, 109, 191, {176, 84}, true, NULL},
     {0, 218, 206, 218, {96, 77}, true, NULL},
     {0, 218, 96, 218, {130, 77}, false, NULL},

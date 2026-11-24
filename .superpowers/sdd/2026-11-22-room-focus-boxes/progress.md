@@ -51,3 +51,5 @@ QA-save coverage sweep:
 - Restored the narrow-room Guardian target as name-row only; kept the Inside Mirror 160 proxy filtered. The Kennel menhir stays filtered (room text/art omit it).
 - Sweep result: no phantom targets, no box/visual mismatches, and no unallowlisted target without a box. Remaining boxless targets are the documented carried/contained or behind-camera cases.
 - make test passes; ROM rebuilt.
+Attic railing placement:
+- Shifted the attic stair railing from center x=27 to x=21 so the 42px sprite starts at the left edge and meets the corner; the focus box now starts at x=0. Verified in the attic route save; make test and the ROM build pass.
