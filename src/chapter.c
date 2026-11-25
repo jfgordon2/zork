@@ -42,6 +42,9 @@ extern const Color art_z3_narrow_corridor[], art_z3_puzzle_room[], art_z3_south_
 extern const Color art_z3_tight_squeeze[], art_z3_west_corridor[];
 extern const Color art_z3_creepy_crawl[], art_z3_prison_cell_bronze[], art_z3_shadow_cliff[];
 extern const Color art_z3_land_of_shadow_69[];
+extern const Color art_z3_land_of_shadow_30[], art_z3_land_of_shadow_63[], art_z3_land_of_shadow_123[];
+extern const Color art_z3_museum_cleft[], art_z3_museum_cleft_open[];
+extern const Color art_z3_great_door_cleft[];
 
 const Chapter chapters[3] = {
     {"Zork I", "The Great Underground Empire", story_zork1, story_zork1_end, 44, 5, art_west},
@@ -89,6 +92,10 @@ bool zork3_mirror_panel_open(void) {
     // mirror panel. The panel is not a Z-machine OPEN object, so ATTR_OPEN
     // remains clear even while the story says it has swung outward.
     return z_global(107) != 0;
+}
+
+bool zork3_great_door_cleft_open(void) {
+    return z_global(5) != 0; // The earthquake opens the passage to the museum.
 }
 
 bool story_figure_defenseless(void) {
@@ -343,6 +350,12 @@ const Color *story_scene(unsigned chapter, const char *room) {
         if (text_equal(room, "Machine Room")) return art_robot_machine;
     } else if (chapter == 2) {
         unsigned here = z_global(0);
+        if (here == 30) return art_z3_land_of_shadow_30;
+        if (here == 63) return art_z3_land_of_shadow_63;
+        if (here == 123) return art_z3_land_of_shadow_123;
+        // The museum's other present-day room (173) still has an intact wall.
+        if (here == 227)
+            return z_attr(205, ATTR_OPEN) ? art_z3_museum_cleft_open : art_z3_museum_cleft;
         if (here == 55) return art_z3_creepy_crawl;
         if (here == ZORK3_LAND_OF_SHADOW_69) return art_z3_land_of_shadow_69;
         if (here == 170) return art_z3_shadow_cliff;   // clifftop over the ocean, ruined wall to the north
@@ -379,7 +392,8 @@ const Color *story_scene(unsigned chapter, const char *room) {
         if (here == ZORK3_TREASURY) return art_z3_treasury;
         if (here == ZORK3_CRYSTAL_GROTTO) return art_z3_crystal_grotto;
         if (here == ZORK3_FOGGY_ROOM) return art_z3_foggy_room;
-        if (here == ZORK3_GREAT_DOOR) return art_z3_great_door;
+        if (here == ZORK3_GREAT_DOOR)
+            return zork3_great_door_cleft_open() ? art_z3_great_door_cleft : art_z3_great_door;
         if (here == ZORK3_ENDLESS_STAIR) return art_z3_endless_stair;
         if (here == ZORK3_NORTH_CORRIDOR)
             return z_attr(183, ATTR_OPEN) ? art_z3_marble_hall_prison_open : art_z3_marble_hall;

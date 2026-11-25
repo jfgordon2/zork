@@ -213,6 +213,25 @@ static int letter(int x, int y, char ch, Color color, int scale) {
     return x + (g->width + 1) * scale;
 }
 
+void dpad_badge(int x, int y, int size, uint16_t direction, Color background, Color edge, Color ink) {
+    box(x, y, size, size, background, edge);
+    x += size / 2;
+    y += size / 2;
+    bool vertical = direction == KEY_UP || direction == KEY_DOWN;
+    int sign = direction == KEY_UP || direction == KEY_LEFT ? 1 : -1;
+    // Rotate the same five-pixel chevron around the center of each badge.
+    for (int step = 0; step <= 2; step++) {
+        int depth = sign * (step - 1);
+        if (vertical) {
+            pixel(x - step, y + depth, ink);
+            pixel(x + step, y + depth, ink);
+        } else {
+            pixel(x + depth, y - step, ink);
+            pixel(x + depth, y + step, ink);
+        }
+    }
+}
+
 void label(int x, int y, const char *text, Color color) {
     while (*text) x = letter(x, y, *text++, color, 1);
 }

@@ -625,8 +625,6 @@ static const RoomAnchor anchors[] = {
     {2, 176, 219, 2, 36, 17, 17},
     {2, 78, 14, 8, 25, 49, 33},
     {2, ZORK3_ROYAL_HALL, 38, 175, 20, 42, 36},
-    {2, ZORK3_GREAT_DOOR, 89, 6, 18, 88, 57},
-    {2, ZORK3_GREAT_DOOR, 199, 160, 24, 78, 57},
     {2, ZORK3_LAND_OF_SHADOW_69, 14, 94, 46, 62, 31},
     {2, ZORK3_LAND_OF_SHADOW_69, 193, 5, 20, 230, 54},
     {2, ZORK3_WEST_SHORE, 67, 146, 66, 34, 21},
@@ -644,13 +642,12 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_AQUEDUCT, 156, 64, 31, 111, 40},
     {2, ZORK3_AQUEDUCT, 198, 8, 32, 224, 30},
     {2, ZORK3_AQUEDUCT_VIEW, 154, 5, 25, 48, 43},
-    {2, ZORK3_WATER_SLIDE, 71, 18, 59, 204, 27},
-    {2, ZORK3_WATER_SLIDE, 156, 69, 33, 105, 38},
-    {2, ZORK3_WATER_SLIDE, 198, 11, 33, 218, 34},
+    {2, ZORK3_WATER_SLIDE, 71, 76, 27, 147, 61}, // descending channel floor
+    {2, ZORK3_WATER_SLIDE, 156, 73, 17, 156, 72}, // channel and masonry walls
+    {2, ZORK3_WATER_SLIDE, 198, 90, 38, 113, 43}, // moss along the stone trough
     {2, ZORK3_CLIFF_LEDGE, 14, 8, 26, 54, 34},
     {2, ZORK3_CLIFF_LEDGE, 31, 101, 60, 42, 20},
     {2, ZORK3_CLIFF_LEDGE, 220, 145, 25, 63, 33},
-    {2, ZORK3_CLIFF_LEDGE, 137, 160, 17, 18, 62},
     {2, ZORK3_ENDLESS_STAIR, 154, 50, 40, 120, 48},
     {2, ZORK3_SOUTH_SHORE, 154, 6, 36, 76, 51},
     {2, 159, 147, 14, 30, 74, 36},
@@ -752,11 +749,11 @@ static const RoomAnchor anchors[] = {
     {2, 176, 132, 175, 44, 39, 31},
     {2, 227, 79, 175, 44, 39, 31},
     {2, 227, 82, 100, 26, 41, 34},
-    {2, 227, 89, 9, 34, 36, 28},
+    {2, 227, 89, 5, 25, 24, 41},
     {2, ZORK3_MUSEUM_ENTRANCE, 154, 89, 65, 62, 20},
     {2, ZORK3_MUSEUM_ENTRANCE_ALT, 154, 89, 65, 62, 20},
     {2, 227, 154, 89, 65, 62, 20},
-    {2, 227, 199, 29, 27, 25, 35},
+    {2, 227, 199, 39, 22, 28, 43},
     {2, 227, 205, 181, 27, 25, 35},
 
     // Zork I house and forest landmarks.
@@ -928,6 +925,9 @@ static const RoomAnchor anchors[] = {
 
 enum {
     ZORK1_TOUCHED = 3,
+    ZORK3_KEY_TAKEN = 9,
+    ZORK1_ROPE_TIED = 99,
+    ZORK3_CLIFF_ROPE_LOWERED = 85,
     ZORK1_PICKUP_SCORE = 13,
     ZORK1_BOTTLE_WATER = 186,
     ZORK2_WORKROOM = 94,
@@ -1174,7 +1174,7 @@ static const ItemPlacement item_placements[] = {
     {0, 182, 208, 182, {147, 86}, false, NULL},
     {0, 182, 185, 182, {82, 72}, false, NULL},
     {0, 184, 208, 184, {168, 85}, true, NULL},
-    {0, 187, 58, 187, {129, 73}, true, NULL},
+    {0, 187, 58, 187, {67, 85}, true, NULL}, // rope lies in the floor corner beside the stairs
     {0, 187, 165, 250, {171, 72}, true, NULL}, // knife lies on the attic table
     {0, 187, ZORK1_STAIRS, 48, {21, 86}, false, &ArtAtticRailingRail}, // stairs are global scenery
     {0, 191, 109, 191, {176, 84}, true, NULL},
@@ -1245,13 +1245,12 @@ static const ItemPlacement item_placements[] = {
     {2, ZORK3_JUNCTION, ZORK3_SWORD_ROCK, ZORK3_JUNCTION, {145, 86}, true, NULL},
     {2, 181, 22, 181, {174, 85}, true, NULL},
     {2, 109, 99, 109, {92, 78}, true, NULL},
+    {2, 39, 13, 39, {120, 73}, true, NULL}, // key lies in the lit dust
     {2, 30, 59, 30, {111, 83}, true, NULL},
     {2, 12, 129, 12, {122, 82}, true, NULL},
     {2, 143, 171, 143, {214, 59}, false, NULL},
     {2, ZORK3_SCENIC_VISTA, 18, ZORK3_SCENIC_VISTA, {219, 61}, false, &ArtTorchFlame},
     {2, 103, 61, 103, {120, 72}, false, &ArtZ3Pedestal},
-    {2, 109, 47, 109, {86, 78}, false, &ArtRopeHanging},
-    {2, ZORK3_CLIFF_LEDGE, 137, 41, {169, 78}, false, &ArtRopeHanging},
     {2, 6, ZORK3_SWORD, 6, {120, 67}, false, NULL},
 };
 
@@ -1406,6 +1405,9 @@ extern const Color art_z3_narrow_corridor[], art_z3_puzzle_room[], art_z3_south_
 extern const Color art_z3_tight_squeeze[], art_z3_west_corridor[];
 extern const Color art_z3_creepy_crawl[], art_z3_prison_cell_bronze[], art_z3_shadow_cliff[];
 extern const Color art_z3_land_of_shadow_69[];
+extern const Color art_z3_land_of_shadow_30[], art_z3_land_of_shadow_63[], art_z3_land_of_shadow_123[];
+extern const Color art_z3_museum_cleft[], art_z3_museum_cleft_open[];
+extern const Color art_z3_great_door_cleft[];
 
 typedef struct {
     const Color *background;
@@ -1454,7 +1456,7 @@ static const RoomFloor room_floors[] = {
     FLOOR(z3_underwater, 53, 85, 185, 85), FLOOR(z3_lake_surface, 70, 85, 181, 85),
     FLOOR(z3_west_shore, 66, 85, 190, 84), FLOOR(z3_south_shore, 78, 86, 119, 86),
     FLOOR(z3_aqueduct, 62, 84, 180, 84), FLOOR(z3_high_arch, 73, 82, 169, 81),
-    FLOOR(z3_water_slide, 82, 84, 164, 85),
+    FLOOR(z3_water_slide, 24, 86, 63, 87),
     FLOOR(z3_damp_passage, 71, 84, 166, 84),
     FLOOR(z3_aqueduct_view, 78, 83, 168, 82), FLOOR(z3_scenic_vista, 83, 84, 172, 84),
     FLOOR(z3_technology_unfinished, 72, 84, 170, 84),
@@ -1487,6 +1489,10 @@ static const RoomFloor room_floors[] = {
     FLOOR(z3_creepy_crawl, 72, 86, 165, 86),
     FLOOR(z3_prison_cell_bronze, 72, 84, 172, 84), FLOOR(z3_shadow_cliff, 120, 85, 200, 85),
     FLOOR(z3_land_of_shadow_69, 68, 86, 173, 86),
+    FLOOR(z3_land_of_shadow_30, 75, 84, 157, 85), FLOOR(z3_land_of_shadow_63, 75, 84, 157, 85),
+    FLOOR(z3_land_of_shadow_123, 113, 85, 177, 85),
+    FLOOR(z3_museum_cleft, 84, 85, 155, 86), FLOOR(z3_museum_cleft_open, 84, 85, 155, 86),
+    FLOOR(z3_great_door_cleft, 70, 84, 170, 84),
     FLOOR(z1_rear_open, 66, 88, 167, 85), FLOOR(z1_kitchen_shut, 44, 87, 190, 88),
     FLOOR(z1_living_shortcut, 88, 83, 148, 85), FLOOR(z1_living_moved_shortcut, 76, 83, 160, 85),
     FLOOR(z1_hatch_open, 65, 84, 190, 84), FLOOR(z1_hatch_open_shortcut, 65, 84, 190, 84),
@@ -2097,6 +2103,8 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
         if (chapter == 2 && object == 18 && z_attr(object, ZORK1_TOUCHED)) continue;
         // These story props initially sit on scenery but share the room as a parent with dropped items.
         if (chapter == 0 && room == 75 && z_attr(object, ZORK1_TOUCHED)) continue;
+        if (chapter == 0 && room == 11 && object == 58 && !z_global(ZORK1_ROPE_TIED)) continue;
+        if (chapter == 2 && room == 39 && object == 13 && z_attr(object, ZORK3_KEY_TAKEN)) continue;
         // In the Clearing's covered state, the leaf pile is part of the
         // background illustration. Keep it selectable without drawing the
         // small inventory sprite over the larger scene art.
@@ -2120,7 +2128,6 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
         }
         if (chapter == 0 && room == 160 && object == 157 && in_scene(targets, 29)) at.x += 48;
         ItemBounds bounds = item_bounds(art, at);
-        bool represented_by_scene_anchor = chapter == 2 && room == ZORK3_CLIFF_LEDGE && object == 137;
         bool selected = object == focused ||
                         (chapter == 2 && object == ZORK3_SWORD_ROCK &&
                          focused == ZORK3_SWORD && z_parent(focused) == object);
@@ -2135,8 +2142,7 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
                 corners(focus_object, bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height + 2, 3);
             }
         } else {
-            draw_room_item(selected ? focused : object, art, bounds, place->shadow,
-                           selected && !represented_by_scene_anchor);
+            draw_room_item(selected ? focused : object, art, bounds, place->shadow, selected);
         }
         if (chapter == 0) draw_zork1_item_contents(object, bounds, targets, focused);
         if (chapter == 1) draw_zork2_item_contents(object, bounds, targets, focused);
@@ -2153,7 +2159,6 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
       for (unsigned i = 0; i < targets->count; i++) {
         unsigned object = targets->id[i];
         if ((object == focused) != (pass == 0)) continue;
-        bool represented_by_scene_anchor = chapter == 2 && room == ZORK3_CLIFF_LEDGE && object == 137;
         bool extra = loose_extra(chapter, room, object);
         if (object >= sizeof(drawn) / sizeof(drawn[0]) || drawn[object] ||
             (!extra && (z_parent(object) != room ||
@@ -2175,20 +2180,20 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
                              floor->right.y - (int)(slot / 12) * 4};
             draw_contents_sprite(object, art, at, object == focused ? 20 : 5,
                                  object == focused ? 18 : 4,
-                                 object == focused && !represented_by_scene_anchor);
-            if (object == focused && !represented_by_scene_anchor) {
+                                 object == focused);
+            if (object == focused) {
                 ItemBounds compact = contents_bounds(art, at, 20, 18);
                 report_focused(object, compact.x, compact.y, compact.width, compact.height);
                 focused_compact = art; focused_compact_at = at;
             }
             continue;
         }
-        draw_room_item(object, art, bounds, true, object == focused && !represented_by_scene_anchor);
+        draw_room_item(object, art, bounds, true, object == focused);
         if (chapter == 0) draw_zork1_item_contents(object, bounds, targets, focused);
         if (chapter == 1) draw_zork2_item_contents(object, bounds, targets, focused);
         if (chapter == 2) draw_zork3_item_contents(object, bounds, targets, focused);
         occupied[count++] = bounds;
-        if (object == focused && !represented_by_scene_anchor) {
+        if (object == focused) {
             focused_art = art;
             focused_bounds = bounds;
         }
@@ -2265,11 +2270,58 @@ static void draw_shaft_chain(unsigned room) {
     bool raised = z_parent(108) == 245;
     int x = room == 245 ? 80 : 119;
     int end = room == 245 ? (raised ? 56 : 81) : (raised ? 28 : 65);
-    for (int y = 15; y < end; y += 4) {
+    for (int y = room == 245 ? 28 : 15; y < end; y += 4) {
         pixel(x - 1, y, EDGE);
         pixel(x, y + 1, STEEL);
         pixel(x, y + 2, STEEL);
         pixel(x - 1, y + 3, SHADOW);
+    }
+    if (room == 245) {
+        // The winch at the right rim drives a crossarm over the basket.
+        scene_segment((ScenePoint){80, 27}, (ScenePoint){164, 21}, RGB(40, 37, 32));
+        scene_segment((ScenePoint){80, 25}, (ScenePoint){164, 19}, RGB(104, 98, 83));
+        scene_segment((ScenePoint){80, 24}, (ScenePoint){164, 18}, RGB(155, 144, 114));
+        box(76, 23, 9, 8, RGB(88, 82, 69), RGB(47, 43, 36));
+        pixel(80, 26, RGB(174, 159, 125));
+    }
+}
+
+static void draw_hanging_rope(int x, int top, int end) {
+    for (int y = top; y <= end; y++) {
+        pixel(x - 1, y, RGB(75, 49, 31));
+        pixel(x, y, y % 5 == 0 ? RGB(151, 103, 63) : RGB(224, 177, 116));
+    }
+}
+
+static void draw_z3_cliff_rope(unsigned room, const Targets *targets) {
+    if (room == 109 && in_scene(targets, 47) && z_parent(47) == room) {
+        // Wrap the tree and lead the rope over the lip on the west side.
+        scene_segment((ScenePoint){38, 50}, (ScenePoint){61, 57}, RGB(75, 49, 31));
+        scene_segment((ScenePoint){38, 49}, (ScenePoint){61, 56}, RGB(224, 177, 116));
+        scene_segment((ScenePoint){61, 56}, (ScenePoint){48, 67}, RGB(224, 177, 116));
+        draw_hanging_rope(48, 67, 89);
+        focus_feature_box(47, 35, 46, 30, 44, 4);
+    }
+    if (room == ZORK3_CLIFF_LEDGE && in_scene(targets, 137)) {
+        int end = z_global(ZORK3_CLIFF_ROPE_LOWERED) ? 76 : 49;
+        scene_segment((ScenePoint){179, 36}, (ScenePoint){174, 40}, RGB(224, 177, 116));
+        draw_hanging_rope(174, 40, end);
+        focus_feature_box(137, 170, 33, 13, end - 30, 3);
+    }
+}
+
+static void draw_bank_sign(int x, int y, const char *text) {
+    box(x, y, label_width(text) + 8, 11, RGB(61, 51, 36), RGB(139, 114, 75));
+    label(x + 4, y + 2, text, RGB(222, 199, 145));
+}
+
+static void draw_bank_signs(unsigned room) {
+    if (room == 92) {
+        draw_bank_sign(9, 29, "< VIEWING");
+        draw_bank_sign(134, 29, "VIEWING >");
+    } else if (room == 152 || room == 243) {
+        draw_bank_sign(room == 152 ? 102 : 88, 21, "VIEWING");
+        draw_bank_sign(room == 152 ? 5 : 196, 16, "STAFF");
     }
 }
 
@@ -2734,6 +2786,17 @@ static void draw_room_target_anchor(unsigned chapter, unsigned room, const Targe
         else focus_feature_box(focused, 82, 31, 76, 36, 4);
         return;
     }
+    if (chapter == 2 && room == ZORK3_GREAT_DOOR && in_scene(targets, focused)) {
+        bool cleft_open = zork3_great_door_cleft_open();
+        if (focused == 89) {
+            if (cleft_open) focus_feature_box(focused, 204, 20, 31, 64, 4);
+            else focus_feature_box(focused, 226, 23, 12, 57, 3);
+        } else if (focused == 199) {
+            if (cleft_open) focus_feature_box(focused, 145, 15, 60, 69, 4);
+            else focus_feature_box(focused, 158, 22, 81, 61, 4);
+        }
+        return;
+    }
     for (unsigned i = 0; i < sizeof(anchors) / sizeof(anchors[0]); i++) {
         const RoomAnchor *anchor = &anchors[i];
         if (anchor->chapter == chapter && anchor->room == room && anchor->object == focused &&
@@ -2774,7 +2837,9 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
         }
     }
     if (chapter == 1 && room == 159) draw_menhir(focused);
+    if (chapter == 1) draw_bank_signs(room);
     if (chapter == 0) {
+        if (room == 18 && z_global(ZORK1_ROPE_TIED)) draw_hanging_rope(113, 15, 44);
         if (room == 160 || room == 216) draw_grating(room, targets, focused);
         if (room == 245 || room == 249) draw_shaft_chain(room);
         if (room == 178) draw_dam_indicator(focused);
@@ -2802,21 +2867,9 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
         draw_z3_museum_plaque(room, targets);
         draw_z3_prison_master(room, targets, focused);
         draw_z3_guardians(room, focused);
+        draw_z3_cliff_rope(room, targets);
     }
     draw_room_items(chapter, room, background, targets, focused);
-    if (chapter == 2 && room == ZORK3_CLIFF_LEDGE &&
-        in_scene(targets, 137) && z_parent(137) == room) {
-        // Continue the loose rope above its existing hanging tail so it visibly
-        // descends from the cliff edge described in the room text.
-        scene_segment((ScenePoint){168, 17}, (ScenePoint){168, 48}, RGB(70, 52, 38));
-        scene_segment((ScenePoint){169, 17}, (ScenePoint){169, 48}, RGB(154, 110, 66));
-        scene_segment((ScenePoint){170, 17}, (ScenePoint){170, 48}, RGB(208, 162, 102));
-        scene_segment((ScenePoint){166, 17}, (ScenePoint){172, 17}, RGB(61, 48, 39));
-        for (int y = 22; y < 48; y += 6) {
-            pixel(168, y, RGB(202, 154, 95));
-            pixel(170, y + 3, RGB(91, 65, 45));
-        }
-    }
     if (chapter == 0 && room == 75) draw_zork1_trophy_case(targets, focused);
     if (chapter == 1 && in_scene(targets, 18) && z_parent(18) == room && z_parent(24) == 18) {
         const SceneSprite *wand = item_pose(1, 24);

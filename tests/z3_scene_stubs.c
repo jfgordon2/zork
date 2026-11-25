@@ -27,3 +27,6 @@ const Color art_z3_narrow_corridor[STUB_ART], art_z3_puzzle_room[STUB_ART], art_
 const Color art_z3_tight_squeeze[STUB_ART], art_z3_west_corridor[STUB_ART];
 const Color art_z3_creepy_crawl[STUB_ART], art_z3_prison_cell_bronze[STUB_ART], art_z3_shadow_cliff[STUB_ART];
 const Color art_z3_land_of_shadow_69[STUB_ART];
+const Color art_z3_land_of_shadow_30[STUB_ART], art_z3_land_of_shadow_63[STUB_ART], art_z3_land_of_shadow_123[STUB_ART];
+const Color art_z3_museum_cleft[STUB_ART], art_z3_museum_cleft_open[STUB_ART];
+const Color art_z3_great_door_cleft[STUB_ART];

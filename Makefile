@@ -24,6 +24,7 @@ Z3_SCENES = z3_aqueduct z3_aqueduct_view z3_barren_area z3_beam_room z3_button_r
             z3_narrow_mirror_guardians z3_narrow_mirror_guardians_north z3_parapet \
             z3_prison_cell_bronze z3_prison_cell_closed z3_prison_cell_open z3_puzzle_room \
             z3_royal_hall z3_royal_puzzle_entrance z3_scenic_vista z3_shadow_cliff z3_land_of_shadow_69 \
+            z3_land_of_shadow_30 z3_land_of_shadow_63 z3_land_of_shadow_123 z3_museum_cleft z3_museum_cleft_open z3_great_door_cleft \
             z3_side_room z3_south_corridor z3_south_shore z3_technology_unfinished \
             z3_tight_squeeze z3_timber_room z3_treasury z3_underwater z3_water_slide z3_west_shore
 EXTRA_SCENES += $(Z3_SCENES)

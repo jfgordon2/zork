@@ -8,6 +8,7 @@
 enum {
     ART_Y = 15, ART_HEIGHT = 76, TEXT_Y = 91, FOOT_Y = 145,
     STORY_LINES = 4, MENU_LINES = 4, LOG_SCREEN_LINES = 11,
+    DPAD_REPEAT_DELAY = 20, DPAD_REPEAT_INTERVAL = 5,
     TRANSCRIPT_CAPACITY = 24576, TRANSCRIPT_ENTRY_CAPACITY = 8192,
     TRANSCRIPT_ENTRIES = 1024
 };
@@ -39,7 +40,7 @@ typedef enum {
     LAUNCHER, SLOT, EXPLORE, BAG, NEARBY, VERBS, CATEGORIES, GROUP, ORDERS_MENU,
     SECOND_OBJECT, HEADING, DIAL, ROOM_ACTIONS, SPEAK, LETTERS, WORDS,
     PATHS, PAUSE, MAP, PLACES, TEXT_REVIEW, STORY_LOG, COMMAND, CONTROLS, RETURN_CONFIRM, FINISHED,
-    FINISHED_MENU
+    FINISHED_MENU, RESTORE_CONFIRM
 } Screen;
 
 typedef struct { Screen screen; unsigned row; } MenuCursor;
@@ -50,6 +51,7 @@ static unsigned chapter, focus, selected, room_object;
 static uint8_t path_options[12];
 static unsigned path_count;
 static bool verb_is_bag, busy, has_progress, dark;
+static bool pause_has_save;
 static bool restored_snapshot;
 static bool finished_prompt, successful_ending;
 static unsigned entropy_state;
@@ -70,7 +72,7 @@ static void collect_paths(void);
 
 static char response[7168];
 static uint16_t page_offsets[256];
-static unsigned response_size, page_count, page;
+static unsigned response_size, page_count, page, page_before_review;
 static bool text_truncated;
 static char transcript[TRANSCRIPT_CAPACITY];
 static char transcript_expanded[TRANSCRIPT_ENTRY_CAPACITY];
@@ -99,6 +101,7 @@ static const char *const pause_options[] = {
 };
 static const char *const slot_options[] = {"Continue saved game", "New game", "Back"};
 static const char *const return_options[] = {"Keep exploring", "Return to trilogy"};
+static const char *const restore_options[] = {"Keep playing", "Restore saved game"};
 static const char *const finished_options[] = {"Restart chapter", "Restore saved game", "Quit to trilogy menu"};
 static const char keys[] = "abcdefghijklmnopqrstuvwxyz0123456789.,'\"-!?:/()&";
 
@@ -212,6 +215,16 @@ static void key_hint(int x, const char *key, const char *action) {
     box(x, 148, width, 11, PANEL, LINE);
     label(x + 3, 150, key, GOLD);
     label(x + width + 4, 150, action, PAPER);
+}
+
+static void direction_hint(int x, uint16_t direction, const char *action) {
+    dpad_badge(x, 148, 11, direction, PANEL, LINE, GOLD);
+    label(x + 15, 150, action, PAPER);
+}
+
+static void vertical_hint(int x, const char *action) {
+    direction_hint(x, KEY_UP, "");
+    direction_hint(x + 13, KEY_DOWN, action);
 }
 
 static void text_reset(void) {
@@ -712,10 +725,28 @@ static void draw_explore(bool reviewing) {
             }
         }
         int text_x = focused ? 22 : 8;
+        int text_right = 232;
         fill(0, TEXT_Y + 1, SCREEN_W, 11, INK);
         draw_target_focus_box(true);
         if (focused) draw_story_icon(chapter, focused, 8, TEXT_Y + 2);
-        paragraph(text_x, TEXT_Y + 3, 232 - text_x, 1, item, GOLD);
+        if (!busy && page_count > 1) {
+            char counter[8], total[4];
+            number(counter, page + 1);
+            number(total, page_count);
+            append_text(counter, sizeof(counter), "/");
+            append_text(counter, sizeof(counter), total);
+            int arrow_width = 9;
+            int next_x = text_right - arrow_width;
+            int counter_x = next_x - 4 - label_width(counter);
+            int previous_x = counter_x - 4 - arrow_width;
+            Color previous_color = page ? GOLD : DIM;
+            Color next_color = page + 1 < page_count ? GOLD : DIM;
+            dpad_badge(previous_x, TEXT_Y + 2, arrow_width, KEY_LEFT, PANEL, LINE, previous_color);
+            label(counter_x, TEXT_Y + 3, counter, PAPER);
+            dpad_badge(next_x, TEXT_Y + 2, arrow_width, KEY_RIGHT, PANEL, LINE, next_color);
+            text_right = previous_x - 6;
+        }
+        paragraph(text_x, TEXT_Y + 3, text_right - text_x, 1, item, GOLD);
     }
     int story_y = reviewing || barrow_ending || screen == FINISHED ? TEXT_Y + 5 : TEXT_Y + 15;
     if (busy) label(8, story_y, "One moment...", DIM);
@@ -724,11 +755,11 @@ static void draw_explore(bool reviewing) {
     if (reviewing) {
         key_hint(6, "L/R", "Page");
         key_hint(90, "B", "Back");
-    } else if (page + 1 < page_count) {
-        key_hint(6, "A", "Read more");
-        key_hint(88, "B", "Skip to end");
     } else if (screen == FINISHED) {
-        if (finished_prompt) {
+        if (page + 1 < page_count) {
+            key_hint(6, "A", "Read more");
+            key_hint(88, "B", "Skip to end");
+        } else if (finished_prompt) {
             key_hint(6, "A", "Options");
             key_hint(83, "L/R", "Page");
         } else {
@@ -736,7 +767,7 @@ static void draw_explore(bool reviewing) {
             key_hint(106, "L/R", "Page");
         }
     } else {
-        key_hint(6, "UP", "Paths");
+        direction_hint(6, KEY_UP, "Paths");
         key_hint(57, "A", "Act");
         key_hint(92, "B", "Look");
         key_hint(132, "L/R", "Focus");
@@ -848,7 +879,7 @@ static void draw_finished_menu(void) {
         paragraph(14, y + 1, 216, 1, finished_options[i], i == selected ? PAPER : DIM);
     }
     footer();
-    key_hint(6, "PAD", "Choose");
+    vertical_hint(6, "Choose");
     key_hint(83, "A", "Confirm");
     key_hint(159, "B", "Back");
 }
@@ -911,7 +942,7 @@ static void drawer_frame(const char *name, unsigned count, unsigned first) {
     if (first) label(217, TEXT_Y + 3, "^", DIM);
     if (first + MENU_LINES < count) label(227, TEXT_Y + 3, "+", GOLD);
     footer();
-    key_hint(6, "PAD", "Choose");
+    vertical_hint(6, "Choose");
     key_hint(83, "A", "Confirm");
     key_hint(159, "B", "Back");
 }
@@ -947,6 +978,7 @@ static unsigned list_count(void) {
         case PAUSE: return sizeof(pause_options) / sizeof(pause_options[0]);
         case PLACES: return place_count;
         case RETURN_CONFIRM: return 2;
+        case RESTORE_CONFIRM: return 2;
         default: return 0;
     }
 }
@@ -955,6 +987,7 @@ static void draw_drawer(void) {
     char object[Z_NAME_MAX], item[Z_NAME_MAX];
     const char *title_text = "";
     unsigned count = list_count(), first = view_start(count);
+    unsigned back_direction = screen == PATHS ? direction_to_previous_room() : TRAIL_DIRECTIONS;
     switch (screen) {
         case BAG: title_text = "Carried items"; break;
         case NEARBY: title_text = "Nearby objects"; break;
@@ -970,6 +1003,7 @@ static void draw_drawer(void) {
         case PAUSE: title_text = "Paused"; break;
         case PLACES: title_text = "Places visited"; break;
         case RETURN_CONFIRM: title_text = "Leave this game?"; break;
+        case RESTORE_CONFIRM: title_text = "Lose unsaved progress?"; break;
         default: break;
     }
     drawer_frame(title_text, count, first);
@@ -995,13 +1029,24 @@ static void draw_drawer(void) {
             case SPEAK: name = speech_options[i]; break;
             case ROOM_ACTIONS: name = room_options[i].name; break;
             case PATHS: name = path_names[path_options[i]]; break;
-            case PAUSE: name = pause_options[i]; break;
+            case PAUSE:
+                name = i == 3 && !pause_has_save ? "Restore game (no save)" : pause_options[i];
+                break;
             case PLACES: z_name(places[i], item, sizeof(item)); break;
             case RETURN_CONFIRM: name = return_options[i]; break;
+            case RESTORE_CONFIRM: name = restore_options[i]; break;
             default: name = "";
         }
         if (id) story_name(chapter, id, item);
-        drawer_row(first, i, name, true, id);
+        drawer_row(first, i, name, screen != PAUSE || i != 3 || pause_has_save, id);
+        if (screen == PATHS) {
+            unsigned direction = path_options[i];
+            const uint8_t *exit;
+            int y = TEXT_Y + 15 + (i - first) * 10;
+            if (direction == back_direction) label(110, y, "Way back", BACK);
+            if (z_property(room_object, path_properties[direction], &exit) == 2)
+                label(165, y, "Conditional", DIM);
+        }
     }
 }
 
@@ -1024,7 +1069,7 @@ static void draw_launcher(void) {
             if (save_exists(SRAM, i)) label(70, y + 12, "Saved game", DIM);
         }
         footer();
-        key_hint(6, "PAD", "Chapter");
+        vertical_hint(6, "Chapter");
         key_hint(89, "A", "Select");
     } else {
         bool saved = save_exists(SRAM, chapter);
@@ -1039,12 +1084,12 @@ static void draw_controls(void) {
     paragraph(8, 24, 224, 14,
         "Up in a room: Open Paths.\n"
         "In Paths: D-pad chooses; A travels.\n"
-        "Paths lists exits here.\n"
+        "Left / Right: Page through text.\n"
         "Right triangles show diagonals.\n"
         "Teal marks a known way back.\n"
         "Dim routes may need a condition.\n"
         "L / R: Focus on object or room.\n"
-        "A: Read, act, or confirm.\n"
+        "A: Act or confirm.\n"
         "B: Look or go back.\n"
         "Select: Open your bag.\n"
         "Start: Pause menu has Story so far.\n\n"
@@ -1136,7 +1181,8 @@ static void draw_dial(void) {
         title(x + 10, 75, digit, active ? INK : PAPER, 2);
     }
     footer();
-    key_hint(6, "PAD", "Adjust");
+    if (year) key_hint(6, "PAD", "Adjust");
+    else vertical_hint(6, "Adjust");
     key_hint(83, "A", "Confirm");
     key_hint(159, "B", "Back");
 }
@@ -1353,10 +1399,13 @@ static void handle_pause(void) {
             screen = EXPLORE;
             break;
         case 3:
-            restore_saved_game();
+            if (pause_has_save) {
+                if (has_progress) restore_saved_game();
+                else open_menu(RESTORE_CONFIRM);
+            }
             break;
         case 4: open_map(); break;
-        case 5: screen = TEXT_REVIEW; page = 0; break;
+        case 5: page_before_review = page; page = 0; screen = TEXT_REVIEW; break;
         case 6: open_command(PAUSE); break;
         case 7: screen = CONTROLS; break;
         case 8:
@@ -1368,10 +1417,9 @@ static void handle_pause(void) {
 
 static void explore_pressed(uint16_t pressed) {
     if (pressed & KEY_START) {
+        pause_has_save = save_exists(SRAM, chapter);
         screen = PAUSE;
         selected = 0;
-    } else if (page + 1 < page_count && (pressed & (KEY_A | KEY_B))) {
-        page = (pressed & KEY_B) ? page_count - 1 : page + 1;
     } else if (pressed & KEY_SELECT) {
         selected = 0;
         screen = BAG;
@@ -1383,6 +1431,8 @@ static void explore_pressed(uint16_t pressed) {
         if (focus < nearby.count) pick_object(nearby.id[focus]);
         else { screen = ROOM_ACTIONS; selected = 0; }
     } else if (pressed & KEY_B) send_command("look");
+    else if ((pressed & KEY_LEFT) && page) page--;
+    else if ((pressed & KEY_RIGHT) && page + 1 < page_count) page++;
 }
 
 static void keyboard_pressed(uint16_t pressed) {
@@ -1423,8 +1473,9 @@ static void back_out(void) {
         case PLACES: screen = MAP; break;
         case STORY_LOG: screen = PAUSE; selected = 1; break;
         case CONTROLS: screen = PAUSE; selected = 7; break;
-        case TEXT_REVIEW: screen = PAUSE; selected = 5; break;
+        case TEXT_REVIEW: page = page_before_review; screen = PAUSE; selected = 5; break;
         case RETURN_CONFIRM: screen = PAUSE; selected = 8; break;
+        case RESTORE_CONFIRM: screen = PAUSE; selected = 3; break;
         case FINISHED_MENU:
             screen = FINISHED;
             page = page_count ? page_count - 1 : 0;
@@ -1546,6 +1597,10 @@ static void update(uint16_t pressed) {
             if (selected) screen = LAUNCHER;
             else back_out();
             break;
+        case RESTORE_CONFIRM:
+            if (selected) restore_saved_game();
+            else back_out();
+            break;
         default: break;
     }
 }
@@ -1576,6 +1631,28 @@ static unsigned scene_animation_stage(void) {
     return 2;
 }
 
+static uint16_t repeat_dpad(uint16_t held) {
+    static uint16_t direction;
+    static Screen origin;
+    static unsigned countdown;
+    uint16_t next = held & (KEY_UP | KEY_DOWN | KEY_LEFT | KEY_RIGHT);
+    if (next != direction) {
+        direction = next;
+        origin = screen;
+        countdown = DPAD_REPEAT_DELAY;
+        return 0;
+    }
+    if (screen != origin) countdown = 0;
+    if (!countdown || !direction || (direction & (direction - 1))) return 0;
+    bool paging = screen == EXPLORE && page_count > 1 && (direction & (KEY_LEFT | KEY_RIGHT));
+    if (!paging && !list_count() && screen != LAUNCHER && screen != FINISHED_MENU &&
+        screen != MAP && screen != COMMAND && screen != LETTERS &&
+        screen != WORDS && screen != DIAL) return 0;
+    if (--countdown) return 0;
+    countdown = DPAD_REPEAT_INTERVAL;
+    return direction;
+}
+
 int main(void) {
     video_init();
     render();
@@ -1587,6 +1664,8 @@ int main(void) {
         uint16_t held_keys = buttons();
         uint16_t pressed = held_keys & ~previous;
         previous = held_keys;
+        uint16_t repeated = repeat_dpad(held_keys);
+        if (!pressed) pressed = repeated;
         bool animated = !busy && (screen == EXPLORE || screen == FINISHED) &&
                         room_visuals_animate(chapter, room_object, scene_animation_stage());
         if (!busy && !pressed && !animated) continue;

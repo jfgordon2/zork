@@ -25,6 +25,7 @@ void ground_shadow(int x, int y, int width);
 void tint_rect(int x, int y, int width, int height, Color color, unsigned opacity);
 void fill(int x, int y, int w, int h, Color color);
 void box(int x, int y, int w, int h, Color background, Color edge);
+void dpad_badge(int x, int y, int size, uint16_t direction, Color background, Color edge, Color ink);
 void pixel(int x, int y, Color color);
 void label(int x, int y, const char *text, Color color);
 void title(int x, int y, const char *text, Color color, int scale);

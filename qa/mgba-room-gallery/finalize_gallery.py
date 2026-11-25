@@ -44,6 +44,9 @@ refresh_paths = [
     GALLERY / 'art-followup-refresh-results.csv',
     GALLERY / 'z3-routes-refresh-results.csv',
     GALLERY / 'z3-ui-refresh-results.csv',
+    GALLERY / 'story-art-refresh-results.csv',
+    GALLERY / 'connected-art-refresh-results.csv',
+    GALLERY / 'great-door-cleft-refresh-results.csv',
 ]
 existing_refresh_paths = [path for path in refresh_paths if path.is_file()]
 for refresh_path in existing_refresh_paths:
@@ -373,6 +376,9 @@ ROM SHA-256: `{rom_sha256}`
 - [Shared boat interior refresh across five aboard states](boat-interior-refresh-results.csv)
 - [Zork III alternate route captures](z3-routes-refresh-results.csv)
 - [Zork III Restore and ending UI captures](z3-ui-refresh-results.csv)
+- [Attic, fallen dragon, and Water Slide refresh](story-art-refresh-results.csv)
+- [Connected art and story-state refresh](connected-art-refresh-results.csv)
+- [Great Door earthquake states](great-door-cleft-refresh-results.csv)
 - [Zork III route coverage notes](../../docs/audits/zork-iii-route-coverage.md)
 - [Rooms without stable screenshots and route evidence](route-gaps.md)
 
@@ -392,6 +398,13 @@ Hallway 169's post-button route and state frames use the open-panel artwork. The
 ## Inputs and scripts
 
 Every save and trace log the plan uses is committed under [route-data/](route-data/) (the original audit harness sources are in each folder's `generators/`), alongside the [checkpoints/](checkpoints/) saves built by `route_saves.c`. To refresh: `python3 qa/mgba-room-gallery/refresh_screenshots.py prepare`, run the printed command in mGBA's Scripting window, then `... finalize`. For a named subset, set `galleryRefreshSet` and load `refresh-sets.lua`.
+
+To review focus boxes around artwork embedded in backgrounds, set
+`ZORK_FOCUS_REVIEW_DIR` to an existing directory when running
+`build/transcript-replay-test`. The optional export captures distinct rendered
+room art frames with their focused feature box. Convert them into a browsable
+review page with `python3 qa/mgba-room-gallery/build_focus_review.py
+/path/to/frames.tsv /path/to/review-gallery`.
 
 ## Capture result
 

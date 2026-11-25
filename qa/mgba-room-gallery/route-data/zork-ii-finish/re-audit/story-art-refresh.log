@@ -1,0 +1,7 @@
+Zork II visual audit refresh. The checkpoint was written from the winning-route
+replay in the first lit Deep Ford state with object 57 visible in room 231.
+See route.log for the descent from Ledge in Ravine and the story's description
+of the dead dragon half blocking the stream. The ordinary ford remains captured
+separately as room-231.png.
+
+SHOT dead-dragon-ford room=231 scene=z2_deep_ford title=Deep Ford · fallen dragon dark=0 room targets= 57:Huge dead dragon;

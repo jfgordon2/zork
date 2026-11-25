@@ -83,18 +83,18 @@ Z3_FIXED_SCENES = {
     5: 'technology_museum', 6: 'z3_beam_room', 8: 'z3_narrow_mirror',
     12: 'z3_underwater', 15: 'z3_timber_room', 16: 'jewel_room',
     19: 'z3_marble_hall', 23: 'land_of_shadow', 28: 'museum_entrance',
-    30: 'land_of_shadow', 36: 'z3_parapet', 39: 'z3_key_room',
+    30: 'z3_land_of_shadow_30', 36: 'z3_parapet', 39: 'z3_key_room',
     40: 'z3_tight_squeeze', 43: 'z3_east_corridor', 44: 'guardians',
     45: 'z3_prison_cell_closed', 46: 'z3_treasury',
     51: 'z3_narrow_mirror', 54: 'guardians_approach', 55: 'z3_creepy_crawl',
-    58: 'z3_narrow_mirror_guardians_north', 63: 'land_of_shadow',
+    58: 'z3_narrow_mirror_guardians_north', 63: 'z3_land_of_shadow_63',
     64: 'z3_foggy_room', 66: 'z3_technology_unfinished', 69: 'land_of_shadow',
     73: 'cliff_base', 75: 'z3_aqueduct_view', 78: 'z3_hairpin_loop',
     81: 'z3_crystal_grotto', 84: 'z3_royal_puzzle_entrance', 86: 'z3_dead_end',
     93: 'z3_damp_passage', 98: 'z3_button_room', 100: 'z3_narrow_mirror',
     102: 'lake_shore', 103: 'jewel_room', 105: 'dungeon_entrance',
     109: 'cliff_top', 112: 'z3_barren_area', 113: 'z3_guardian_hallway',
-    116: 'z3_royal_hall', 119: 'z3_narrow_mirror', 123: 'land_of_shadow',
+    116: 'z3_royal_hall', 119: 'z3_narrow_mirror', 123: 'z3_land_of_shadow_123',
     124: 'z3_scenic_vista', 130: 'z3_side_room', 134: 'land_of_shadow',
     136: 'z3_great_door', 140: 'z3_west_shore', 143: 'z3_royal_puzzle_entrance',
     155: 'hall (fallback)', 159: 'z3_narrow_corridor', 160: 'mirror_room',
@@ -110,7 +110,7 @@ Z3_FIXED_SCENES = {
     194: 'z3_puzzle_room', 203: 'z3_aqueduct', 204: 'z3_prison_cell_bronze',
     211: 'z3_endless_stair', 216: 'z3_south_shore', 217: 'junction',
     218: 'cliff_ledge_upper_shelf', 221: 'z3_narrow_mirror', 224: 'guardians_approach',
-    227: 'museum_entrance', 228: 'hall (fallback)',
+    227: 'z3_museum_cleft', 228: 'hall (fallback)',
 }
 # story_scene() chooses these directional/statue variants from the physical
 # room ID; older traces record only the common room title and omit that detail.
@@ -128,7 +128,6 @@ Z3_STATEFUL_SCENES = {
     173: {'museum_entrance', 'museum_entrance_open'},
     181: {'flathead_ocean', 'flathead_ship'},
     204: {'z3_prison_cell_bronze'},
-    227: {'museum_entrance', 'museum_entrance_open'},
 }
 
 def current_scene(chapter: int, room_id: int, previous: str) -> str:
@@ -141,6 +140,8 @@ def current_scene(chapter: int, room_id: int, previous: str) -> str:
             return Z2_SCENE_BY_ROOM.get(room_id, previous)
         return previous
     if chapter == 2:
+        if room_id == 227 and previous in {'museum_entrance_open', 'z3_museum_cleft_open'}:
+            return 'z3_museum_cleft_open'
         if room_id in Z3_STATEFUL_SCENES:
             if previous in Z3_STATEFUL_SCENES[room_id]:
                 return previous
@@ -422,6 +423,13 @@ rows.append({
 z3_route_root = 'qa/mgba-room-gallery/route-data/zork-iii-audit/'
 z3_routes = [
     {
+        'room_id': 136, 'title': 'Great Door · cleft after the earthquake',
+        'scene': 'z3_great_door_cleft', 'start_room': 227, 'direction': 3,
+        'start_save': 'route-227-lit.sav', 'target_room': 136,
+        'screenshot': 'zork-iii/routes/great-door-cleft.png',
+        'trace': 'route.log',
+    },
+    {
         'room_id': 194, 'title': 'Royal Puzzle Entrance → Room in a Puzzle',
         'scene': 'z3_puzzle_room', 'start_room': 143, 'direction': 9,
         'start_save': 'route-143-lit.sav', 'target_room': 194,
@@ -518,7 +526,6 @@ STATE_TITLE_OVERRIDES = {
     'demon-moved-menhir': 'Pentagram Room · Wizard moves the menhir',
     'cerberus-return': 'Crypt Anteroom · empty after leaving Cerberus Room',
     'princess-alert': 'Dragon’s Lair · princess leaves after awakening',
-    'dead-dragon-ford': 'Deep Ford · ordinary route view',
     'master-orders': 'Prison Cell · Dungeon Master remains outside',
     'sailor-visible': 'Flathead Ocean · ship and sailor passing',
     'guardians-after-potion': 'Hallway · guardians unchanged after the vial',

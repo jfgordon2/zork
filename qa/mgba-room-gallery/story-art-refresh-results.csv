@@ -1,0 +1,5 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-i/room-187.png,captured,zork-i-route-room-187-room-187,0,187,187
+zork-i/states/attic-rope.png,captured,zork-i-story-state-187-attic-rope,0,187,187
+zork-ii/states/dead-dragon-ford.png,captured,zork-ii-story-state-231-dead-dragon-ford,1,231,231
+zork-iii/room-163.png,captured,zork-iii-route-room-163-room-163,2,163,163

@@ -2,7 +2,7 @@
 
 A route-based index of actual mGBA screenshots from `zork-trilogy.gba`. Each PNG is the emulator's native **240 × 160** frame, including the GBA UI and story text. Most screenshots are taken after restoring a traced save and confirming the current chapter and room; route-only states are captured by replaying their traced input path and confirming the live room. Explicit Bag captures wait for the inventory screen before saving. Targeted visual refreshes take precedence over older frames for the entries they recapture.
 
-ROM SHA-256: `0166ea49d99a16e64abb8e281130018988f05c27701b839b1c7250a77af296b6`
+ROM SHA-256: `2bf769145db14dd0e82fd9ad8b2837a5ec841e0b4d67314d45d8b63e347c7b8c`
 
 ## Browse
 
@@ -21,6 +21,9 @@ ROM SHA-256: `0166ea49d99a16e64abb8e281130018988f05c27701b839b1c7250a77af296b6`
 - [Shared boat interior refresh across five aboard states](boat-interior-refresh-results.csv)
 - [Zork III alternate route captures](z3-routes-refresh-results.csv)
 - [Zork III Restore and ending UI captures](z3-ui-refresh-results.csv)
+- [Attic, fallen dragon, and Water Slide refresh](story-art-refresh-results.csv)
+- [Connected art and story-state refresh](connected-art-refresh-results.csv)
+- [Great Door earthquake states](great-door-cleft-refresh-results.csv)
 - [Zork III route coverage notes](../../docs/audits/zork-iii-route-coverage.md)
 - [Rooms without stable screenshots and route evidence](route-gaps.md)
 
@@ -28,8 +31,8 @@ ROM SHA-256: `0166ea49d99a16e64abb8e281130018988f05c27701b839b1c7250a77af296b6`
 | --- | ---: | ---: | ---: |
 | Zork I | 110 | 208 | 208 |
 | Zork II | 84 | 216 | 216 |
-| Zork III | 81 | 112 | 112 |
-| **Total** | **275** | **536** | **536** |
+| Zork III | 81 | 113 | 113 |
+| **Total** | **275** | **537** | **537** |
 
 The manifest identifies each room/state, its source checkpoint or route replay, the trace log or branch script that establishes the path, and the PNG path. Named state captures preserve variants such as doors, lights, puzzle geometry, water levels, vehicle placement, character states, and dropped/carried items. The shared boat interior was recaptured in all five saved aboard states after the current ROM build. Exact duplicate PNGs within a room are labeled in the gallery; several are aliases for one story moment rather than separate visual states.
 
@@ -50,4 +53,4 @@ review page with `python3 qa/mgba-room-gallery/build_focus_review.py
 
 ## Capture result
 
-527 of 527 save-restoration screenshots were verified in the last completed full mGBA gallery pass. That pass predates the current ROM build; rerun the full gallery to verify those captures against the current build. 9 route-only frames were verified by route replay. 0 targeted entries were captured after the current ROM build; the gallery uses those current frames. Each capture is accepted only after the live chapter and room ID match the manifest. The frozen Ice Room frame has no destination save, so its plan record restores the pre-dragon room 206 checkpoint and `capture-gallery.lua` replays North → Down through the Paths menu before capturing (run it alone with `galleryRefreshSet='ice-frozen'` and `refresh-sets.lua`). [route-gaps.md](route-gaps.md) lists transient/fatal rooms and reports checkpoint restore results.
+527 of 527 save-restoration screenshots were verified in the last completed full mGBA gallery pass. That pass predates the current ROM build; rerun the full gallery to verify those captures against the current build. 10 route-only frames were verified by route replay. 3 targeted entries were captured after the current ROM build; the gallery uses those current frames. Each capture is accepted only after the live chapter and room ID match the manifest. The frozen Ice Room frame has no destination save, so its plan record restores the pre-dragon room 206 checkpoint and `capture-gallery.lua` replays North → Down through the Paths menu before capturing (run it alone with `galleryRefreshSet='ice-frozen'` and `refresh-sets.lua`). [route-gaps.md](route-gaps.md) lists transient/fatal rooms and reports checkpoint restore results.

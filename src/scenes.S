@@ -122,6 +122,12 @@ SCENE z3_creepy_crawl
 SCENE z3_prison_cell_bronze
 SCENE z3_shadow_cliff
 SCENE z3_land_of_shadow_69
+SCENE z3_land_of_shadow_30
+SCENE z3_land_of_shadow_63
+SCENE z3_land_of_shadow_123
+SCENE z3_museum_cleft
+SCENE z3_museum_cleft_open
+SCENE z3_great_door_cleft
 #define ZORK1_SCENE(name) SCENE name
 #include "zork1_scenes.def"
 #undef ZORK1_SCENE

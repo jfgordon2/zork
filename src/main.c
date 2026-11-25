@@ -232,7 +232,9 @@ static void menu(const char *name, const char *const *options, int count, int cu
         label(x + 11, y + 1, options[i], i == current ? PAPER : DIM);
     }
     footer();
-    badge(6, 148, "PAD", "Choose");
+    dpad_badge(6, 148, 11, KEY_UP, PANEL, LINE, GOLD);
+    dpad_badge(19, 148, 11, KEY_DOWN, PANEL, LINE, GOLD);
+    label(34, 150, "Choose", PAPER);
     badge(69, 148, "A", "Confirm");
     badge(132, 148, "B", "Back");
 }

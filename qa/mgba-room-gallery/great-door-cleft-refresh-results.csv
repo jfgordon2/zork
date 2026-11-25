@@ -1,0 +1,4 @@
+screenshot,status,label,chapter,expected_room,actual_room
+zork-iii/room-136.png,captured,zork-iii-route-room-136-room-136,2,136,136
+zork-iii/routes/great-door-cleft.png,captured,zork-iii-alternate-route-136-great-door-cleft,2,136,136
+zork-iii/states/dark-136.png,captured,zork-iii-dark-state-136-dark-136,2,136,136

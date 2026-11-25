@@ -43,14 +43,17 @@ Compare the encounter style studies in [Zork I](docs/art-history/encounter-optio
 | GBA input | In a room | In a menu |
 | --- | --- | --- |
 | Up | Open **Paths**. | Select an entry. |
-| Left / Right / Down | — | Select an entry. |
+| Left / Right | Read the previous or next page of the current response. | Move the cursor in grid and picker screens. |
+| Down | — | Select an entry. |
 | L / R | Cycle through nearby objects and **Room actions**. | Page through long lists. |
-| A | Open the selected object's actions or read the next page. | Confirm. |
-| B | Look around or skip to the last page of a response. | Back. |
+| A | Open actions for the selected object or room. | Confirm. |
+| B | Look around. | Back. |
 | Select | Open the bag and act on carried objects. | |
 | Start | Open the pause menu for saves, the map, controls, and the last story response. | Resume from pause. |
 
 Press **Up** in a room to open **Paths**. Use the D-pad to choose a direction and **A** to try it. Paths lists possible exits represented by the current room, among north, east, south, west, the four diagonals, up, down, in, and out. The same exits stay visible in the top bar during exploration, including in dark rooms; compact right triangles point toward the four diagonal exits, while **U**, **D**, **I**, and **O** stand for up, down, in, and out. Paths spells out diagonal names. Teal marks a known route back to the room you just left; if that exit is conditional, it keeps its dim text and gets a teal underline. Other conditional routes appear dimmed. In Zork III's Royal Puzzle, a surveyed map hides compass moves blocked by the maze walls. Zork II's Oddly-angled Rooms list every direction because the story reorients their passages; the Carousel also offers its randomized **In** and **Out** moves. Some listed routes depend on story conditions, so the story may still block one until its condition is met. You can also open Paths through **Room actions**. Choose **Room actions → Nearby objects** to see the room's objects in one list. **More actions** groups ways to inspect, handle, and combine objects. For actions that require a tool, the target picker starts with the items in your bag. See [the route state audit](docs/audits/route-state-audit.md) for trace results and remaining QA checks.
+
+In **Paths**, look for **Way back** beside the known return route and **Conditional** beside exits that may have a requirement. Hold a D-pad direction to scroll through lists, move through pickers, or page through story text. Backing out of a menu returns you to your current story page.
 
 Choose **Start → Story so far** to review commands and story responses, newest first. Use **R** for older pages, **L** for newer pages, and **B** to return to the pause menu. The live log has 24 KiB for compact text; recurring phrases are tokenized in RAM and expanded when a page is displayed, so its plain-text history varies with the text. Saving stores the most recent transcript that fits alongside the story snapshot and route history. If either limit is reached, older entries are trimmed.
 

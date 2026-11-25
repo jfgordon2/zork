@@ -68,6 +68,7 @@ extern const Color art_west[];
 bool story_dark(unsigned chapter);
 bool zork1_barrow_finished(void);
 bool zork3_mirror_panel_open(void);
+bool zork3_great_door_cleft_open(void);
 bool story_figure_defenseless(void);
 bool story_cliff_man_visible(void);
 const Color *story_scene(unsigned chapter, const char *room);
