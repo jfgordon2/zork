@@ -57,8 +57,44 @@ void z_probe_batch_end(void);
 // Runs one command at the prompt with its text captured into reply instead of
 // shown, then rewinds the story to exactly where it was. Uses z_scratch.
 bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget);
+bool z_probe_menu(const char *line, char *reply, size_t capacity, unsigned budget);
+// Like z_probe, but also returns global 0 as it stood after the command. The
+// trilogy stores the current room there, so route audits can distinguish a
+// successful transition from a parser reply that merely sounds plausible.
+bool z_probe_with_room(const char *line, char *reply, size_t capacity,
+                       unsigned budget, unsigned *room);
+// Like z_probe_with_room, but also returns the current parent of `object`
+// after the speculative command. The snapshot is restored before returning.
+bool z_probe_with_room_and_parent(const char *line, char *reply, size_t capacity,
+                                  unsigned budget, unsigned object,
+                                  unsigned *room, unsigned *parent);
+// Instruction-sliced menu probe. Each call runs at most `chunk` Z-machine
+// instructions and returns BUSY until the current phase reaches the prompt.
+// After the action phase, the caller may request the inventory normalization
+// and then complete the probe to restore the batch state.
+typedef enum { Z_PROBE_BUSY, Z_PROBE_DONE, Z_PROBE_FAILED } ZProbeStep;
+ZProbeStep z_probe_menu_begin(const char *line, char *reply, size_t capacity,
+                              unsigned budget, unsigned chunk);
+ZProbeStep z_probe_menu_continue(unsigned chunk);
+ZProbeStep z_probe_menu_normalize(unsigned chunk);
+// Computes and stores the persistent-effect fingerprint without restoring the
+// story, so the caller can run it in its own frame.
+ZProbeStep z_probe_menu_hash(ZProbeEffect *effect);
+bool z_probe_menu_complete(ZProbeEffect *effect);
+void z_probe_menu_abort(void);
 bool z_probe_with_effect(const char *line, char *reply, size_t capacity,
                          unsigned budget, ZProbeEffect *effect);
+#ifdef PROFILE
+// Longest input-tokenization time seen since the last menu filter reset.
+extern uint16_t z_profile_tokenize_ticks;
+extern uint16_t z_profile_hash_ticks;
+extern uint16_t z_profile_restore_ticks;
+#endif
+#ifdef PROFILE_TRACE
+// Slowest single story instruction seen since the last menu filter reset.
+extern uint16_t z_profile_slow_pc, z_profile_slow_ticks;
+extern uint8_t z_profile_slow_opcode;
+#endif
 const char *z_probe_last_line(void);
 
 #endif

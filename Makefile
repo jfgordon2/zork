@@ -39,17 +39,34 @@ TRILOGY = build/start.o build/trilogy.o build/chapter.o build/interaction.o buil
           build/trilogy-scenes.o build/stories.o build/visual_state.o build/transcript_codec.o
 CFLAGS = -mcpu=arm7tdmi -marm -O2 -std=c11 -Wall -Wextra -Werror \
          -ffreestanding -fno-builtin -ffunction-sections -fdata-sections -MMD -MP
+# Profiling ROM: make PROFILE=1 zork-trilogy.gba. Adds the primary-menu
+# timing/probe overlay only; normal and VISUAL_QA builds are unchanged.
+ifdef PROFILE
+CFLAGS += -DPROFILE
+endif
+ifdef PROFILE_TRACE
+CFLAGS += -DPROFILE_TRACE
+endif
 
 .DELETE_ON_ERROR:
-.PHONY: all test test-transcripts
+.PHONY: all test test-transcripts test-buttons test-button-screens
 all: zork-trilogy.gba zork-white-house.gba
 
-test: build/story-test build/transcript-replay-test
+test: build/story-test build/transcript-replay-test build/button-replay-test
 	$<
 	build/transcript-replay-test
+	build/button-replay-test
 
 test-transcripts: build/transcript-replay-test
 	$<
+
+test-buttons: build/button-replay-test
+	$<
+
+test-button-screens: build/button-replay-test
+	$(PYTHON) qa/mgba-room-gallery/build_plan.py --button-plan > build/button-screen-plan.tsv
+	$< build/button-screen-plan.tsv build/button-examine-results.tsv \
+		build/button-object-action-results.tsv > build/button-screen-results.tsv
 
 TEST_SOURCES = tests/story_test.c src/zmachine.c src/save.c src/chapter.c src/interaction.c src/puzzle_map.c src/trail.c src/room_map.c src/video.c src/visual_state.c src/transcript_codec.c
 TEST_SOURCES += tests/scene_stubs.c tests/z3_scene_stubs.c
@@ -78,6 +95,23 @@ build/trilogy-qa.o: src/trilogy.c src/room_visuals.h src/chapter.h src/interacti
 	                  src/transcript_codec.h | build
 	$(HOST_CC) -O2 -std=c11 -Wall -Wextra -Werror -fno-builtin -DVISUAL_QA \
 		-Dmain=trilogy_qa_main -Isrc -Ibuild -c $< -o $@
+
+build/trilogy.o: CFLAGS += -Ibuild
+build/trilogy.o build/trilogy-qa.o build/button-replay-test: build/invisiclues.inc
+
+INVISICLUES_GUIDES = stories/hints/zork1.json stories/hints/zork2.json stories/hints/zork3.json
+build/invisiclues.inc: tools/invisiclues.py stories/hints/context.tsv $(INVISICLUES_GUIDES) | build
+	$(PYTHON) tools/invisiclues.py $@ stories/hints/context.tsv $(INVISICLUES_GUIDES)
+
+BUTTON_TEST_SOURCES = tests/button_replay_test.c tests/story_stubs.c src/zmachine.c src/chapter.c \
+                      src/interaction.c src/room_visuals.c src/visual_state.c src/save.c src/puzzle_map.c \
+                      src/trail.c src/room_map.c src/video.c src/transcript_codec.c
+
+build/button-replay-test: $(BUTTON_TEST_SOURCES) $(TEST_HEADERS) src/trilogy.c src/room_visuals.h \
+                          build/action_profiles.inc build/trilogy-scenes-host.o build/encounter_art.h \
+                          build/item_art.h vendor/mojozork/mojozork.c | build
+	$(HOST_CC) -O2 -std=c11 -Wall -Wextra -Werror -fno-builtin -DVISUAL_QA -Isrc -Ibuild \
+		$(BUTTON_TEST_SOURCES) build/trilogy-scenes-host.o -o $@
 
 zork-trilogy.gba: build/trilogy.elf tools/rom.py
 	$(OBJCOPY) -O binary $< $@

@@ -223,6 +223,10 @@ bool save_write_with_transcript(volatile uint8_t *sram, unsigned chapter, const 
     // Previously reserved byte: presentation only, without changing the story snapshot.
     uint8_t presentation = visual_state_save() &
                            (chapter == 0 ? 0x80 : chapter == 1 ? 0x7f : 0x3f);
+    // Zork I uses bit 6 for the word-picker clue; Zork II uses it for mist lighting.
+    if (chapter == 0 && visual_state_cyclops_clue_read()) presentation |= 0x40;
+    uint16_t wizard_spells = chapter == 1 ? visual_state_wizard_spells() : 0;
+    if (wizard_spells) presentation |= 0x80;
     bool save_map = chapter == 2 && puzzle_map && puzzle_map->valid;
     bool save_z3_state = chapter == 2;
     if (save_z3_state) {
@@ -236,6 +240,11 @@ bool save_write_with_transcript(volatile uint8_t *sram, unsigned chapter, const 
     unsigned end = RESUME_SIZE + VISITED_BYTES;
     if (!encode(&end, z_dynamic(), z_original(), z_dynamic_size()) ||
         !encode(&end, z_stack_bytes(), 0, state.sp * 2u)) return false;
+    if (wizard_spells) {
+        if (end + 2 > sizeof(payload)) return false;
+        put(payload + end, wizard_spells, 2);
+        end += 2;
+    }
     if (save_z3_state) {
         if (end + 4 > sizeof(payload)) return false;
         uint32_t packed = 0;
@@ -279,10 +288,15 @@ bool save_read_with_transcript(const volatile uint8_t *sram, unsigned chapter, u
     unsigned end = get(slot + 8, 2);
     for (unsigned i = 0; i < end; i++) payload[i] = slot[HEADER_SIZE + i];
     bool has_z3_state = chapter == 2 && (payload[17] & 0x80) != 0;
+    bool has_wizard_spells = chapter == 1 && (payload[17] & 0x80) != 0;
     unsigned story_end = end;
     if (has_z3_state) {
         if (story_end < RESUME_SIZE + VISITED_BYTES + 4) return false;
         story_end -= 4;
+    }
+    if (has_wizard_spells) {
+        if (story_end < RESUME_SIZE + VISITED_BYTES + 2) return false;
+        story_end -= 2;
     }
     ZResume state = {get(payload, 4), get(payload + 4, 4), get(payload + 8, 2), get(payload + 10, 2),
                      get(payload + 12, 2), get(payload + 14, 2), get(payload + 16, 1) != 0};
@@ -297,6 +311,8 @@ bool save_read_with_transcript(const volatile uint8_t *sram, unsigned chapter, u
     uint8_t presentation = chapter == 2 ? payload[17] & 0x38 :
                            chapter == 1 ? payload[17] & 0x7f : payload[17] & 0x80;
     visual_state_restore(presentation);
+    if (chapter == 0 && (payload[17] & 0x40)) visual_state_mark_cyclops_clue_read();
+    if (has_wizard_spells) visual_state_restore_wizard_spells(get(payload + story_end, 2));
     uint32_t packed = 0;
     if (has_z3_state) {
         packed = (uint32_t)payload[story_end] |

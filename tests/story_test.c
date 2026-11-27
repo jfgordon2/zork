@@ -628,6 +628,8 @@ static void check_reply_classification(void) {
     assert(action_reply_is_no_effect("Pushing the brass lantern has no effect."));
     assert(action_reply_is_no_effect("You find nothing unusual."));
     assert(action_reply_is_no_effect("I can't see how to get in from here."));
+    assert(action_reply_is_no_effect("You should say whether you want to go up or down."));
+    assert(action_reply_is_no_effect("The stairs are endless."));
     assert(!action_reply_is_no_effect("The rug is too heavy to lift, but in trying to do so you notice a trap door."));
     assert(!action_reply_is_no_effect("The rug is moved to one side, revealing a closed trap door."));
 }

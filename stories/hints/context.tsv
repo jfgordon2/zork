@@ -1,0 +1,42 @@
+# Chapter	Room IDs	Visible target ID (0 = any)	Menu label	Guide question
+1	85	243	Kitchen window	How do I get into the house?
+1	33	0	Trapdoor from below	Can the trapdoor be opened from below?
+1	127	150	Troll	How do I negotiate with the Troll?
+1	160,216	29	Grating	How do I open the grating?
+1	78	199	Cyclops	How do I get past the Cyclops?
+1	52	183	Mirror	Is there anything special about the mirror?
+1	110	234	Mirror	Is there anything special about the mirror?
+1	38	211	Spirits at the gate	How do I enter Hades?
+1	205	201	Platinum bar	How do I get the platinum bar?
+1	178	9	Dam controls	How is the control panel operated?
+1	30,37,111,174	208	Magic boat	How do I control the boat?
+1	125,202	59	Rainbow	What is the significance of the rainbow?
+1	235	70	Bat	What do I do about the bat?
+1	245	108	Shaft basket	Is the basket on the chain useful?
+1	89	207	Machine	How do I use the machine?
+2	238	7	Riddle from the door	What is the solution to the riddle?
+2	8,119	52	Well bucket	Can I get up the well, and if so, how?
+2	46	137	Door and lock	How do I open the door in the Tiny Room?
+2	87	98	Robot controls	How do I control the robot?
+2	248,80,172	192	Dragon	How do I kill the dragon?
+2	82	0	Cakes	What do the cakes do?
+2	182	132	Rusty box	How can I open or remove the rusty old box?
+2	233	250	Aquarium	How do I enter the aquarium?
+2	159	84	Menhir	How do I move the menhir?
+2	159	84	Using a wand	How do I cast a spell?
+2	162	58	Cerberus	How do I get past Cerberus?
+3	136	199	Great Iron Door	How can I open the Great Iron Door?
+3	124	17	Viewing table	What is the table with the "Scenic Vista" sign for?
+3	181	214	Viking ship	How do I get to the ship?
+3	218	65	Chest on the ledge	How do I open the chest?
+3	218	0	The man at the cliff	Can the man at the cliff be trusted?
+3	194	0	Royal Puzzle exits	I'm lost in the puzzle. How do I get out?
+3	5,66,176	92	Gray machine	What does the gray machine do?
+3	5,66,176	132	Black machine	What does the black machine do?
+3	5,66,176	122	Gold machine	What does pushing the button on the gold machine do?
+3	6	27	Red beam of light	What do I do about the red beam of light?
+3	169,54,113	106	Mirror	Is the mirror important?
+3	160	2	Short pole	What is the short pole for?
+3	160	196	Long pole	What is the long pole for?
+3	44,54,224	152	Guardians	How can I pass the Guardians of Zork?
+3	204	209	Bronze door	How do I unlock the bronze door?

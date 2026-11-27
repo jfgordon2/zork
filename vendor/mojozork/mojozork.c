@@ -1006,6 +1006,15 @@ static uintptr decode_zscii(const uint8 *_str, const int abbr, char *buf, uintpt
 
 static uintptr print_zscii(const uint8 *_str, const int abbr)
 {
+    if (probe_silent) {
+        uintptr consumed = 0;
+        uint16 word;
+        do {
+            word = (uint16)((_str[consumed] << 8) | _str[consumed + 1]);
+            consumed += 2;
+        } while (!(word & 0x8000));
+        return consumed;
+    }
     static char buffer[4096];
     uintptr length = sizeof(buffer);
     uintptr consumed = decode_zscii(_str, abbr, buffer, &length);
@@ -1102,6 +1111,17 @@ static void opcode_random(void)
 }
 
 /* Version 3 keeps six Z-characters per dictionary key. */
+/* Small cache of encoded dictionary lookups; the tokenizer repeats nouns. */
+enum { DICTIONARY_CACHE_SIZE = 16 };
+static struct { uint16 first, second, result; bool valid; } dictionary_cache[DICTIONARY_CACHE_SIZE];
+static unsigned dictionary_cache_next;
+
+static void dictionary_cache_clear(void)
+{
+    for (unsigned i = 0; i < DICTIONARY_CACHE_SIZE; i++) dictionary_cache[i].valid = false;
+    dictionary_cache_next = 0;
+}
+
 static uint16 dictionary_word(const uint8 *word, unsigned length,
                               const uint8 *dictionary, unsigned stride, unsigned entries)
 {
@@ -1126,11 +1146,24 @@ static uint16 dictionary_word(const uint8 *word, unsigned length,
     }
     uint16 first = (zchars[0] << 10) | (zchars[1] << 5) | zchars[2];
     uint16 second = 0x8000 | (zchars[3] << 10) | (zchars[4] << 5) | zchars[5];
-    for (unsigned i = 0; i < entries; i++, dictionary += stride) {
-        if (read_word(dictionary) == first && read_word(dictionary + 2) == second)
-            return (uint16)(dictionary - GState->story);
+    for (unsigned i = 0; i < DICTIONARY_CACHE_SIZE; i++) {
+        if (dictionary_cache[i].valid &&
+            dictionary_cache[i].first == first && dictionary_cache[i].second == second)
+            return dictionary_cache[i].result;
     }
-    return 0;
+    uint16 result = 0;
+    for (unsigned i = 0; i < entries; i++, dictionary += stride) {
+        if (read_word(dictionary) == first && read_word(dictionary + 2) == second) {
+            result = (uint16)(dictionary - GState->story);
+            break;
+        }
+    }
+    dictionary_cache[dictionary_cache_next].first = first;
+    dictionary_cache[dictionary_cache_next].second = second;
+    dictionary_cache[dictionary_cache_next].result = result;
+    dictionary_cache[dictionary_cache_next].valid = true;
+    dictionary_cache_next = (dictionary_cache_next + 1) % DICTIONARY_CACHE_SIZE;
+    return result;
 }
 
 static bool is_dictionary_separator(uint8 ch, const uint8 *separators, unsigned count)

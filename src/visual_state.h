@@ -21,6 +21,10 @@ bool visual_state_mirror_pole_raised(void);
 bool visual_state_mirror_pine_open(void);
 bool visual_state_mist_view_dark(void);
 bool visual_state_troll_disappeared(void);
+bool visual_state_cyclops_clue_read(void);
+void visual_state_mark_cyclops_clue_read(void);
+uint16_t visual_state_wizard_spells(void);
+void visual_state_restore_wizard_spells(uint16_t spells);
 void visual_state_restore_z3(uint8_t parapet_dial, uint8_t mirror_arrow,
                              bool mirror_pole_raised, bool mirror_pine_open);
 

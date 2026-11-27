@@ -1,0 +1,470 @@
+# Alternate winning route. Forest grating crossing.
+# Room and score after command, button taps, and expected submitted command.
+# a/b = A/B, u/d = Up/Down, </> = Left/Right, l/r = L/R, s/t = Select/Start.
+# Read the altar commandment before trying the Cyclops name.
+209	0	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+85	0	rrrradda>>>>adat	east
+85	0	rrradddadada	open kitchen window
+27	10	rradddadadda	enter kitchen window
+75	10	rrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	10	rrrrradddaddadda	take brass lantern
+75	10	rrrradddaadda	take sword
+75	10	sdada	turn on brass lantern
+75	10	rrradddadadda	move carpet
+75	10	rradddadada	open trap door
+75	10	rrrradddadddada	open trophy case
+27	10	rradda>>>>adat	east
+85	10	rrrrrrradda>>>>adat	east
+137	10	rrradda>>>>>>>>>>>>>addddddddat	north
+238	10	rrrradda>>>>>>>>>>>>>addddddddat	north
+5	10	udddda	up
+5	15	rrrradddadadda	take egg
+238	15	uda	down
+137	15	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+85	15	rrrradda>>>>adat	east
+27	15	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+187	15	udda	up
+187	15	rrrradddaddadda	take nasty knife
+187	15	rrradddaada	take rope
+27	15	ua	down
+75	15	rrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	15	rrrrradddadaddddddddadaddddddddddddddda	open trap door
+33	40	udda	down
+127	40	rrradda>>>>>>>>>>>>>addddddddat	north
+127	40	rradddaadddaddda	attack troll with sword
+127	40	rradddaadddaddda	attack troll with sword
+127	40	radddadadddaddda	attack troll with sword
+127	40	radddddda	look
+127	40	adddddda	look
+130	45	adda>>>>adat	east
+15	45	radda>>>>adat	east
+69	45	udddda	se
+11	45	radda>>>>adat	east
+11	45	sadddddadddaddddddaa	tie rope to wooden railing
+18	45	uda	down
+2	45	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+129	45	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+129	45	rrradddaddada	read black book
+176	45	uda	down
+52	45	radda>>>>>>>>>>>>>addddddddat	north
+228	45	radda>>>>>>>>>>>>>addddddddat	north
+15	45	adda>>>>>>>>>>>>>addddddddat	north
+130	45	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+127	45	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+104	45	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+193	45	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+54	45	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+218	45	udda	up
+218	55	rrrrradddaddada	take leather bag of coins
+218	55	rrrradddaada	take skeleton key
+134	55	udda	sw
+81	55	udda	up
+34	55	adda>>>>adat	east
+152	55	udda	up
+216	55	ua	ne
+216	55	radddaadaa	unlock grating with skeleton key
+216	55	radddaada	open grating
+160	55	uda	up
+216	55	udddda	down
+152	55	ua	sw
+34	55	uddda	down
+81	55	adda>>>>adat	east
+134	55	adda>>>>>>>>>>>>>addddddddat	north
+218	55	uddda	down
+134	55	udda	sw
+158	55	adda>>>>adat	east
+170	55	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+78	55	udda	se
+78	55	rradda>>>>>>>>>>>>>>>>>>>>adat	ulysses
+82	80	udda	up
+82	80	rrrrradddaadadddda	give egg to thief
+78	80	ua	down
+117	80	radda>>>>adat	east
+75	80	rrradda>>>>adat	east
+75	85	sdaddaddda	put leather bag of coins in trophy case
+75	85	sdddadda	drop sword
+75	85	sada	drop skeleton key
+75	85	rrrrrrraddddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	addddda	wait
+75	85	adddadddada	open trap door
+33	85	udda	down
+127	85	rrradda>>>>>>>>>>>>>addddddddat	north
+130	85	radda>>>>adat	east
+15	85	radda>>>>adat	east
+175	85	adda>>>>>>>>>>>>>addddddddat	north
+106	85	adda>>>>>>>>>>>>>addddddddat	north
+123	85	uda	ne
+178	85	radda>>>>adat	east
+120	85	rrrrradda>>>>>>>>>>>>>addddddddat	north
+120	85	rradddadaddda	take match
+224	85	radda>>>>>>>>>>>>>addddddddat	north
+224	85	rrrrrrrradddaada	take wrench
+224	85	rrrrrrradddadddddadddda	press yellow button
+120	85	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+178	85	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+178	85	rrrrradddadddaddddaddddadddddddaa	turn bolt with wrench
+178	85	sada	drop wrench
+123	85	rrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+123	85	raddddda	wait
+123	85	addddda	wait
+123	85	addddda	wait
+95	85	adda>>>>>>>>>>>>>addddddddat	north
+95	100	rradddaada	take trunk of jewels
+191	100	radda>>>>>>>>>>>>>addddddddat	north
+191	100	rradddaada	take pump
+4	100	radda>>>>>>>>>>>>>addddddddat	north
+4	104	rradddaada	take crystal trident
+191	104	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+95	104	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+123	104	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+106	104	udddda	sw
+175	104	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+15	104	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+130	104	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+127	104	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+104	104	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+193	104	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+54	104	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+218	104	udda	up
+134	104	udda	sw
+158	104	adda>>>>adat	east
+170	104	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+78	104	udda	se
+117	104	radda>>>>adat	east
+75	104	adda>>>>adat	east
+75	109	sddaddaddddda	put trunk of jewels in trophy case
+75	120	saddaddddda	put crystal trident in trophy case
+33	120	udda	down
+127	120	rrradda>>>>>>>>>>>>>addddddddat	north
+104	120	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+193	120	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+54	120	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+218	120	udda	up
+134	120	udda	sw
+158	120	adda>>>>adat	east
+170	120	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+78	120	udda	se
+82	120	udda	up
+82	120	rrrrradddaaddaddda	attack thief with nasty knife
+82	120	rrrrradddaaddaddda	attack thief with nasty knife
+82	120	rrrrradddaaddaddda	attack thief with nasty knife
+82	120	rrrrradddaaddaddda	attack thief with nasty knife
+82	120	rrrrradddaaddaddda	attack thief with nasty knife
+82	120	rrrradddadaddaddda	attack thief with nasty knife
+82	120	rrrrradddddda	look
+82	130	adddadddada	take chalice
+82	130	rrrradddadadda	take egg
+82	136	sdadddddaddadddddddddda	take golden clockwork canary
+78	136	ua	down
+117	136	radda>>>>adat	east
+75	136	adda>>>>adat	east
+75	141	sddaddaddddda	put chalice in trophy case
+75	146	sdadddaddddda	put egg in trophy case
+27	146	rrrrrrrrrrrradda>>>>adat	east
+85	146	rrrrrrradda>>>>adat	east
+137	146	rrradda>>>>>>>>>>>>>addddddddat	north
+238	146	rrrradda>>>>>>>>>>>>>addddddddat	north
+238	146	saddda	wind golden clockwork canary
+238	147	rradddaada	take beautiful brass bauble
+137	147	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+85	147	rrrradda>>>>adat	east
+27	147	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	147	rrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	151	sdaddaddddda	put golden clockwork canary in trophy case
+75	152	saddaddddda	put beautiful brass bauble in trophy case
+75	152	sdddadda	drop nasty knife
+75	152	rrrrrrrrrrrrrrradddaddddaddddddddadaddddddddddddddda	open trap door
+33	152	udda	down
+127	152	rrradda>>>>>>>>>>>>>addddddddat	north
+130	152	radda>>>>adat	east
+15	152	radda>>>>adat	east
+69	152	udddda	se
+11	152	radda>>>>adat	east
+18	152	uda	down
+18	166	rrradddadadda	take torch
+18	166	sddddada	turn off brass lantern
+2	166	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+2	166	rrradddadada	take brass bell
+241	166	rradda>>>>adat	east
+241	166	rradddaada	open gold coffin
+241	170	rrradddadadda	take sceptre
+2	170	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+129	170	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+129	170	sdddddaddddddddaddadddddddddda	take black book
+129	170	rradddaadda	take candles
+176	170	uda	down
+38	170	udda	down
+38	170	sddaddda	ring brass bell
+38	170	rrrradddaaddda	take candles
+38	170	sddddada	light match
+38	170	sadaddda	light candles with match
+38	170	sdddddada	read black book
+38	170	sdddddadda	drop black book
+38	170	sadda	drop candles
+13	170	rrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+13	180	rradddaada	take crystal skull
+38	180	radda>>>>>>>>>>>>>addddddddat	north
+176	180	uda	up
+52	180	radda>>>>>>>>>>>>>addddddddat	north
+228	180	radda>>>>>>>>>>>>>addddddddat	north
+15	180	adda>>>>>>>>>>>>>addddddddat	north
+130	180	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+127	180	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+33	180	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+75	180	uddda	up
+75	190	saddadddddda	put crystal skull in trophy case
+33	190	udda	down
+247	190	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+122	190	adda>>>>adat	east
+122	194	radddaada	take painting
+247	194	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+33	194	adda>>>>>>>>>>>>>addddddddat	north
+75	194	uddda	up
+75	200	saddadddddda	put painting in trophy case
+33	200	udda	down
+127	200	rrradda>>>>>>>>>>>>>addddddddat	north
+130	200	radda>>>>adat	east
+15	200	radda>>>>adat	east
+205	200	adda>>>>adat	east
+205	200	rradda>>>>adddat	echo
+205	210	adddaada	take platinum bar
+15	210	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+130	210	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+127	210	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+33	210	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+75	210	uddda	up
+75	215	saddadddddda	put platinum bar in trophy case
+27	215	rrrrrrrrrrrrrrrrrradda>>>>adat	east
+85	215	rrrrrrradda>>>>adat	east
+128	215	rrradda>>>>adat	east
+22	215	rradda>>>>adat	east
+21	215	udddda	down
+74	215	uda	down
+125	215	rrradda>>>>>>>>>>>>>addddddddat	north
+125	215	saddddddddaddadda	wave sceptre
+125	225	rrradddaada	take pot of gold
+74	225	udda	sw
+21	225	uda	up
+22	225	ua	up
+128	225	uddda	nw
+85	225	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+27	225	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	225	rrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	235	saddadddddda	put pot of gold in trophy case
+75	241	sadddadddddda	put sceptre in trophy case
+75	241	sdada	drop pump
+75	241	rrrrrrrrrrrrrrrrrrrrradddadddddadddddddddadaddddddddddddddda	open trap door
+33	241	udda	down
+127	241	rrradda>>>>>>>>>>>>>addddddddat	north
+130	241	radda>>>>adat	east
+15	241	radda>>>>adat	east
+69	241	udddda	se
+11	241	radda>>>>adat	east
+18	241	uda	down
+2	241	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+241	241	rradda>>>>adat	east
+241	251	rradddaadda	take gold coffin
+2	251	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+129	251	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+87	251	radddddddddda	pray
+238	251	rradda>>>>adat	east
+137	251	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+85	251	rrrradda>>>>adat	east
+27	251	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	251	rrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	266	sadddaddddddda	put gold coffin in trophy case
+75	266	rrrrrrrrrrrrrrrrrrrrrradddaada	take pump
+75	266	sada	drop pump
+27	266	rrrrrrrrrrrrrrrrrrrrrradda>>>>adat	east
+27	266	rrrrrrradddadddadda	take brown sack
+27	266	sada	open brown sack
+27	266	sdaddddddaddadddddddddda	take clove of garlic
+27	266	sdadda	drop brown sack
+75	266	rrrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	266	rrrrrrrrrrrrrrrrrrrrrradddadddddaddddddddadaddddddddddddddda	open trap door
+33	266	udda	down
+127	266	rrradda>>>>>>>>>>>>>addddddddat	north
+130	266	radda>>>>adat	east
+15	266	radda>>>>adat	east
+175	266	adda>>>>>>>>>>>>>addddddddat	north
+106	266	adda>>>>>>>>>>>>>addddddddat	north
+123	266	uda	ne
+178	266	radda>>>>adat	east
+120	266	rrrrrradda>>>>>>>>>>>>>addddddddat	north
+224	266	radda>>>>>>>>>>>>>addddddddat	north
+224	266	rrrrrrradddadada	take screwdriver
+120	266	rrrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+178	266	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+123	266	rrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+95	266	radda>>>>>>>>>>>>>addddddddat	north
+191	266	radda>>>>>>>>>>>>>addddddddat	north
+4	266	radda>>>>>>>>>>>>>addddddddat	north
+62	266	uda	up
+110	266	radda>>>>>>>>>>>>>addddddddat	north
+139	266	radda>>>>>>>>>>>>>addddddddat	north
+31	266	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+188	266	radda>>>>>>>>>>>>>addddddddat	north
+171	266	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+235	266	adda>>>>>>>>>>>>>addddddddat	north
+235	271	rradddaada	take jade figurine
+245	271	radda>>>>adat	east
+245	271	sdddddada	turn on brass lantern
+245	271	sdddadddaa	put torch in basket
+245	271	sdaddaa	put screwdriver in basket
+93	271	rrradda>>>>>>>>>>>>>addddddddat	north
+46	271	uda	down
+46	276	rradddaada	take sapphire-encrusted bracelet
+173	276	radda>>>>adat	east
+90	276	udda	ne
+112	276	udda	se
+3	276	udda	sw
+16	276	udda	down
+72	276	uda	down
+156	276	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+156	276	radddaada	take small pile of coal
+72	276	adda>>>>>>>>>>>>>addddddddat	north
+16	276	udda	up
+3	276	ua	up
+112	276	adda>>>>>>>>>>>>>addddddddat	north
+90	276	adda>>>>adat	east
+173	276	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+46	276	adda>>>>>>>>>>>>>addddddddat	north
+93	276	uda	up
+245	276	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+245	276	saddaa	put small pile of coal in basket
+245	276	rrrradddaaddda	lower basket
+93	276	radda>>>>>>>>>>>>>addddddddat	north
+46	276	uda	down
+173	276	radda>>>>adat	east
+90	276	udda	ne
+112	276	udda	se
+3	276	udda	sw
+16	276	udda	down
+72	276	uda	down
+8	276	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+8	276	raddddddddda	drop all
+249	276	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+249	289	rrrradddadddadda	take torch
+249	289	rrradddadada	take small pile of coal
+249	289	rradddadada	take screwdriver
+89	289	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+89	289	rradddadada	open machine
+89	289	sdaddada	put small pile of coal in machine
+89	289	rradddadada	close machine
+89	289	radddaadddaddddadddddddaa	turn switch with screwdriver
+89	289	rradddadada	open machine
+89	299	rradddaddada	take huge diamond
+249	299	rradda>>>>>>>>>>>>>addddddddat	north
+249	299	saddaa	put huge diamond in basket
+249	299	sdadddaa	put torch in basket
+249	299	saddaa	put screwdriver in basket
+8	299	rrrradda>>>>adat	east
+8	299	rrrrrradddaadda	take brass lantern
+8	299	rrrrradddadadda	take clove of garlic
+8	299	rrrradddadada	take jade figurine
+8	299	rrradddadada	take sapphire-encrusted bracelet
+72	299	rradda>>>>adat	east
+16	299	udda	up
+3	299	ua	up
+112	299	adda>>>>>>>>>>>>>addddddddat	north
+90	299	adda>>>>adat	east
+173	299	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+46	299	adda>>>>>>>>>>>>>addddddddat	north
+93	299	uda	up
+245	299	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+245	299	radddaadda	lift basket
+245	299	rrrradddadddada	take huge diamond
+245	299	rrradddaddadda	take torch
+235	299	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+171	299	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+188	299	adda>>>>adat	east
+31	299	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+33	299	udda	down
+75	299	uddda	up
+75	309	sdaddaddddddda	put huge diamond in trophy case
+75	314	sddaddaddddddda	put jade figurine in trophy case
+75	319	sdaddaddddddda	put sapphire-encrusted bracelet in trophy case
+75	319	rrrrrrrrrrrrrrrrrrrrrrrrradddaada	take pump
+75	319	rrrrrrrrrrrrrrrrrrrrrrrradddaddddadddddddddadaddddddddddddddda	open trap door
+33	319	udda	down
+127	319	rrradda>>>>>>>>>>>>>addddddddat	north
+130	319	radda>>>>adat	east
+15	319	radda>>>>adat	east
+175	319	adda>>>>>>>>>>>>>addddddddat	north
+106	319	adda>>>>>>>>>>>>>addddddddat	north
+123	319	uda	ne
+178	319	radda>>>>adat	east
+111	319	udddda	down
+111	319	rrradddaadddddaddddadddaa	inflate plastic with pump
+111	319	sada	drop pump
+111	319	rrrrradddadada	enter magic boat
+37	319	rrrraddddddddddda	launch
+174	319	rrrraddddda	wait
+174	319	rrrraddddda	wait
+45	319	adddddda	look
+182	319	rrrraddddda	wait
+182	319	rrrrradddaddadda	take red buoy
+30	319	rrrradda>>>>adat	east
+30	319	rrrrradddaada	get out of magic boat
+30	324	sada	open red buoy
+30	324	sdadddddaddadddddddddda	take large emerald
+30	324	sdadda	drop red buoy
+30	324	rrrrrradddadddada	take shovel
+155	324	uda	ne
+155	324	radddaaddaddddaddddddaa	dig sand with shovel
+155	324	radddaaddaddddaddddddaa	dig sand with shovel
+155	324	radddaaddaddddaddddddaa	dig sand with shovel
+155	324	radddaaddaddddaddddddaa	dig sand with shovel
+155	329	radddaada	take beautiful jeweled scarab
+155	329	sdada	drop shovel
+30	329	ua	sw
+40	329	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+47	329	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+202	329	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+125	329	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+74	329	udda	sw
+21	329	uda	up
+22	329	ua	up
+128	329	uddda	nw
+85	329	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+27	329	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	329	rrrrrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+75	339	sdaddadddddda	put large emerald in trophy case
+75	344	saddadddddda	put beautiful jeweled scarab in trophy case
+75	350	sadddadddddda	put torch in trophy case
+75	350	rrrrrrrrrrrrrrrrrrrrrrrrrrrraddddddda	score
+75	350	adddaddddddddddddddddddddddddddadda	take ancient map
+27	350	rrrrrrrrrrrrrrrrrrrrrrrrrrradda>>>>adat	east
+85	350	rrrrrrrradda>>>>adat	east
+209	350	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddddddddddat	south
+64	350	rrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddat	west
+244	350	udddddda	sw
+244	350	rradddaada	enter stone barrow

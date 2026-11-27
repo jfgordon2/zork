@@ -6,6 +6,7 @@ import os
 import pathlib
 import re
 import subprocess
+import sys
 
 ROOT = pathlib.Path(__file__).resolve().parents[2]
 OUT = ROOT / 'qa' / 'mgba-room-gallery'
@@ -333,7 +334,7 @@ ROUTE_SAVE_DEFAULTS = {
 
 STORY_ROOM_NAMES = {}
 if not all((ROOT / 'build' / 'story-dump' / f'zork{_n}-rooms.json').exists() for _n in (1, 2, 3)):
-    subprocess.run(['python3', str(ROOT / 'tools' / 'dump_rooms.py')], check=True)
+    subprocess.run([sys.executable, str(ROOT / 'tools' / 'dump_rooms.py')], check=True, stdout=sys.stderr)
 for _n in (1, 2, 3):
     _dump = ROOT / 'build' / 'story-dump' / f'zork{_n}-rooms.json'
     if _dump.exists():
@@ -541,6 +542,13 @@ for row in rows:
 for row in rows:
     row.setdefault('capture_view', 'room')
 rows.sort(key=lambda r: (r['chapter'], {'route room': 0, 'death route': 1, 'alternate route': 1, 'dark state': 2, 'story state': 3}[r['kind']], r['room_id'], r['screenshot']))
+if sys.argv[1:] == ['--button-plan']:
+    for row in rows:
+        steps = ','.join(f'{direction}:{room}' for direction, room in row.get('route', []))
+        print(row['chapter'], row.get('start_room', row['room_id']), row['room_id'],
+              row['capture_view'], row['save_file'], row['screenshot'], steps, sep='\t')
+    sys.exit(0)
+
 for row in rows:
     (OUT / row['screenshot']).parent.mkdir(parents=True, exist_ok=True)
 fields = ['game','kind','chapter','room_id','title','scene','save_file','screenshot','trace_log','dark','capture_status','capture_view']

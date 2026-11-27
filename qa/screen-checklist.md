@@ -23,6 +23,23 @@ For interface screens such as the launcher, bag, map, pause menu, speech picker,
 
 Record **Pass**, **Issue**, **Unchecked**, or **N/A** for each applicable check. An asset review can establish perspective or grounding. A replay can establish story outcomes. A native emulator capture can establish how they read together.
 
+Run `make test-button-screens` for the controller sweep. It loads the gallery’s
+story checkpoints, walks route-only entries through Paths, and replays the
+Royal Puzzle Restore and the Zork III ending. In each explorable state it checks
+menu navigation and cancellation without spending a turn, then selects **Look**
+and examines every **Nearby objects** target. Each examination starts from the
+same room checkpoint, with any route to the room replayed before selecting the
+target. A missing Examine option fails the sweep. The per-screen summary in
+`build/button-screen-results.tsv` records coverage, and
+`build/button-examine-results.tsv` records each command, destination room, and
+whether the story returned text. The sweep also reloads the room and selects one
+applicable action from the target’s primary menu, such as **Read**, **Open**,
+**Close**, **Switch on**, **Press**, or **Take**. The separate
+`build/button-object-action-results.tsv` report records the story reply and
+changes to the room, score, item location, and relevant flags. Refusals are
+recorded as story outcomes. The host sweep exercises the cartridge’s button
+handlers. Use native captures for the visual checks above.
+
 Before generating scenery, apply the [scenery rules](../assets/SCENERY_RULES.md). Review a small connected set at the actual game crop before expanding generation; correct failed architecture before integration.
 
 | Screen and state | Entry and setup | Actions | Expected story and visual result | Observed and evidence | Result |

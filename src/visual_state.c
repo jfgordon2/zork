@@ -8,6 +8,8 @@ static uint8_t mirror_arrow;
 static bool mirror_pole_raised, mirror_pine_open;
 static bool mist_view_dark;
 static bool troll_disappeared;
+static bool cyclops_clue_read;
+static uint16_t wizard_spells;
 static char line[192];
 static unsigned used;
 
@@ -29,6 +31,8 @@ void visual_state_reset(void) {
     mirror_pine_open = false;
     mist_view_dark = false;
     troll_disappeared = false;
+    cyclops_clue_read = false;
+    wizard_spells = 0;
     used = 0;
     line[0] = 0;
 }
@@ -150,6 +154,10 @@ bool visual_state_mirror_pole_raised(void) { return mirror_pole_raised; }
 bool visual_state_mirror_pine_open(void) { return mirror_pine_open; }
 bool visual_state_mist_view_dark(void) { return mist_view_dark; }
 bool visual_state_troll_disappeared(void) { return troll_disappeared; }
+bool visual_state_cyclops_clue_read(void) { return cyclops_clue_read; }
+void visual_state_mark_cyclops_clue_read(void) { cyclops_clue_read = true; }
+uint16_t visual_state_wizard_spells(void) { return wizard_spells; }
+void visual_state_restore_wizard_spells(uint16_t spells) { wizard_spells = spells; }
 
 void visual_state_restore_z3(uint8_t dial, uint8_t arrow, bool pole_raised, bool pine_open) {
     if (dial >= 1 && dial <= 8) parapet_dial = dial;

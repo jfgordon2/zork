@@ -20,7 +20,12 @@ enum {
 #define PAPER RGB(250, 233, 201)
 #define DIM RGB(170, 184, 160)
 #define BACK RGB(115, 208, 196)
+#ifdef VISUAL_QA
+static uint8_t qa_sram[SRAM_SIZE];
+#define SRAM qa_sram
+#else
 #define SRAM ((volatile uint8_t *)0x0E000000)
+#endif
 
 static const char *find_substring(const char *text, const char *part) {
     if (!*part) return text;
@@ -40,7 +45,7 @@ typedef enum {
     LAUNCHER, SLOT, EXPLORE, BAG, NEARBY, VERBS, CATEGORIES, GROUP, ORDERS_MENU,
     SECOND_OBJECT, HEADING, DIAL, ROOM_ACTIONS, SPEAK, LETTERS, WORDS,
     PATHS, PAUSE, MAP, PLACES, TEXT_REVIEW, STORY_LOG, COMMAND, CONTROLS, RETURN_CONFIRM, FINISHED,
-    FINISHED_MENU, RESTORE_CONFIRM
+    FINISHED_MENU, RESTORE_CONFIRM, LEARNED_SPELLS, HINTS, HINT_BROWSER, NEXT_STEPS
 } Screen;
 
 typedef struct { Screen screen; unsigned row; } MenuCursor;
@@ -62,13 +67,58 @@ static bool map_vertical;
 static Targets nearby, carried, second;
 static Action action_list[MAX_ACTIONS], pending_action;
 static unsigned action_count, action_object, place_count;
+typedef struct {
+    bool valid, carried;
+    uint8_t chapter, count;
+    uint16_t room, object;
+    uint32_t generation;
+    Action actions[MAX_ACTIONS];
+} PrimaryMenuCache;
+static PrimaryMenuCache primary_menu_cache[2];
+static unsigned primary_menu_recent;
+static uint32_t primary_menu_generation;
+static bool menu_filter_running, menu_filter_armed;
+static uint32_t menu_filter_ticks;
+static struct {
+    unsigned chapter, id;
+    uint16_t room;
+    bool carried;
+} menu_filter_key;
+static void invalidate_primary_menu_cache(void) {
+    // A command can change any room/object/action interaction state; one
+    // generation bump retires both entries without walking the array.
+    primary_menu_generation++;
+    if (story_menu_filter_active()) story_menu_filter_cancel();
+    menu_filter_running = false;
+    menu_filter_armed = false;
+}
+static PrimaryMenuCache *cached_primary_menu(void) {
+    for (unsigned i = 0; i < 2; i++) {
+        PrimaryMenuCache *entry = &primary_menu_cache[i];
+        if (entry->valid && entry->generation == primary_menu_generation &&
+            entry->chapter == chapter && entry->carried == verb_is_bag &&
+            entry->room == z_global(0) && entry->object == action_object)
+            return entry;
+    }
+    return NULL;
+}
+#ifdef PROFILE
+typedef struct {
+    uint16_t ticks, peak_ticks, probes, effects;
+    uint8_t offers, cache_hit;
+    uint16_t builds;
+} MenuProfile;
+static MenuProfile menu_profile;
+#endif
 static uint8_t places[256];
 static char room_name[Z_NAME_MAX], command[COMMAND_SIZE];
 static unsigned key_cursor, dial_digits, dial_cursor, category_row;
 static uint8_t digits[3];
-static unsigned speech_mode, letter_cursor, word_cursor, word_count, spoken_count;
+static WordMode word_mode;
+static unsigned letter_cursor, word_cursor, word_count, spoken_count;
 static uint16_t words[1024], spoken[WORDS_PER_PHRASE];
 static void collect_paths(void);
+static unsigned hint_browser_count(void);
 
 static char response[7168];
 static uint16_t page_offsets[256];
@@ -86,19 +136,80 @@ static PuzzleMap puzzle_map;
 static unsigned scene_animation_stage(void);
 
 static const struct { const char *name; Screen destination; const char *command; } room_options[] = {
-    {"Paths", PATHS, NULL}, {"Speak...", SPEAK, NULL}, {"Nearby objects", NEARBY, NULL},
+    {"Paths", PATHS, NULL}, {"Speak...", SPEAK, NULL}, {"Choose command words...", LETTERS, NULL},
+    {"Nearby objects", NEARBY, NULL},
     {"Listen", EXPLORE, "listen"}, {"Wait", EXPLORE, "wait"}, {"Look", EXPLORE, "look"},
     {"Score", EXPLORE, "score"}, {"Take all", EXPLORE, "take all"}, {"Drop all", EXPLORE, "drop all"},
     {"Pray", EXPLORE, "pray"}, {"Launch", EXPLORE, "launch"}, {"Dive", EXPLORE, "dive"}
 };
-static const char *const speech_options[] = {"Say...", "Answer...", "Call out...", "Greet...", "Yes", "No"};
-static const char *const speech_titles[] = {"Say", "Answer", "Call out", "Greet"};
+static const struct { const char *name; WordMode mode; const char *command; } speech_options[] = {
+    {"Say...", WORDS_SAY, NULL}, {"Answer...", WORDS_ANSWER, NULL}, {"Greet...", WORDS_GREET, NULL},
+    {"Yes", WORDS_SAY, "yes"}, {"No", WORDS_SAY, "no"}
+};
+static const char *const wizard_spell_names[] = {
+    "fall", "float", "freeze", "fence", "fierce", "ferment", "fear",
+    "feeble", "fumble", "filch", "fantasize", "fireproof"
+};
+static const char *const word_titles[] = {
+    [WORDS_SAY] = "Say", [WORDS_ANSWER] = "Answer",
+    [WORDS_COMMAND] = "Command words", [WORDS_GREET] = "Greet"
+};
 static const char *const category_options[] = {"Inspect", "Handle", "Use", "Combine", "Use a tool", "Movement"};
 static const ActionGroup groups[] = {INSPECT, HANDLE, USE, COMBINE, TOOLS, MOVE};
 static const char *const pause_options[] = {
     "Resume", "Story so far", "Save game", "Restore game", "Map", "Read last response",
-    "Enter command...", "Controls", "Return to trilogy"
+    "Enter command...", "Controls", "Return to trilogy", "Hints"
 };
+enum { PAUSE_HINTS_ROW = sizeof(pause_options) / sizeof(pause_options[0]) - 1, HINT_STEPS = 3 };
+typedef struct {
+    uint8_t chapter, room;
+    const char *steps[HINT_STEPS];
+} RoomHint;
+static const RoomHint room_hints[] = {
+    {0, 78, {"The Cyclops pays attention to what you carry.",
+             "Offer him lunch, then think about what he asks for.",
+             "Give him lunch and then the open bottle of water. He will fall asleep and leave the stairs unguarded."}},
+    {0, 129, {"The book on the altar is worth reading closely.",
+              "Pay attention to where the original lines of the commandment begin.",
+              "Read the first letters of the commandment's lines. They spell a name that frightens the Cyclops."}},
+    {0, 205, {"Try a harmless command and notice what comes back to you.",
+              "The sound in this room is part of the puzzle.",
+              "Send ECHO from Choose command words, then take the platinum bar."}},
+    {1, 238, {"The door expects a spoken answer.",
+              "Think of a place where people draw up water.",
+              "Use Speak, then Answer, and select WELL."}},
+    {1, 119, {"Look at the bucket, and consider what you can put in it.",
+              "The bucket follows the weight of the water.",
+              "Enter the bucket and pour water into it. Recover the water with the teapot to come back down."}},
+    {1, 159, {"The stone can be moved with help from magic.",
+              "The white book explains how to direct the Wizard's wand.",
+              "Aim or wave the wand at the menhir. Then use Say to cast FLOAT."}},
+    {2, 181, {"Watch the water for someone who might hear you.",
+              "When the ship comes in sight, try getting the sailor's attention.",
+              "Use Hail sailor while the ship is visible. Take what the sailor throws you."}},
+    {2, ZORK3_BEAM_ROOM, {"The light beam is part of a mechanism.",
+                          "Leave something solid in the beam, then try the controls nearby.",
+                          "Use the sword to interrupt the beam. Press the red button in the Button Room, then go north into the mirror."}},
+    {2, ROYAL_PUZZLE_ROOM, {"Look to survey the square around you.",
+                            "Sandstone walls can slide. Marble walls stay put.",
+                            "At the starting square, push the east wall, then use Paths to move south."}}
+};
+typedef struct {
+    const char *title;
+    const char *const *clues;
+    uint16_t parent, first, count;
+} HintEntry;
+typedef struct {
+    uint8_t chapter, room;
+    uint16_t target, entry;
+    const char *label;
+} ContextHint;
+#include "invisiclues.inc"
+
+enum { HINT_TEXT_LINES = 7 };
+static unsigned hint_step, hint_offset, hint_menu;
+static const HintEntry *hint_topic;
+static const char *hint_context_label;
 static const char *const slot_options[] = {"Continue saved game", "New game", "Back"};
 static const char *const return_options[] = {"Keep exploring", "Return to trilogy"};
 static const char *const restore_options[] = {"Keep playing", "Restore saved game"};
@@ -491,6 +602,7 @@ static bool restore_progress(void) {
 }
 
 static void restore_saved_game(void) {
+    invalidate_primary_menu_cache();
     if (restore_progress()) {
         // save_read restores the cached Royal Puzzle diagram with the story snapshot.
         finished_prompt = successful_ending = false;
@@ -542,6 +654,7 @@ static void refresh_scope(void) {
 }
 
 static void begin_story(bool restore) {
+    invalidate_primary_menu_cache();
     const Chapter *data = &chapters[chapter];
     screen = EXPLORE;
     nearby.count = carried.count = 0;
@@ -562,6 +675,7 @@ static void begin_story(bool restore) {
 }
 
 static void send_command(const char *line) {
+    invalidate_primary_menu_cache();
     unsigned length = 0;
     while (line[length] && length + 1 < sizeof(pending_command)) {
         pending_command[length] = line[length];
@@ -592,10 +706,39 @@ static void send_command(const char *line) {
     busy = true;
 }
 
+static void learn_wizard_spells(void) {
+    static const char *const introductions[] = {
+        "The Wizard, in a deep and resonant voice, speaks the word \"",
+        "The Wizard incants \"",
+        "The Wizard snatches the wand away, muttering the word \""
+    };
+    uint16_t learned = visual_state_wizard_spells();
+    for (unsigned i = 0; i < sizeof(introductions) / sizeof(introductions[0]); i++) {
+        const char *word = find_substring(response, introductions[i]);
+        if (!word) continue;
+        while (*word != '"') word++;
+        word++;
+        char name[12];
+        unsigned length = 0;
+        while (word[length] && word[length] != '!' && word[length] != '"' && length + 1 < sizeof(name)) {
+            name[length] = word[length];
+            length++;
+        }
+        if (word[length] != '!' && word[length] != '"') continue;
+        name[length] = 0;
+        for (unsigned spell = 0; spell < sizeof(wizard_spell_names) / sizeof(wizard_spell_names[0]); spell++)
+            if (text_equal(name, wizard_spell_names[spell])) learned |= 1u << spell;
+    }
+    visual_state_restore_wizard_spells(learned);
+}
+
 static void complete_turn(void) {
     ZResult result = z_run(6000);
     if (result == Z_BUSY) return;
     busy = false;
+    if (chapter == 0 && text_has(response, "Commandment #12592"))
+        visual_state_mark_cyclops_clue_read();
+    if (chapter == 1) learn_wizard_spells();
     if (travel_room && !story_dark(chapter)) trail_record(&trail, travel_room, travel_direction, z_global(0));
     travel_room = 0;
     refresh_scope();
@@ -961,6 +1104,16 @@ static void drawer_row(unsigned first, unsigned i, const char *name, bool active
     paragraph(text_x, y + 1, 231 - text_x, 1, name, active ? (i == selected ? PAPER : DIM) : LINE);
 }
 
+static const char *learned_spell_at(unsigned row) {
+    uint16_t learned = visual_state_wizard_spells();
+    for (unsigned i = 0; i < sizeof(wizard_spell_names) / sizeof(wizard_spell_names[0]); i++) {
+        if (!(learned & (1u << i))) continue;
+        if (!row) return wizard_spell_names[i];
+        row--;
+    }
+    return NULL;
+}
+
 static unsigned list_count(void) {
     switch (screen) {
         case SLOT: return 3;
@@ -972,16 +1125,49 @@ static unsigned list_count(void) {
         case CATEGORIES: return sizeof(category_options) / sizeof(category_options[0]);
         case SECOND_OBJECT: return second.count;
         case HEADING: return 12;
-        case SPEAK: return sizeof(speech_options) / sizeof(speech_options[0]);
+        case SPEAK: return sizeof(speech_options) / sizeof(speech_options[0]) +
+                           (chapter == 1 && learned_spell_at(0) != NULL);
+        case LEARNED_SPELLS: {
+            unsigned count = 0;
+            while (learned_spell_at(count)) count++;
+            return count;
+        }
         case ROOM_ACTIONS: return sizeof(room_options) / sizeof(room_options[0]);
         case PATHS: return path_count;
         case PAUSE: return sizeof(pause_options) / sizeof(pause_options[0]);
+        case HINT_BROWSER: return hint_browser_count();
         case PLACES: return place_count;
         case RETURN_CONFIRM: return 2;
         case RESTORE_CONFIRM: return 2;
         default: return 0;
     }
 }
+
+#ifdef PROFILE
+static void draw_menu_profile(void) {
+    char text[48] = "menu ", n[8];
+    number(n, menu_profile.probes);
+    append_text(text, sizeof(text), n);
+    append_text(text, sizeof(text), "p ");
+    number(n, menu_profile.effects);
+    append_text(text, sizeof(text), n);
+    append_text(text, sizeof(text), "e ");
+    unsigned ms = ((unsigned)menu_profile.ticks * 1000u + 8192u) / 16384u;
+    number(n, (int)ms);
+    append_text(text, sizeof(text), n);
+    append_text(text, sizeof(text), "ms pk ");
+    ms = ((unsigned)menu_profile.peak_ticks * 1000u + 8192u) / 16384u;
+    number(n, (int)ms);
+    append_text(text, sizeof(text), n);
+    append_text(text, sizeof(text), "ms ");
+    number(n, menu_profile.offers);
+    append_text(text, sizeof(text), n);
+    append_text(text, sizeof(text), "a");
+    if (menu_profile.cache_hit) append_text(text, sizeof(text), " cache");
+    fill(0, ART_Y, 190, 9, INK);
+    label(3, ART_Y + 1, text, GOLD);
+}
+#endif
 
 static void draw_drawer(void) {
     char object[Z_NAME_MAX], item[Z_NAME_MAX];
@@ -992,12 +1178,17 @@ static void draw_drawer(void) {
         case BAG: title_text = "Carried items"; break;
         case NEARBY: title_text = "Nearby objects"; break;
         case VERBS:
+            story_name(chapter, action_object, object);
+            if (menu_filter_running) append_text(object, sizeof(object), " ...");
+            title_text = object;
+            break;
         case GROUP: story_name(chapter, action_object, object); title_text = object; break;
         case CATEGORIES: title_text = "More actions"; break;
         case ORDERS_MENU: title_text = "Give an order"; break;
         case SECOND_OBJECT: title_text = pending_action.name; break;
         case HEADING: title_text = "Choose a direction"; break;
         case SPEAK: title_text = "Speak"; break;
+        case LEARNED_SPELLS: title_text = "Learned spells"; break;
         case ROOM_ACTIONS: title_text = "Room actions"; break;
         case PATHS: title_text = "Paths"; break;
         case PAUSE: title_text = "Paused"; break;
@@ -1026,7 +1217,9 @@ static void draw_drawer(void) {
             case CATEGORIES: name = category_options[i]; break;
             case SECOND_OBJECT: id = second.id[i]; break;
             case HEADING: name = path_names[i]; break;
-            case SPEAK: name = speech_options[i]; break;
+            case SPEAK: name = i < sizeof(speech_options) / sizeof(speech_options[0])
+                               ? speech_options[i].name : "Learned spells..."; break;
+            case LEARNED_SPELLS: name = learned_spell_at(i); break;
             case ROOM_ACTIONS: name = room_options[i].name; break;
             case PATHS: name = path_names[path_options[i]]; break;
             case PAUSE:
@@ -1048,6 +1241,9 @@ static void draw_drawer(void) {
                 label(165, y, "Conditional", DIM);
         }
     }
+#ifdef PROFILE
+    if (screen == VERBS || screen == GROUP) draw_menu_profile();
+#endif
 }
 
 static void draw_launcher(void) {
@@ -1099,6 +1295,190 @@ static void draw_controls(void) {
     key_hint(6, "B", "Back");
 }
 
+static const RoomHint *current_room_hint(void) {
+    if (dark) return NULL;
+    for (unsigned i = 0; i < sizeof(room_hints) / sizeof(room_hints[0]); i++)
+        if (room_hints[i].chapter == chapter && room_hints[i].room == room_object) return &room_hints[i];
+    return NULL;
+}
+
+static unsigned room_hint_rows(void) {
+    return hint_menu == 0 && current_room_hint() != NULL;
+}
+
+static bool hint_target_nearby(unsigned target) {
+    if (!target) return true;
+    for (unsigned i = 0; i < nearby.count; i++)
+        if (nearby.id[i] == target) return true;
+    return false;
+}
+
+static const ContextHint *context_hint_at(unsigned row) {
+    if (hint_menu || dark) return NULL;
+    for (unsigned i = 0; i < sizeof(contextual_hints) / sizeof(contextual_hints[0]); i++) {
+        const ContextHint *hint = &contextual_hints[i];
+        if (hint->chapter != chapter || hint->room != room_object || !hint_target_nearby(hint->target)) continue;
+        if (!row) return hint;
+        row--;
+    }
+    return NULL;
+}
+
+static unsigned local_hint_rows(void) {
+    unsigned contextual = 0;
+    while (context_hint_at(contextual)) contextual++;
+    return room_hint_rows() + contextual;
+}
+
+static unsigned hint_guide_offset(void) {
+    return local_hint_rows() + (hint_menu == 0);
+}
+
+static bool is_next_steps_row(unsigned row) {
+    return hint_menu == 0 && row == local_hint_rows();
+}
+
+static unsigned hint_browser_count(void) {
+    return invisiclues[chapter][hint_menu].count + hint_guide_offset();
+}
+
+static const HintEntry *hint_browser_entry(unsigned row) {
+    const HintEntry *guide = invisiclues[chapter];
+    unsigned room_rows = room_hint_rows();
+    if (row < room_rows) return NULL;
+    if (is_next_steps_row(row)) return NULL;
+    const ContextHint *context = context_hint_at(row - room_rows);
+    if (context) return &guide[context->entry];
+    return &guide[guide[hint_menu].first + row - hint_guide_offset()];
+}
+
+static const ContextHint *hint_browser_context(unsigned row) {
+    unsigned room_rows = room_hint_rows();
+    return row < room_rows ? NULL : context_hint_at(row - room_rows);
+}
+
+static void draw_hint_browser(void) {
+    unsigned count = hint_browser_count();
+    enum { HINT_MENU_ROWS = 3 };
+    unsigned first = selected / HINT_MENU_ROWS * HINT_MENU_ROWS;
+    char position[16], total[8];
+    number(position, selected + 1);
+    number(total, count);
+    append_text(position, sizeof(position), "/");
+    append_text(position, sizeof(position), total);
+    header(invisiclues[chapter][hint_menu].title, position);
+    fill(0, ART_Y, SCREEN_W, FOOT_Y - ART_Y, PANEL);
+    for (unsigned i = first; i < count && i < first + HINT_MENU_ROWS; i++) {
+        const HintEntry *entry = hint_browser_entry(i);
+        const ContextHint *context = hint_browser_context(i);
+        int y = 19 + (i - first) * 40;
+        if (i == selected) {
+            fill(6, y, 228, 36, INK);
+            fill(7, y + 4, 2, 28, GOLD);
+        }
+        const char *title = context ? context->label : entry ? entry->title :
+                            is_next_steps_row(i) ? "Next steps" : "Hints for this room";
+        paragraph(14, y + 3, 210, 3, title,
+                  i == selected ? GOLD : PAPER);
+    }
+    footer();
+    vertical_hint(6, "Choose");
+    key_hint(83, "A", "Open");
+    key_hint(185, "B", "Back");
+}
+
+static unsigned hint_count(void) {
+    return hint_topic ? hint_topic->count : HINT_STEPS;
+}
+
+enum { NEXT_STEP_LIMIT = 4 };
+
+static unsigned story_next_steps(const char *steps[NEXT_STEP_LIMIT]) {
+    unsigned count = 0;
+    unsigned player = chapters[chapter].player;
+    if (chapter == 0) {
+        if (room_seen(129) && !visual_state_cyclops_clue_read()) {
+            unsigned book_location = z_parent(196);
+            if (book_location == player) steps[count++] = "Read the black book in your bag.";
+            else if (book_location == 129 || (book_location == 35 && z_parent(35) == 129))
+                steps[count++] = "Read the black book at the Altar.";
+        }
+        if (room_seen(216) && z_parent(96) == player && !z_attr(29, ATTR_OPEN))
+            steps[count++] = "Revisit the Grating Room with the skeleton key.";
+        if (room_seen(111) && z_parent(208) == 111 && z_parent(player) != 208)
+            steps[count++] = "Board the boat at Dam Base.";
+    } else if (chapter == 1) {
+        if (room_seen(238) && !z_attr(7, ATTR_OPEN))
+            steps[count++] = "Try an answer to the riddle in the Riddle Room.";
+        if (room_seen(ZORK2_AQUARIUM_ROOM)) {
+            if (z_parent(ZORK2_SERPENT) == ZORK2_AQUARIUM && z_parent(223) == player)
+                steps[count++] = "Bring the sword to the Aquarium Room.";
+            else if (z_parent(31) == ZORK2_AQUARIUM_ROOM)
+                steps[count++] = "Collect the exposed sphere in the Aquarium Room.";
+        }
+        if (room_seen(119) && z_parent(52) == 119 && z_parent(186) == 107 &&
+            z_parent(107) == player)
+            steps[count++] = "Return to the Circular Room with the full teapot.";
+    } else {
+        if (!room_seen(160) && room_seen(ZORK3_BEAM_ROOM) && z_parent(202) == player)
+            steps[count++] = "Bring the sword to the Beam Room.";
+        if (!room_seen(160) && room_seen(ZORK3_BUTTON_ROOM) && z_parent(202) == ZORK3_BEAM_ROOM &&
+            !zork3_mirror_panel_open())
+            steps[count++] = "Check the controls in the Button Room.";
+        if (room_seen(ZORK3_PRISON_CELL_ALT) && z_parent(13) == player && !z_attr(209, ATTR_OPEN))
+            steps[count++] = "Revisit the bronze door in the Prison Cell with the strange key.";
+    }
+    return count;
+}
+
+static void draw_next_steps(void) {
+    header("Next steps", NULL);
+    fill(0, ART_Y, SCREEN_W, FOOT_Y - ART_Y, PANEL);
+    const char *steps[NEXT_STEP_LIMIT];
+    unsigned count = story_next_steps(steps);
+    if (!count) paragraph(8, 28, 224, 3, "No suggestions yet. Explore and check back later.", DIM);
+    for (unsigned i = 0; i < count; i++) {
+        int y = 21 + i * 30;
+        fill(8, y + 4, 2, 7, GOLD);
+        paragraph(16, y, 216, 2, steps[i], PAPER);
+    }
+    footer();
+    key_hint(185, "B", "Back");
+}
+
+static const char *hint_text(void) {
+    if (!hint_step) return "Each hint gives away a little more.";
+    return hint_topic ? hint_topic->clues[hint_step - 1] : current_room_hint()->steps[hint_step - 1];
+}
+
+static unsigned next_hint_page(const char *text, unsigned offset) {
+    const char *line = text + offset;
+    for (unsigned i = 0; i < HINT_TEXT_LINES && *line; i++) {
+        const char *end;
+        line = wrap_line(line, 224, &end);
+    }
+    return *line ? (unsigned)(line - text) : offset;
+}
+
+static void draw_hints(void) {
+    char progress[16], count[8];
+    number(progress, hint_step);
+    number(count, hint_count());
+    append_text(progress, sizeof(progress), "/");
+    append_text(progress, sizeof(progress), count);
+    header("Hints", hint_step ? progress : NULL);
+    fill(0, ART_Y, SCREEN_W, FOOT_Y - ART_Y, PANEL);
+    const char *question = hint_context_label ? hint_context_label : hint_topic ? hint_topic->title : room_name;
+    paragraph(8, 22, 224, 4, question, GOLD);
+    const char *message = hint_text();
+    paragraph(8, 68, 224, HINT_TEXT_LINES, message + hint_offset, PAPER);
+    footer();
+    if (hint_step < hint_count()) key_hint(6, "A", hint_step ? "Next hint" : "Reveal hint");
+    if (hint_offset || next_hint_page(message, hint_offset) != hint_offset) vertical_hint(82, "Text");
+    if (hint_step > 1) key_hint(127, "<", "Previous");
+    key_hint(185, "B", "Back");
+}
+
 static void draw_keyboard(void) {
     header("Enter command", NULL);
     fill(0, ART_Y, SCREEN_W, FOOT_Y - ART_Y, PANEL);
@@ -1133,7 +1513,7 @@ enum { LETTER_COLUMNS = 9, WORD_ROWS = 6, WORD_PAGE = WORD_ROWS * 2 };
 static void draw_speech(void) {
     char phrase[WORDS_PER_PHRASE * Z_WORD_MAX];
     phrase_text(phrase);
-    header(speech_titles[speech_mode], NULL);
+    header(word_titles[word_mode], NULL);
     fill(0, ART_Y, SCREEN_W, FOOT_Y - ART_Y, PANEL);
     box(6, 22, 228, 23, INK, LINE);
     paragraph(12, 29, 216, 1, *phrase ? phrase : "Choose words, then press Start.", *phrase ? PAPER : DIM);
@@ -1191,6 +1571,9 @@ static void render(void) {
     if (screen == LAUNCHER || screen == SLOT) draw_launcher();
     else if (screen == COMMAND) draw_keyboard();
     else if (screen == CONTROLS) draw_controls();
+    else if (screen == HINTS) draw_hints();
+    else if (screen == HINT_BROWSER) draw_hint_browser();
+    else if (screen == NEXT_STEPS) draw_next_steps();
     else if (screen == MAP) draw_map();
     else if (screen == STORY_LOG) draw_story_log();
     else if (screen == LETTERS || screen == WORDS) draw_speech();
@@ -1239,14 +1622,78 @@ static void rotate(unsigned *index, unsigned count, bool forward) {
     else *index = *index ? *index - 1 : count - 1;
 }
 
+static bool action_equal(Action a, Action b) {
+    if (a.kind != b.kind) return false;
+    if ((!a.name) != (!b.name) || (a.name && !text_equal(a.name, b.name))) return false;
+    if ((!a.verb) != (!b.verb) || (a.verb && !text_equal(a.verb, b.verb))) return false;
+    if ((!a.argument) != (!b.argument) || (a.argument && !text_equal(a.argument, b.argument))) return false;
+    return true;
+}
+
+static void refresh_filter_menu(void) {
+    Action previous = selected < action_count ? action_list[selected] : (Action){0};
+    action_count = story_menu_filter_display(action_list, MAX_ACTIONS);
+    unsigned found = action_count;
+    if (action_count) {
+        for (unsigned i = 0; i < action_count; i++) {
+            if (action_equal(previous, action_list[i])) { found = i; break; }
+        }
+        if (found == action_count)
+            found = selected < action_count ? selected : action_count - 1;
+    } else found = 0;
+    selected = found;
+}
+
 static void choose_action_list(Screen next, ActionGroup group) {
     open_menu(next);
     if (group == PRIMARY) {
-        story_menu_probe_begin();
-        story_menu_probe_set_budget(STORY_MENU_PROBE_BUDGET);
+        PrimaryMenuCache *cached = cached_primary_menu();
+        if (cached) {
+            action_count = cached->count;
+            for (unsigned i = 0; i < action_count; i++) action_list[i] = cached->actions[i];
+            menu_filter_running = false;
+            menu_filter_armed = false;
+#ifdef PROFILE
+            menu_profile.ticks = 0;
+            menu_profile.peak_ticks = 0;
+            menu_profile.probes = 0;
+            menu_profile.effects = 0;
+            menu_profile.offers = (uint8_t)action_count;
+            menu_profile.cache_hit = 1;
+            menu_profile.builds++;
+#endif
+            return;
+        }
+        // Returning from a category while the same object is still being
+        // filtered: keep the probe batch and show its current rows.
+        if (story_menu_filter_active() && menu_filter_key.chapter == chapter &&
+            menu_filter_key.id == action_object && menu_filter_key.carried == verb_is_bag &&
+            menu_filter_key.room == z_global(0)) {
+            action_count = story_menu_filter_display(action_list, MAX_ACTIONS);
+            menu_filter_running = true;
+            menu_filter_armed = false;
+            return;
+        }
+        // Show state-compatible candidates immediately; the main loop advances
+        // the remaining filter one candidate (or effect probe) per frame.
         action_count = story_actions(chapter, action_object, verb_is_bag, group, action_list);
-        action_count = story_filter_defaults_masked(chapter, action_object, action_list, action_count);
-        story_menu_probe_end();
+        story_menu_filter_begin(chapter, action_object, verb_is_bag, action_list, action_count);
+        action_count = story_menu_filter_display(action_list, MAX_ACTIONS);
+        menu_filter_key.chapter = chapter;
+        menu_filter_key.id = action_object;
+        menu_filter_key.carried = verb_is_bag;
+        menu_filter_key.room = (uint16_t)z_global(0);
+        menu_filter_running = true;
+        menu_filter_armed = false;
+        menu_filter_ticks = 0;
+#ifdef PROFILE
+        menu_profile.cache_hit = 0;
+        menu_profile.ticks = 0;
+        menu_profile.peak_ticks = 0;
+        menu_profile.probes = 0;
+        menu_profile.effects = 0;
+        menu_profile.offers = (uint8_t)action_count;
+#endif
     } else action_count = story_actions_fast(chapter, action_object, verb_is_bag, group, action_list);
 }
 
@@ -1318,9 +1765,9 @@ static void handle_verb(void) {
     }
 }
 
-static void play_speech(unsigned mode) {
-    speech_mode = mode;
-    speech_origin = (MenuCursor){SPEAK, selected};
+static void open_word_picker(WordMode mode) {
+    word_mode = mode;
+    speech_origin = (MenuCursor){screen, selected};
     letter_cursor = spoken_count = 0;
     screen = LETTERS;
 }
@@ -1331,7 +1778,10 @@ static void collect_words(void) {
     for (unsigned i = 0; i < size && word_count < sizeof(words) / sizeof(words[0]); i++) {
         char word[Z_WORD_MAX];
         speech_word(i, word);
-        if (word[0] == 'a' + (int)letter_cursor) words[word_count++] = i;
+        if (word[0] != 'a' + (int)letter_cursor) continue;
+        if (chapter == 0 && !visual_state_cyclops_clue_read() &&
+            (text_equal(word, "odysseus") || text_equal(word, "ulysses"))) continue;
+        words[word_count++] = i;
     }
     screen = WORDS;
 }
@@ -1340,7 +1790,7 @@ static void speech_pressed(uint16_t pressed) {
     if (pressed & KEY_START) {
         char phrase[WORDS_PER_PHRASE * Z_WORD_MAX], line[COMMAND_SIZE];
         phrase_text(phrase);
-        if (speech_command(speech_mode, phrase, line)) send_command(line);
+        if (speech_command(word_mode, phrase, line)) send_command(line);
     } else if (pressed & KEY_B) {
         if (screen == WORDS) screen = LETTERS;
         else return_to(speech_origin);
@@ -1412,6 +1862,10 @@ static void handle_pause(void) {
             if (has_progress) screen = LAUNCHER;
             else { screen = RETURN_CONFIRM; selected = 0; }
             break;
+        case PAUSE_HINTS_ROW:
+            hint_menu = 0;
+            open_menu(HINT_BROWSER);
+            break;
     }
 }
 
@@ -1455,10 +1909,23 @@ static void keyboard_pressed(uint16_t pressed) {
     }
 }
 
+static void clamp_action_row(void) {
+    if (screen != VERBS && screen != GROUP && screen != ORDERS_MENU) return;
+    if (!action_count) selected = 0;
+    else if (selected >= action_count) selected = action_count - 1;
+}
+
 static void back_out(void) {
     switch (screen) {
         case SLOT: screen = LAUNCHER; break;
-        case VERBS: return_to(object_origin); break;
+        case VERBS:
+            if (story_menu_filter_active()) {
+                story_menu_filter_cancel();
+                menu_filter_running = false;
+                menu_filter_armed = false;
+            }
+            return_to(object_origin);
+            break;
         case ORDERS_MENU:
         case CATEGORIES:
             choose_action_list(VERBS, PRIMARY);
@@ -1470,9 +1937,26 @@ static void back_out(void) {
         case SPEAK:
         case PATHS:
         case NEARBY: return_to(room_menu_origin); break;
+        case LEARNED_SPELLS:
+            screen = SPEAK;
+            selected = sizeof(speech_options) / sizeof(speech_options[0]);
+            break;
         case PLACES: screen = MAP; break;
         case STORY_LOG: screen = PAUSE; selected = 1; break;
         case CONTROLS: screen = PAUSE; selected = 7; break;
+        case HINTS:
+        case NEXT_STEPS: screen = HINT_BROWSER; break;
+        case HINT_BROWSER:
+            if (hint_menu) {
+                const HintEntry *guide = invisiclues[chapter];
+                unsigned child = hint_menu;
+                hint_menu = guide[child].parent;
+                selected = child - guide[hint_menu].first + hint_guide_offset();
+            } else {
+                screen = PAUSE;
+                selected = PAUSE_HINTS_ROW;
+            }
+            break;
         case TEXT_REVIEW: page = page_before_review; screen = PAUSE; selected = 5; break;
         case RETURN_CONFIRM: screen = PAUSE; selected = 8; break;
         case RESTORE_CONFIRM: screen = PAUSE; selected = 3; break;
@@ -1480,11 +1964,20 @@ static void back_out(void) {
             screen = FINISHED;
             page = page_count ? page_count - 1 : 0;
             break;
-        default: screen = EXPLORE; break;
+        default:
+            if (story_menu_filter_active()) {
+                story_menu_filter_cancel();
+                menu_filter_running = false;
+                menu_filter_armed = false;
+            }
+            screen = EXPLORE;
+            break;
     }
+    clamp_action_row();
 }
 
 static void update(uint16_t pressed) {
+    clamp_action_row();
     if (screen == LAUNCHER) {
         if (pressed & (KEY_UP | KEY_LEFT)) rotate(&chapter, CHAPTERS, false);
         else if (pressed & (KEY_DOWN | KEY_RIGHT)) rotate(&chapter, CHAPTERS, true);
@@ -1504,6 +1997,52 @@ static void update(uint16_t pressed) {
         return;
     }
     if (screen == COMMAND) { keyboard_pressed(pressed); return; }
+    if (screen == NEXT_STEPS) {
+        if (pressed & KEY_B) back_out();
+        return;
+    }
+    if (screen == HINTS) {
+        if (pressed & KEY_B) back_out();
+        else if ((pressed & KEY_A) && hint_step < hint_count()) {
+            hint_step++;
+            hint_offset = 0;
+        } else if ((pressed & KEY_LEFT) && hint_step > 1) {
+            hint_step--;
+            hint_offset = 0;
+        } else if (pressed & KEY_DOWN) {
+            hint_offset = next_hint_page(hint_text(), hint_offset);
+        } else if ((pressed & KEY_UP) && hint_offset) {
+            const char *text = hint_text();
+            unsigned previous = 0;
+            for (unsigned next = next_hint_page(text, previous); next > previous && next < hint_offset;
+                 next = next_hint_page(text, previous)) previous = next;
+            hint_offset = previous;
+        }
+        return;
+    }
+    if (screen == HINT_BROWSER) {
+        if (pressed & KEY_B) back_out();
+        else if (pressed & KEY_UP) rotate(&selected, hint_browser_count(), false);
+        else if (pressed & KEY_DOWN) rotate(&selected, hint_browser_count(), true);
+        else if (pressed & KEY_A) {
+            if (is_next_steps_row(selected)) {
+                screen = NEXT_STEPS;
+                return;
+            }
+            const HintEntry *entry = hint_browser_entry(selected);
+            if (entry && !entry->clues) {
+                hint_menu = (unsigned)(entry - invisiclues[chapter]);
+                selected = 0;
+            } else {
+                hint_topic = entry;
+                const ContextHint *context = hint_browser_context(selected);
+                hint_context_label = context ? context->label : NULL;
+                hint_step = hint_offset = 0;
+                screen = HINTS;
+            }
+        }
+        return;
+    }
     if (screen == LETTERS || screen == WORDS) { speech_pressed(pressed); return; }
     if (screen == DIAL) { dial_pressed(pressed); return; }
     if (screen == FINISHED_MENU) {
@@ -1580,12 +2119,20 @@ static void update(uint16_t pressed) {
         case HEADING: run_action(pending_action, path_names[selected]); break;
         case ROOM_ACTIONS:
             if (room_options[selected].command) send_command(room_options[selected].command);
+            else if (room_options[selected].destination == LETTERS) open_word_picker(WORDS_COMMAND);
             else open_room_menu(room_options[selected].destination);
             break;
         case SPEAK:
-            if (selected < sizeof(speech_titles) / sizeof(speech_titles[0])) play_speech(selected);
-            else send_command(selected == 4 ? "yes" : "no");
+            if (selected == sizeof(speech_options) / sizeof(speech_options[0])) open_menu(LEARNED_SPELLS);
+            else if (speech_options[selected].command) send_command(speech_options[selected].command);
+            else open_word_picker(speech_options[selected].mode);
             break;
+        case LEARNED_SPELLS: {
+            char line[COMMAND_SIZE];
+            const char *spell = learned_spell_at(selected);
+            if (spell && speech_command(WORDS_SAY, spell, line)) send_command(line);
+            break;
+        }
         case PATHS: send_command(path_commands[path_options[selected]]); break;
         case PAUSE: handle_pause(); break;
         case PLACES:
@@ -1631,6 +2178,29 @@ static unsigned scene_animation_stage(void) {
     return 2;
 }
 
+static void remember_primary_menu(void) {
+    Action filtered[MAX_ACTIONS];
+    unsigned count = story_menu_filter_display(filtered, MAX_ACTIONS);
+    unsigned slot = primary_menu_recent ^ 1u;
+    for (unsigned i = 0; i < 2; i++) {
+        PrimaryMenuCache *entry = &primary_menu_cache[i];
+        if (!entry->valid || entry->generation != primary_menu_generation) {
+            slot = i;
+            break;
+        }
+    }
+    PrimaryMenuCache *entry = &primary_menu_cache[slot];
+    entry->valid = true;
+    entry->generation = primary_menu_generation;
+    entry->chapter = (uint8_t)chapter;
+    entry->carried = verb_is_bag;
+    entry->room = (uint16_t)z_global(0);
+    entry->object = (uint16_t)action_object;
+    entry->count = (uint8_t)count;
+    for (unsigned i = 0; i < count; i++) entry->actions[i] = filtered[i];
+    primary_menu_recent = slot;
+}
+
 static uint16_t repeat_dpad(uint16_t held) {
     static uint16_t direction;
     static Screen origin;
@@ -1653,6 +2223,40 @@ static uint16_t repeat_dpad(uint16_t held) {
     return direction;
 }
 
+static void step_primary_menu_filter(void) {
+    if (menu_filter_running && story_menu_filter_active()) {
+        if (!menu_filter_armed) menu_filter_armed = true;
+        else {
+#ifdef PROFILE
+            video_profile_timer_start();
+#endif
+            bool done = story_menu_filter_step();
+#ifdef PROFILE
+            uint16_t step_ticks = video_profile_timer_read();
+            menu_filter_ticks += step_ticks;
+            if (step_ticks > menu_profile.peak_ticks) menu_profile.peak_ticks = step_ticks;
+            menu_profile.ticks = menu_filter_ticks > 0xFFFFu ? 0xFFFFu : (uint16_t)menu_filter_ticks;
+            menu_profile.probes = (uint16_t)story_menu_probes_used();
+            menu_profile.effects = (uint16_t)story_menu_effect_probes_used();
+#endif
+            if (screen == VERBS) refresh_filter_menu();
+            if (done) {
+                menu_filter_running = false;
+                menu_filter_armed = false;
+                remember_primary_menu();
+                if (screen == VERBS)
+                    selected = selected < action_count ? selected :
+                               (action_count ? action_count - 1 : 0);
+#ifdef PROFILE
+                menu_profile.offers = primary_menu_cache[primary_menu_recent].count;
+                menu_profile.cache_hit = 0;
+                menu_profile.builds++;
+#endif
+            }
+        }
+    }
+}
+
 int main(void) {
     video_init();
     render();
@@ -1668,9 +2272,11 @@ int main(void) {
         if (!pressed) pressed = repeated;
         bool animated = !busy && (screen == EXPLORE || screen == FINISHED) &&
                         room_visuals_animate(chapter, room_object, scene_animation_stage());
-        if (!busy && !pressed && !animated) continue;
+        bool filtering = story_menu_filter_active();
+        if (!busy && !pressed && !animated && !filtering) continue;
         if (!busy) update(pressed);
         if (busy) complete_turn();
+        step_primary_menu_filter();
         render();
         present();
     }

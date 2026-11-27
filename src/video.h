@@ -12,6 +12,14 @@ void video_init(void);
 void wait_frame(void);
 void present(void);
 uint16_t buttons(void);
+// PROFILE builds only: a 16-bit 16.384 kHz timer around the primary menu build.
+// Both calls are no-ops in normal and VISUAL_QA builds.
+void video_profile_timer_start(void);
+uint16_t video_profile_timer_read(void);
+void video_profile_token_timer_start(void);
+uint16_t video_profile_token_timer_read(void);
+void video_profile_trace_start(void);
+uint16_t video_profile_trace_read(void);
 enum {
     KEY_A = 1 << 0, KEY_B = 1 << 1, KEY_SELECT = 1 << 2, KEY_START = 1 << 3,
     KEY_RIGHT = 1 << 4, KEY_LEFT = 1 << 5, KEY_UP = 1 << 6, KEY_DOWN = 1 << 7,

@@ -1,4 +1,14 @@
 #include "zmachine.h"
+#ifdef PROFILE
+#include "video.h"
+uint16_t z_profile_tokenize_ticks;
+uint16_t z_profile_hash_ticks;
+uint16_t z_profile_restore_ticks;
+#endif
+#ifdef PROFILE_TRACE
+uint16_t z_profile_slow_pc, z_profile_slow_ticks;
+uint8_t z_profile_slow_opcode;
+#endif
 
 enum { MAX_STORY = 96 * 1024, MAX_STREAMS = 8 };
 static uint8_t memory[MAX_STORY] __attribute__((aligned(4)));
@@ -15,19 +25,45 @@ static unsigned depth;
 static uint8_t scratch_dynamic[Z_DYNAMIC_MAX], scratch_stack[Z_STACK_WORDS * 2];
 static ZResume probe_batch_state;
 static bool probe_batch_active;
+
+typedef struct {
+    bool active, answered, action_done, normalize, normalize_done;
+    bool effect_ready, working_valid;
+    ZResume state, working_state;
+    char *reply;
+    size_t capacity, captured_size;
+    unsigned budget, remaining;
+    ZProbeEffect effect;
+} ZProbeSession;
+static ZProbeSession probe_session;
 static char *probe_reply;
 static size_t probe_size, probe_capacity;
+static bool probe_silent;
 
 void *memset(void *dst, int value, size_t count) {
     unsigned char *bytes = dst;
-    for (size_t i = 0; i < count; i++) bytes[i] = (unsigned char)value;
+    unsigned char byte = (unsigned char)value;
+    uint32_t word = (uint32_t)byte * 0x01010101u;
+    if (((size_t)bytes & 3u) == 0) {
+        uint32_t *out = (uint32_t *)bytes;
+        while (count >= 4) { *out++ = word; count -= 4; }
+        bytes = (unsigned char *)out;
+    }
+    while (count--) *bytes++ = byte;
     return dst;
 }
 
 void *memcpy(void *dst, const void *src, size_t count) {
     unsigned char *out = dst;
     const unsigned char *in = src;
-    for (size_t i = 0; i < count; i++) out[i] = in[i];
+    if ((((size_t)out | (size_t)in) & 3u) == 0) {
+        uint32_t *fast_out = (uint32_t *)out;
+        const uint32_t *fast_in = (const uint32_t *)in;
+        while (count >= 4) { *fast_out++ = *fast_in++; count -= 4; }
+        out = (unsigned char *)fast_out;
+        in = (const unsigned char *)fast_in;
+    }
+    while (count--) *out++ = *in++;
     return dst;
 }
 
@@ -74,6 +110,23 @@ static bool port_restore(void);
 #include "../vendor/mojozork/mojozork.c"
 
 static ZMachineState vm;
+
+// Incremental action probes need a private copy of the in-flight interpreter
+// state. Keep it in IWRAM so each probe chunk can restore the live story before
+// the frame is rendered, without consuming more of the nearly full EWRAM.
+#if defined(__arm__) && !defined(__aarch64__)
+#define Z_PROBE_WORK_SECTION __attribute__((section(".iwram")))
+#else
+#define Z_PROBE_WORK_SECTION
+#endif
+typedef struct {
+    ZMachineState machine;
+    uint16_t streams[MAX_STREAMS];
+    unsigned depth;
+    bool screen_enabled;
+} ZProbeWorkingRuntime;
+static ZProbeWorkingRuntime probe_work_runtime Z_PROBE_WORK_SECTION;
+static uint8_t probe_work_dynamic[Z_DYNAMIC_MAX] Z_PROBE_WORK_SECTION;
 
 static const char *probe_last_line;
 const char *z_probe_last_line(void) { return probe_last_line; }
@@ -251,12 +304,14 @@ static void port_restart(void) {
 }
 
 void z_start(const uint8_t *story, size_t size, const ZPlatform *io) {
+    probe_silent = false;
     GState = &vm;
     platform = io;
     original = story;
     original_size = size;
     story_generation++;
     if (!story_generation) story_generation = 1;
+    dictionary_cache_clear();
     vm.writestr = output;
     vm.die = fatal;
     if (size < 64 || size > sizeof(memory) || story[0] != 3 || read_word(story + 14) > Z_DYNAMIC_MAX ||
@@ -273,12 +328,31 @@ void z_start(const uint8_t *story, size_t size, const ZPlatform *io) {
     }
 }
 
-ZResult z_run(unsigned budget) {
-    while (budget-- && !vm.waiting_for_line && !vm.quit) {
+static ZResult z_run_counted(unsigned budget, unsigned *used) {
+    unsigned executed = 0;
+    while (executed < budget && !vm.waiting_for_line && !vm.quit) {
         if ((size_t)(vm.pc - memory) >= original_size) fatal("Program counter outside story");
+#ifdef PROFILE_TRACE
+        uint16_t trace_pc = (uint16_t)(vm.pc - memory);
+        video_profile_trace_start();
         runInstruction();
+        uint16_t trace_ticks = video_profile_trace_read();
+        if (trace_ticks > z_profile_slow_ticks) {
+            z_profile_slow_ticks = trace_ticks;
+            z_profile_slow_pc = trace_pc;
+            z_profile_slow_opcode = memory[trace_pc];
+        }
+#else
+        runInstruction();
+#endif
+        executed++;
     }
+    if (used) *used = executed;
     return vm.waiting_for_line ? Z_PROMPT : vm.quit ? Z_ENDED : Z_BUSY;
+}
+
+ZResult z_run(unsigned budget) {
+    return z_run_counted(budget, NULL);
 }
 
 unsigned z_input_limit(void) {
@@ -286,6 +360,7 @@ unsigned z_input_limit(void) {
 }
 
 bool z_submit(const char *line) {
+    probe_silent = false;
     unsigned max = z_input_limit();
     if (!max || !*line) return false;
     unsigned size = 0;
@@ -294,7 +369,14 @@ bool z_submit(const char *line) {
     uint8_t *text = memory + vm.operands[0] + 1;
     for (unsigned i = 0; i < size; i++) text[i] = line[i] >= 'A' && line[i] <= 'Z' ? line[i] + ('a' - 'A') : line[i];
     text[size] = 0;
+#ifdef PROFILE
+    video_profile_token_timer_start();
+#endif
     tokenizeUserInput();
+#ifdef PROFILE
+    uint16_t token_ticks = video_profile_token_timer_read();
+    if (token_ticks > z_profile_tokenize_ticks) z_profile_tokenize_ticks = token_ticks;
+#endif
     vm.waiting_for_line = vm.step_completed = 0;
     return true;
 }
@@ -446,16 +528,34 @@ static bool probe_parser_global(unsigned global) {
         (global == 15 || global == 59);
 }
 
+// The fingerprint only needs bytes that changed from the batch snapshot. Test
+// two bytes at a time so the common unchanged word costs no transient-address
+// or parser-global work; the changed-byte hash order and values are unchanged.
+static void effect_hash_byte(ZProbeEffect *effect, const ZResume *state, unsigned address) {
+    if (memory[address] == scratch_dynamic[address]) return;
+    if (probe_transient_address(address, state)) return;
+    if (address >= vm.header.globals_addr && address - vm.header.globals_addr < 480u &&
+        probe_parser_global((address - vm.header.globals_addr) / 2)) return;
+    effect_hash_word(effect, address);
+    effect_hash_word(effect, memory[address]);
+}
+
 static ZProbeEffect probe_effect_after_run(const ZResume *state) {
     ZProbeEffect effect = {2166136261u, 0x9e3779b9u, true};
     unsigned dynamic_size = vm.header.staticmem_addr;
-    for (unsigned address = 0; address < dynamic_size; address++) {
-        if (probe_transient_address(address, state) || memory[address] == scratch_dynamic[address]) continue;
-        if (address >= vm.header.globals_addr && address - vm.header.globals_addr < 480u &&
-            probe_parser_global((address - vm.header.globals_addr) / 2)) continue;
-        effect_hash_word(&effect, address);
-        effect_hash_word(&effect, memory[address]);
+    unsigned address = 0;
+    for (; address + 3 < dynamic_size; address += 4) {
+        if (memory[address] == scratch_dynamic[address] &&
+            memory[address + 1] == scratch_dynamic[address + 1] &&
+            memory[address + 2] == scratch_dynamic[address + 2] &&
+            memory[address + 3] == scratch_dynamic[address + 3]) continue;
+        effect_hash_byte(&effect, state, address);
+        effect_hash_byte(&effect, state, address + 1);
+        effect_hash_byte(&effect, state, address + 2);
+        effect_hash_byte(&effect, state, address + 3);
     }
+    for (; address < dynamic_size; address++)
+        effect_hash_byte(&effect, state, address);
     if (random_seed != state->random) {
         effect_hash_word(&effect, 0xffffffffu);
         effect_hash_word(&effect, random_seed);
@@ -464,8 +564,12 @@ static ZProbeEffect probe_effect_after_run(const ZResume *state) {
 }
 
 static bool z_probe_run(const char *line, char *reply, size_t capacity, unsigned budget,
-                        ZProbeEffect *effect) {
+                        bool normalize, ZProbeEffect *effect, unsigned *room,
+                        unsigned parent_object, unsigned *parent) {
+    probe_silent = false;
     if (effect) *effect = (ZProbeEffect){0, 0, false};
+    if (room) *room = 0;
+    if (parent) *parent = 0;
     if (!capacity) return false;
     reply[0] = 0;
     if (!vm.waiting_for_line) return false;
@@ -491,7 +595,12 @@ static bool z_probe_run(const char *line, char *reply, size_t capacity, unsigned
 #else
     answered = z_submit(line) && z_run(budget) == Z_PROMPT;
 #endif
-    if (answered) {
+    // Capture the route result before the canonical inventory command and
+    // before restoring the snapshot. The stories keep their current room in
+    // global 0.
+    if (answered && room) *room = z_global(0);
+    if (answered && parent) *parent = z_parent(parent_object);
+    if (answered && normalize) {
         // Each candidate verb leaves parser work tables set to its own
         // tokenization. Run a canonical command in the scratch branch so those
         // tables settle before fingerprinting persistent story effects. The
@@ -515,12 +624,222 @@ static bool z_probe_run(const char *line, char *reply, size_t capacity, unsigned
 }
 
 bool z_probe(const char *line, char *reply, size_t capacity, unsigned budget) {
-    return z_probe_run(line, reply, capacity, budget, NULL);
+    return z_probe_run(line, reply, capacity, budget, true, NULL, NULL, 0, NULL);
+}
+
+bool z_probe_menu(const char *line, char *reply, size_t capacity, unsigned budget) {
+    // Availability probes only need the visible reply; skip the inventory
+    // normalization used for persistent-effect fingerprints.
+    return z_probe_run(line, reply, capacity, budget, false, NULL, NULL, 0, NULL);
+}
+
+bool z_probe_with_room(const char *line, char *reply, size_t capacity,
+                       unsigned budget, unsigned *room) {
+    return z_probe_run(line, reply, capacity, budget, true, NULL, room, 0, NULL);
+}
+
+bool z_probe_with_room_and_parent(const char *line, char *reply, size_t capacity,
+                                  unsigned budget, unsigned object,
+                                  unsigned *room, unsigned *parent) {
+    return z_probe_run(line, reply, capacity, budget, true, NULL, room, object, parent);
+}
+
+// Tokenization can fail through the same fatal path as story execution. Keep
+// it inside the scratch-probe recovery boundary so a bad generated candidate
+// cannot terminate the live game before the snapshot is restored.
+static bool probe_submit_guarded(const char *line) {
+    volatile bool submitted = false;
+#if defined(__aarch64__) || defined(__arm__) || (defined(__x86_64__) && !defined(_WIN32))
+    probe_guarded = true;
+    if (probe_setjmp(&probe_jump) == 0) {
+        submitted = z_submit(line);
+    } else {
+        probe_size = 0;
+    }
+    probe_guarded = false;
+#else
+    submitted = z_submit(line);
+#endif
+    return submitted;
+}
+
+static void probe_session_restore(void) {
+    probe_silent = false;
+#ifdef PROFILE
+    video_profile_token_timer_start();
+#endif
+    z_load(&probe_session.state, scratch_dynamic, scratch_stack);
+#ifdef PROFILE
+    uint16_t restore_ticks = video_profile_token_timer_read();
+    if (restore_ticks > z_profile_restore_ticks) z_profile_restore_ticks = restore_ticks;
+#endif
+    probe_session.active = false;
+    probe_session.working_valid = false;
+    probe_reply = NULL;
+    probe_last_line = NULL;
+}
+
+// Resume an in-flight probe only while its chunk is running. The game resumes
+// from the batch snapshot between chunks, so rendering sees the real story
+// state instead of speculative open/closed and room-transition states.
+static void probe_session_activate(void) {
+    if (!probe_session.working_valid) return;
+    memcpy(memory, probe_work_dynamic, vm.header.staticmem_addr);
+    vm = probe_work_runtime.machine;
+    memcpy(streams, probe_work_runtime.streams, sizeof(streams));
+    depth = probe_work_runtime.depth;
+    screen_enabled = probe_work_runtime.screen_enabled;
+    random_seed = probe_session.working_state.random;
+    probe_session.working_valid = false;
+}
+
+static void probe_session_suspend(void) {
+    probe_session.working_state = z_resume();
+    memcpy(probe_work_dynamic, memory, vm.header.staticmem_addr);
+    probe_work_runtime.machine = vm;
+    memcpy(probe_work_runtime.streams, streams, sizeof(streams));
+    probe_work_runtime.depth = depth;
+    probe_work_runtime.screen_enabled = screen_enabled;
+    probe_session.working_valid = true;
+    z_load(&probe_session.state, scratch_dynamic, scratch_stack);
+}
+
+static ZProbeStep probe_run_chunk(unsigned chunk) {
+    if (!probe_session.active) return Z_PROBE_FAILED;
+    unsigned run = chunk < probe_session.remaining ? chunk : probe_session.remaining;
+    if (!run) {
+        probe_session.answered = false;
+        return Z_PROBE_FAILED;
+    }
+    volatile bool failed = false;
+    unsigned used = 0;
+    volatile ZResult result = Z_BUSY;
+#if defined(__aarch64__) || defined(__arm__) || (defined(__x86_64__) && !defined(_WIN32))
+    probe_guarded = true;
+    if (probe_setjmp(&probe_jump) == 0) {
+        result = z_run_counted(run, &used);
+    } else {
+        failed = true;
+        probe_size = 0;
+    }
+    probe_guarded = false;
+#else
+    result = z_run_counted(run, &used);
+#endif
+    if (used > probe_session.remaining) used = probe_session.remaining;
+    probe_session.remaining -= used;
+    if (failed || result == Z_ENDED) {
+        probe_session.answered = false;
+        probe_session_restore();
+        return Z_PROBE_FAILED;
+    }
+    if (result == Z_PROMPT) {
+        if (probe_session.normalize) {
+            probe_session.normalize_done = true;
+        } else {
+            probe_session.action_done = true;
+            probe_session.answered = true;
+        }
+        probe_session_suspend();
+        return Z_PROBE_DONE;
+    }
+    if (!probe_session.remaining) {
+        probe_session.answered = false;
+        probe_session_restore();
+        return Z_PROBE_FAILED;
+    }
+    probe_session_suspend();
+    return Z_PROBE_BUSY;
+}
+
+ZProbeStep z_probe_menu_begin(const char *line, char *reply, size_t capacity,
+                              unsigned budget, unsigned chunk) {
+    if (!probe_batch_active || !capacity || !vm.waiting_for_line) return Z_PROBE_FAILED;
+    probe_session = (ZProbeSession){0};
+    probe_session.active = true;
+    probe_session.state = probe_batch_state;
+    probe_session.reply = reply;
+    probe_session.capacity = capacity - 1;
+    probe_session.budget = budget;
+    probe_session.remaining = budget;
+    reply[0] = 0;
+    probe_reply = reply;
+    probe_size = 0;
+    probe_capacity = capacity - 1;
+    probe_last_line = line;
+    z_load(&probe_session.state, scratch_dynamic, scratch_stack);
+    if (!probe_submit_guarded(line)) {
+        probe_session.answered = false;
+        probe_session_restore();
+        return Z_PROBE_FAILED;
+    }
+    return probe_run_chunk(chunk);
+}
+
+ZProbeStep z_probe_menu_continue(unsigned chunk) {
+    probe_session_activate();
+    return probe_run_chunk(chunk);
+}
+
+ZProbeStep z_probe_menu_normalize(unsigned chunk) {
+    if (!probe_session.active || !probe_session.action_done) return Z_PROBE_FAILED;
+    probe_session.normalize = true;
+    probe_session.captured_size = probe_size;
+    probe_last_line = "inventory";
+    probe_capacity = probe_session.captured_size;
+    probe_session.remaining = probe_session.budget;
+    probe_session_activate();
+    if (!probe_submit_guarded("inventory")) {
+        probe_session.answered = false;
+        probe_session_restore();
+        return Z_PROBE_FAILED;
+    }
+    probe_silent = true;
+    probe_session.working_valid = false;
+    return probe_run_chunk(chunk);
+}
+
+ZProbeStep z_probe_menu_hash(ZProbeEffect *effect) {
+    if (effect) *effect = (ZProbeEffect){0, 0, false};
+    if (!probe_session.active || !probe_session.answered || !probe_session.normalize_done)
+        return Z_PROBE_FAILED;
+#ifdef PROFILE
+    video_profile_token_timer_start();
+#endif
+    probe_session_activate();
+    probe_session.effect = probe_effect_after_run(&probe_session.state);
+    probe_session.effect_ready = probe_session.effect.valid;
+    probe_session_suspend();
+#ifdef PROFILE
+    uint16_t hash_ticks = video_profile_token_timer_read();
+    if (hash_ticks > z_profile_hash_ticks) z_profile_hash_ticks = hash_ticks;
+#endif
+    if (effect) *effect = probe_session.effect;
+    return probe_session.effect_ready ? Z_PROBE_DONE : Z_PROBE_FAILED;
+}
+
+bool z_probe_menu_complete(ZProbeEffect *effect) {
+    if (!probe_session.active) return false;
+    bool answered = probe_session.answered;
+    if (effect) *effect = (ZProbeEffect){0, 0, false};
+    if (answered && effect && probe_session.normalize_done) {
+        if (probe_session.effect_ready) *effect = probe_session.effect;
+        else *effect = probe_effect_after_run(&probe_session.state);
+    }
+    size_t size = probe_session.normalize ? probe_session.captured_size : probe_size;
+    if (!answered) size = 0;
+    probe_session.reply[size < probe_session.capacity ? size : probe_session.capacity] = 0;
+    probe_session_restore();
+    return answered;
+}
+
+void z_probe_menu_abort(void) {
+    if (probe_session.active) probe_session_restore();
 }
 
 bool z_probe_with_effect(const char *line, char *reply, size_t capacity,
                          unsigned budget, ZProbeEffect *effect) {
-    return z_probe_run(line, reply, capacity, budget, effect);
+    return z_probe_run(line, reply, capacity, budget, true, effect, NULL, 0, NULL);
 }
 
 const uint8_t *z_dynamic(void) { return memory; }

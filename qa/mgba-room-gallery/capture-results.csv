@@ -499,8 +499,14 @@ zork-iii/room-224.png,captured,zork-iii-route-room-224-room-224,2,224,224
 zork-iii/room-227.png,captured,zork-iii-route-room-227-room-227,2,227,227
 zork-iii/room-51.png,captured,zork-iii-alternate-route-51-room-51,2,51,51
 zork-iii/room-58.png,captured,zork-iii-alternate-route-58-room-58,2,58,58
+zork-iii/routes/mirror-southwest-119.png,captured,zork-iii-alternate-route-119-mirror-southwest-119,2,119,119
+zork-iii/routes/ladder-transient-return.png,captured,zork-iii-alternate-route-124-ladder-transient-return,2,124,124
+zork-iii/routes/machine-room-transient-return.png,captured,zork-iii-alternate-route-124-machine-room-transient-return,2,124,124
+zork-iii/routes/great-door-cleft.png,captured,zork-iii-alternate-route-136-great-door-cleft,2,136,136
 zork-iii/room-161.png,captured,zork-iii-alternate-route-161-room-161,2,161,161
 zork-iii/room-178.png,captured,zork-iii-alternate-route-178-room-178,2,178,178
+zork-iii/routes/royal-entrance-down.png,captured,zork-iii-alternate-route-194-royal-entrance-down,2,194,194
+zork-iii/routes/mirror-southeast-221.png,captured,zork-iii-alternate-route-221-mirror-southeast-221,2,221,221
 zork-iii/states/dark-55.png,captured,zork-iii-dark-state-55-dark-55,2,55,55
 zork-iii/states/dark-64.png,captured,zork-iii-dark-state-64-dark-64,2,64,64
 zork-iii/states/dark-86.png,captured,zork-iii-dark-state-86-dark-86,2,86,86
@@ -515,6 +521,8 @@ zork-iii/states/beam-before.png,captured,zork-iii-story-state-6-beam-before,2,6,
 zork-iii/states/underwater.png,captured,zork-iii-story-state-12-underwater,2,12,12
 zork-iii/states/hood-wounded.png,captured,zork-iii-story-state-30-hood-wounded,2,30,30
 zork-iii/states/master-orders.png,captured,zork-iii-story-state-45-master-orders,2,45,45
+zork-iii/states/ending-options.png,captured,Zork III ending options,2,46,46
+zork-iii/states/ending-story.png,captured,Zork III successful ending,2,46,46
 zork-iii/states/guardians-after-potion.png,captured,zork-iii-story-state-54-guardians-after-potion,2,54,54
 zork-iii/states/guardians-before-potion.png,captured,zork-iii-story-state-54-guardians-before-potion,2,54,54
 zork-iii/states/machine-entered.png,captured,zork-iii-story-state-103-machine-entered,2,103,103
@@ -523,6 +531,7 @@ zork-iii/states/mirror-hall-open.png,captured,zork-iii-story-state-169-mirror-ha
 zork-iii/states/drops-176.png,captured,zork-iii-story-state-176-drops-176,2,176,176
 zork-iii/states/sailor-visible.png,captured,zork-iii-story-state-181-sailor-visible,2,181,181
 zork-iii/states/puzzle-initial.png,captured,zork-iii-story-state-194-puzzle-initial,2,194,194
+zork-iii/states/puzzle-restored.png,captured,Royal Puzzle after in-game Restore,2,194,194
 zork-iii/states/lamp-carried.png,captured,zork-iii-story-state-211-lamp-carried,2,211,211
 zork-iii/states/junction-sword-taken.png,captured,zork-iii-story-state-217-junction-sword-taken,2,217,217
 zork-iii/states/cliff-man.png,captured,zork-iii-story-state-218-cliff-man,2,218,218

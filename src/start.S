@@ -16,6 +16,13 @@ init:
     cmp r0, r1
     strlo r2, [r0], #4
     blo 1b
-    bl main
+    ldr r0, =__iwram_start
+    ldr r1, =__iwram_end
+    mov r2, #0
 2:
-    b 2b
+    cmp r0, r1
+    strlo r2, [r0], #4
+    blo 2b
+    bl main
+3:
+    b 3b

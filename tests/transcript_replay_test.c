@@ -48,22 +48,46 @@ static bool qa_missing[QA_CHAPTERS][256][512];
 static bool qa_bad_bounds[QA_CHAPTERS][256][512];
 static bool qa_hidden_target_reported[QA_CHAPTERS][256][512];
 static bool qa_action_menu_checked[QA_CHAPTERS][256][512];
-static bool qa_carried_action_menu_checked[QA_CHAPTERS][512];
+static bool qa_carried_action_menu_checked[QA_CHAPTERS][256][512];
 static unsigned qa_action_menu_checks, qa_filtered_default_actions, qa_action_command_checks;
 static unsigned qa_max_action_menu_effect_probes;
 static unsigned qa_total_masked_probes, qa_max_masked_probes, qa_masked_menu_checks;
+static unsigned qa_incremental_checks, qa_total_incremental_probes, qa_max_incremental_probes;
+static unsigned qa_max_incremental_effects;
 static unsigned qa_total_reference_probes, qa_max_reference_probes;
-static unsigned qa_fast_proposed_actions, qa_fast_rejected_actions, qa_fast_missing_actions;
+static unsigned qa_fast_proposed_actions, qa_fast_rejected_actions, qa_fast_discovered_actions;
 typedef struct {
     uint16_t room, object, parent;
     uint8_t game, carried;
     uint32_t attributes, actions;
 } QAActionProfile;
-static QAActionProfile qa_action_profiles[1024];
+static QAActionProfile qa_action_profiles[8192];
 static unsigned qa_action_profile_count, qa_action_profile_conflicts;
 static FILE *qa_action_profile_output;
+static bool qa_profile_vertical_routes = true;
 static bool qa_enter_exit_states[QA_CHAPTERS][QA_VEHICLE_TYPES][2];
 static unsigned qa_enter_exit_menu_checks;
+typedef struct {
+    uint16_t room, object, player_parent, object_parent;
+    uint32_t attributes;
+} QAInOutKey;
+typedef struct {
+    uint16_t room, destination, old_parent, new_parent;
+    uint8_t game, direction;
+} QAInOutRouteKey;
+typedef struct {
+    QAInOutKey source;
+    uint16_t destination, new_parent;
+} QAInOutFindingKey;
+static QAInOutKey qa_inout_keys[4096];
+static unsigned qa_inout_key_count, qa_inout_candidate_hits, qa_inout_menu_gaps;
+static unsigned qa_room_inout_routes, qa_room_inout_path_matches;
+static unsigned qa_room_inout_action_matches, qa_room_inout_menu_gaps;
+static QAInOutRouteKey qa_room_inout_route_keys[2048];
+static unsigned qa_room_inout_route_key_count;
+static QAInOutFindingKey qa_inout_finding_keys[2048];
+static unsigned qa_inout_finding_key_count;
+static unsigned qa_inout_reported, qa_room_inout_reported;
 static bool qa_opening_family_checked[QA_CHAPTERS][256][512][2];
 static bool qa_climb_family_checked[QA_CHAPTERS][256][512][2];
 static unsigned qa_opening_family_checks, qa_climb_family_checks;
@@ -74,6 +98,8 @@ static unsigned qa_distinct_markers;
 
 static bool action_reply_rejects(Action action, unsigned object);
 static bool action_list_has(const Action *actions, unsigned count, const char *name);
+static void audit_inout_object(unsigned room_id, unsigned object);
+static void audit_room_inout(unsigned room_id, const Targets *targets);
 
 static uint32_t qa_profile_actions_hash(const Action *actions, unsigned count) {
     uint32_t hash = 2166136261u;
@@ -99,6 +125,56 @@ static bool qa_action_equal(Action left, Action right) {
     return left.kind == right.kind;
 }
 
+static bool qa_is_vertical_target(unsigned object) {
+    char name[Z_NAME_MAX];
+    story_noun(object, name);
+    return text_has(name, "stair") || text_has(name, "ladder") || text_has(name, "step");
+}
+
+static unsigned qa_vertical_route_mask(unsigned object, bool carried) {
+    if (carried || !qa_is_vertical_target(object)) return 0;
+    unsigned current_room = z_global(0), destination = 0, mask = 0;
+    char reply[REPLAY_REPLY_SIZE] = {0};
+    if (z_probe_with_room("up", reply, sizeof(reply), 20000, &destination) &&
+        destination != current_room && !action_reply_is_no_effect(reply)) mask |= 1;
+    reply[0] = 0;
+    if (z_probe_with_room("down", reply, sizeof(reply), 20000, &destination) &&
+        destination != current_room && !action_reply_is_no_effect(reply)) mask |= 2;
+    return mask;
+}
+
+static void qa_check_vertical_route_actions(unsigned object, bool carried,
+                                            const Action *actions, unsigned count) {
+    if (carried || !qa_is_vertical_target(object)) return;
+    unsigned routes = qa_vertical_route_mask(object, carried);
+    bool has_up = action_list_has(actions, count, "Go up");
+    bool has_down = action_list_has(actions, count, "Go down");
+    if (has_up != ((routes & 1u) != 0) || has_down != ((routes & 2u) != 0)) {
+        fprintf(stderr, "vertical menu mismatch Z%u room %u object %u: menu up/down %u/%u, route %u/%u\n",
+                chapter + 1, z_global(0), object, has_up, has_down,
+                (routes & 1u) != 0, (routes & 2u) != 0);
+        char reply[REPLAY_REPLY_SIZE] = {0};
+        unsigned destination = 0;
+        z_probe_with_room("up", reply, sizeof(reply), 20000, &destination);
+        fprintf(stderr, "  up -> room %u: %s\n", destination, reply);
+        reply[0] = 0;
+        z_probe_with_room("down", reply, sizeof(reply), 20000, &destination);
+        fprintf(stderr, "  down -> room %u: %s\n", destination, reply);
+        for (unsigned i = 0; i < count; i++)
+            fprintf(stderr, "  %s / %s\n", actions[i].name,
+                    actions[i].verb ? actions[i].verb : "-");
+    }
+    assert(has_up == ((routes & 1u) != 0));
+    assert(has_down == ((routes & 2u) != 0));
+
+    Action enter = {"Enter", "enter", NULL, DO_OBJECT};
+    char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0};
+    if (action_command(enter, object, NULL, line) &&
+        z_probe(line, reply, sizeof(reply), 20000) &&
+        text_has(reply, "You should say whether you want to go up or down"))
+        assert(!action_list_has(actions, count, "Enter"));
+}
+
 static void qa_dump_action_profile(unsigned room_id, unsigned object, bool carried,
                                    const Action *actions, unsigned count) {
     if (!qa_action_profile_output) return;
@@ -112,6 +188,8 @@ static void qa_dump_action_profile(unsigned room_id, unsigned object, bool carri
                 actions[i].verb ? actions[i].verb : "-",
                 actions[i].argument ? actions[i].argument : "-",
                 (unsigned)actions[i].kind);
+    if (qa_profile_vertical_routes && !carried && qa_is_vertical_target(object))
+        fprintf(qa_action_profile_output, "\tVROUTE\t%u", qa_vertical_route_mask(object, carried));
     fputc('\n', qa_action_profile_output);
 }
 
@@ -121,7 +199,8 @@ static void qa_check_masked_menu(unsigned room_id, unsigned object, bool carried
     story_menu_probe_begin();
     story_menu_probe_set_budget(STORY_MENU_PROBE_BUDGET);
     unsigned candidate_count = story_actions(chapter, object, carried, PRIMARY, masked);
-    unsigned count = story_filter_defaults_masked(chapter, object, masked, candidate_count);
+    unsigned count = story_filter_defaults_masked(chapter, object, carried,
+                                                  masked, candidate_count);
     unsigned probes = story_menu_probes_used();
     unsigned effects = story_menu_effect_probes_used();
     story_menu_probe_end();
@@ -129,20 +208,49 @@ static void qa_check_masked_menu(unsigned room_id, unsigned object, bool carried
     qa_masked_menu_checks++;
     if (probes > qa_max_masked_probes) qa_max_masked_probes = probes;
     if (effects > qa_max_action_menu_effect_probes) qa_max_action_menu_effect_probes = effects;
+
+    // The shipping path renders the static list first and then finishes the same
+    // filter over several frames. It must settle on the masked reference list.
+    Action incremental[MAX_ACTIONS];
+    unsigned static_count = story_actions(chapter, object, carried, PRIMARY, incremental);
+    story_menu_filter_begin(chapter, object, carried, incremental, static_count);
+    while (!story_menu_filter_step()) {}
+    unsigned incremental_count = story_menu_filter_display(incremental, MAX_ACTIONS);
+    unsigned incremental_probes = story_menu_probes_used();
+    unsigned incremental_effects = story_menu_effect_probes_used();
+    qa_incremental_checks++;
+    qa_total_incremental_probes += incremental_probes;
+    if (incremental_probes > qa_max_incremental_probes) qa_max_incremental_probes = incremental_probes;
+    if (incremental_effects > qa_max_incremental_effects) qa_max_incremental_effects = incremental_effects;
+    bool incremental_equal = incremental_count == count;
+    for (unsigned i = 0; incremental_equal && i < count; i++)
+        incremental_equal = qa_action_equal(masked[i], incremental[i]);
+    if (!incremental_equal) {
+        fprintf(stderr, "incremental menu mismatch game %u room %u object %u: %u vs %u\n",
+                chapter, room_id, object, count, incremental_count);
+        for (unsigned i = 0; i < count; i++)
+            fprintf(stderr, " masked %u %s / %s\n", i, masked[i].name,
+                    masked[i].verb ? masked[i].verb : "-");
+        for (unsigned i = 0; i < incremental_count; i++)
+            fprintf(stderr, " increm %u %s / %s\n", i, incremental[i].name,
+                    incremental[i].verb ? incremental[i].verb : "-");
+    }
+    assert(incremental_equal);
+
     if (count != reference_count) {
         fprintf(stderr, "masked menu count mismatch game %u room %u object %u: %u vs %u\n",
                 chapter, room_id, object, reference_count, count);
     }
     bool equal = count == reference_count;
     for (unsigned i = 0; equal && i < count; i++) equal = qa_action_equal(reference[i], masked[i]);
-    if (!equal && !qa_action_profile_output) {
+    if (!equal) {
         for (unsigned i = 0; i < reference_count; i++)
             fprintf(stderr, " ref %u %s / %s\n", i, reference[i].name,
                     reference[i].verb ? reference[i].verb : "-");
         for (unsigned i = 0; i < count; i++)
             fprintf(stderr, " got %u %s / %s\n", i, masked[i].name,
                     masked[i].verb ? masked[i].verb : "-");
-        assert(false);
+        if (!qa_action_profile_output) assert(false);
     }
 }
 
@@ -405,7 +513,7 @@ static void normalize_full_action_reply(const char *reply, char *out, unsigned c
 }
 
 static void audit_default_action_menu(unsigned room_id, unsigned object, bool carried) {
-    bool *checked = carried ? &qa_carried_action_menu_checked[chapter][object]
+    bool *checked = carried ? &qa_carried_action_menu_checked[chapter][room_id][object]
                             : &qa_action_menu_checked[chapter][room_id][object];
     if (*checked) return;
     *checked = true;
@@ -426,6 +534,8 @@ static void audit_default_action_menu(unsigned room_id, unsigned object, bool ca
     assert(count > 0);
     assert(count <= MAX_ACTIONS - 1);
     qa_check_masked_menu(room_id, object, carried, actions, count);
+    if (!qa_action_profile_output)
+        qa_check_vertical_route_actions(object, carried, actions, count);
     assert(reference_probes <= 256);
     qa_action_menu_checks++;
     if (before > count) qa_filtered_default_actions += before - count;
@@ -437,7 +547,7 @@ static void audit_default_action_menu(unsigned room_id, unsigned object, bool ca
     }
     for (unsigned i = 0; i < count; i++) {
         if (actions[i].kind != DO_OBJECT && actions[i].kind != DO_LITERAL) continue;
-        if (!action_list_has(proposed, before, actions[i].name)) qa_fast_missing_actions++;
+        if (!action_list_has(proposed, before, actions[i].name)) qa_fast_discovered_actions++;
     }
 
     uint32_t attributes = 0;
@@ -606,7 +716,9 @@ static bool action_list_has(const Action *actions, unsigned count, const char *n
 static bool action_reply_rejects(Action action, unsigned object) {
     char line[COMMAND_SIZE], reply[192] = {0};
     assert(action_command(action, object, NULL, line));
-    assert(z_probe(line, reply, sizeof(reply), 20000));
+    // A candidate that ends the turn or the story has no normal prompt reply;
+    // it cannot remain in the filtered primary menu.
+    if (!z_probe(line, reply, sizeof(reply), 20000)) return true;
     bool parser_rejected = text_has(reply, "I don't know the word") ||
                            text_has(reply, "I don't understand that sentence") ||
                            text_has(reply, "That sentence isn't one I recognize") ||
@@ -618,6 +730,227 @@ static bool action_reply_rejects(Action action, unsigned object) {
         append_text(cant, COMMAND_SIZE, action.verb) &&
         (text_has(reply, cannot) || text_has(reply, cant));
     return parser_rejected || explicitly_impossible || action_reply_is_no_effect(reply);
+}
+
+static uint32_t qa_object_attribute_mask(unsigned object) {
+    uint32_t attributes = 0;
+    for (unsigned i = 0; i < 32; i++) if (z_attr(object, i)) attributes |= 1u << i;
+    return attributes;
+}
+
+static bool qa_inout_name_relevant(unsigned object) {
+    static const char *const words[] = {
+        "boat", "bucket", "basket", "ship", "raft", "door", "window",
+        "hole", "opening", "entrance", "passage", "tunnel", "slide",
+        "chute", "stair", "ladder", "well", "cage", "box", "room",
+        "cellar", "house", "coffin", "sarcophagus", "pit", "machine",
+        "hatch", "archway", "gate", "portal"
+    };
+    if (z_attr(object, ATTR_DOOR) || z_attr(object, ATTR_CONTAINER) ||
+        z_attr(object, ATTR_CLIMBABLE)) return true;
+    char noun[Z_NAME_MAX];
+    story_noun(object, noun);
+    for (unsigned i = 0; i < sizeof(words) / sizeof(words[0]); i++)
+        if (text_has(noun, words[i])) return true;
+    return false;
+}
+
+static bool qa_try_inout(const char *line, unsigned room_id, unsigned player_parent,
+                         unsigned *destination, unsigned *new_parent, char *reply,
+                         size_t reply_size) {
+    (void)room_id;
+    if (!z_probe_with_room_and_parent(line, reply, reply_size, 20000,
+                                      chapters[chapter].player, destination, new_parent)) return false;
+    if (action_reply_is_no_effect(reply) ||
+        text_has(reply, "i don't know the word") ||
+        text_has(reply, "i don't understand that sentence") ||
+        text_has(reply, "that sentence isn't one i recognize") ||
+        text_has(reply, "that sentence is not one i recognize") ||
+        text_has(reply, "you hit your head against") ||
+        text_has(reply, "you have died") || text_has(reply, "you are dead") ||
+        text_has(reply, "last blow was too much") ||
+        text_has(reply, "the thief comes in") ||
+        text_has(reply, "can't climb onto") ||
+        text_has(reply, "cannot climb onto") ||
+        text_has(reply, "theory on how to board")) return false;
+    // An actual enter/leave changes the player's containment. Room-only
+    // changes can be unrelated timed events (for example, the balloon moving).
+    return *new_parent != player_parent;
+}
+
+static bool qa_menu_covers_inout_transition(const Action *actions, unsigned count,
+                                            unsigned object, const char *label,
+                                            unsigned room_id, unsigned player_parent,
+                                            unsigned destination, unsigned new_parent) {
+    (void)label;
+    for (unsigned i = 0; i < count; i++) {
+        if (actions[i].kind != DO_OBJECT && actions[i].kind != DO_LITERAL) continue;
+        char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0};
+        unsigned observed_room = 0, observed_parent = 0;
+        if (action_command(actions[i], object, NULL, line) &&
+            qa_try_inout(line, room_id, player_parent, &observed_room, &observed_parent,
+                         reply, sizeof(reply)) &&
+            observed_room == destination && observed_parent == new_parent) return true;
+    }
+    return false;
+}
+
+static void audit_inout_object(unsigned room_id, unsigned object) {
+    char noun[Z_NAME_MAX];
+    story_parser_noun(object, noun);
+    if (!noun[0] || !qa_inout_name_relevant(object)) return;
+
+    unsigned player = chapters[chapter].player;
+    unsigned player_parent = z_parent(player);
+    uint32_t attributes = qa_object_attribute_mask(object);
+    QAInOutKey key = {(uint16_t)room_id, (uint16_t)object, (uint16_t)player_parent,
+                      (uint16_t)z_parent(object), attributes};
+    for (unsigned i = 0; i < qa_inout_key_count; i++) {
+        QAInOutKey *old = &qa_inout_keys[i];
+        if (old->room == key.room && old->object == key.object &&
+            old->player_parent == key.player_parent && old->object_parent == key.object_parent &&
+            old->attributes == key.attributes) return;
+    }
+    assert(qa_inout_key_count < sizeof(qa_inout_keys) / sizeof(qa_inout_keys[0]));
+    qa_inout_keys[qa_inout_key_count++] = key;
+
+    Action actions[MAX_ACTIONS];
+    story_menu_probe_begin();
+    unsigned count = story_actions(chapter, object, false, PRIMARY, actions);
+    count = story_filter_defaults(object, actions, count);
+    story_menu_probe_end();
+
+    bool inside = player_parent == object ||
+                  (chapter == 2 && text_equal(noun, "seat") && z_parent(object) == 122 &&
+                   player_parent == 122);
+    static const char *const entry_forms[] = {
+        "enter %s", "get in %s", "get into %s", "get on %s",
+        "climb in %s", "climb into %s", "walk through %s"
+    };
+    static const char *const exit_forms[] = {
+        "get out of %s", "climb out of %s", "climb out %s",
+        "get off %s", "leave %s", "exit %s"
+    };
+    const char *const *forms = inside ? exit_forms : entry_forms;
+    const unsigned form_count = inside ? sizeof(exit_forms) / sizeof(exit_forms[0])
+                                       : sizeof(entry_forms) / sizeof(entry_forms[0]);
+    for (unsigned i = 0; i < form_count; i++) {
+        char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0};
+        int written = snprintf(line, sizeof(line), forms[i], noun);
+        if (written < 0 || (size_t)written >= sizeof(line)) continue;
+        unsigned destination = 0, new_parent = 0;
+        if (!qa_try_inout(line, room_id, player_parent, &destination, &new_parent,
+                          reply, sizeof(reply))) continue;
+        qa_inout_candidate_hits++;
+        bool covered = qa_menu_covers_inout_transition(actions, count, object, NULL,
+                                                      room_id, player_parent,
+                                                      destination, new_parent);
+        if (!covered) {
+            QAInOutFindingKey finding = {key, (uint16_t)destination, (uint16_t)new_parent};
+            bool already_reported = false;
+            for (unsigned j = 0; j < qa_inout_finding_key_count; j++) {
+                QAInOutFindingKey *old = &qa_inout_finding_keys[j];
+                if (old->source.room == finding.source.room &&
+                    old->source.object == finding.source.object &&
+                    old->source.player_parent == finding.source.player_parent &&
+                    old->source.object_parent == finding.source.object_parent &&
+                    old->source.attributes == finding.source.attributes &&
+                    old->destination == finding.destination && old->new_parent == finding.new_parent) {
+                    already_reported = true;
+                    break;
+                }
+            }
+            if (!already_reported) {
+                assert(qa_inout_finding_key_count <
+                       sizeof(qa_inout_finding_keys) / sizeof(qa_inout_finding_keys[0]));
+                qa_inout_finding_keys[qa_inout_finding_key_count++] = finding;
+                qa_inout_menu_gaps++;
+            }
+            if (!already_reported && qa_inout_reported++ < 80) {
+                fprintf(stderr, "In/out menu gap: Z%u room %u target %u (%s), player parent %u; '%s' -> room %u parent %u; no visible primary action reaches the same state. Reply: %s\n",
+                        chapter + 1, room_id, object, noun, player_parent, line,
+                        destination, new_parent, reply);
+            }
+        }
+    }
+}
+
+static bool qa_room_transition_has_target_action(unsigned room_id, unsigned player_parent,
+                                                 const Targets *targets, unsigned destination,
+                                                 unsigned new_parent) {
+    for (unsigned i = 0; i < targets->count; i++) {
+        unsigned object = targets->id[i];
+        Action actions[MAX_ACTIONS];
+        unsigned count = story_actions(chapter, object, false, PRIMARY, actions);
+        for (unsigned j = 0; j < count; j++) {
+            if (!actions[j].name) continue;
+            if (actions[j].kind != DO_OBJECT && actions[j].kind != DO_LITERAL) continue;
+            char line[COMMAND_SIZE], reply[REPLAY_REPLY_SIZE] = {0};
+            unsigned observed_room = 0, observed_parent = 0;
+            if (action_command(actions[j], object, NULL, line) &&
+                qa_try_inout(line, room_id, player_parent, &observed_room, &observed_parent,
+                             reply, sizeof(reply)) &&
+                observed_room == destination && observed_parent == new_parent) return true;
+        }
+    }
+    return false;
+}
+
+static bool qa_room_path_shows_inout(unsigned room_id, unsigned direction) {
+    if (chapter == 1) {
+        char name[Z_NAME_MAX];
+        z_name(room_id, name, sizeof(name));
+        if (text_equal(name, "Oddly-angled Room")) return true;
+        if (text_equal(name, "Carousel Room")) return direction == 10 || direction == 11;
+    }
+    const uint8_t *exit = NULL;
+    return z_property(room_id, path_properties[direction], &exit) != 0;
+}
+
+static void audit_room_inout(unsigned room_id, const Targets *targets) {
+    unsigned player_parent = z_parent(chapters[chapter].player);
+    static const char *const commands[] = {"in", "out", "go in", "go out"};
+    for (unsigned i = 0; i < sizeof(commands) / sizeof(commands[0]); i++) {
+        char reply[REPLAY_REPLY_SIZE] = {0};
+        unsigned destination = 0, new_parent = 0;
+        if (!qa_try_inout(commands[i], room_id, player_parent, &destination, &new_parent,
+                          reply, sizeof(reply))) continue;
+        QAInOutRouteKey route_key = {(uint16_t)room_id, (uint16_t)destination,
+                                     (uint16_t)player_parent, (uint16_t)new_parent,
+                                     (uint8_t)chapter, (uint8_t)(i & 1u)};
+        bool route_seen = false;
+        for (unsigned j = 0; j < qa_room_inout_route_key_count; j++) {
+            QAInOutRouteKey *old = &qa_room_inout_route_keys[j];
+            if (old->room == route_key.room && old->destination == route_key.destination &&
+                old->old_parent == route_key.old_parent && old->new_parent == route_key.new_parent &&
+                old->game == route_key.game && old->direction == route_key.direction) {
+                route_seen = true;
+                break;
+            }
+        }
+        if (route_seen) continue;
+        assert(qa_room_inout_route_key_count <
+               sizeof(qa_room_inout_route_keys) / sizeof(qa_room_inout_route_keys[0]));
+        qa_room_inout_route_keys[qa_room_inout_route_key_count++] = route_key;
+        qa_room_inout_routes++;
+        unsigned direction = (i & 1u) ? 11u : 10u;
+        bool has_path_option = qa_room_path_shows_inout(room_id, direction);
+        if (has_path_option) {
+            qa_room_inout_path_matches++;
+        } else {
+            bool has_target_action = qa_room_transition_has_target_action(room_id, player_parent,
+                                                                          targets, destination,
+                                                                          new_parent);
+            if (has_target_action) {
+                qa_room_inout_action_matches++;
+            } else {
+                qa_room_inout_menu_gaps++;
+                if (qa_room_inout_reported++ < 80)
+                    fprintf(stderr, "Room in/out menu gap: Z%u room %u command '%s' -> room %u parent %u; no path or target action reaches the same state. Reply: %s\n",
+                            chapter + 1, room_id, commands[i], destination, new_parent, reply);
+            }
+        }
+    }
 }
 
 static void assert_candidate_filter(Action *candidates, unsigned candidate_count,
@@ -781,10 +1114,12 @@ static void audit_scene_target_boxes(void) {
     audit_parser_targets(&targets);
     audit_parser_targets(&carried);
     audit_room_target_visibility(&targets);
+    audit_room_inout(room_id, &targets);
     for (unsigned i = 0; i < targets.count; i++)
     {
         audit_default_action_menu(room_id, targets.id[i], false);
         audit_enter_exit_menu(targets.id[i]);
+        audit_inout_object(room_id, targets.id[i]);
         audit_opening_action_family(room_id, targets.id[i], false);
         audit_climb_action_family(room_id, targets.id[i]);
     }
@@ -954,12 +1289,16 @@ static void report_target_box_gaps(void) {
     printf("Default-action audit: %u room/inventory menus checked; %u direct action commands parsed; "
            "%u parser-rejected or explicitly impossible defaults filtered.\n",
            qa_action_menu_checks, qa_action_command_checks, qa_filtered_default_actions);
-    printf("No-probe rule coverage: %u proposed actions (%u rejected), %u current-menu actions missing from rules.\n",
-           qa_fast_proposed_actions, qa_fast_rejected_actions, qa_fast_missing_actions);
+    printf("Authored-action coverage: %u suggestions (%u filtered), %u additional accepted actions discovered by probes.\n",
+           qa_fast_proposed_actions, qa_fast_rejected_actions, qa_fast_discovered_actions);
     printf("Audited action states: %u unique room/object/attribute keys, %u conflicting repeats.\n",
            qa_action_profile_count, qa_action_profile_conflicts);
     printf("Masked action probes: %u total across %u audited states; max %u per state.\n",
            qa_total_masked_probes, qa_masked_menu_checks, qa_max_masked_probes);
+    printf("Incremental menu audit: %u states matched the masked reference; %u probes total, "
+           "max %u per state; max %u effect probes.\n",
+           qa_incremental_checks, qa_total_incremental_probes, qa_max_incremental_probes,
+           qa_max_incremental_effects);
     printf("Full-sweep action probes: %u total; max %u per state.\n",
            qa_total_reference_probes, qa_max_reference_probes);
     printf("Duplicate-result verification: at most %u effect probes in one menu (24-probe cap).\n",
@@ -968,6 +1307,11 @@ static void report_target_box_gaps(void) {
     assert(qa_enter_exit_states[1][QA_BUCKET][0] && qa_enter_exit_states[1][QA_BUCKET][1]);
     printf("Enter/exit direction audit: %u vehicle states checked; Zork I boat and Zork II bucket tested inside and outside.\n",
            qa_enter_exit_menu_checks);
+    printf("In/out route audit: %u successful object command forms, %u unique focused-action gaps; "
+           "%u room-level routes found, %u shown by Paths, %u by target actions, %u with no menu route.\n",
+           qa_inout_candidate_hits, qa_inout_menu_gaps, qa_room_inout_routes,
+           qa_room_inout_path_matches, qa_room_inout_action_matches, qa_room_inout_menu_gaps);
+    assert(qa_inout_menu_gaps == 0 && qa_room_inout_menu_gaps == 0);
     assert(qa_opening_family_checks && qa_climb_family_checks);
     printf("Action-family audit: %u open/close/portal states and %u climbable target states checked.\n",
            qa_opening_family_checks, qa_climb_family_checks);
@@ -1056,6 +1400,73 @@ static void poke_global(unsigned number, uint16_t value) {
     dynamic[address + 1] = value & 0xFF;
 }
 
+typedef struct {
+    uint8_t parent, sibling, previous_sibling;
+    bool moved;
+} QAPlayerLocation;
+
+static uint8_t *qa_object_entry(unsigned object) {
+    assert(object && object <= z_object_count());
+    unsigned table = ((unsigned)story[0x0A] << 8 | story[0x0B]) + 62u;
+    unsigned address = table + 9u * (object - 1u);
+    assert(address + 9u <= z_dynamic_size());
+    return (uint8_t *)z_dynamic() + address;
+}
+
+static void qa_unlink_object(unsigned object) {
+    uint8_t *entry = qa_object_entry(object);
+    unsigned parent = entry[4], sibling = entry[5];
+    if (parent) {
+        uint8_t *parent_entry = qa_object_entry(parent);
+        unsigned cursor = parent_entry[6], previous = 0;
+        while (cursor && cursor != object) {
+            previous = cursor;
+            cursor = qa_object_entry(cursor)[5];
+        }
+        assert(cursor == object);
+        if (previous) qa_object_entry(previous)[5] = sibling;
+        else parent_entry[6] = sibling;
+    }
+    entry[4] = 0;
+    entry[5] = 0;
+}
+
+static QAPlayerLocation qa_place_player_in_room(unsigned room) {
+    unsigned player = chapters[chapter].player;
+    uint8_t *entry = qa_object_entry(player);
+    QAPlayerLocation location = {entry[4], entry[5], 0, false};
+    if (location.parent == room) return location;
+    if (location.parent) {
+        unsigned cursor = qa_object_entry(location.parent)[6];
+        while (cursor && cursor != player) {
+            location.previous_sibling = cursor;
+            cursor = qa_object_entry(cursor)[5];
+        }
+        assert(cursor == player);
+    }
+    qa_unlink_object(player);
+    uint8_t *room_entry = qa_object_entry(room);
+    entry[4] = (uint8_t)room;
+    entry[5] = room_entry[6];
+    room_entry[6] = (uint8_t)player;
+    location.moved = true;
+    return location;
+}
+
+static void qa_restore_player_location(QAPlayerLocation location) {
+    if (!location.moved) return;
+    unsigned player = chapters[chapter].player;
+    qa_unlink_object(player);
+    uint8_t *entry = qa_object_entry(player);
+    entry[4] = location.parent;
+    entry[5] = location.sibling;
+    if (location.parent) {
+        if (location.previous_sibling)
+            qa_object_entry(location.previous_sibling)[5] = (uint8_t)player;
+        else qa_object_entry(location.parent)[6] = (uint8_t)player;
+    }
+}
+
 static bool object_is_room(unsigned id) {
     static const uint8_t exits[] = {31, 30, 28, 29, 27, 25, 24, 26, 23, 22, 21, 20};
     for (unsigned i = 0; i < sizeof(exits) / sizeof(*exits); i++) {
@@ -1068,6 +1479,8 @@ static bool object_is_room(unsigned id) {
 static void audit_all_room_parser_targets(void) {
     enum { HERE = 0 };
     uint16_t saved_here = z_global(HERE);
+    bool saved_vertical_routes = qa_profile_vertical_routes;
+    if (qa_action_profile_output) qa_profile_vertical_routes = false;
     for (unsigned id = 1; id <= z_object_count(); id++) {
         if (!object_is_room(id)) continue;
         poke_global(HERE, id);
@@ -1075,9 +1488,27 @@ static void audit_all_room_parser_targets(void) {
         story_targets(chapter, &room, &bag);
         audit_parser_targets(&room);
         audit_parser_targets(&bag);
+        if (qa_action_profile_output) {
+            // Profile every room's initial visible targets, including rooms the
+            // winning route never visits. Keep the player object in the synthetic
+            // room too, so parent-aware Enter/In/Out gates see a coherent snapshot.
+            QAPlayerLocation player_location = qa_place_player_in_room(id);
+            for (unsigned i = 0; i < room.count; i++)
+                audit_default_action_menu(id, room.id[i], false);
+            for (unsigned i = 0; i < bag.count; i++)
+                audit_default_action_menu(id, bag.id[i], true);
+            qa_restore_player_location(player_location);
+        }
         qa_room_definition_checks++;
     }
     poke_global(HERE, saved_here);
+    qa_profile_vertical_routes = saved_vertical_routes;
+    if (qa_action_profile_output) {
+        // The all-room sweep is a baseline snapshot. Clear its dedup marks so
+        // the route replay can capture conditional and changed-attribute states.
+        memset(qa_action_menu_checked, 0, sizeof(qa_action_menu_checked));
+        memset(qa_carried_action_menu_checked, 0, sizeof(qa_carried_action_menu_checked));
+    }
 }
 
 static void audit_offroute_zork2_scenes(void) {

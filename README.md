@@ -57,9 +57,15 @@ In **Paths**, look for **Way back** beside the known return route and **Conditio
 
 Choose **Start → Story so far** to review commands and story responses, newest first. Use **R** for older pages, **L** for newer pages, and **B** to return to the pause menu. The live log has 24 KiB for compact text; recurring phrases are tokenized in RAM and expanded when a page is displayed, so its plain-text history varies with the text. Saving stores the most recent transcript that fits alongside the story snapshot and route history. If either limit is reached, older entries are trimmed.
 
+Choose **Start → Hints** for help. When a topic matches your room or something you can see, it appears before the complete InvisiClues guide. **Next steps** suggests actions for selected puzzles based on where you have been, what you carry, and your progress, including actions in other rooms. Open a hint topic and press **A** to reveal one clue at a time. Use **Up / Down** to page through long clues, **Left** to revisit an earlier clue, and **B** to go back. Reading hints does not advance the story. [Source and credits](stories/hints/README.md)
+
+The complete original InvisiClues guides are available online for [Zork I](https://dfabulich.github.io/infocom-hints-html/zork-i-the-great-underground-empire.html), [Zork II](https://dfabulich.github.io/infocom-hints-html/zork-ii-the-wizard-of-frobozz.html), and [Zork III](https://dfabulich.github.io/infocom-hints-html/zork-iii-the-dungeon-master.html).
+
 Choose **Start → Map** to see the current room and its known connections. Use the D-pad to select a room and A to center it on the map. L or R switches between compass directions and **Up / Down / In / Out**. Select opens the list of visited rooms. Browsing the map leaves your character in place.
 
-For spells, greetings, and riddle answers, choose **Room actions → Speak**. Pick a first letter and press A to see words from the chapter’s dictionary. Use L and R to page through the words, A to add one, Select to erase the last word, and Start to speak. The picker accepts up to three words.
+Choose **Room actions → Speak** for **Say**, **Answer**, **Greet**, **Yes**, and **No**. For direct parser commands, choose **Room actions → Choose command words**. In either word picker, choose a first letter and press A to see the chapter’s dictionary words. Use L and R to page, A to add a word, Select to erase the last word, and Start to send up to three words.
+
+In Zork II, **Speak → Learned spells** appears after you hear the Wizard speak a spell aloud. Select a learned spell to say it. Use **Say** to try other words.
 
 Use **Give item** from a character's menu to choose an offering from your bag. Some characters also have a **Give orders** menu. Look for specific actions on objects such as **Cross** on the rainbow and **Hail sailor** on the Viking ship. Dials open a number picker. Use up or down to change a number and left or right to move between digits.
 
@@ -100,7 +106,9 @@ docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/workspace" zork-gba-builder
 
 The default command builds both ROMs into the mounted project directory. Pass a Make target after the image name to build one target, such as `zork-trilogy.gba`. Python 3 and Pillow are installed in the image for scene conversion.
 
-For a local build, use GNU Make, a devkitARM/`arm-none-eabi` toolchain, Python 3, and Pillow; set `CROSS` to the toolchain prefix and `PYTHON` to the Python executable if needed. Run `make test` with a host C compiler to check story loading, dictionary decoding, parser punctuation, object menus, puzzle map decoding, and save recovery.
+For a local build, use GNU Make, a devkitARM/`arm-none-eabi` toolchain, Python 3, and Pillow; set `CROSS` to the toolchain prefix and `PYTHON` to the Python executable if needed. Run `make test` with a host C compiler to check story loading, dictionary decoding, parser punctuation, object menus, puzzle map decoding, and save recovery. The suite also drives two winning routes per game and 14 checkpoint scenarios through the controller menus. The scenarios cover puzzle solutions, hazardous routes, vehicle travel, and recovery through Restore or story revival. Use `make test-buttons` to run those replays on their own.
+
+Each winning controller replay opens Hints immediately before and after a puzzle milestone. The checks verify the contextual clue, the changing Next steps list, and that reading hints preserves the story turn, focus, and text page.
 
 The original [White House demo](https://github.com/jfgordon2/zork/releases/latest/download/zork-white-house.gba) is also available as a separate seven-room cartridge.
 

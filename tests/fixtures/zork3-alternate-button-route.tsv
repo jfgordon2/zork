@@ -1,0 +1,264 @@
+# Alternate winning route. Guardians passage using the vial.
+# Room and score after command, button taps, and expected submitted command.
+# a/b = A/B, u/d = Up/Down, </> = Left/Right, l/r = L/R, s/t = Select/Start.
+211	0	rradddaadda	take lamp
+211	0	sada	turn on lamp
+217	0	radda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+55	0	rradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+64	0	adda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+102	0	adda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+102	0	sadda	drop lamp
+184	1	rrradddadadda	enter lake
+12	1	udddddddda	down
+12	1	rrrradddaadddadaddddddddddddddddda	get object
+184	1	udddddddda	up
+140	1	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+124	1	rradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+124	1	rrradddadadda	take torch
+124	1	rraddddda	wait
+124	1	addddda	wait
+124	1	addddda	wait
+192	2	adddadaddddadadddddda	touch viewing table
+192	2	radddaadda	take repellent
+124	2	addddda	wait
+124	2	rraddddda	wait
+124	2	addddda	wait
+93	2	adddadaddddadadddddda	touch viewing table
+93	2	sdadda	drop torch
+124	2	rrrraddddda	wait
+124	2	rraddddda	wait
+140	2	adda>>>>>>>>>>>>>addddat	north
+184	2	rradddadadda	enter lake
+12	2	udddddddda	down
+12	2	rrrradddaadddddadaddddddddddddddddda	get repellent
+184	2	rrrradddaadddddadaddddddddddddddddda	get repellent
+184	2	radda>>>>>>>>>>>>>>>>>>>>addddddddddat	up
+216	2	adda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+177	2	radda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+177	2	saddddddadddadddddddddaa	spray repellent on me
+155	2	adda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+39	2	adda>>>>adat	east
+39	2	rradddaada	take strange key
+39	2	radddaadda	open manhole cover
+203	2	uda	down
+182	2	rrradda>>>>>>>>>>>>>addddat	north
+163	2	rrradda>>>>>>>>>>>>>addddat	north
+93	2	udda	down
+93	2	rrrradddaadda	take torch
+217	2	rrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+112	2	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+78	2	uddddda	nw
+73	2	uda	sw
+181	2	radda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddddda	look
+181	2	adddaada	hello sailor
+181	2	radddaaddda	take vial
+73	2	adda>>>>>>>>>>>>>addddat	north
+78	2	uda	ne
+112	2	ua	se
+109	2	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+109	2	rrrrrradddaddadda	take piece of waybread
+218	3	uddda	down
+218	3	rrrrraddddda	wait
+218	3	addddda	wait
+218	3	adddaddaddadddaddddddaa	tie rope to chest
+218	3	rrraddddda	wait
+218	3	addddda	wait
+218	3	addddda	wait
+109	3	adddadaddadaddddddddddda	grab rope
+112	3	rrrrrrrradda>>>>adat	east
+217	3	rradda>>>>adat	east
+55	3	rradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+40	3	adda>>>>adat	east
+81	3	adda>>>>adat	east
+116	3	radda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+136	3	radda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+136	3	raddddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+136	3	addddda	wait
+227	3	adda>>>>adat	east
+227	3	rrrrradddaddaddddddddadaddddddddddddddda	open wooden door
+176	3	rrradda>>>>>>>>>>>>>addddat	north
+227	3	rrrrrrrrradddadddaddadda	push gold machine South
+227	3	rrrrrrrrrradddaddddddada	open stone door
+103	3	rrrradddaaddada	push gold machine East
+103	3	rrrrrrrrrrradddaada	enter gold machine
+103	3	rrrrrrrrrrradddadadauuuuuuu>uuuuuuu>uuuuuua	set dial to 776
+179	4	rrrrrrrrrradddadddada	push button
+179	4	rrrrradddadada	take golden ring
+179	4	rrrraddddda	wait
+179	4	addddda	wait
+179	4	addddda	wait
+179	4	addddda	wait
+179	4	adddadddada	open stone door
+179	4	radddadddadddddddadaddddddddddddddda	open stone door
+28	4	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+28	4	rrradddaada	open wooden door
+66	4	rrradda>>>>>>>>>>>>>addddat	north
+66	4	sadddddadddaddaddddda	put golden ring under seat
+66	4	rrrrrrrradddadddada	enter gold machine
+66	4	rrrrradddaddddadauuuuuuuuu>uuuu>uuuuuuuua	set dial to 948
+176	4	rrrradddaddddddada	push button
+176	4	rrrrrrrradddadddada	get out of gold machine
+176	4	rrrrradddadddddaddddddda	look under seat
+176	4	rrradddadddddddada	open wooden door
+227	4	radda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+227	4	rrrrradddadada	open stone door
+103	4	rrrradda>>>>adat	east
+103	4	rrrrrrrrradddddddda	take all
+103	4	adddaada	read plaque
+227	4	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+143	4	rrrrradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+194	4	uddda	down
+194	5	rrrradddadada	push east wall
+194	5	rrradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+194	5	udddddda	sw
+194	5	adddaddada	push south wall
+194	5	rradda>>>>adat	east
+194	5	adda>>>>adat	east
+194	5	adddaddada	push south wall
+194	5	rradda>>>>>>>>>>>>>addddat	north
+194	5	adda>>>>>>>>>>>>>addddat	north
+194	5	adda>>>>adat	east
+194	5	adddaddada	push south wall
+194	5	rradddaadda	take book
+194	5	rrrradddaddada	push south wall
+194	5	rradda>>>>adat	east
+194	5	udddda	ne
+194	5	adddadddada	push west wall
+194	5	radddadddada	push west wall
+194	5	radddadddada	push west wall
+194	5	radddadddada	push west wall
+194	5	udddda	ne
+194	5	udddda	ne
+194	5	radda>>>>>>>>>>>>>addddat	north
+194	5	adddadada	push east wall
+194	5	udddda	sw
+194	5	rrradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+194	5	uddddda	se
+194	5	udddda	ne
+194	5	adda>>>>>>>>>>>>>addddat	north
+194	5	adddadddada	push west wall
+194	5	udddddda	nw
+194	5	radddaddada	push south wall
+194	5	rradddaddada	push south wall
+194	5	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+194	5	uddddddda	nw
+194	5	uddddddda	nw
+194	5	adddaddada	push south wall
+194	5	uddddda	se
+194	5	uddddda	se
+194	5	uddddda	se
+194	5	udddda	ne
+194	5	rradddadddada	push west wall
+194	5	radddadddada	push west wall
+194	5	udddddda	sw
+194	5	radddadada	push north wall
+194	5	rrrradddaada	push north wall
+194	5	rrrradddaada	push north wall
+194	5	udddddda	nw
+143	5	udddddda	up
+227	5	rrradda>>>>>>>>>>>>>addddat	north
+136	5	rrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+116	5	rradda>>>>>>>>>>>>>addddat	north
+81	5	radda>>>>>>>>>>>>>addddat	north
+40	5	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+55	5	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+64	5	adda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+30	5	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+30	5	addddda	wait
+30	6	addddda	wait
+30	7	adddaaddaa	attack hooded figure with sword
+30	7	rrradddaddada	take hood
+30	7	radddaaddaa	attack hooded figure with sword
+30	7	rrradddaddada	take hood
+30	7	radddaaddaa	attack hooded figure with sword
+30	7	rrradddaddada	take hood
+30	7	radddaaddaa	attack hooded figure with sword
+30	7	rrradddaddada	take hood
+30	7	radddaaddaa	attack hooded figure with sword
+30	7	rrradddaada	take hood
+30	7	radddddda	look
+30	7	sadddddaddadddddddddda	take hood
+30	7	adddaada	take cloak
+55	7	adda>>>>adat	east
+217	7	adda>>>>>>>>>>>>>addddat	north
+93	7	radda>>>>adat	east
+172	7	udddda	ne
+93	7	udda	sw
+172	7	udddda	ne
+93	7	udda	sw
+172	7	udddda	ne
+93	7	udda	sw
+172	7	udddda	ne
+93	7	udda	sw
+172	7	udddda	ne
+172	7	rradddaada	wake man
+172	7	rradddaaddaddddda	give piece of waybread to old man
+172	7	rradddadada	open secret door
+98	7	uddda	down
+6	7	rrradda>>>>>>>>>>>>>addddat	north
+6	7	radddaadddddaddddaadda	break red beam of light with sword
+98	7	rradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+98	7	rrradddaada	push red button
+6	7	rrradda>>>>>>>>>>>>>addddat	north
+169	7	rradda>>>>>>>>>>>>>addddat	north
+160	7	rrrradda>>>>>>>>>>>>>addddat	north
+160	7	rrrrrrrrrrrrradddadddada	lift short pole
+160	7	rrrrrrrrrradddaddddada	push red panel
+160	7	rrrrrrrrradddaddddada	push red panel
+160	7	rrrrrrrrradddadddadda	lower short pole
+160	7	rrrrrrrrrradddadddada	lift short pole
+160	7	rrrrrrrrrradddaddddada	push red panel
+160	7	rrrrrrrrradddaddddada	push red panel
+160	7	rrrrrrrrradddaddddada	push red panel
+160	7	rrrrrrrrradddaddddada	push red panel
+160	7	rrrrrrrrradddadddadda	lower short pole
+160	7	rrrrrrrrrradddadddddada	push pine panel
+54	7	udddddddda	out
+54	7	sddddadda	drink from vial
+44	7	ua	n
+224	7	ua	n
+105	7	ua	n
+105	7	rradddddda	look
+159	7	adddaada	knock on wooden door
+190	7	rrradda>>>>>>>>>>>>>addddat	north
+43	7	radda>>>>adat	east
+19	7	radda>>>>>>>>>>>>>addddat	north
+36	7	rrrradda>>>>>>>>>>>>>addddat	north
+36	7	rrrrradddadadauuua	turn dial to 4
+36	7	rrrradddaddaddda	press large button
+19	7	rrradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+19	7	rrrradddadada	open cell door
+45	7	rrradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south
+45	7	rrrrradddaadadddda	master, close door
+45	7	rrrrradddaadaaa	master, go North
+45	7	rrrrradddaadaddddddauuuuua	master, turn dial to 6
+204	7	rrrrradddaadaddddda	master, push button
+204	7	rrrradddaddaddddaddddaddadddddda	unlock bronze door with strange key
+204	7	rradddaddada	open bronze door
+46	7	rradda>>>>>>>>>>>>>>>>>>addddddddddddddddddddddddddddddddddddddddddddddddat	south

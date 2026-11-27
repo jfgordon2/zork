@@ -477,6 +477,7 @@ void story_noun(unsigned id, char buffer[Z_NAME_MAX]) {
         {"red crystal sphere", "red sphere"}, {"blue crystal sphere", "blue sphere"},
         {"clear crystal sphere", "clear sphere"}, {"black crystal sphere", "black sphere"},
         {"door made of oak", "door"}, {"door partly covered in cobwebs", "door"},
+        {"Entrance to Hades", "gate"},
         {"golden dragon statuette", "statuette"}, {"portrait of J. Pierpont Flathead", "portrait"},
         {"gigantic dog collar", "collar"}, {"three-headed dog", "cerberus"},
         {"priceless zorkmid", "coin"}, {"heavy but invisible liquid", "potion"},

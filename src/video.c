@@ -41,6 +41,50 @@ uint16_t buttons(void) {
     return ~REG16(0x04000130) & 0x03FF;
 }
 
+#if defined(PROFILE) && !defined(VISUAL_QA)
+// TM0, prescaler 1024 (~16.384 kHz). A menu build is far below the 4 s wrap.
+void video_profile_timer_start(void) {
+    REG16(0x04000100) = 0;      // TM0D
+    REG16(0x04000102) = 0x0083; // enable + 1024 prescaler
+}
+
+uint16_t video_profile_timer_read(void) {
+    uint16_t ticks = REG16(0x04000100);
+    REG16(0x04000102) = 0;
+    return ticks;
+}
+
+// TM1, same prescaler. Used to isolate input tokenization from story execution.
+void video_profile_token_timer_start(void) {
+    REG16(0x04000104) = 0;
+    REG16(0x04000106) = 0x0083;
+}
+
+uint16_t video_profile_token_timer_read(void) {
+    uint16_t ticks = REG16(0x04000104);
+    REG16(0x04000106) = 0;
+    return ticks;
+}
+
+void video_profile_trace_start(void) {
+    REG16(0x04000104) = 0;
+    REG16(0x04000106) = 0x0083;
+}
+
+uint16_t video_profile_trace_read(void) {
+    uint16_t ticks = REG16(0x04000104);
+    REG16(0x04000106) = 0;
+    return ticks;
+}
+#else
+void video_profile_timer_start(void) {}
+uint16_t video_profile_timer_read(void) { return 0; }
+void video_profile_token_timer_start(void) {}
+uint16_t video_profile_token_timer_read(void) { return 0; }
+void video_profile_trace_start(void) {}
+uint16_t video_profile_trace_read(void) { return 0; }
+#endif
+
 void scene(int y, const Color *pixels) {
     scene_rows(y, pixels, SCENE_H);
 }

@@ -1,0 +1,391 @@
+# Room and score after command, button taps, and expected submitted command.
+# a/b = A/B, u/d = Up/Down, </> = Left/Right, l/r = L/R, s/t = Select/Start.
+51	0	rradddadadda	take lamp
+51	0	radddaadda	take elvish sword
+51	0	sdada	turn on lamp
+168	0	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+21	0	rrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+183	0	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+53	0	uda	sw
+158	0	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+234	0	uda	se
+16	0	rrradddaadda	enter gazebo
+16	0	rrrrrrradddadadda	take teapot
+234	0	rrrrrradda>>>>addddddddddddat	exit
+158	0	rrradda>>>>>>>>>>>>>addddddddddat	north
+53	0	ua	ne
+53	0	sada	fill teapot
+158	0	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+212	0	udda	sw
+144	0	uddda	sw
+238	0	uddddda	se
+238	0	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+238	0	adddddda	look
+238	5	adada>>>>>>>>>>>>>>>>>>>>>>adddddddddddddat	answer "well"
+38	5	adda>>>>adat	east
+38	20	radddaada	take pearl necklace
+119	20	adda>>>>adat	east
+119	20	rrradddaada	enter bucket
+8	30	sddaddddddadddaddddddddaa	pour water in bucket
+8	30	rrrradddaada	stand
+190	30	rrrradda>>>>adat	east
+190	30	rrrrradddddddda	take all
+122	30	sadda	eat green cake
+82	30	rradda>>>>adat	east
+82	30	sdaddda	drop orange cake
+82	30	sdaddddddddadddadddddada	throw red cake in pool
+82	45	rrrrradddaddaddda	take package of candy
+122	45	rrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+190	45	sdadda	eat blue cake
+187	45	udda	nw
+187	45	rradddadada	read green piece of paper
+187	45	sadda	drop green piece of paper
+187	45	rradddadadaada	robot, go East
+87	45	radda>>>>adat	east
+87	45	rrrradddaadaadda	robot, go South
+54	45	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+106	45	rradddadada	take red sphere
+54	45	rradddadadaa	robot, lift cage
+54	65	rrradddaddada	take red sphere
+54	65	saddddda	look in red sphere
+54	65	rradddaadaaa	robot, go North
+87	65	radda>>>>>>>>>>>>>addddddddddat	north
+87	65	rrrradddaadaddda	robot, push triangular button
+187	65	rrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+190	65	uddddda	se
+8	65	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+8	65	rrrradddddda	look
+8	65	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+8	65	adddaada	enter bucket
+119	65	sdddada	fill teapot
+119	65	rrradddaada	stand
+119	65	sdddadda	drop teapot
+38	65	rrrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+238	65	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+144	65	uda	nw
+144	65	radddaada	open steel box
+144	85	rradddadada	take fancy violin
+206	85	udddddda	sw
+206	85	radddaada	take black string
+28	85	udda	sw
+28	85	sdddadddddddddadddadddaa	give package of candy to lizard
+28	85	sdddada	drop pearl necklace
+28	85	sdada	drop fancy violin
+28	85	sdada	drop red sphere
+206	85	rrrrradda>>>>>>>>>>>>>addddddddddat	north
+144	85	uda	ne
+218	85	radda>>>>adat	east
+157	85	rrrradda>>>>>>>>>>>>>addddddddddat	north
+234	85	radda>>>>>>>>>>>>>addddddddddat	north
+16	85	rrradddaadda	enter gazebo
+16	85	rrrrrradddddddda	take all
+234	85	adda>>>>addddddddddddat	exit
+157	85	rrrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+212	85	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+144	85	uddda	sw
+30	85	radda>>>>>>>>>>>>>addddddddddat	north
+30	85	rradddaada	take brick
+231	85	radda>>>>>>>>>>>>>addddddddddat	north
+124	85	rrradda>>>>>>>>>>>>>addddddddddat	north
+46	85	udda	up
+46	85	sddddaddddddadddaddadda	put place mat under door
+46	85	rrrrrradddaddada	open metal lid
+46	85	sddaddada	put letter opener in keyhole
+46	85	rrrradddaddada	take letter opener
+46	85	sada	drop letter opener
+46	85	rrrrrradddaada	take place mat
+46	85	rrrrrrradddaada	take rusty iron key
+46	85	rrrrrrradddaddddaddddaddddaddaa	unlock door with rusty iron key
+46	85	rrradddaddddada	open door
+59	85	rrradda>>>>>>>>>>>>>addddddddddat	north
+59	105	rrrrrrradddaada	take blue sphere
+59	105	saddddda	look in blue sphere
+46	105	rrrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+124	105	uda	down
+171	105	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+248	105	adda>>>>>>>>>>>>>addddddddddat	north
+248	105	rradddaadddadddddda	attack dragon with elvish sword
+80	105	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+80	105	rrradddaadddadddddda	attack dragon with elvish sword
+172	105	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+172	105	rradddaadddadddddda	attack dragon with elvish sword
+161	110	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+172	110	adda>>>>adat	east
+80	110	radda>>>>>>>>>>>>>addddddddddat	north
+248	110	rradda>>>>>>>>>>>>>addddddddddat	north
+201	110	radda>>>>>>>>>>>>>addddddddddat	north
+201	110	rradddaaddddddddddddddddaddadddda	kiss beautiful princess
+248	110	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+171	110	rradda>>>>adat	east
+124	110	radda>>>>adat	east
+231	110	uddda	down
+30	110	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+30	110	radda>>>>adat	east
+30	110	addddda	wait
+212	110	adda>>>>adat	east
+212	110	rrrraddddda	wait
+157	110	adda>>>>adat	east
+157	110	radda>>>>adat	east
+234	110	adda>>>>>>>>>>>>>addddddddddat	north
+16	110	udda	in
+16	110	rrraddddda	wait
+16	125	addddda	wait
+16	125	addddda	wait
+16	125	addddda	wait
+16	125	addddda	wait
+16	125	addddda	wait
+234	125	addddda	wait
+234	125	rrraddddda	wait
+234	125	addddda	wait
+234	125	addddda	wait
+234	125	addddda	wait
+234	125	addddda	wait
+234	125	addddda	wait
+234	125	addddda	wait
+234	125	addddda	wait
+234	125	adda>>>>addddddddddddat	exit
+234	125	sdada	drop perfect rose
+234	125	sddada	drop rusty iron key
+157	125	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+218	125	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+144	125	rrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+206	125	udddddda	sw
+28	125	udda	sw
+28	125	rrrrradddaada	take red sphere
+28	125	rrrradddadddadddaddddaddada	unlock door with delicate gold key
+28	125	radddadddada	open door
+45	135	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+94	135	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+233	135	rrrradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+233	135	sdddddddaddddddadddaddddaa	throw elvish sword at aquarium
+233	155	rrradddadddada	take clear sphere
+233	155	rrradddadadda	take elvish sword
+94	155	rradda>>>>adat	east
+94	155	saddddddadddadada	put clear sphere on diamond stand
+94	155	saddddddadddadadddda	put red sphere on ruby stand
+94	155	sdaddddddadddadaddda	put blue sphere on sapphire stand
+94	185	rrrrrradddaddada	take black sphere
+94	185	saddddda	look in black sphere
+45	185	rrrrradda>>>>adat	east
+28	185	radda>>>>>>>>>>>>>addddddddddat	north
+206	185	rrrradda>>>>>>>>>>>>>addddddddddat	north
+184	185	adda>>>>>>>>>>>>>addddddddddat	north
+161	185	udda	down
+15	185	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+15	200	radddaada	take ruby
+176	200	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+176	200	rrrradddaada	enter basket
+176	200	rrrradddadada	open receptacle
+176	200	sdddddadddada	put newspaper in receptacle
+176	200	sddddada	light match
+176	200	rrrradddaddadddddaddddadddddadddda	burn newspaper with match
+176	200	rrradddadada	read blue label
+34	200	sadda	drop blue label
+113	200	rrrrrraddddda	wait
+13	200	rrrrrradddaaddddadddddadddddda	land
+13	200	rrrrrrrradddadddddadddadddaddddddadddddda	tie braided wire to hook
+13	200	rrradddaada	stand
+13	220	rrrrrrrradddaddddddadda	take coin
+136	220	rrrrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+136	220	rrrradddaada	open purple book
+136	230	rrrrradddadadda	take Flathead stamp
+13	230	rrrradda>>>>>>>>>>>>>addddddddddat	north
+13	230	rrrrrrradddaada	enter basket
+13	230	rrrrrrradddadddddadddadadddddddddddddda	untie braided wire
+113	230	rraddddda	wait
+86	230	rrrrrraddddda	wait
+177	230	rrrrrraddddda	wait
+143	230	rrrrrradddaaddddadddddadddddda	land
+143	230	rrrrrrradddadddddadddadddaddddddaddddda	tie braided wire to hook
+143	230	rradddaada	stand
+182	230	rrrrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+182	230	sdddddaddaa	put brick in hole
+182	230	sddddddaddada	put black string in brick
+182	230	sdddddada	light match
+182	230	rrrradddaddaddddaddddadddddaddddda	burn black string with match
+143	230	rradda>>>>>>>>>>>>>addddddddddat	north
+182	230	rrrrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+182	250	rrrradddaddada	take gaudy crown
+182	250	rrradddaddada	read card
+143	250	rradda>>>>>>>>>>>>>addddddddddat	north
+143	250	rrrrrrradddaada	enter basket
+143	250	rrrrrrradddadddddadddadadddddddddddddda	untie braided wire
+143	250	rradddaddada	close receptacle
+177	250	rrrraddddda	wait
+86	250	rrrrraddddda	wait
+86	250	rrrrraddddda	wait
+113	250	addddda	wait
+34	250	rrrrraddddda	wait
+176	250	rrrrraddddda	wait
+176	250	sadda	drop card
+176	250	rrrrrradddaada	stand
+15	250	rrrrrradda>>>>>>>>>>>>>addddddddddat	north
+161	250	adda>>>>adat	east
+172	250	adda>>>>adat	east
+144	250	udda	se
+206	250	udddddda	sw
+28	250	udda	sw
+28	250	sada	drop gaudy crown
+28	250	sadda	drop Flathead stamp
+28	250	sadda	drop coin
+28	250	sada	drop ruby
+206	250	rrrrrrrradda>>>>>>>>>>>>>addddddddddat	north
+144	250	uda	ne
+30	250	radda>>>>>>>>>>>>>addddddddddat	north
+231	250	radda>>>>>>>>>>>>>addddddddddat	north
+124	250	rrrradda>>>>>>>>>>>>>addddddddddat	north
+171	250	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+248	250	adda>>>>>>>>>>>>>addddddddddat	north
+201	250	radda>>>>>>>>>>>>>addddddddddat	north
+201	250	radddaada	open rotten wooden chest
+201	250	radddaada	open rotten wooden chest
+201	270	rradddadada	take statuette
+248	270	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+141	270	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+92	270	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+152	270	udda	nw
+200	270	adda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+49	270	rrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+49	290	radddaada	take portrait
+200	290	adda>>>>>>>>>>>>>addddddddddat	north
+64	290	rrrradddadddaddddadddddadda	walk through north wall
+200	290	rrrradddadddaddddadddddadda	walk through south wall
+2	290	rrrradddadddaddddadddddadda	walk through north wall
+2	315	rrrrradddaadda	take stack of zorkmid bills
+200	315	rrrradddaddadddadddddadda	walk through north wall
+200	315	sadda	drop stack of zorkmid bills
+200	315	sada	drop portrait
+243	315	rrrrrradda>>>>adat	east
+200	315	adda>>>>adat	east
+200	315	rrrrrradddadadda	take stack of zorkmid bills
+200	315	rrrrradddaada	take portrait
+102	315	rrrradddadddaddddadddddadda	walk through north wall
+92	315	rrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+141	315	adda>>>>adat	east
+248	315	adda>>>>adat	east
+80	315	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+172	315	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+144	315	udda	se
+207	315	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+207	315	radddaadda	take repellent
+144	315	adda>>>>adat	east
+206	315	udddddda	sw
+28	315	udda	sw
+28	315	rrrrrrrradddadddddada	take pearl necklace
+45	315	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+94	315	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+91	315	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+91	315	rrrradddadddaddddaddaddddddddddda	drop Wizard's
+91	315	sdddddada	drop delicate gold key
+91	315	sdddada	drop statuette
+91	315	rrrrrradddadddddaddddaddaddddddddddda	drop Wizard's
+91	315	sdada	drop portrait
+91	315	sdadda	drop stack of zorkmid bills
+91	315	rrrrrrrradddadddddddaddddaddaddddddddddda	drop Wizard's
+91	315	radddadddddddaddddaddaddddddddddda	drop Wizard's
+91	315	radddadddddddaddddaddaddddddddddda	drop Wizard's
+91	315	radddadddddddaddddaddaddddddddddda	drop Wizard's
+94	315	radda>>>>>>>>>>>>>addddddddddat	north
+45	315	rrrrradda>>>>adat	east
+28	315	radda>>>>>>>>>>>>>addddddddddat	north
+28	315	rrrrrrrradddddda	look
+28	315	adddadddddada	take pearl necklace
+28	315	rrrrrrradddddda	look
+28	315	adddddda	look
+28	315	adddaddddada	take fancy violin
+28	315	rrrrrradddddda	look
+28	315	adddddda	look
+28	315	adddaada	take ruby
+28	315	rrrrradddaddada	take gaudy crown
+28	315	rrrradddadadda	take Flathead stamp
+28	315	rrradddaadda	take coin
+45	315	rrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+94	315	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+91	315	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+91	315	sddddada	drop pearl necklace
+91	315	rrrrrrrrradddaddddadddaddaddddddddddda	drop delicate gold key
+91	315	rrrrradddadddadddaddaddddddddddda	drop statuette
+91	315	sdddada	drop fancy violin
+91	315	rrrrrrrrrradddadddadddddddddddaddaddddddddddda	drop portrait
+91	315	rrrrrrradddaddadddddddaddaddddddddddda	drop stack of zorkmid bills
+91	315	sddada	drop ruby
+91	315	sdada	drop gaudy crown
+91	315	sadda	drop Flathead stamp
+91	315	rrrrrrrrrrrrradddaddddddddddddaddddaddaddddddddddda	drop Wizard's
+94	315	radda>>>>>>>>>>>>>addddddddddat	north
+45	315	rrrrradda>>>>adat	east
+28	315	radda>>>>>>>>>>>>>addddddddddat	north
+28	315	rrradddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+28	315	adddddda	look
+45	315	adda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+94	315	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+91	315	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+94	315	rrrrrrrrrrrrradda>>>>>>>>>>>>>addddddddddat	north
+45	315	rrrrradda>>>>adat	east
+28	315	radda>>>>>>>>>>>>>addddddddddat	north
+28	315	rrradddaadda	take coin
+45	315	rradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+94	315	radda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+91	315	rrrrradda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+91	315	sadda	drop coin
+91	315	sdaddadddddddddda	put black sphere in pentagram
+91	315	rrrrrrrrrrrrrradddaddddddddada	take pearl necklace
+91	317	rrrrrrrrrrrrrrrradddaddaddaa	give pearl necklace to demon
+91	317	rrrrrrrrrrrrrradddadddddddddddada	take delicate gold key
+91	319	rrrrrrrrrrrrrrradddaddaddaa	give delicate gold key to demon
+91	319	rrrrrrrrrrrrradddaddddddddddada	take statuette
+91	321	rrrrrrrrrrrrrradddaddaddaa	give statuette to demon
+91	321	rrrrrrrrrrrradddadddddddada	take fancy violin
+91	323	rrrrrrrrrrrrradddaddaddaa	give fancy violin to demon
+91	323	rrrrrrrrrrradddaddddddddada	take portrait
+91	325	rrrrrrrrrrrradddaddaddaa	give portrait to demon
+91	325	rrrrrrrrrradddadddddddadda	take stack of zorkmid bills
+91	327	rrrrrrrrrrradddaddaddaa	give stack of zorkmid bills to demon
+91	327	rrrrrrrrradddaddddddada	take ruby
+91	329	rrrrrrrrrradddaddaddaa	give ruby to demon
+91	329	rrrrrrrradddadddddada	take gaudy crown
+91	331	rrrrrrrrradddaddaddaa	give gaudy crown to demon
+91	331	rrrrrrradddaddddadda	take Flathead stamp
+91	333	rrrrrrrradddaddaddaa	give Flathead stamp to demon
+91	333	rrrrrradddadddadda	take coin
+91	335	rrrrrrradddaddaddaa	give coin to demon
+91	335	rrrrradddaddadaada	demon, give me wand
+91	365	rrrrradddaada	take wand
+94	365	rrrradda>>>>>>>>>>>>>addddddddddat	north
+45	365	rrrrradda>>>>adat	east
+28	365	radda>>>>>>>>>>>>>addddddddddat	north
+206	365	rradda>>>>>>>>>>>>>addddddddddat	north
+144	365	uda	ne
+159	365	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+159	365	sadddddddadddadddddddddddaa	wave wand at menhir
+159	365	radaa>>>>>adddddddddddddddddddddat	say "float"
+128	365	udda	sw
+128	380	radddaada	take collar
+159	380	ua	ne
+240	380	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+19	380	uda	down
+202	380	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+121	380	uddddda	se
+242	380	udddda	ne
+75	380	uddddddda	nw
+202	385	udddddda	sw
+19	385	rradda>>>>>>>>>>>>>>>>>>>>>>addddddddddddddat	west
+162	395	uddddddddda	down
+162	395	sadddddadddadaa	put collar on cerberus
+194	398	rrradda>>>>adat	east
+194	398	radddaada	open crypt door
+125	400	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south
+125	400	sdaddddddadddaddddddddddaa	apply repellent to me
+125	400	sdddada	turn off lamp
+125	400	rrrradddadddada	open secret door
+230	400	radda>>>>>>>>>>>>>>>>>>adddddddddddddddddddddddddddddddddddddddddddddddat	south

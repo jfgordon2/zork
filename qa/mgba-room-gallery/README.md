@@ -2,7 +2,7 @@
 
 A route-based index of actual mGBA screenshots from `zork-trilogy.gba`. Each PNG is the emulator's native **240 × 160** frame, including the GBA UI and story text. Most screenshots are taken after restoring a traced save and confirming the current chapter and room; route-only states are captured by replaying their traced input path and confirming the live room. Explicit Bag captures wait for the inventory screen before saving. Targeted visual refreshes take precedence over older frames for the entries they recapture.
 
-ROM SHA-256: `2bf769145db14dd0e82fd9ad8b2837a5ec841e0b4d67314d45d8b63e347c7b8c`
+ROM SHA-256: `d3aae1a274168683678002b1921897e0f4d5e4dbcb21b7f9451064e0ca8c7e1e`
 
 ## Browse
 
@@ -36,7 +36,7 @@ ROM SHA-256: `2bf769145db14dd0e82fd9ad8b2837a5ec841e0b4d67314d45d8b63e347c7b8c`
 
 The manifest identifies each room/state, its source checkpoint or route replay, the trace log or branch script that establishes the path, and the PNG path. Named state captures preserve variants such as doors, lights, puzzle geometry, water levels, vehicle placement, character states, and dropped/carried items. The shared boat interior was recaptured in all five saved aboard states after the current ROM build. Exact duplicate PNGs within a room are labeled in the gallery; several are aliases for one story moment rather than separate visual states.
 
-Zork III's route notes include stable mirror-room branches, the Royal Puzzle entrance, and transient or unsafe outcomes such as Ladder Bottom 57 and the Guardian-side mirror rooms. The native route refresh records reachable branches in mGBA, and a separate UI replay captures in-game Restore plus the successful ending and its controller-driven Restart / Restore / Quit menu. The last completed full mGBA pass confirmed all Zork III checkpoints then present in their expected rooms; that pass predates the current ROM build. The three Zork II sphere rooms (224, 227, 228) were generated from the death-recovery route in `checkpoints/zork-ii-mist-rooms.txt`.
+Zork III's route notes include stable mirror-room branches, the Royal Puzzle entrance, and transient or unsafe outcomes such as Ladder Bottom 57 and the Guardian-side mirror rooms. The native route refresh records reachable branches in mGBA, and a separate UI replay captures in-game Restore plus the successful ending and its controller-driven Restart / Restore / Quit menu. The latest full mGBA pass confirmed all Zork III room and state checkpoints in their expected rooms. The three Zork II sphere rooms (224, 227, 228) were generated from the death-recovery route in `checkpoints/zork-ii-mist-rooms.txt`.
 
 Hallway 169's post-button route and state frames use the open-panel artwork. The story's global 107 records this panel state; it is not represented by the Z-machine `OPEN` attribute.
 
@@ -53,4 +53,4 @@ review page with `python3 qa/mgba-room-gallery/build_focus_review.py
 
 ## Capture result
 
-527 of 527 save-restoration screenshots were verified in the last completed full mGBA gallery pass. That pass predates the current ROM build; rerun the full gallery to verify those captures against the current build. 10 route-only frames were verified by route replay. 3 targeted entries were captured after the current ROM build; the gallery uses those current frames. Each capture is accepted only after the live chapter and room ID match the manifest. The frozen Ice Room frame has no destination save, so its plan record restores the pre-dragon room 206 checkpoint and `capture-gallery.lua` replays North → Down through the Paths menu before capturing (run it alone with `galleryRefreshSet='ice-frozen'` and `refresh-sets.lua`). [route-gaps.md](route-gaps.md) lists transient/fatal rooms and reports checkpoint restore results.
+527 of 527 save-restoration screenshots were verified in the last completed full mGBA gallery pass. 10 route-only frames were verified by route replay. The full pass supersedes the older targeted refresh captures. Each capture is accepted only after the live chapter and room ID match the manifest. The frozen Ice Room frame has no destination save, so its plan record restores the pre-dragon room 206 checkpoint and `capture-gallery.lua` replays North → Down through the Paths menu before capturing (run it alone with `galleryRefreshSet='ice-frozen'` and `refresh-sets.lua`). [route-gaps.md](route-gaps.md) lists transient/fatal rooms and reports checkpoint restore results.

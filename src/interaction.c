@@ -23,6 +23,8 @@ static unsigned action_menu_probes_used_count;
 static unsigned action_menu_effect_probes_remaining;
 static unsigned action_menu_effect_probes_used_count;
 static unsigned action_menu_probe_budget;
+static ZProbeEffect action_probe_effect;
+static bool action_probe_effect_valid;
 
 void story_menu_probe_begin(void) {
     action_menu_probe_limited = true;
@@ -31,6 +33,7 @@ void story_menu_probe_begin(void) {
     action_menu_effect_probes_remaining = ACTION_MENU_EFFECT_PROBE_LIMIT;
     action_menu_effect_probes_used_count = 0;
     action_menu_probe_budget = ACTION_REFERENCE_PROBE_BUDGET;
+    action_probe_effect_valid = false;
     z_probe_batch_begin();
 }
 
@@ -191,7 +194,11 @@ static const char *const no_effect_patterns[] = {
     "you can't move the", "securely anchored", "you can't turn that",
     "contortion", "accomplished enough juggler", "can't be done",
     "doesn't seem to work", "you can't open that", "not openable",
-    "can't see how to get in from here"
+    "can't see how to get in from here", "you should say whether you want to go up or down",
+    "the stairs are endless", "doesn't look like he'll let you past",
+    "climbing the walls is to no avail", "doesn't lead upward", "don't lead upward",
+    "does not lead upward", "doesn't lead downward", "don't lead downward",
+    "does not lead downward", "you can't go that way", "you cannot go that way"
 };
 
 bool action_reply_is_no_effect(const char *reply) {
@@ -231,7 +238,9 @@ static bool probe_action_form(Action action, const char *value,
     // A probe that crashes the story (or exceeds its budget) proves nothing;
     // treat it as rejected rather than offering the action.
     unsigned budget = action_menu_probe_limited ? action_menu_probe_budget : ACTION_REFERENCE_PROBE_BUDGET;
-    bool answered = z_probe(line, reply, ACTION_REPLY_SIZE, budget);
+    bool answered = action_menu_probe_limited
+        ? z_probe_menu(line, reply, ACTION_REPLY_SIZE, budget)
+        : z_probe(line, reply, ACTION_REPLY_SIZE, budget);
     if (!answered) {
         reply[0] = 0;
         return false;
@@ -340,6 +349,24 @@ static bool reply_says_climb_direction_fails(const char *reply, bool upward) {
            (text_has(reply, "does not go") && text_has(reply, short_word));
 }
 
+static bool reply_blocks_vertical_route(const char *reply) {
+    char normalized[ACTION_REPLY_SIZE];
+    action_reply_normalized(reply, normalized, sizeof(normalized));
+    return text_has(normalized, "you can't go that way") ||
+           text_has(normalized, "you cannot go that way") ||
+           text_has(normalized, "you can't reach") ||
+           text_has(normalized, "you cannot reach") ||
+           text_has(normalized, "is closed") ||
+           text_has(normalized, "the stairs are endless") ||
+           text_has(normalized, "only santa claus climbs down chimneys") ||
+           text_has(normalized, "doesn't look like he'll let you past") ||
+           text_has(normalized, "climbing the walls is to no avail");
+}
+
+static bool is_vertical_route_action(Action action) {
+    return action.verb && (text_equal(action.verb, "up") || text_equal(action.verb, "down"));
+}
+
 static const Action inspect[] = {
     OBJECT("Look under", "look under"), OBJECT("Look inside", "look in"),
     OBJECT("Search", "search"), OBJECT("Smell", "smell"), OBJECT("Listen to", "listen to"),
@@ -409,7 +436,9 @@ static unsigned copy_actions(Action list[MAX_ACTIONS], const Action *from, unsig
 
 #include "action_profiles.inc"
 
-static uint32_t find_action_candidate_mask(unsigned game, unsigned id) {
+enum { VERTICAL_ROUTE_UP = 1, VERTICAL_ROUTE_DOWN = 2 };
+
+static uint32_t find_action_object_candidate_mask(unsigned game, unsigned id) {
     unsigned low = 0, high = sizeof(action_candidate_masks) / sizeof(action_candidate_masks[0]);
     while (low < high) {
         unsigned mid = low + (high - low) / 2;
@@ -421,7 +450,83 @@ static uint32_t find_action_candidate_mask(unsigned game, unsigned id) {
         action_candidate_masks[low].game == game && action_candidate_masks[low].object == id) {
         return action_candidate_masks[low].verbs;
     }
-    return 0;
+    // An object omitted from the audit data must not silently lose verbs.
+    return UINT32_MAX;
+}
+
+static uint32_t action_object_attributes(unsigned id) {
+    uint32_t attributes = 0;
+    for (unsigned attribute = 0; attribute < 32; attribute++)
+        if (z_attr(id, attribute)) attributes |= 1u << attribute;
+    return attributes;
+}
+
+// Route masks are generated from interpreter probes over the full route audit.
+// Unknown states retain the existing explicit-exit fallback.
+static bool find_action_vertical_route_mask(unsigned game, unsigned id, bool carried,
+                                            uint8_t *directions) {
+    unsigned room = z_global(0);
+    unsigned parent = z_parent(id);
+    uint32_t attributes = action_object_attributes(id);
+    unsigned low = 0, high = ACTION_VERTICAL_ROUTE_MASK_COUNT;
+    while (low < high) {
+        unsigned mid = low + (high - low) / 2;
+        const ActionVerticalRouteMask *entry = &action_vertical_route_masks[mid];
+        bool before;
+        if (entry->game != game) before = entry->game < game;
+        else if (entry->room != room) before = entry->room < room;
+        else if (entry->object != id) before = entry->object < id;
+        else if (entry->parent != parent) before = entry->parent < parent;
+        else if (entry->carried != (unsigned)carried)
+            before = entry->carried < (unsigned)carried;
+        else before = entry->attributes < attributes;
+        if (before) low = mid + 1;
+        else high = mid;
+    }
+    if (low < ACTION_VERTICAL_ROUTE_MASK_COUNT) {
+        const ActionVerticalRouteMask *entry = &action_vertical_route_masks[low];
+        if (entry->game == game && entry->room == room && entry->object == id &&
+            entry->parent == parent && entry->carried == (unsigned)carried &&
+            entry->attributes == attributes) {
+            *directions = entry->directions;
+            return true;
+        }
+    }
+    return false;
+}
+
+// State-specific entries are only used for an exact observed structural key.
+// A missed key retains the broader per-object superset; a wholly unprofiled
+// object falls back to all candidate verbs. Route evidence must cover hidden
+// story-flag branches that can change actions without changing this key.
+static uint32_t find_action_candidate_mask(unsigned game, unsigned id, bool carried) {
+    unsigned room = z_global(0);
+    unsigned parent = z_parent(id);
+    uint32_t attributes = action_object_attributes(id);
+    unsigned low = 0, high = sizeof(action_candidate_state_masks) /
+                         sizeof(action_candidate_state_masks[0]);
+    while (low < high) {
+        unsigned mid = low + (high - low) / 2;
+        const ActionCandidateStateMask *entry = &action_candidate_state_masks[mid];
+        bool before;
+        if (entry->game != game) before = entry->game < game;
+        else if (entry->room != room) before = entry->room < room;
+        else if (entry->object != id) before = entry->object < id;
+        else if (entry->parent != parent) before = entry->parent < parent;
+        else if (entry->carried != (unsigned)carried)
+            before = entry->carried < (unsigned)carried;
+        else before = entry->attributes < attributes;
+        if (before) low = mid + 1;
+        else high = mid;
+    }
+    if (low < sizeof(action_candidate_state_masks) / sizeof(action_candidate_state_masks[0])) {
+        const ActionCandidateStateMask *entry = &action_candidate_state_masks[low];
+        if (entry->game == game && entry->room == room && entry->object == id &&
+            entry->parent == parent && entry->carried == (unsigned)carried &&
+            entry->attributes == attributes)
+            return entry->verbs;
+    }
+    return find_action_object_candidate_mask(game, id);
 }
 
 #define COPY(group) copy_actions(list, group, sizeof(group) / sizeof(group[0]))
@@ -481,18 +586,24 @@ static bool is_stair_or_ladder(unsigned id) {
     return text_has(name, "stair") || text_has(name, "ladder") || text_has(name, "step");
 }
 
-// Make vertical exits available from the object that represents the stairs or
-// ladder. Use the same room exit properties as the Paths menu, so the suggested
-// action matches the direction the story actually exposes from this location.
-static unsigned append_vertical_route_actions(unsigned id, bool carried,
+// Make only proven vertical routes available from a stair or ladder target.
+// Audited states use interpreter-derived masks; unprofiled states fall back to
+// explicit room exits, which are checked again by the action filter.
+static unsigned append_vertical_route_actions(unsigned chapter, unsigned id, bool carried,
                                               Action list[MAX_ACTIONS], unsigned count) {
     if (carried || !is_stair_or_ladder(id)) return 0;
-    const uint8_t *exit;
     unsigned added = 0;
-    unsigned room = z_global(0);
-    if (z_property(room, path_properties[8], &exit))
+    uint8_t directions = 0;
+    bool profiled = find_action_vertical_route_mask(chapter, id, carried, &directions);
+    if (!profiled) {
+        const uint8_t *exit;
+        unsigned room = z_global(0);
+        if (z_property(room, path_properties[8], &exit)) directions |= VERTICAL_ROUTE_UP;
+        if (z_property(room, path_properties[9], &exit)) directions |= VERTICAL_ROUTE_DOWN;
+    }
+    if (directions & VERTICAL_ROUTE_UP)
         list[count + added++] = (Action)SENTENCE("Go up", "up");
-    if (z_property(room, path_properties[9], &exit))
+    if (directions & VERTICAL_ROUTE_DOWN)
         list[count + added++] = (Action)SENTENCE("Go down", "down");
     return added;
 }
@@ -509,10 +620,18 @@ static unsigned story_actions_internal(unsigned chapter, unsigned id, bool carri
         case COMBINE: return COPY(with);
         case TOOLS: return COPY(tools);
         case MOVE: {
-            unsigned count = append_vertical_route_actions(id, carried, list, 0);
+            unsigned count = append_vertical_route_actions(chapter, id, carried, list, 0);
             if (count) {
                 // The direct route is clearer than the generic "Climb" entry;
                 // keep the other movement verbs available after it.
+                for (unsigned i = 1; i < sizeof(travel) / sizeof(travel[0]); i++)
+                    list[count++] = travel[i];
+                return count;
+            }
+            uint8_t profiled_directions = 0;
+            if (!carried && is_stair_or_ladder(id) &&
+                find_action_vertical_route_mask(chapter, id, carried, &profiled_directions)) {
+                count = 0;
                 for (unsigned i = 1; i < sizeof(travel) / sizeof(travel[0]); i++)
                     list[count++] = travel[i];
                 return count;
@@ -542,7 +661,7 @@ static unsigned story_actions_internal(unsigned chapter, unsigned id, bool carri
     // Conditional actions stop one short of MAX_ACTIONS so "More actions..." always fits.
     #define ADD(action) do { if (count < MAX_ACTIONS - 1) list[count++] = (Action)action; } while (0)
     ADD(OBJECT("Examine", "examine"));
-    unsigned vertical_routes = append_vertical_route_actions(id, carried, list, count);
+    unsigned vertical_routes = append_vertical_route_actions(chapter, id, carried, list, count);
     count += vertical_routes;
     if ((chapter == 1 && (text_equal(name, "robot") || text_equal(name, "demon"))) ||
         (chapter == 2 && text_equal(name, "dungeon master")))
@@ -557,6 +676,13 @@ static unsigned story_actions_internal(unsigned chapter, unsigned id, bool carri
         else ADD(OBJECT("Enter", "enter"));
         ADD(DIRECTION("Push toward...", "push"));
     }
+    // The seat is a visible focus target in the time machine rooms. The story
+    // accepts GET IN SEAT and places the player inside the machine, so expose
+    // that route directly when the seat is focused. While seated, the machine
+    // itself remains the exit target and offers GET OUT OF GOLD MACHINE.
+    if (chapter == 2 && text_equal(name, "seat") && z_parent(id) == 122 &&
+        z_parent(chapters[chapter].player) != 122)
+        ADD(OBJECT("Enter", "get in"));
     if (!(chapter == 2 && id == 122) && text_has(name, "boat")) {
         if (z_parent(chapters[chapter].player) == id) ADD(OBJECT("Get out", "get out of"));
         else ADD(OBJECT("Enter", "enter"));
@@ -583,6 +709,9 @@ static unsigned story_actions_internal(unsigned chapter, unsigned id, bool carri
     if (text_equal(name, "rainbow")) ADD(OBJECT("Cross", "cross"));
     if (text_equal(name, "punctured boat")) ADD(TARGET("Patch with...", "plug", "with"));
     if (chapter == 2 && id == ZORK3_VIKING_SHIP) ADD(SENTENCE("Hail sailor", "hello sailor"));
+    if (chapter == 2 && text_equal(name, "pedestal") &&
+        (z_global(0) == ZORK3_JEWEL_PRESENT || z_global(0) == ZORK3_JEWEL_947))
+        ADD(SENTENCE("Read plaque", "read plaque"));
     if (chapter == 0 && id == 157) ADD(OBJECT("Move", "move"));
     if (chapter == 0 && id == 29) {
         if (z_attr(id, ATTR_OPEN)) {
@@ -609,7 +738,11 @@ static unsigned story_actions_internal(unsigned chapter, unsigned id, bool carri
         ADD(OBJECT("Look under", "look under"));
         ADD(OBJECT("Move", "move"));
     }
-    if (z_attr(id, ATTR_CLIMBABLE) && !vertical_routes && count < MAX_ACTIONS - 1)
+    uint8_t profiled_directions = 0;
+    bool vertical_profiled = !carried && is_stair_or_ladder(id) &&
+        find_action_vertical_route_mask(chapter, id, carried, &profiled_directions);
+    if (z_attr(id, ATTR_CLIMBABLE) && !vertical_routes && !vertical_profiled &&
+        count < MAX_ACTIONS - 1)
         list[count++] = probe_climb_direction ? climb_action(id) : climb_action_fast(id);
     if (z_attr(id, ATTR_ACTOR)) {
         ADD(OFFER("Give item...", "give", "to"));
@@ -645,20 +778,127 @@ static const struct { const char *label, *verb; } probe_verbs[] = {
 #undef PROBE_VERB
 };
 
-// A few story verbs are only implemented for specific kinds of object and
-// dereference a missing object otherwise (Zork I's RUB on the brass bell is a
-// known crash). Probe such verbs only where the story supports them.
-static bool probe_verb_allowed(const char *verb, unsigned id) {
-    // Zork I's RUB/TOUCH routine dereferences a missing object for objects that
-    // do not implement it (the brass bell is a known crash). The probe guard
-    // recovers if another verb/object pair does the same, but skip the known one.
-    if (text_equal(verb, "rub") || text_equal(verb, "touch")) return z_attr(id, ATTR_LIGHT);
+typedef enum { GATE_ATTRIBUTE, GATE_CARRIED, GATE_PARENT } ProbeGateKind;
+typedef struct {
+    const char *verb;
+    ProbeGateKind kind;
+    unsigned state_attribute, required_attribute;
+    bool allowed_when_set;
+} ProbeStateGate;
+
+typedef struct {
+    uint32_t attributes;
+    unsigned player_parent, object_parent;
+    uint8_t vertical_directions;
+    bool carried, player_parent_known;
+    bool vertical_routes_known, vertical_routes_profiled;
+} ActionStateSnapshot;
+
+// Inverse actions whose availability follows a reliable story-state signal.
+// Keep this list conservative: don't infer states from names or parser replies.
+static const ProbeStateGate probe_state_gates[] = {
+    {"open", GATE_ATTRIBUTE, ATTR_OPEN, 0, false},
+    {"close", GATE_ATTRIBUTE, ATTR_OPEN, 0, true},
+    {"take", GATE_CARRIED, 0, 0, false},
+    {"drop", GATE_CARRIED, 0, 0, true},
+    {"light", GATE_ATTRIBUTE, ATTR_LIT, ATTR_LIGHT, false},
+    {"extinguish", GATE_ATTRIBUTE, ATTR_LIT, ATTR_LIGHT, true},
+    {"turn on", GATE_ATTRIBUTE, ATTR_LIT, ATTR_LIGHT, false},
+    {"turn off", GATE_ATTRIBUTE, ATTR_LIT, ATTR_LIGHT, true},
+    {"enter", GATE_PARENT, 0, 0, false},
+    {"get out of", GATE_PARENT, 0, 0, true},
+    {"stand", GATE_PARENT, 0, 0, true},
+};
+
+static ActionStateSnapshot capture_action_state(unsigned game, unsigned id, bool carried) {
+    ActionStateSnapshot state = {0};
+    state.attributes = action_object_attributes(id);
+    state.object_parent = z_parent(id);
+    state.carried = carried;
+    if (game < 3) {
+        state.player_parent = z_parent(chapters[game].player);
+        state.player_parent_known = true;
+    }
+    if (!carried && is_stair_or_ladder(id)) {
+        state.vertical_routes_profiled = game < 3 &&
+            find_action_vertical_route_mask(game, id, carried, &state.vertical_directions);
+        state.vertical_routes_known = state.vertical_routes_profiled;
+        if (!state.vertical_routes_profiled) {
+            const uint8_t *exit;
+            unsigned room = z_global(0);
+            if (z_property(room, path_properties[8], &exit))
+                state.vertical_directions |= VERTICAL_ROUTE_UP;
+            if (z_property(room, path_properties[9], &exit))
+                state.vertical_directions |= VERTICAL_ROUTE_DOWN;
+            state.vertical_routes_known = state.vertical_directions != 0;
+        }
+    }
+    return state;
+}
+
+static bool vertical_route_action_prevalidated(const ActionStateSnapshot *state, Action action) {
+    if (!state->vertical_routes_profiled || !is_vertical_route_action(action)) return false;
+    if (text_equal(action.verb, "up")) return (state->vertical_directions & VERTICAL_ROUTE_UP) != 0;
+    return (state->vertical_directions & VERTICAL_ROUTE_DOWN) != 0;
+}
+
+static bool action_state_allows(unsigned game, unsigned id, const ActionStateSnapshot *state,
+                                const char *verb) {
+    for (unsigned i = 0; i < sizeof(probe_state_gates) / sizeof(probe_state_gates[0]); i++) {
+        const ProbeStateGate *gate = &probe_state_gates[i];
+        if (!text_equal(verb, gate->verb)) continue;
+        bool current_state;
+        if (gate->kind == GATE_ATTRIBUTE) {
+            if (gate->required_attribute &&
+                !(state->attributes & (1u << gate->required_attribute))) break;
+            current_state = (state->attributes & (1u << gate->state_attribute)) != 0;
+        } else if (gate->kind == GATE_CARRIED) {
+            current_state = state->carried;
+        } else {
+            if (!state->player_parent_known || game >= 3) break;
+            current_state = state->player_parent == id;
+        }
+        return current_state == gate->allowed_when_set;
+    }
     return true;
+}
+
+// Don't spend probes on actions that the object's known state rules out.
+// Known route evidence likewise replaces generic climb/up/down probes.
+static bool probe_verb_allowed(unsigned game, unsigned id,
+                               const ActionStateSnapshot *state, const char *verb) {
+    if (!action_state_allows(game, id, state, verb)) return false;
+    if (text_equal(verb, "climb") && state->vertical_routes_known) return false;
+    if (state->vertical_routes_profiled &&
+        (text_equal(verb, "up") || text_equal(verb, "down")))
+        return text_equal(verb, "up")
+            ? (state->vertical_directions & VERTICAL_ROUTE_UP) != 0
+            : (state->vertical_directions & VERTICAL_ROUTE_DOWN) != 0;
+    // Zork I's RUB/TOUCH routine dereferences a missing object for objects that
+    // do not implement it (the brass bell is a known crash). Probe only where
+    // the story exposes the matching light-source attribute.
+    if (text_equal(verb, "rub") || text_equal(verb, "touch"))
+        return (state->attributes & (1u << ATTR_LIGHT)) != 0;
+    return true;
+}
+
+static bool action_state_prevalidated(unsigned game, unsigned id,
+                                      const ActionStateSnapshot *state, Action action) {
+    (void)game;
+    (void)id;
+    return vertical_route_action_prevalidated(state, action);
 }
 
 static bool list_has_verb(const Action *list, unsigned count, const char *verb) {
     for (unsigned i = 0; i < count; i++)
         if (list[i].verb && text_equal(list[i].verb, verb)) return true;
+    return false;
+}
+
+static bool list_has_probe_verb(const Action *list, unsigned count, const char *verb) {
+    if (list_has_verb(list, count, verb)) return true;
+    if (text_equal(verb, "light")) return list_has_verb(list, count, "turn on");
+    if (text_equal(verb, "extinguish")) return list_has_verb(list, count, "turn off");
     return false;
 }
 
@@ -674,13 +914,16 @@ static bool resolve_probe_candidate(Action action, unsigned id, const char *noun
         reply_says_climb_direction_fails(reply, true)) return false;
     if (action.verb && text_equal(action.verb, "climb down") &&
         reply_says_climb_direction_fails(reply, false)) return false;
+    if (is_vertical_route_action(action) && reply_blocks_vertical_route(reply)) return false;
     return resolved && reply[0] && !reply_disallows_action(action, reply) &&
            !action_reply_is_no_effect(reply);
 }
 
-static unsigned story_filter_defaults_internal(unsigned id, Action list[MAX_ACTIONS], unsigned count,
+static unsigned story_filter_defaults_internal(unsigned game, unsigned id, bool carried,
+                                               Action list[MAX_ACTIONS], unsigned count,
                                                bool use_mask, uint32_t verb_mask,
                                                unsigned probe_budget) {
+    ActionStateSnapshot state = capture_action_state(game, id, carried);
     unsigned old_probe_budget = action_menu_probe_budget;
     action_menu_probe_budget = probe_budget;
     bool has_menu = count && list[count - 1].kind == SHOW_CATEGORIES;
@@ -717,7 +960,17 @@ static unsigned story_filter_defaults_internal(unsigned id, Action list[MAX_ACTI
             kept_count++;
             continue;
         }
-        if (action.kind == DO_OBJECT) {
+        if (action.verb && !probe_verb_allowed(game, id, &state, action.verb)) continue;
+        if (action_state_prevalidated(game, id, &state, action)) {
+            // The menu suggestion is derived from this exact story state, so
+            // don't execute a state-changing probe just to rediscover it.
+            kept[kept_count] = action;
+            norm[kept_count][0] = 0;
+            nouns[kept_count][0] = 0;
+            signatures[kept_count] = (ActionReplySignature){0};
+            kept_count++;
+            continue;
+        } else if (action.kind == DO_OBJECT) {
             accepted = noun_hint[0] && probe_action_form(action, NULL, noun_hint, reply);
             if (accepted) append_text(noun, sizeof(noun), noun_hint);
             else if (noun_hint[0] && reply_allows_noun_fallback(reply))
@@ -728,6 +981,8 @@ static unsigned story_filter_defaults_internal(unsigned id, Action list[MAX_ACTI
         } else if (action.kind == DO_LITERAL) {
             accepted = probe_action_form(action, NULL, NULL, reply);
             if (accepted && reply_disallows_action(action, reply)) accepted = false;
+            if (accepted && is_vertical_route_action(action) && reply_blocks_vertical_route(reply))
+                accepted = false;
         }
         if (!accepted) continue;
         kept[kept_count] = action;
@@ -742,12 +997,12 @@ static unsigned story_filter_defaults_internal(unsigned id, Action list[MAX_ACTI
     for (unsigned i = 0; i < sizeof(probe_verbs) / sizeof(probe_verbs[0]); i++) {
         if (use_mask && !(verb_mask & (1u << i))) continue;
         if (kept_count >= MAX_ACTIONS - 2) break; // Reserve the final slot for the menu.
-        if (list_has_verb(kept, kept_count, probe_verbs[i].verb)) continue;
+        if (list_has_probe_verb(kept, kept_count, probe_verbs[i].verb)) continue;
         // A directional climb already chosen for this object covers the generic verb.
         if (text_equal(probe_verbs[i].verb, "climb") &&
             (list_has_verb(kept, kept_count, "climb up") || list_has_verb(kept, kept_count, "climb down") ||
              list_has_verb(kept, kept_count, "up") || list_has_verb(kept, kept_count, "down"))) continue;
-        if (!probe_verb_allowed(probe_verbs[i].verb, id)) continue;
+        if (!probe_verb_allowed(game, id, &state, probe_verbs[i].verb)) continue;
         Action action = {probe_verbs[i].label, probe_verbs[i].verb, NULL, DO_OBJECT};
         char noun[Z_NAME_MAX], reply[ACTION_REPLY_SIZE];
         if (!resolve_probe_candidate(action, id, noun_hint, noun, reply)) continue;
@@ -818,17 +1073,684 @@ static unsigned story_filter_defaults_internal(unsigned id, Action list[MAX_ACTI
 }
 
 unsigned story_filter_defaults(unsigned id, Action list[MAX_ACTIONS], unsigned count) {
-    return story_filter_defaults_internal(id, list, count, false, UINT32_MAX,
+    bool carried = list_has_verb(list, count, "drop");
+    return story_filter_defaults_internal(3, id, carried, list, count, false, UINT32_MAX,
                                           ACTION_REFERENCE_PROBE_BUDGET);
 }
 
 unsigned story_filter_defaults_masked(unsigned game, unsigned id,
-                                      Action list[MAX_ACTIONS], unsigned count) {
-    uint32_t verbs = game < 3 ? find_action_candidate_mask(game, id) : 0;
-    return story_filter_defaults_internal(id, list, count, true, verbs,
+                                      bool carried, Action list[MAX_ACTIONS], unsigned count) {
+    uint32_t verbs = game < 3 ? find_action_candidate_mask(game, id, carried) : UINT32_MAX;
+    return story_filter_defaults_internal(game, id, carried, list, count, true, verbs,
                                           STORY_MENU_PROBE_BUDGET);
 }
 
+// ---------------------------------------------------------------------------
+// Incremental primary-menu filter
+// ---------------------------------------------------------------------------
+// The static list is shown immediately. Availability is then checked one
+// candidate at a time, and the effect-based duplicate collapse runs one effect
+// probe at a time, so the UI renders and accepts input between probes. The
+// working set lives in IWRAM; see MENU_FILTER_SECTION.
+
+enum { MENU_FILTER_PROBES = 32, MENU_FILTER_CANDIDATES = MAX_ACTIONS + MENU_FILTER_PROBES };
+_Static_assert(sizeof(probe_verbs) / sizeof(probe_verbs[0]) == MENU_FILTER_PROBES,
+               "update MENU_FILTER_PROBES when adding probe verbs");
+
+// Resumable availability probe for one menu candidate. The z-machine probe is
+// sliced across frames; this struct records where noun resolution left off.
+enum { CAND_START, CAND_ISSUE, CAND_FINISH };
+enum { RES_NONE, RES_HINT, RES_FULL, RES_SHORT_WORD, RES_SHORT_PAIR, RES_LITERAL };
+
+typedef struct {
+    bool active, probe_in_flight, action_done, normalize, normalize_started, hash_pending, restore_pending;
+    bool answered, resolved, accepted;
+    bool examine, literal, probe_verb;
+    unsigned stage, resolution, index;
+    Action action;
+    char full[Z_NAME_MAX], noun[Z_NAME_MAX], short_word[Z_NAME_MAX];
+    char reply[ACTION_REPLY_SIZE];
+    unsigned starts[MAX_NOUN_WORDS], lengths[MAX_NOUN_WORDS], words, word_index;
+    ZProbeEffect effect;
+} CandidateJob;
+
+typedef struct {
+    bool active, probe_in_flight, action_done, normalize_started, hash_pending, restore_pending;
+    unsigned accepted;
+    char line[COMMAND_SIZE], reply[ACTION_REPLY_SIZE];
+    ActionReplySignature expected;
+    ZProbeEffect effect;
+} EffectJob;
+
+typedef struct {
+    bool active, done;
+    bool carried, has_menu;
+    unsigned chapter, id;
+    ActionStateSnapshot state;
+    unsigned static_count, probe_count, candidate_count, cursor;
+    unsigned accepted_count, result_count;
+    unsigned collapse_cursor, collapse_j, collapse_out;
+    Action static_actions[MAX_ACTIONS];
+    uint8_t probe_indices[MENU_FILTER_PROBES];
+    uint8_t accepted_indices[MAX_ACTIONS];
+    char accepted_nouns[MAX_ACTIONS][Z_NAME_MAX];
+    ActionReplySignature accepted_sig[MAX_ACTIONS];
+    bool accepted_groupable[MAX_ACTIONS];
+    bool accepted_flags[MENU_FILTER_CANDIDATES];
+    char noun_hint[Z_NAME_MAX];
+    uint8_t out_accepted[MAX_ACTIONS];
+    ZProbeEffect effects[MAX_ACTIONS];
+    bool effect_valid[MAX_ACTIONS];
+    bool attempted[MAX_ACTIONS], valid[MAX_ACTIONS];
+    Action result[MAX_ACTIONS];
+    CandidateJob job;
+    EffectJob effect_job;
+} MenuFilter;
+
+// The filter state is large and hot; keep it in the GBA's internal RAM, away
+// from the crowded EWRAM. The host tests have no such section.
+#if defined(__arm__) && !defined(__aarch64__)
+#define MENU_FILTER_SECTION __attribute__((section(".iwram")))
+#else
+#define MENU_FILTER_SECTION
+#endif
+static MenuFilter menu_filter MENU_FILTER_SECTION;
+
+static Action filter_candidate(unsigned index) {
+    if (index < menu_filter.static_count) return menu_filter.static_actions[index];
+    unsigned probe = menu_filter.probe_indices[index - menu_filter.static_count];
+    Action action = {probe_verbs[probe].label, probe_verbs[probe].verb, NULL, DO_OBJECT};
+    return action;
+}
+
+static bool filter_accepted_verb(const char *verb) {
+    for (unsigned i = 0; i < menu_filter.accepted_count; i++) {
+        Action action = filter_candidate(menu_filter.accepted_indices[i]);
+        if (action.verb && text_equal(action.verb, verb)) return true;
+    }
+    return false;
+}
+
+static bool filter_groupable(const char *reply, ActionReplySignature signature) {
+    char norm[48];
+    if (!signature.valid) return false;
+    action_reply_normalized(reply, norm, sizeof(norm));
+    return norm[0] && !text_has(norm, "you can't see any") &&
+           !text_has(norm, "you're not at") && !text_has(norm, "there is no ");
+}
+
+// Does this reply duplicate an action already accepted in this menu? If so,
+// the availability probe runs the normalization pass and captures the effect,
+// so the duplicate collapse can compare hashes without replaying the command.
+static bool filter_reply_needs_effect(const char *reply) {
+    ActionReplySignature signature = {0};
+    if (parser_rejected(reply) || !action_reply_signature(reply, &signature)) return false;
+    if (!filter_groupable(reply, signature)) return false;
+    for (unsigned i = 0; i < menu_filter.accepted_count; i++) {
+        if (menu_filter.accepted_groupable[i] &&
+            action_reply_signatures_match(menu_filter.accepted_sig[i], signature))
+            return true;
+    }
+    return false;
+}
+
+static void filter_take(unsigned index, const char *noun, const char *reply) {
+    unsigned limit = menu_filter.has_menu ? MAX_ACTIONS - 2 : MAX_ACTIONS - 1;
+    if (menu_filter.accepted_count >= limit) return;
+    ActionReplySignature signature = {0};
+    bool groupable = false;
+    if (reply && reply[0]) {
+        action_reply_signature(reply, &signature);
+        groupable = filter_groupable(reply, signature);
+    }
+    unsigned accepted = menu_filter.accepted_count;
+    menu_filter.accepted_indices[accepted] = (uint8_t)index;
+    if (noun) append_text(menu_filter.accepted_nouns[accepted], Z_NAME_MAX, noun);
+    menu_filter.accepted_sig[accepted] = signature;
+    menu_filter.accepted_groupable[accepted] = groupable;
+    menu_filter.effect_valid[accepted] = action_probe_effect_valid;
+    if (action_probe_effect_valid) menu_filter.effects[accepted] = action_probe_effect;
+    menu_filter.accepted_count++;
+    menu_filter.accepted_flags[index] = true;
+}
+
+static bool menu_probe_take_budget(void) {
+    if (!action_menu_probe_limited) return true;
+    if (!action_menu_probes_remaining) return false;
+    action_menu_probes_remaining--;
+    action_menu_probes_used_count++;
+    return true;
+}
+
+static unsigned tokenize_noun(const char *text, unsigned starts[], unsigned lengths[]) {
+    unsigned words = 0;
+    for (unsigned i = 0; text[i] && words < MAX_NOUN_WORDS;) {
+        while (text[i] == ' ') i++;
+        if (!text[i]) break;
+        starts[words] = i;
+        while (text[i] && text[i] != ' ') i++;
+        lengths[words] = i - starts[words];
+        words++;
+    }
+    return words;
+}
+
+static bool candidate_finish(void) {
+    CandidateJob *j = &menu_filter.job;
+    if (j->examine && j->resolved && !menu_filter.noun_hint[0])
+        append_text(menu_filter.noun_hint, sizeof(menu_filter.noun_hint), j->noun);
+    if (j->accepted) filter_take(j->index, j->noun, j->resolved ? j->reply : NULL);
+    j->active = false;
+    j->stage = CAND_FINISH;
+    return true;
+}
+
+static bool candidate_check(void) {
+    CandidateJob *j = &menu_filter.job;
+    j->accepted = true;
+    if (j->probe_verb) {
+        if (j->action.verb && text_equal(j->action.verb, "climb up") &&
+            reply_says_climb_direction_fails(j->reply, true)) j->accepted = false;
+        if (j->action.verb && text_equal(j->action.verb, "climb down") &&
+            reply_says_climb_direction_fails(j->reply, false)) j->accepted = false;
+        if (j->accepted && (reply_disallows_action(j->action, j->reply) ||
+                            action_reply_is_no_effect(j->reply))) j->accepted = false;
+    } else if (j->literal) {
+        if (reply_disallows_action(j->action, j->reply)) j->accepted = false;
+        if (j->accepted && is_vertical_route_action(j->action) &&
+            reply_blocks_vertical_route(j->reply)) j->accepted = false;
+    } else if (!j->examine) {
+        if (reply_disallows_action(j->action, j->reply) ||
+            action_reply_is_no_effect(j->reply)) j->accepted = false;
+    }
+    j->stage = CAND_FINISH;
+    return candidate_finish();
+}
+
+static bool candidate_unresolved(void) {
+    CandidateJob *j = &menu_filter.job;
+    if (j->examine) {
+        // Examine is always offered; without a resolved noun it keeps no reply.
+        j->accepted = true;
+        j->resolved = false;
+        j->noun[0] = 0;
+    } else j->accepted = false;
+    j->stage = CAND_FINISH;
+    return candidate_finish();
+}
+
+static bool candidate_short_init(const char *base) {
+    CandidateJob *j = &menu_filter.job;
+    if (base != j->full) {
+        j->full[0] = 0;
+        append_text(j->full, Z_NAME_MAX, base);
+    }
+    j->words = tokenize_noun(j->full, j->starts, j->lengths);
+    if (j->words < 2) return candidate_unresolved();
+    j->word_index = 0;
+    j->resolution = RES_SHORT_WORD;
+    copy_noun_words(j->full, 0, 1, j->starts, j->lengths, j->short_word);
+    j->stage = CAND_ISSUE;
+    return false;
+}
+
+static bool candidate_resolution_failed(void) {
+    CandidateJob *j = &menu_filter.job;
+    if (j->resolution == RES_HINT || j->resolution == RES_FULL) {
+        if (reply_allows_noun_fallback(j->reply))
+            return candidate_short_init(j->resolution == RES_HINT ? menu_filter.noun_hint : j->full);
+        return candidate_unresolved();
+    }
+    if (j->resolution == RES_SHORT_WORD) {
+        if (!reply_allows_noun_fallback(j->reply)) return candidate_unresolved();
+        j->word_index++;
+        if (j->word_index < j->words) {
+            copy_noun_words(j->full, j->word_index, 1, j->starts, j->lengths, j->short_word);
+            j->stage = CAND_ISSUE;
+            return false;
+        }
+        if (j->words > 2) {
+            copy_noun_words(j->full, j->words - 2, 2, j->starts, j->lengths, j->short_word);
+            j->resolution = RES_SHORT_PAIR;
+            j->stage = CAND_ISSUE;
+            return false;
+        }
+        return candidate_unresolved();
+    }
+    if (j->resolution == RES_SHORT_PAIR) return candidate_unresolved();
+    if (j->resolution == RES_LITERAL) {
+        j->accepted = false;
+        j->stage = CAND_FINISH;
+        return candidate_finish();
+    }
+    return candidate_unresolved();
+}
+
+static bool candidate_handle_result(bool answered) {
+    CandidateJob *j = &menu_filter.job;
+    j->answered = answered;
+    if (!answered) return candidate_resolution_failed();
+    bool noun_supplied = j->resolution != RES_LITERAL;
+    if (parser_rejected(j->reply) ||
+        (noun_supplied && reply_has_no_matching_target(j->reply)))
+        return candidate_resolution_failed();
+    if (j->resolution == RES_LITERAL) {
+        j->resolved = true;
+    } else {
+        const char *used = j->resolution == RES_HINT ? menu_filter.noun_hint :
+                           j->resolution == RES_FULL ? j->full : j->short_word;
+        j->noun[0] = 0;
+        append_text(j->noun, Z_NAME_MAX, used);
+        j->resolved = true;
+    }
+    return candidate_check();
+}
+
+static bool candidate_issue(void) {
+    CandidateJob *j = &menu_filter.job;
+    const char *noun = NULL;
+    switch (j->resolution) {
+        case RES_HINT: noun = menu_filter.noun_hint; break;
+        case RES_FULL: noun = j->full; break;
+        case RES_SHORT_WORD:
+        case RES_SHORT_PAIR: noun = j->short_word; break;
+        case RES_LITERAL: noun = NULL; break;
+        default: return candidate_unresolved();
+    }
+    char line[COMMAND_SIZE];
+    if (!raw_action_command(j->action, noun, NULL, line)) return candidate_unresolved();
+    if (!menu_probe_take_budget()) return candidate_unresolved();
+    ZProbeStep step = z_probe_menu_begin(line, j->reply, sizeof(j->reply),
+                                        action_menu_probe_budget, STORY_MENU_PROBE_CHUNK);
+    j->probe_in_flight = true;
+    j->action_done = false;
+    j->normalize = false;
+    j->normalize_started = false;
+    action_probe_effect_valid = false;
+    if (step == Z_PROBE_BUSY) return false;
+    if (step == Z_PROBE_FAILED) {
+        bool answered = z_probe_menu_complete(NULL);
+        j->probe_in_flight = false;
+        return candidate_handle_result(answered);
+    }
+    // The action finished inside this chunk; decide whether it duplicates an
+    // accepted reply and, if so, start the normalization on the next step.
+    j->action_done = true;
+    j->normalize = filter_reply_needs_effect(j->reply);
+    if (!j->normalize) {
+        bool answered = z_probe_menu_complete(NULL);
+        j->probe_in_flight = false;
+        return candidate_handle_result(answered);
+    }
+    return false;
+}
+
+static void candidate_start(unsigned index) {
+    CandidateJob *j = &menu_filter.job;
+    *j = (CandidateJob){0};
+    j->active = true;
+    j->index = index;
+    j->stage = CAND_START;
+    action_probe_effect_valid = false;
+    if (index < menu_filter.static_count) {
+        j->action = menu_filter.static_actions[index];
+        j->examine = j->action.verb && text_equal(j->action.verb, "examine");
+        j->literal = j->action.kind == DO_LITERAL;
+        if (j->action.verb && !probe_verb_allowed(menu_filter.chapter, menu_filter.id,
+                                                   &menu_filter.state, j->action.verb)) {
+            j->accepted = false;
+            j->stage = CAND_FINISH;
+            return;
+        }
+        if (action_state_prevalidated(menu_filter.chapter, menu_filter.id,
+                                      &menu_filter.state, j->action)) {
+            j->accepted = true;
+            j->stage = CAND_FINISH;
+            return;
+        }
+        if (j->examine) {
+            story_parser_noun(menu_filter.id, j->full);
+            if (!j->full[0]) {
+                j->accepted = true;
+                j->resolved = false;
+                j->stage = CAND_FINISH;
+            } else j->resolution = RES_FULL;
+        } else if (j->action.kind == DO_OBJECT) {
+            if (menu_filter.noun_hint[0]) j->resolution = RES_HINT;
+            else {
+                story_parser_noun(menu_filter.id, j->full);
+                if (!j->full[0]) {
+                    j->accepted = false;
+                    j->stage = CAND_FINISH;
+                } else j->resolution = RES_FULL;
+            }
+        } else if (j->literal) {
+            j->resolution = RES_LITERAL;
+        } else {
+            j->accepted = true;
+            j->stage = CAND_FINISH;
+        }
+    } else {
+        unsigned probe = menu_filter.probe_indices[index - menu_filter.static_count];
+        j->action = (Action){probe_verbs[probe].label, probe_verbs[probe].verb, NULL, DO_OBJECT};
+        j->probe_verb = true;
+        if (menu_filter.noun_hint[0]) j->resolution = RES_HINT;
+        else {
+            story_parser_noun(menu_filter.id, j->full);
+            if (!j->full[0]) {
+                j->accepted = false;
+                j->stage = CAND_FINISH;
+            } else j->resolution = RES_FULL;
+        }
+    }
+    if (j->stage != CAND_FINISH) j->stage = CAND_ISSUE;
+}
+
+static bool filter_probe_skipped(unsigned index) {
+    const char *verb = probe_verbs[menu_filter.probe_indices[index - menu_filter.static_count]].verb;
+    if (filter_accepted_verb(verb) ||
+        (text_equal(verb, "light") && filter_accepted_verb("turn on")) ||
+        (text_equal(verb, "extinguish") && filter_accepted_verb("turn off"))) return true;
+    if (text_equal(verb, "climb") &&
+        (filter_accepted_verb("climb up") || filter_accepted_verb("climb down") ||
+         filter_accepted_verb("up") || filter_accepted_verb("down"))) return true;
+    return !probe_verb_allowed(menu_filter.chapter, menu_filter.id, &menu_filter.state, verb);
+}
+
+static bool filter_job_step(void) {
+    CandidateJob *j = &menu_filter.job;
+    if (!j->active) return true;
+    if (j->hash_pending) {
+        z_probe_menu_hash(&j->effect);
+        j->hash_pending = false;
+        j->restore_pending = true;
+        return false;
+    }
+    if (j->restore_pending) {
+        bool answered = z_probe_menu_complete(&j->effect);
+        j->restore_pending = false;
+        j->probe_in_flight = false;
+        action_probe_effect = j->effect;
+        action_probe_effect_valid = answered && j->effect.valid;
+        return candidate_handle_result(answered);
+    }
+    if (j->stage == CAND_FINISH) return candidate_finish();
+    if (!j->probe_in_flight) {
+        if (j->stage == CAND_ISSUE) return candidate_issue();
+        return candidate_finish();
+    }
+    if (!j->action_done) {
+        ZProbeStep step = z_probe_menu_continue(STORY_MENU_PROBE_CHUNK);
+        if (step == Z_PROBE_BUSY) return false;
+        if (step == Z_PROBE_FAILED) {
+            bool answered = z_probe_menu_complete(NULL);
+            j->probe_in_flight = false;
+            return candidate_handle_result(answered);
+        }
+        j->action_done = true;
+        j->normalize = filter_reply_needs_effect(j->reply);
+        if (!j->normalize) {
+            bool answered = z_probe_menu_complete(NULL);
+            j->probe_in_flight = false;
+            return candidate_handle_result(answered);
+        }
+        return false;
+    }
+    if (!j->normalize_started) {
+        ZProbeStep step = z_probe_menu_normalize(STORY_MENU_PROBE_CHUNK);
+        j->normalize_started = true;
+        if (step == Z_PROBE_BUSY) return false;
+        j->hash_pending = true;
+        return false;
+    }
+    ZProbeStep step = z_probe_menu_continue(STORY_MENU_PROBE_CHUNK);
+    if (step == Z_PROBE_BUSY) return false;
+    j->hash_pending = true;
+    return false;
+}
+
+static bool effect_replay_start(unsigned accepted) {
+    EffectJob *e = &menu_filter.effect_job;
+    if (e->active) return true;
+    if (!menu_filter.accepted_sig[accepted].valid) return false;
+    Action action = filter_candidate(menu_filter.accepted_indices[accepted]);
+    char line[COMMAND_SIZE];
+    if (!raw_action_command(action, menu_filter.accepted_nouns[accepted], NULL, line)) return false;
+    if (action_menu_probe_limited) {
+        if (!action_menu_effect_probes_remaining) return false;
+        action_menu_effect_probes_remaining--;
+        action_menu_effect_probes_used_count++;
+    }
+    *e = (EffectJob){0};
+    append_text(e->line, sizeof(e->line), line);
+    e->accepted = accepted;
+    e->expected = menu_filter.accepted_sig[accepted];
+    e->active = true;
+    ZProbeStep step = z_probe_menu_begin(e->line, e->reply, sizeof(e->reply),
+                                        action_menu_probe_budget, STORY_MENU_PROBE_CHUNK);
+    e->probe_in_flight = true;
+    if (step == Z_PROBE_FAILED) {
+        z_probe_menu_complete(NULL);
+        menu_filter.attempted[accepted] = true;
+        menu_filter.valid[accepted] = false;
+        e->active = false;
+        return true;
+    }
+    e->action_done = step == Z_PROBE_DONE;
+    return true;
+}
+
+static bool effect_replay_finish(void) {
+    EffectJob *e = &menu_filter.effect_job;
+    bool answered = z_probe_menu_complete(&e->effect);
+    ActionReplySignature observed = {0};
+    bool valid = answered && e->effect.valid &&
+                 action_reply_signature(e->reply, &observed) &&
+                 action_reply_signatures_match(e->expected, observed);
+    menu_filter.attempted[e->accepted] = true;
+    menu_filter.valid[e->accepted] = valid;
+    if (valid) menu_filter.effects[e->accepted] = e->effect;
+    e->active = false;
+    return true;
+}
+
+// One frame of the effect replay. Returns false while the probe is still
+// running; true when the replay (or its failure) has been recorded.
+static bool effect_replay_step(void) {
+    EffectJob *e = &menu_filter.effect_job;
+    if (!e->active) return true;
+    if (e->hash_pending) {
+        z_probe_menu_hash(&e->effect);
+        e->hash_pending = false;
+        e->restore_pending = true;
+        return false;
+    }
+    if (e->restore_pending) {
+        e->restore_pending = false;
+        return effect_replay_finish();
+    }
+    if (!e->action_done) {
+        ZProbeStep step = z_probe_menu_continue(STORY_MENU_PROBE_CHUNK);
+        if (step == Z_PROBE_BUSY) return false;
+        if (step == Z_PROBE_FAILED) {
+            z_probe_menu_complete(NULL);
+            menu_filter.attempted[e->accepted] = true;
+            menu_filter.valid[e->accepted] = false;
+            e->active = false;
+            return true;
+        }
+        e->action_done = true;
+    }
+    if (!e->normalize_started) {
+        ZProbeStep step = z_probe_menu_normalize(STORY_MENU_PROBE_CHUNK);
+        e->normalize_started = true;
+        if (step == Z_PROBE_BUSY) return false;
+    } else {
+        ZProbeStep step = z_probe_menu_continue(STORY_MENU_PROBE_CHUNK);
+        if (step == Z_PROBE_BUSY) return false;
+    }
+    e->hash_pending = true;
+    return false;
+}
+
+// One step of the reference collapse: compare the current accepted action with
+// the actions already kept. If two groupable replies match, use the effect hash
+// captured by the availability probe; replay only when no hash was captured.
+// The replay itself is sliced across frames.
+static bool filter_collapse_step(void) {
+    if (menu_filter.effect_job.active) {
+        effect_replay_step();
+        return false;
+    }
+    while (menu_filter.collapse_cursor < menu_filter.accepted_count) {
+        unsigned a = menu_filter.collapse_cursor;
+        ActionReplySignature signature = menu_filter.accepted_sig[a];
+        bool groupable = menu_filter.accepted_groupable[a];
+        bool duplicate = false;
+        while (groupable && menu_filter.collapse_j < menu_filter.collapse_out) {
+            unsigned j = menu_filter.collapse_j;
+            unsigned other = menu_filter.out_accepted[j];
+            if (!menu_filter.accepted_groupable[other] ||
+                !action_reply_signatures_match(menu_filter.accepted_sig[other], signature)) {
+                menu_filter.collapse_j++;
+                continue;
+            }
+            if (!menu_filter.effect_valid[a] && !menu_filter.attempted[a]) {
+                if (!effect_replay_start(a)) {
+                    menu_filter.attempted[a] = true;
+                    menu_filter.valid[a] = false;
+                } else return false;
+            }
+            if (!menu_filter.effect_valid[other] && !menu_filter.attempted[other]) {
+                if (!effect_replay_start(other)) {
+                    menu_filter.attempted[other] = true;
+                    menu_filter.valid[other] = false;
+                } else return false;
+            }
+            bool a_effect = menu_filter.effect_valid[a] || menu_filter.valid[a];
+            bool other_effect = menu_filter.effect_valid[other] || menu_filter.valid[other];
+            if (a_effect && other_effect &&
+                menu_filter.effects[a].first == menu_filter.effects[other].first &&
+                menu_filter.effects[a].second == menu_filter.effects[other].second) {
+                duplicate = true;
+                break;
+            }
+            menu_filter.collapse_j++;
+        }
+        if (!duplicate)
+            menu_filter.out_accepted[menu_filter.collapse_out++] = (uint8_t)a;
+        menu_filter.collapse_cursor++;
+        menu_filter.collapse_j = 0;
+    }
+
+    menu_filter.result_count = 0;
+    for (unsigned i = 0; i < menu_filter.collapse_out; i++)
+        menu_filter.result[menu_filter.result_count++] =
+            filter_candidate(menu_filter.accepted_indices[menu_filter.out_accepted[i]]);
+    if (menu_filter.has_menu && menu_filter.result_count < MAX_ACTIONS)
+        menu_filter.result[menu_filter.result_count++] = (Action)MENU("More actions...", SHOW_CATEGORIES);
+    return true;
+}
+
+bool story_menu_filter_begin(unsigned chapter, unsigned id, bool carried,
+                             Action list[MAX_ACTIONS], unsigned count) {
+    if (menu_filter.active) story_menu_filter_cancel();
+    z_probe_menu_abort();
+    menu_filter = (MenuFilter){0};
+    menu_filter.chapter = chapter;
+    menu_filter.id = id;
+    menu_filter.carried = carried;
+    menu_filter.state = capture_action_state(chapter, id, carried);
+
+    menu_filter.has_menu = count && list[count - 1].kind == SHOW_CATEGORIES;
+    if (menu_filter.has_menu) count--;
+    if (count > MAX_ACTIONS) count = MAX_ACTIONS;
+    for (unsigned i = 0; i < count; i++) menu_filter.static_actions[i] = list[i];
+    menu_filter.static_count = count;
+
+    uint32_t mask = chapter < 3 ? find_action_candidate_mask(chapter, id, carried) : UINT32_MAX;
+    for (unsigned i = 0; i < MENU_FILTER_PROBES; i++) {
+        if (!(mask & (1u << i))) continue;
+        if (!probe_verb_allowed(chapter, id, &menu_filter.state, probe_verbs[i].verb)) continue;
+        menu_filter.probe_indices[menu_filter.probe_count++] = (uint8_t)i;
+    }
+    menu_filter.candidate_count = menu_filter.static_count + menu_filter.probe_count;
+    menu_filter.active = true;
+    story_menu_probe_begin();
+    story_menu_probe_set_budget(STORY_MENU_PROBE_BUDGET);
+#ifdef PROFILE
+    z_profile_tokenize_ticks = 0;
+    z_profile_hash_ticks = 0;
+    z_profile_restore_ticks = 0;
+#endif
+#ifdef PROFILE_TRACE
+    z_profile_slow_pc = z_profile_slow_ticks = 0;
+    z_profile_slow_opcode = 0;
+#endif
+    return true;
+}
+
+bool story_menu_filter_active(void) { return menu_filter.active; }
+
+bool story_menu_filter_step(void) {
+    if (!menu_filter.active) return true;
+    if (menu_filter.cursor < menu_filter.candidate_count || menu_filter.job.active) {
+        CandidateJob *j = &menu_filter.job;
+        if (!j->active) {
+            unsigned index = menu_filter.cursor;
+            if (index >= menu_filter.static_count && filter_probe_skipped(index)) {
+                menu_filter.cursor++;
+                return false;
+            }
+            candidate_start(index);
+            menu_filter.cursor++;
+        }
+        if (filter_job_step()) j->active = false;
+        return false;
+    }
+    if (!filter_collapse_step()) return false;
+    menu_filter.done = true;
+    menu_filter.active = false;
+    story_menu_probe_end();
+    return true;
+}
+
+unsigned story_menu_filter_display(Action list[MAX_ACTIONS], unsigned capacity) {
+    if (!capacity) return 0;
+    if (menu_filter.done) {
+        unsigned n = menu_filter.result_count < capacity ? menu_filter.result_count : capacity;
+        for (unsigned i = 0; i < n; i++) list[i] = menu_filter.result[i];
+        return n;
+    }
+    unsigned n = 0;
+    unsigned limit = menu_filter.has_menu && capacity ? capacity - 1 : capacity;
+    // Unprocessed static candidates stay visible until their probe returns.
+    for (unsigned i = 0; i < menu_filter.static_count && n < limit; i++) {
+        Action action = menu_filter.static_actions[i];
+        if (action.verb && !probe_verb_allowed(menu_filter.chapter, menu_filter.id,
+                                               &menu_filter.state, action.verb))
+            continue;
+        bool in_flight = menu_filter.job.active && menu_filter.job.index == i;
+        if (menu_filter.accepted_flags[i] || in_flight || i >= menu_filter.cursor)
+            list[n++] = action;
+    }
+    for (unsigned i = 0; i < menu_filter.probe_count && n < limit; i++) {
+        unsigned index = menu_filter.static_count + i;
+        if (index < menu_filter.cursor && menu_filter.accepted_flags[index])
+            list[n++] = filter_candidate(index);
+    }
+    if (menu_filter.has_menu && n < capacity)
+        list[n++] = (Action)MENU("More actions...", SHOW_CATEGORIES);
+    return n;
+}
+
+void story_menu_filter_cancel(void) {
+    if (!menu_filter.active) return;
+    z_probe_menu_abort();
+    story_menu_probe_end();
+    menu_filter.active = false;
+    menu_filter.done = false;
+}
 bool action_command(Action action, unsigned object, const char *value, char line[COMMAND_SIZE]) {
     char noun[Z_NAME_MAX];
     if (!action_needs_object_noun(action)) return raw_action_command(action, NULL, value, line);
@@ -840,12 +1762,15 @@ bool action_command(Action action, unsigned object, const char *value, char line
     return raw_action_command(action, noun, value, line);
 }
 
-bool speech_command(unsigned mode, const char *phrase, char line[COMMAND_SIZE]) {
-    static const char *const prefix[] = {"say \"", "answer \"", "", "hello "};
+bool speech_command(WordMode mode, const char *phrase, char line[COMMAND_SIZE]) {
+    static const char *const prefix[] = {
+        [WORDS_SAY] = "say \"", [WORDS_ANSWER] = "answer \"",
+        [WORDS_COMMAND] = "", [WORDS_GREET] = "hello "
+    };
     line[0] = 0;
     return mode < sizeof(prefix) / sizeof(prefix[0]) && *phrase &&
            append_text(line, COMMAND_SIZE, prefix[mode]) && append_text(line, COMMAND_SIZE, phrase) &&
-           (mode >= 2 || append_text(line, COMMAND_SIZE, "\""));
+           ((mode != WORDS_SAY && mode != WORDS_ANSWER) || append_text(line, COMMAND_SIZE, "\""));
 }
 
 void speech_word(unsigned index, char word[Z_WORD_MAX]) {
