@@ -2980,15 +2980,17 @@ static void draw_puzzle_floor_items(const Targets *targets, unsigned focused) {
 static void draw_puzzle_directions(unsigned focused) {
     static const unsigned ids[] = {TARGET_NORTH_WALL, TARGET_EAST_WALL,
                                    TARGET_SOUTH_WALL, TARGET_WEST_WALL};
-    static const int x[] = {44, 63, 44, 25};
-    static const int y[] = {21, 40, 59, 40};
+    static const int dx[] = {0, 19, 0, -19};
+    static const int dy[] = {-19, 0, 19, 0};
     static const char *const labels[] = {"N", "E", "S", "W"};
-    box(20, 19, 68, 54, RGB(32, 45, 41), EDGE);
-    box(45, 41, 18, 12, RGB(51, 69, 60), RGB(103, 128, 107));
-    label(51, 44, "?", CREAM);
+    const int center_x = 54, center_y = 46;
+    box(center_x - 34, center_y - 27, 69, 55, RGB(32, 45, 41), EDGE);
+    box(center_x - 9, center_y - 6, 19, 13, RGB(51, 69, 60), RGB(103, 128, 107));
+    label(center_x - label_width("?") / 2, center_y - 3, "?", CREAM);
     for (unsigned i = 0; i < 4; i++) {
-        label(x[i], y[i], labels[i], focused == ids[i] ? GOLD : TEAL);
-        if (focused == ids[i]) focus_feature_box(ids[i], x[i] - 3, y[i] - 3, 12, 12, 3);
+        int x = center_x + dx[i], y = center_y + dy[i];
+        label(x - label_width(labels[i]) / 2, y - 3, labels[i], focused == ids[i] ? GOLD : TEAL);
+        if (focused == ids[i]) focus_feature_box(ids[i], x - 5, y - 5, 11, 11, 3);
     }
 }
 
@@ -3028,11 +3030,14 @@ void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focu
     for (unsigned i = 0; i < 4; i++) {
         if (focused == walls[i]) selected = cells[i];
     }
-    label(76, 23, "N", TEAL);
-    fill(78, 32, 1, 7, TEAL);
-    fill(77, 33, 3, 1, TEAL);
-    fill(76, 34, 5, 1, TEAL);
-    label(104, 38, "Royal Puzzle", CREAM);
+    const int north_x = 76, legend_x = 166;
+    label(north_x, 23, "N", TEAL);
+    fill(north_x + 2, 32, 1, 7, TEAL);
+    fill(north_x + 1, 33, 3, 1, TEAL);
+    fill(north_x, 34, 5, 1, TEAL);
+    const char *heading = "Royal Puzzle";
+    int title_left = north_x + 5;
+    label(title_left + (legend_x - title_left - label_width(heading)) / 2, 38, heading, CREAM);
     for (unsigned i = 0; i < 9; i++) {
         int x = 14 + (i % 3) * 18, y = 19 + (i / 3) * 18;
         map_tile(x, y, 16, map->tiles[i]);
@@ -3042,8 +3047,8 @@ void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focu
     const char *const names[] = {"Marble", "Sandstone", "Open floor", "Unseen", "You"};
     for (unsigned i = 0; i < 5; i++) {
         int y = 21 + i * 10;
-        map_tile(166, y, 9, legend[i]);
-        label(180, y + 1, names[i], CREAM);
+        map_tile(legend_x, y, 9, legend[i]);
+        label(legend_x + 14, y + 1, names[i], CREAM);
     }
     draw_puzzle_special_targets(targets, focused);
     draw_puzzle_floor_items(targets, focused);

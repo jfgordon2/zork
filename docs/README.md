@@ -1,5 +1,6 @@
 # Project documentation
 
+- [Player guide](player-guide.md) covers paths, hints, the map, commands, and saves.
 - [audits/](audits/): the visual, story-consistency, and code reviews, newest findings last within each chapter.
 - [images/](images/): the preview screenshots and contact sheets those reports and the main README show.
 - [art-history/](art-history/): retired backgrounds and sprites, concept sheets, and encounter design notes. None of it is a build input.

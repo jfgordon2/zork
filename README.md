@@ -1,119 +1,50 @@
 # Zork Trilogy for Game Boy Advance
 
-[**Play Zork Trilogy**](https://github.com/jfgordon2/zork/releases/latest/download/zork-trilogy.gba) contains Infocom’s complete Zork I, II, and III stories on a single cartridge. Copy the ROM into your handheld’s GBA ROM folder or open it in mGBA. Choose a chapter and select **New game**.
+Play Infocom’s complete Zork I, II, and III on one GBA cartridge. The original story programs drive the puzzles, movement, and scoring, while the GBA interface adds illustrated rooms, selectable commands, and an exploration map.
+
+**[Download Zork Trilogy](https://github.com/jfgordon2/zork/releases/latest/download/zork-trilogy.gba)** · [White House demo](https://github.com/jfgordon2/zork/releases/latest/download/zork-white-house.gba) · [mGBA screenshot gallery](https://jfgordon2.github.io/zork/)
 
 ![The Dam, Gazebo, Lake Shore, and Royal Puzzle as displayed in mGBA](docs/images/visual-update.png)
 
-[Browse the interactive mGBA room and state gallery](https://jfgordon2.github.io/zork/)
-
-[Exploration map and Great Cavern screenshots](docs/images/exploration-preview.png)
-
-[Alternate routes and room art in mGBA](docs/images/alternate-preview.png)
-
-[Character encounters in mGBA](docs/images/encounter-preview.png)
-
-[Room items in mGBA](docs/images/item-preview.png) and [item art prompts](assets/items/README.md)
-
-All audit and review reports are indexed in [docs/](docs/README.md).
-
-[Zork I repeat audit](docs/audits/zork-i-re-audit.md) · [Updated Zork I scenes](docs/images/zork-i-followup-preview.png) · [Screen QA checklist](qa/screen-checklist.md)
-
-[Mine scenery, UI access, and save checks](docs/images/zork-i-mine-preview.png)
-
-[Scenery generation rules](assets/SCENERY_RULES.md)
-
-[Background asset wiring audit](docs/audits/background-asset-wiring-audit.md)
-
-[Zork II visual and QA audit](docs/audits/zork-ii-audit.md) · [Selected Zork II issues](docs/images/zork-ii-audit-preview.png) · [All 73 route scenes](docs/images/zork-ii-scene-review.png)
-
-[Zork II scenery update and re-audit](docs/audits/zork-ii-re-audit.md) · [Updated game screens](docs/images/zork-ii-updated-preview.png) · [Updated route scenes](docs/images/zork-ii-updated-scenes.png)
-
-[Zork II completed follow-ups and audit](docs/audits/zork-ii-completion-audit.md) · [Latest game screens](docs/images/zork-ii-completion-preview.png) · [Completed optional scenery](docs/images/zork-ii-completion-scenes.png)
-
-[Route-driven visual consistency and QA audit](docs/audits/visual-route-qa-audit.md) · [Zork III re-audit](docs/audits/zork-iii-re-audit.md) · [Initial Zork III audit](docs/audits/zork-iii-audit.md) · [Connected-scene consistency pass](docs/audits/zork-iii-consistency-pass.md) · [Current backgrounds](docs/images/zork-iii-connected-scenes.png) · [Connected in-game states](docs/images/zork-iii-connected-scene-states.png) · [72-room renderer review](docs/images/zork-iii-scene-review.png) · [Per-screen capture matrix](docs/audits/zork-iii-audit-screens.csv)
-
-[Asset / story consistency review](docs/audits/asset-story-consistency-audit.md) · [Follow-up full sweep](docs/audits/asset-story-consistency-audit-followup.md) · [Code review](docs/audits/code-review.md) · [Parser noun normalization](docs/audits/parser-noun-fix.md) · [Room and encounter placement across connected scenes](docs/art-history/encounter-options/encounter-routes.png)
-
-Compare two pixel-art designs for each encounter in [Zork I](docs/art-history/encounter-options/zork-i.png), [Zork II](docs/art-history/encounter-options/zork-ii.png), and [Zork III](docs/art-history/encounter-options/zork-iii.png). The boards include alternate poses for encounters that change during play.
-
-See all 21 encounters in the shared ImageGen style on the [Zork I lineup](docs/art-history/encounter-options/imagegen-lineup-i.png), [Zork II lineup](docs/art-history/encounter-options/imagegen-lineup-ii.png), and [Zork III lineup](docs/art-history/encounter-options/imagegen-lineup-iii.png).
-
-Compare the encounter style studies in [Zork I](docs/art-history/encounter-options/imagegen-zork-i.png), [Zork II](docs/art-history/encounter-options/imagegen-zork-ii.png), and [Zork III](docs/art-history/encounter-options/imagegen-zork-iii.png). See the [art brief and prompts](docs/art-history/encounter-options/art-brief.md) for the human proportions, shading rules, and sprite sizes.
+Open the ROM in mGBA or load it on a GBA flash cartridge. Choose a chapter, then select **New game** or **Continue saved game**. Use **Start → Save game** before quitting or switching chapters. Each chapter has its own save slot.
 
 ## Controls
 
-| GBA input | In a room | In a menu |
+| Button | In a room | In a menu |
 | --- | --- | --- |
-| Up | Open **Paths**. | Select an entry. |
-| Left / Right | Read the previous or next page of the current response. | Move the cursor in grid and picker screens. |
-| Down | — | Select an entry. |
+| Up | Open **Paths**. | Move up. |
+| Down | | Move down. |
+| Left / Right | Read the previous or next page of the current response. | Move through grids and pickers. |
 | L / R | Cycle through nearby objects and **Room actions**. | Page through long lists. |
 | A | Open actions for the selected object or room. | Confirm. |
-| B | Look around. | Back. |
-| Select | Open the bag and act on carried objects. | |
-| Start | Open the pause menu for saves, the map, controls, and the last story response. | Resume from pause. |
+| B | Look around. | Go back. |
+| Select | Open your bag. | |
+| Start | Open the pause menu. | Resume from pause. |
 
-Press **Up** in a room to open **Paths**. Use the D-pad to choose a direction and **A** to try it. Paths lists possible exits represented by the current room, among north, east, south, west, the four diagonals, up, down, in, and out. The same exits stay visible in the top bar during exploration, including in dark rooms; compact right triangles point toward the four diagonal exits, while **U**, **D**, **I**, and **O** stand for up, down, in, and out. Paths spells out diagonal names. Teal marks a known route back to the room you just left; if that exit is conditional, it keeps its dim text and gets a teal underline. Other conditional routes appear dimmed. In Zork III's Royal Puzzle, a surveyed map hides compass moves blocked by the maze walls. Zork II's Oddly-angled Rooms list every direction because the story reorients their passages; the Carousel also offers its randomized **In** and **Out** moves. Some listed routes depend on story conditions, so the story may still block one until its condition is met. You can also open Paths through **Room actions**. Choose **Room actions → Nearby objects** to see the room's objects in one list. **More actions** groups ways to inspect, handle, and combine objects. For actions that require a tool, the target picker starts with the items in your bag. See [the route state audit](docs/audits/route-state-audit.md) for trace results and remaining QA checks.
+- **Explore.** Open **Paths**, choose a direction, and press **A**. **Way back** marks the known return route. **Conditional** marks exits that may require a story action first.
+- **Act.** Use **L / R** to focus an object and **A** to see what you can do with it. Use **Room actions → Choose command words** to build a command with the buttons. The on-screen keyboard is available under **Start → Enter command**.
+- **Get help.** Open **Start → Hints** for contextual clues, possible **Next steps**, and the complete InvisiClues guides. Press **A** to reveal clues one at a time. **Start → Map** shows known connections, and **Start → Story so far** opens the transcript.
 
-In **Paths**, look for **Way back** beside the known return route and **Conditional** beside exits that may have a requirement. Hold a D-pad direction to scroll through lists, move through pickers, or page through story text. Backing out of a menu returns you to your current story page.
+See the [player guide](docs/player-guide.md) for exit indicators, word selection, saves, and puzzle-specific controls.
 
-Choose **Start → Story so far** to review commands and story responses, newest first. Use **R** for older pages, **L** for newer pages, and **B** to return to the pause menu. The live log has 24 KiB for compact text; recurring phrases are tokenized in RAM and expanded when a page is displayed, so its plain-text history varies with the text. Saving stores the most recent transcript that fits alongside the story snapshot and route history. If either limit is reached, older entries are trimmed.
+## Build and test
 
-Choose **Start → Hints** for help. When a topic matches your room or something you can see, it appears before the complete InvisiClues guide. **Next steps** suggests actions for selected puzzles based on where you have been, what you carry, and your progress, including actions in other rooms. Open a hint topic and press **A** to reveal one clue at a time. Use **Up / Down** to page through long clues, **Left** to revisit an earlier clue, and **B** to go back. Reading hints does not advance the story. [Source and credits](stories/hints/README.md)
-
-The complete original InvisiClues guides are available online for [Zork I](https://dfabulich.github.io/infocom-hints-html/zork-i-the-great-underground-empire.html), [Zork II](https://dfabulich.github.io/infocom-hints-html/zork-ii-the-wizard-of-frobozz.html), and [Zork III](https://dfabulich.github.io/infocom-hints-html/zork-iii-the-dungeon-master.html).
-
-Choose **Start → Map** to see the current room and its known connections. Use the D-pad to select a room and A to center it on the map. L or R switches between compass directions and **Up / Down / In / Out**. Select opens the list of visited rooms. Browsing the map leaves your character in place.
-
-Choose **Room actions → Speak** for **Say**, **Answer**, **Greet**, **Yes**, and **No**. For direct parser commands, choose **Room actions → Choose command words**. In either word picker, choose a first letter and press A to see the chapter’s dictionary words. Use L and R to page, A to add a word, Select to erase the last word, and Start to send up to three words.
-
-In Zork II, **Speak → Learned spells** appears after you hear the Wizard speak a spell aloud. Select a learned spell to say it. Use **Say** to try other words.
-
-Use **Give item** from a character's menu to choose an offering from your bag. Some characters also have a **Give orders** menu. Look for specific actions on objects such as **Cross** on the rainbow and **Hail sailor** on the Viking ship. Dials open a number picker. Use up or down to change a number and left or right to move between digits.
-
-**Start → Enter command** opens the original parser for commands outside the menus. Use the D-pad and A to enter characters, R for space, B to erase, and Start to send. Select goes back.
-
-Choose **Start → Save game** before quitting or switching chapters. Each story has its own in-game save slot. **Continue saved game** restores the story and exploration history. Earlier cartridge saves also load and show known fixed exits between previously visited rooms. On an emulator, keep the cartridge's `.sav` file with the ROM when moving it between devices.
-
-At the end of any chapter, press **A** on the last story page to open the on-screen **Restart / Restore / Quit** menu. Use the D-pad to choose and **A** to confirm.
-
-## Adaptation
-
-Infocom's original Z-machine programs drive movement, puzzles, score, and turn timing. Browsing menus consumes zero story turns. Contextual actions are based on the objects in the current room, their state, and your inventory. Available exits stay in the top bar; the in-scene square compass has been removed. Focus, story pages, and action lists appear below the room at four rows per page.
-
-Dedicated scenes include the White House, Canyon View, the Dam, the Egyptian Room, the Treasure Room, Atlantis, the Gazebo, the Carousel Room, the Tea Room, the Great Cavern, the Wizard’s Workroom, the Lake Shore, the Jewel Room, Cliff Ledge, and Flathead Ocean. Icons identify object types in the room and item menus. Gold corners mark the selected object in scenes with placed props. Portable props disappear from the scene when taken. Other rooms use shared backdrops, and darkness limits which objects you can see.
-
-Both ends of the rainbow crossing have their own views. The Cyclops Room, Pentagram Room, Menhir Room, and guardians’ hallway also have dedicated art. The Cyclops can be seen falling asleep, the menhir shows its current position, and the Viking ship appears on the ocean during its visit.
-
-Character sprites follow the story's current state. Roaming characters appear where you encounter them, and figures like the troll, the old man, and the hooded opponent change poses. The Dragon Room, Zork II Machine Room, Land of Shadow, and Dungeon Entrance have dedicated backdrops. The maze's grating is drawn when you can see it and changes when you open it.
-
-The encounter art uses the shared ImageGen style. Moving characters use floor positions chosen for the current scene. The bat hangs from a cave corner, the live dragon lies across its tunnel, the serpent swims inside its tank, and the sailor appears on the prow. Zork III’s Guardians are visible farther down the hall on approach and stand on either side when you pass between them.
-
-Selected room items use the same pixel-art style as the characters. The story places them on floors, tables, or supports and controls what is visible inside containers. The lantern glows when lit, the cliff chest opens, and the crystal spheres and stands change when they fuse.
-
-The route artwork uses related views for the White House passages, the dam and Frigid River, the Stone Barrow, the Bank of Zork, Hades, the crypt, and the three elevations of the cliff. The house, dam, Aquarium Room, and Crypt Anteroom show changes driven by the story.
-
-Zork III’s Royal Puzzle shows the nearby floor, walls, and unseen tiles on a live map. The selected wall is outlined and the grid redraws when you move or push a wall. After restoring a save inside the puzzle, use **B** to look and refresh the map.
-
-I tested each chapter’s opening, cartridge saves, character sprites, and alternate actions in mGBA 0.10.5. Host replays drove the same button handlers to reach the three endings without the keyboard, with 350 points, 400 points, and 7 potential respectively. Additional replays covered the forest grating shortcut, a different way to lure the dragon, and an alternate crossing of the Guardians’ hallway.
-
-## Build
-
-The reproducible build uses the official devkitPro devkitARM container, which supplies the GBA cross-toolchain. The container runs on either Docker host architecture and compiles the ROM for the GBA's ARM7TDMI using the Makefile's `-mcpu=arm7tdmi -marm` flags.
+Build both ROMs into the checkout with the devkitPro devkitARM container.
 
 ```sh
 docker build -t zork-gba-builder .
 docker run --rm --user "$(id -u):$(id -g)" -v "$PWD:/workspace" zork-gba-builder
 ```
 
-The default command builds both ROMs into the mounted project directory. Pass a Make target after the image name to build one target, such as `zork-trilogy.gba`. Python 3 and Pillow are installed in the image for scene conversion.
+For a local build, install GNU Make, devkitARM, Python 3, and Pillow, then run `make all`. Set `CROSS` and `PYTHON` if your toolchain prefix or Python executable differs from the Makefile defaults.
 
-For a local build, use GNU Make, a devkitARM/`arm-none-eabi` toolchain, Python 3, and Pillow; set `CROSS` to the toolchain prefix and `PYTHON` to the Python executable if needed. Run `make test` with a host C compiler to check story loading, dictionary decoding, parser punctuation, object menus, puzzle map decoding, and save recovery. The suite also drives two winning routes per game and 14 checkpoint scenarios through the controller menus. The scenarios cover puzzle solutions, hazardous routes, vehicle travel, and recovery through Restore or story revival. Use `make test-buttons` to run those replays on their own.
+Run `make test` with a host C compiler. It covers story loading, parser behavior, saves, and controller-only routes through all three chapters, including alternate routes, recovery scenarios, and hints at puzzle milestones. Use `make test-buttons` for the controller replays on their own.
 
-Each winning controller replay opens Hints immediately before and after a puzzle milestone. The checks verify the contextual clue, the changing Next steps list, and that reading hints preserves the story turn, focus, and text page.
+Every push to `main` runs the tests, builds both ROMs, and publishes a release with SHA-256 checksums. [GitHub Releases](https://github.com/jfgordon2/zork/releases)
 
-The original [White House demo](https://github.com/jfgordon2/zork/releases/latest/download/zork-white-house.gba) is also available as a separate seven-room cartridge.
+## Project documentation
 
-Every merge to `main` runs `make test`, builds both ROMs in the same devkitARM container, and publishes them with SHA-256 checksums as a new [GitHub Release](https://github.com/jfgordon2/zork/releases) (`.github/workflows/release.yml`). The download links above always point at the latest release.
-
-The [story releases and licenses](stories/README.md) cover the Infocom games and the adapted MojoZork interpreter. The [scene artwork and ImageGen prompts](assets/README.md) are in the asset directory.
+- [Visual audits, QA reports, and art history](docs/README.md)
+- [Scene artwork and prompts](assets/README.md)
+- [Story releases and license information](stories/README.md)
+- [InvisiClues sources and credits](stories/hints/README.md)
