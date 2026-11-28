@@ -1086,6 +1086,8 @@ static void audit_climb_action_family(unsigned room_id, unsigned object) {
 static bool focus_allowlisted(unsigned chapter_id, unsigned room, unsigned object) {
     if (chapter_id == 1 && room == 59 && object == 109)
         return z_attr(137, ATTR_OPEN); // The lid is only drawn while the door is shut.
+    if (chapter_id == 1 && room == 46 && object == 105)
+        return true; // The chasm is outside the Tiny Room view.
     if (chapter_id == 1 && room == 204 && object == 199)
         return true; // The south wall is behind the camera in the viewing-room view.
     if (chapter_id == 2 && room == 54 && object == 80)
@@ -1095,7 +1097,7 @@ static bool focus_allowlisted(unsigned chapter_id, unsigned room, unsigned objec
     static const struct { uint8_t chapter; uint16_t room, object; } hidden[] = {
         {0, 82, 94}, {0, 82, 105}, {0, 82, 246}, {0, 89, 60}, {0, 117, 94},
         {0, 117, 246}, {0, 245, 60}, {0, 249, 60},
-        {1, 233, 31}, {2, 16, 205}, {2, 103, 205}
+        {1, 233, 31}
     };
     for (unsigned i = 0; i < sizeof(hidden) / sizeof(hidden[0]); i++)
         if (hidden[i].chapter == chapter_id && hidden[i].room == room && hidden[i].object == object)
@@ -1176,6 +1178,10 @@ static void audit_scene_target_boxes(void) {
             int mw = qa_box_rect[2], mh = qa_box_rect[3];
             assert(mx == qa_first_marker[0] && my == qa_first_marker[1] &&
                    mw == qa_first_marker[2] && mh == qa_first_marker[3]);
+            assert(visual_qa_pixel(mx, my) == focus_gold &&
+                   visual_qa_pixel(mx + mw - 1, my) == focus_gold &&
+                   visual_qa_pixel(mx, my + mh - 1) == focus_gold &&
+                   visual_qa_pixel(mx + mw - 1, my + mh - 1) == focus_gold);
             bool mismatch = mx > qa_visual_rect[0] + 3 || my > qa_visual_rect[1] + 3 ||
                 mx + mw < qa_visual_rect[0] + qa_visual_rect[2] - 3 ||
                 my + mh < qa_visual_rect[1] + qa_visual_rect[3] - 3 ||

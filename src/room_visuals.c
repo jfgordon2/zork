@@ -675,7 +675,6 @@ static const RoomAnchor anchors[] = {
     {2, 75, 156, 115, 15, 125, 70},
     {2, 179, 61, 104, 60, 31, 13},
     {2, 179, 79, 164, 54, 35, 26},
-    {2, 179, 205, 200, 28, 34, 58},
     {2, 190, 209, 91, 28, 58, 33},
     {2, 216, 223, 128, 32, 109, 44},
     {2, ZORK3_LAKE, 94, 119, 63, 25, 12},
@@ -691,27 +690,30 @@ static const RoomAnchor anchors[] = {
     {0, 21, 226, 122, 66, 72, 22},
     {0, 74, 6, 2, 62, 105, 26},
     {0, 74, 98, 16, 20, 220, 49},
-    {0, 74, 226, 16, 22, 220, 49},
+    {0, 74, 226, 2, 62, 105, 26},
     {0, 125, 6, 48, 59, 122, 16},
     {0, 125, 59, 95, 28, 110, 45},
     {0, 125, 226, 25, 52, 155, 36},
     {0, 47, 59, 16, 26, 220, 52},
-    {0, 47, 226, 20, 32, 216, 40},
+    {0, 47, 226, 108, 63, 59, 26},
     {0, 202, 59, 16, 37, 218, 39},
     {0, 111, 6, 20, 67, 200, 20}, {0, 111, 226, 20, 67, 200, 20},
+    {0, 53, 6, 2, 56, 236, 12}, {0, 53, 226, 2, 56, 236, 12},
+    {0, 67, 6, 2, 46, 161, 40},
+    {0, 86, 6, 2, 45, 170, 22},
     {0, 37, 6, 20, 65, 200, 22}, {0, 37, 226, 20, 65, 200, 22},
     {0, 174, 6, 20, 65, 200, 22}, {0, 174, 226, 20, 65, 200, 22},
     {0, 45, 6, 20, 65, 200, 22}, {0, 45, 226, 20, 65, 200, 22},
     {0, 182, 6, 20, 65, 200, 22}, {0, 182, 226, 20, 65, 200, 22},
     {0, 30, 6, 2, 44, 100, 22}, {0, 30, 226, 2, 44, 100, 22},
     {0, 40, 6, 20, 67, 200, 20}, {0, 40, 226, 20, 67, 200, 20},
-    {0, 47, 6, 20, 67, 200, 20},
+    {0, 47, 6, 108, 63, 59, 26},
 
     // Zork II bridge and stream landmarks.
     {1, 168, 74, 76, 48, 108, 20},
     {1, 168, 105, 10, 38, 220, 42},
     {1, 168, 104, 20, 66, 200, 17},
-    {1, 168, 217, 6, 20, 228, 50},
+    {1, 168, 217, 28, 15, 184, 19},
     {1, 21, 74, 84, 47, 83, 18},
     {1, 21, 105, 8, 37, 224, 40},
     {1, 183, 217, 8, 17, 224, 59},
@@ -768,7 +770,9 @@ static const RoomAnchor anchors[] = {
     {0, 85, 65, 2, 17, 156, 70},
     {0, 85, 1, 162, 17, 76, 70},
     {0, 166, 103, 66, 15, 174, 53},
+    {0, 166, 6, 2, 53, 94, 16}, {0, 166, 226, 2, 53, 94, 16},
     {0, 184, 103, 66, 15, 174, 53},
+    {0, 184, 6, 2, 53, 94, 31}, {0, 184, 226, 2, 53, 94, 31},
     {0, 25, 222, 109, 20, 25, 52},
     {0, 162, 177, 111, 57, 70, 25},
     {0, 220, 43, 141, 15, 54, 62},
@@ -838,11 +842,11 @@ static const RoomAnchor anchors[] = {
     {1, 234, 48, 22, 58, 76, 17},
     {1, 16, 178, 45, 47, 148, 29},
     {1, 16, 235, 137, 26, 89, 52},
-    {1, 218, 120, 13, 18, 214, 57},
+    {1, 218, 120, 33, 32, 194, 47},
     {1, 218, 154, 168, 26, 40, 36},
-    {1, 218, 217, 10, 18, 220, 57},
+    {1, 218, 217, 43, 15, 179, 15},
     {1, 218, 48, 12, 60, 79, 17},
-    {1, 157, 217, 8, 19, 224, 48},
+    {1, 157, 217, 13, 15, 208, 17},
     {1, 157, 48, 23, 56, 72, 16},
     {1, 157, 154, 34, 40, 32, 29},
     {1, 234, 73, 158, 53, 14, 10},
@@ -870,7 +874,6 @@ static const RoomAnchor anchors[] = {
     {1, 124, 105, 2, 20, 50, 68},
     {1, 46, 137, 128, 18, 50, 70},
     {1, 46, 173, 143, 31, 20, 18},
-    {1, 46, 105, 17, 18, 219, 66},
     {1, 46, 130, 130, 53, 10, 11},
     {1, 46, 112, 126, 50, 20, 19},
     {1, 59, 108, 76, 51, 8, 8},
@@ -1168,6 +1171,7 @@ static const ItemPlacement item_placements[] = {
     {0, 111, 208, 111, {74, 85}, true, NULL},
     {0, 111, 68, 111, {74, 85}, true, NULL},
     {0, 111, 219, 111, {72, 83}, true, NULL},
+    {0, 111, 109, 111, {24, 69}, true, NULL},
     {0, 120, 215, 120, {83, 47}, false, NULL},
     {0, 120, 17, 120, {126, 47}, false, NULL},
     {0, 129, 26, 129, {93, 70}, false, NULL},
@@ -1211,6 +1215,7 @@ static const ItemPlacement item_placements[] = {
     {1, 51, 223, 51, {146, 85}, true, NULL},
     {1, 59, 14, 108, {52, 49}, false, NULL},
     {1, 16, 127, 26, {158, 48}, false, NULL},
+    {1, 13, 246, 13, {53, 66}, true, NULL},
     {1, 64, 115, 133, {153, 82}, true, NULL},
     {1, 16, 100, 178, {63, 63}, false, &ArtPlaceMatTable},
     {1, 16, 247, 178, {55, 64}, false, &ArtLetterOpenerTable},
@@ -1262,12 +1267,11 @@ static const ItemPlacement item_placements[] = {
     {2, 6, ZORK3_SWORD, 6, {120, 67}, false, NULL},
 };
 
-// One target box per frame. The first box drawn for the focused target wins:
-// sprite and special-case boxes are drawn before the anchors[] table, so a
-// table row never adds a second frame around something already framed.
-// Redrawing the identical box (an item re-drawn on top) stays allowed.
-static bool focus_box_drawn;
+// The first box queued wins, giving sprites and special cases priority over
+// background anchors. Paint it after scenery and foreground overlays.
+static bool focus_box_pending;
 static int focus_box[4];
+static int focus_box_length;
 static unsigned current_focused;
 
 // The focused sprite's actual drawn rect, reported independently of the gold
@@ -1303,12 +1307,20 @@ static void corners(unsigned object, int x, int y, int width, int height, int le
     extern void visual_qa_marker(int x, int y, int width, int height);
     extern void visual_qa_focused_box(unsigned object, int x, int y, int width, int height);
     visual_qa_marker(x, y, width, height);
-    if (!focus_box_drawn) visual_qa_focused_box(object, x, y, width, height);
+    if (!focus_box_pending) visual_qa_focused_box(object, x, y, width, height);
 #endif
-    if (focus_box_drawn && (x != focus_box[0] || y != focus_box[1] ||
-                            width != focus_box[2] || height != focus_box[3])) return;
-    focus_box_drawn = true;
+    if (focus_box_pending) return;
+    focus_box_pending = true;
     focus_box[0] = x, focus_box[1] = y, focus_box[2] = width, focus_box[3] = height;
+    focus_box_length = length;
+}
+
+static void draw_scene_focus_box(void) {
+    if (!focus_box_pending) return;
+    int x = focus_box[0], y = focus_box[1], width = focus_box[2], height = focus_box[3];
+    int length = focus_box_length;
+    if (length > width) length = width;
+    if (length > height) length = height;
     fill(x, y, length, 1, GOLD);
     fill(x + width - length, y, length, 1, GOLD);
     fill(x, y + height - 1, length, 1, GOLD);
@@ -1774,21 +1786,24 @@ static void draw_zork2_item_contents(unsigned object, ItemBounds bounds,
     if (object != 22 && object != 81 && object != 198) return;
     int center = bounds.x + bounds.width / 2, baseline = bounds.y + bounds.height;
     unsigned slot = 0, capacity = object == 198 ? 1 : 4;
-    for (unsigned pass = 0; pass < 2; pass++) {
-      for (unsigned i = 0; i < targets->count && slot < capacity; i++) {
+    for (unsigned i = 0; i < targets->count; i++) {
         unsigned child = targets->id[i];
-        if (((child == focused) != (pass == 0)) || z_parent(child) != object) continue;
+        if (z_parent(child) != object) continue;
         const SceneSprite *art = item_pose(1, child);
         if (!art) continue;
         ScenePoint at = {center, baseline - (object == 198 ? 3 : 7)};
-        if (object != 198) {
+        if (slot >= capacity) {
+            // Show extra cargo in a separate inspection slot so the visible
+            // contents keep their places even in an overfilled container.
+            if (child != focused) continue;
+            at.y -= 14;
+        } else if (object != 198) {
             at.x += (slot & 1) ? 6 : -6;
             at.y -= (slot < 2) ? 5 : 0;
         }
         draw_contents_sprite(child, art, at, object == 198 ? 12 : 10, object == 198 ? 8 : 5,
                              child == focused);
         slot++;
-      }
     }
 }
 
@@ -2171,11 +2186,9 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
     }
     const RoomFloor *floor = room_floor(background);
     if (!floor || !floor->left.y) return;
-    // A selected loose item gets a visible slot even after a crowded treasure drop.
-    for (unsigned pass = 0; pass < 2; pass++) {
-      for (unsigned i = 0; i < targets->count; i++) {
+    // Assign floor slots in target order so cycling focus cannot move items.
+    for (unsigned i = 0; i < targets->count; i++) {
         unsigned object = targets->id[i];
-        if ((object == focused) != (pass == 0)) continue;
         bool extra = loose_extra(chapter, room, object);
         if (object >= sizeof(drawn) / sizeof(drawn[0]) || drawn[object] ||
             (!extra && (z_parent(object) != room ||
@@ -2214,7 +2227,6 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
             focused_art = art;
             focused_bounds = bounds;
         }
-      }
     }
     if (focused_art) {
         // Keep the inspected object legible in front of compact overflow piles.
@@ -2387,17 +2399,16 @@ static void draw_vehicle_contents(unsigned parent, const Targets *targets, unsig
                                   ScenePoint first, int spacing, unsigned capacity,
                                   unsigned width, unsigned height) {
     unsigned slot = 0;
-    for (unsigned pass = 0; pass < 2; pass++) {
-      for (unsigned i = 0; i < targets->count && slot < capacity; i++) {
+    for (unsigned i = 0; i < targets->count; i++) {
         unsigned child = targets->id[i];
-        if (child == 40 || (parent == 52 && child == 186) ||
-            ((child == focused) != (pass == 0)) || z_parent(child) != parent) continue;
+        if (child == 40 || (parent == 52 && child == 186) || z_parent(child) != parent) continue;
         const SceneSprite *art = item_pose(1, child);
         if (!art) continue;
-        draw_contents_sprite(child, art, (ScenePoint){first.x + (int)slot * spacing, first.y},
+        if (slot >= capacity && child != focused) continue;
+        unsigned visible_slot = slot < capacity ? slot : capacity;
+        draw_contents_sprite(child, art, (ScenePoint){first.x + (int)visible_slot * spacing, first.y},
                              width, height, focused == child);
         slot++;
-      }
     }
 }
 
@@ -2875,6 +2886,37 @@ static void draw_cellar_chute(unsigned focused) {
     draw_room_item(231, art, item_bounds(art, (ScenePoint){24, 87}), false, focused == 231);
 }
 
+static void draw_jewel_room_door(unsigned room, unsigned focused) {
+    if (room != ZORK3_JEWEL_947 && room != ZORK3_JEWEL_PRESENT && room != ZORK3_JEWEL_PAST)
+        return;
+    bool unfinished = room == ZORK3_JEWEL_PAST;
+    bool open = z_attr(205, ATTR_OPEN);
+    // The west exit is seen on the right, matching the unfinished room.
+    int x = unfinished ? 202 : 201, y = 31;
+    int width = unfinished ? 25 : 26, height = unfinished ? 49 : 48;
+    if (open) {
+        Color edge = unfinished ? RGB(132, 87, 59) : RGB(79, 106, 92);
+        if (unfinished)
+            fill(x + 1, y + 1, width - 2, height - 2, RGB(47, 31, 34));
+        // Preserve the arch in the finished Jewel Room. The slab is seen
+        // edge-on against the right jamb, with the threshold below it.
+        fill(x + width - 6, y + 3, 4, height - 4, edge);
+        fill(x + width - 5, y + 3, 1, height - 4,
+             unfinished ? RGB(158, 105, 66) : RGB(100, 122, 103));
+        fill(x + 2, y + height - 2, width - 6, 1, edge);
+    } else if (!unfinished) {
+        box(x, y, width, height, RGB(53, 72, 67), RGB(100, 113, 96));
+        fill(x + 2, y + 2, width - 4, 1, RGB(127, 135, 112));
+        fill(x + 3, y + 4, 1, height - 8, RGB(72, 91, 80));
+        fill(x + width - 4, y + 3, 2, height - 6, RGB(36, 55, 53));
+        for (int row = 5; row < height - 3; row++) {
+            int grain = (row * 7) % 9;
+            fill(x + 5 + grain, y + row, 4, 1, RGB(57 + grain, 75 + grain, 69 + grain));
+        }
+    }
+    if (focused == 205) focus_feature_box(205, x - 2, y - 3, width + 6, height + 7, 3);
+}
+
 static void draw_puzzle_entrance_sandstone(void) {
     // Span the shaft opening while leaving its stone rim visible.
     static const uint8_t half_widths[] = {10, 23, 31, 37, 41, 44, 46, 48, 49, 50, 50};
@@ -2894,13 +2936,14 @@ static void draw_puzzle_entrance_sandstone(void) {
 
 void draw_room_details(unsigned chapter, unsigned room, const Color *background,
                        const Targets *targets, unsigned focused) {
-    focus_box_drawn = false;
+    focus_box_pending = false;
     current_focused = focused;
     if (chapter == 1 && room == 125) {
         if (background == art_z2_crypt_dark || background == art_z2_crypt_secret_open) {
             if (!z_attr(151, ATTR_OPEN)) label(119, 49, "F", RGB(92, 112, 101));
             if (focused == 151) focus_feature_box(151, 103, 24, 35, 43, 3);
             draw_room_target_anchor(chapter, room, targets, focused);
+            draw_scene_focus_box();
             return;
         }
         if (focused == 151 && z_attr(151, ATTR_OPEN))
@@ -2908,6 +2951,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     }
     if (chapter == 2) {
         draw_z3_beam(room, targets);
+        draw_jewel_room_door(room, focused);
         if (room == ZORK3_PUZZLE_ENTRANCE) draw_puzzle_entrance_sandstone();
         if (room == ZORK3_ROOM_8) draw_z3_room8_temporal_exit();
         if (room == 39) draw_z3_manhole(focused);
@@ -2965,6 +3009,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     if (chapter == 0 && room == 224) draw_maintenance_water(focused);
     if (chapter == 0) draw_zork1_boat_pov(room, targets, focused);
     draw_room_target_anchor(chapter, room, targets, focused);
+    draw_scene_focus_box();
 }
 
 void draw_puzzle_exit_ladder(void) {
@@ -3111,7 +3156,7 @@ static void draw_puzzle_special_targets(const Targets *targets, unsigned focused
 }
 
 void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focused) {
-    focus_box_drawn = false;
+    focus_box_pending = false;
     current_focused = focused;
     fill(0, 15, SCREEN_W, 76, RGB(32, 45, 41));
     if (!map->valid) {
@@ -3120,6 +3165,7 @@ void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focu
         label(99, 45, "survey puzzle.", CREAM);
         draw_puzzle_special_targets(targets, focused);
         draw_puzzle_floor_items(targets, focused);
+        draw_scene_focus_box();
         return;
     }
 
@@ -3152,4 +3198,5 @@ void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focu
     }
     draw_puzzle_special_targets(targets, focused);
     draw_puzzle_floor_items(targets, focused);
+    draw_scene_focus_box();
 }
