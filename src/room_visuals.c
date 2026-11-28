@@ -767,6 +767,9 @@ static const RoomAnchor anchors[] = {
     {0, 209, 1, 157, 17, 81, 70},
     {0, 85, 65, 2, 17, 156, 70},
     {0, 85, 1, 162, 17, 76, 70},
+    {0, 166, 103, 66, 15, 174, 53},
+    {0, 184, 103, 66, 15, 174, 53},
+    {0, 25, 222, 109, 20, 25, 52},
     {0, 162, 177, 111, 57, 70, 25},
     {0, 220, 43, 141, 15, 54, 62},
     {0, 137, 213, 186, 31, 44, 48},
@@ -802,7 +805,7 @@ static const RoomAnchor anchors[] = {
     {0, 33, 177, 92, 22, 55, 41},
     {0, 78, 177, 172, 28, 66, 60},
     {0, 82, 177, 2, 48, 30, 40},
-    {0, 31, 231, 88, 24, 59, 37},
+    {0, 31, 231, 54, 23, 95, 68},
     // The troll holds this axe in some states; its floor sprite is framed by
     // the ordinary item renderer once the story drops it into the room.
     {0, 127, 36, 100, 54, 16, 18},
@@ -1229,6 +1232,8 @@ static const ItemPlacement item_placements[] = {
     {1, 54, 241, 54, {124, 84}, true, NULL},
     {1, 190, 83, 155, {81, 59}, true, NULL},
     {1, 190, 103, 155, {107, 61}, true, NULL},
+    {1, 82, 147, 82, {74, 86}, true, NULL},
+    {1, 82, 35, 82, {174, 86}, true, NULL},
     {1, 190, 35, 155, {134, 61}, true, NULL},
     {1, 190, 147, 155, {158, 59}, true, NULL},
     {1, ZORK2_WORKROOM, ZORK2_RUBY_STAND, 76, {78, 63}, true, NULL},
@@ -2131,9 +2136,18 @@ static void draw_room_items(unsigned chapter, unsigned room, const Color *backgr
         }
         if (chapter == 0 && room == 160 && object == 157 && in_scene(targets, 29)) at.x += 48;
         ItemBounds bounds = item_bounds(art, at);
-        bool selected = object == focused ||
-                        (chapter == 2 && object == ZORK3_SWORD_ROCK &&
-                         focused == ZORK3_SWORD && z_parent(focused) == object);
+        bool selected = object == focused;
+        if (chapter == 2 && object == ZORK3_SWORD_ROCK &&
+            z_parent(ZORK3_SWORD) == object) {
+            draw_room_item(object, art, bounds, place->shadow, false);
+            if (focused == ZORK3_SWORD)
+                focus_feature_box(focused, at.x - 8, bounds.y - 1, 19, 34, 3);
+            else if (selected)
+                focus_feature_box(object, bounds.x - 1, at.y - 29, bounds.width + 2, 30, 3);
+            occupied[count++] = bounds;
+            drawn[object] = true;
+            continue;
+        }
         if (chapter == 0 && room == 122 && object == 92) {
             // The old large frame is centered above an arch. The story painting
             // belongs on the smaller, lighter wall patch to the right.
@@ -2353,7 +2367,7 @@ static void draw_maintenance_buttons(unsigned focused) {
     }
 }
 
-static void draw_maintenance_water(void) {
+static void draw_maintenance_water(unsigned focused) {
     unsigned level = z_global(94);
     if (level == 0 || level > 14) return;
     int surface = 89 - 3 * level;
@@ -2363,7 +2377,10 @@ static void draw_maintenance_water(void) {
         tint_rect(17 + (y & 7) * 3, y, 80, 1, RGB(163, 193, 177), 5);
         tint_rect(140 - (y & 7) * 2, y + 1, 65, 1, RGB(163, 193, 177), 5);
     }
-    if (surface > 53) tint_rect(187, 51, 3, surface - 51, RGB(125, 186, 188), 7);
+    if (surface > 53) {
+        tint_rect(187, 51, 3, surface - 51, RGB(125, 186, 188), 7);
+        if (focused == 49) focus_feature_box(49, 184, 49, 9, surface - 47, 2);
+    }
 }
 
 static void draw_vehicle_contents(unsigned parent, const Targets *targets, unsigned focused,
@@ -2543,11 +2560,40 @@ static void draw_z3_prison_master(unsigned room, const Targets *targets, unsigne
 static void draw_zork2_balloon(unsigned room, const Targets *targets, unsigned focused) {
     if (z_parent(169) != room || !in_scene(targets, 169)) return;
     bool aboard = z_parent(40) == 169;
+    bool inflated = z_global(133);
     const SceneSprite *art = aboard ? &ArtBalloonBasketPov :
-                            z_global(133) ? &ArtBalloonInflatedVehicle : &ArtBalloonDeflatedVehicle;
+                            inflated ? &ArtBalloonInflatedVehicle : &ArtBalloonDeflatedVehicle;
     ScenePoint at = aboard ? (ScenePoint){120, 90} :
                     (room == 13 || room == 143) ? (ScenePoint){109, 89} : (ScenePoint){165, 89};
-    draw_room_item(focused, art, item_bounds(art, at), !aboard, focused == 169 || focused == 93);
+    ItemBounds bounds = item_bounds(art, at);
+    draw_room_item(169, art, bounds, !aboard, aboard && focused == 169);
+    if (aboard && inflated) {
+        // The envelope is overhead. Show its lower edge at the top of the view.
+        for (int y = 15; y < 27; y++) {
+            int inset = (y - 15) * (y - 15) / 6;
+            fill(78 + inset, y, 84 - 2 * inset, 1, RGB(192, 150, 99));
+        }
+        scene_segment((ScenePoint){93, 15}, (ScenePoint){108, 24}, RGB(152, 109, 69));
+        scene_segment((ScenePoint){147, 15}, (ScenePoint){132, 24}, RGB(152, 109, 69));
+        if (focused == 93) focus_feature_box(93, 76, 15, 88, 14, 3);
+    } else if (aboard) {
+        // The uninflated bag hangs over the basket rim.
+        for (int y = 74; y < 87; y++) {
+            int fold = (y - 74) / 3;
+            fill(79 - fold, y, 20 + fold * 2, 1, RGB(181 - fold * 9, 141 - fold * 7, 97 - fold * 5));
+        }
+        scene_segment((ScenePoint){87, 75}, (ScenePoint){82, 86}, RGB(132, 93, 58));
+        if (focused == 93) focus_feature_box(93, 73, 72, 32, 17, 3);
+    } else if (focused == 169 || focused == 93) {
+        if (inflated && focused == 93)
+            focus_feature_box(93, bounds.x - 1, bounds.y - 1, bounds.width + 2, bounds.height - 19, 3);
+        else if (inflated)
+            focus_feature_box(169, at.x - 13, 70, 26, 21, 3);
+        else if (focused == 93)
+            focus_feature_box(93, at.x - 10, 51, 39, 39, 3);
+        else
+            focus_feature_box(169, bounds.x - 1, bounds.y - 1, 26, bounds.height + 2, 3);
+    }
     if (aboard) {
         draw_vehicle_contents(169, targets, focused, (ScenePoint){62, 76}, 20, 6, 17, 10);
     } else draw_vehicle_contents(169, targets, focused, (ScenePoint){at.x - 6, 82}, 5, 3, 4, 4);
@@ -2823,6 +2869,12 @@ static void draw_room_target_anchor(unsigned chapter, unsigned room, const Targe
     }
 }
 
+static void draw_cellar_chute(unsigned focused) {
+    // The west alcove contains the foot of the metal ramp from the Slide Room.
+    const SceneSprite *art = &ArtCellarChuteRamp;
+    draw_room_item(231, art, item_bounds(art, (ScenePoint){24, 87}), false, focused == 231);
+}
+
 static void draw_puzzle_entrance_sandstone(void) {
     // Span the shaft opening while leaving its stone rim visible.
     static const uint8_t half_widths[] = {10, 23, 31, 37, 41, 44, 46, 48, 49, 50, 50};
@@ -2871,6 +2923,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     if (chapter == 1 && room == 159) draw_menhir(focused);
     if (chapter == 1) draw_bank_signs(room);
     if (chapter == 0) {
+        if (room == 33) draw_cellar_chute(focused);
         if (room == 18 && z_global(ZORK1_ROPE_TIED)) draw_hanging_rope(113, 15, 44);
         if (room == 160 || room == 216) draw_grating(room, targets, focused);
         if (room == 245 || room == 249) draw_shaft_chain(room);
@@ -2909,7 +2962,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     }
     if (chapter == 2) draw_z3_jewel_display(room, background, targets, focused);
     if (chapter == 1) draw_zork2_cues(room, targets, focused);
-    if (chapter == 0 && room == 224) draw_maintenance_water();
+    if (chapter == 0 && room == 224) draw_maintenance_water(focused);
     if (chapter == 0) draw_zork1_boat_pov(room, targets, focused);
     draw_room_target_anchor(chapter, room, targets, focused);
 }

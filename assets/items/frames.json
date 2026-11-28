@@ -1402,6 +1402,17 @@
       }
     ]
   },
+  "cellar_chute": {
+    "cells": [
+      {
+        "pose": "Ramp",
+        "x": 0,
+        "y": 0,
+        "width": 48,
+        "height": 34
+      }
+    ]
+  },
   "attic_railing": {
     "cells": [
       {

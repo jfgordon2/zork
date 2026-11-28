@@ -1095,7 +1095,7 @@ static bool focus_allowlisted(unsigned chapter_id, unsigned room, unsigned objec
     static const struct { uint8_t chapter; uint16_t room, object; } hidden[] = {
         {0, 82, 94}, {0, 82, 105}, {0, 82, 246}, {0, 89, 60}, {0, 117, 94},
         {0, 117, 246}, {0, 245, 60}, {0, 249, 60},
-        {0, 33, 231}, {1, 233, 31}, {2, 16, 205}, {2, 103, 205}
+        {1, 233, 31}, {2, 16, 205}, {2, 103, 205}
     };
     for (unsigned i = 0; i < sizeof(hidden) / sizeof(hidden[0]); i++)
         if (hidden[i].chapter == chapter_id && hidden[i].room == room && hidden[i].object == object)
