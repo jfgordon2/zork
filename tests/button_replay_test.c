@@ -1266,7 +1266,7 @@ static void check_hint_section(unsigned *topics, unsigned *clues, unsigned *long
             require(hint_step == entry->count, "guide advanced past its last clue");
             if (entry->count > 1) {
                 tap_button('<');
-                require(hint_step == entry->count - 1, "guide could not return to its previous clue");
+                require(hint_step == entry->count - 1u, "guide could not return to its previous clue");
             }
         }
         tap_button('b');
