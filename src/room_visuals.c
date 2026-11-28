@@ -767,6 +767,8 @@ static const RoomAnchor anchors[] = {
     {0, 209, 1, 157, 17, 81, 70},
     {0, 85, 65, 2, 17, 156, 70},
     {0, 85, 1, 162, 17, 76, 70},
+    {0, 162, 177, 111, 57, 70, 25},
+    {0, 220, 43, 141, 15, 54, 62},
     {0, 137, 213, 186, 31, 44, 48},
     {0, 137, 77, 188, 35, 40, 38},
     {0, 137, 65, 119, 24, 96, 60},
@@ -904,6 +906,7 @@ static const RoomAnchor anchors[] = {
     {1, 125, 116, 55, 34, 139, 33},
     {1, 125, 118, 18, 45, 204, 28},
     {1, 125, 245, 87, 22, 68, 52},
+    {1, 161, 111, 0, 15, 114, 53},
 
     // Zork III floor items and prison landmarks.
     {2, 45, 11, 80, 34, 32, 48},
@@ -2820,19 +2823,40 @@ static void draw_room_target_anchor(unsigned chapter, unsigned room, const Targe
     }
 }
 
+static void draw_puzzle_entrance_sandstone(void) {
+    // Span the shaft opening while leaving its stone rim visible.
+    static const uint8_t half_widths[] = {10, 23, 31, 37, 41, 44, 46, 48, 49, 50, 50};
+    for (int y = 51; y < 91; y++) {
+        int depth = y - 51;
+        int section = depth / 4;
+        int half = half_widths[section] +
+                   (half_widths[section + 1] - half_widths[section]) * (depth % 4) / 4;
+        for (int x = 110 - half; x <= 110 + half; x++) {
+            int grain = (x * 17 + y * 23 + (x * y) % 13) % 9;
+            int shade = 9 - depth / 5 + grain;
+            if (x <= 112 - half || x >= 108 + half || depth < 2) shade -= 13;
+            pixel(x, y, RGB(150 + shade, 108 + shade, 71 + shade));
+        }
+    }
+}
+
 void draw_room_details(unsigned chapter, unsigned room, const Color *background,
                        const Targets *targets, unsigned focused) {
     focus_box_drawn = false;
     current_focused = focused;
-    if (chapter == 1 && room == 125 &&
-        (background == art_z2_crypt_dark || background == art_z2_crypt_secret_open)) {
-        if (!z_attr(151, ATTR_OPEN)) label(119, 49, "F", RGB(92, 112, 101));
-        if (focused == 151) focus_feature_box(151, 103, 24, 35, 43, 3);
-        draw_room_target_anchor(chapter, room, targets, focused);
-        return;
+    if (chapter == 1 && room == 125) {
+        if (background == art_z2_crypt_dark || background == art_z2_crypt_secret_open) {
+            if (!z_attr(151, ATTR_OPEN)) label(119, 49, "F", RGB(92, 112, 101));
+            if (focused == 151) focus_feature_box(151, 103, 24, 35, 43, 3);
+            draw_room_target_anchor(chapter, room, targets, focused);
+            return;
+        }
+        if (focused == 151 && z_attr(151, ATTR_OPEN))
+            focus_feature_box(151, 100, 31, 40, 49, 4);
     }
     if (chapter == 2) {
         draw_z3_beam(room, targets);
+        if (room == ZORK3_PUZZLE_ENTRANCE) draw_puzzle_entrance_sandstone();
         if (room == ZORK3_ROOM_8) draw_z3_room8_temporal_exit();
         if (room == 39) draw_z3_manhole(focused);
         if (room == ZORK3_PARAPET) draw_z3_parapet();
