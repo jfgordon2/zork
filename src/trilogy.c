@@ -851,6 +851,9 @@ static void draw_explore(bool reviewing) {
     else {
         const Color *art = story_scene(chapter, room_name);
         scene_rows(ART_Y, art + 10 * SCREEN_W, ART_HEIGHT);
+        if (chapter == 2 && room_object == 143 &&
+            text_has(response, "With the help of the ladder, you exit the puzzle."))
+            draw_puzzle_exit_ladder();
         if (!barrow_ending) draw_room_details(chapter, room_object, art, &nearby, focused);
     }
     if (screen == FINISHED && chapter == 2 && room_object == ZORK3_TREASURY && successful_ending)

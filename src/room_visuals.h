@@ -11,6 +11,7 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
                        const Targets *targets, unsigned focused);
 void draw_target_focus_box(bool visible);
 void draw_z3_ending_cue(unsigned stage);
+void draw_puzzle_exit_ladder(void);
 void draw_puzzle_map(const PuzzleMap *map, const Targets *targets, unsigned focused);
 bool room_visuals_animate(unsigned chapter, unsigned room, unsigned story_stage);
 

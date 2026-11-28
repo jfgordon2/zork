@@ -539,7 +539,7 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_NARROW_GUARDIANS_WEST, 152, 70, 20, 99, 47},
     {2, ZORK3_NARROW_STATUES_EAST, 152, 103, 34, 34, 22},
     {2, ZORK3_NARROW_STATUES_WEST, 152, 103, 34, 34, 22},
-    {2, ZORK3_PUZZLE_ENTRANCE, 154, 92, 17, 47, 36},
+    {2, ZORK3_PUZZLE_ENTRANCE, 154, 85, 15, 70, 26},
     {2, ZORK3_NARROW_GUARDIANS_EAST, 106, 145, 15, 82, 52},
     {2, ZORK3_NARROW_GUARDIANS_EAST, 29, 145, 15, 82, 52},
     {2, ZORK3_NARROW_GUARDIANS_WEST, 106, 13, 15, 82, 52},
@@ -562,8 +562,8 @@ static const RoomAnchor anchors[] = {
     {2, ZORK3_NORTH_CORRIDOR, 183, 42, 20, 36, 44},
     {2, ZORK3_NORTH_CORRIDOR, 206, 84, 42, 108, 12},
     {2, ZORK3_NORTH_CORRIDOR, 4, 84, 17, 108, 29},
-    {2, 143, 215, 97, 53, 46, 31},
-    {2, 143, 154, 92, 17, 47, 36},
+    {2, 143, 215, 60, 50, 100, 41},
+    {2, 143, 154, 85, 15, 70, 26},
     {2, 45, 183, 166, 25, 35, 43},
     {2, 204, 153, 186, 17, 42, 36},
     // Zork III room 113: the shallow channel and the compass rose around its hole.
@@ -723,7 +723,7 @@ static const RoomAnchor anchors[] = {
 
     // Zork III lake-side stair and water surface.
     {2, 102, 223, 62, 33, 127, 50},
-    {2, 102, 154, 182, 29, 44, 28},
+    {2, 102, 154, 168, 45, 72, 46},
 
     // The room inside the mirror has several small, individually selectable props.
     {2, 160, 2, 18, 40, 14, 18},
@@ -868,7 +868,7 @@ static const RoomAnchor anchors[] = {
     {1, 46, 105, 17, 18, 219, 66},
     {1, 46, 130, 130, 53, 10, 11},
     {1, 46, 112, 126, 50, 20, 19},
-    {1, 59, 108, 18, 22, 57, 55},
+    {1, 59, 108, 76, 51, 8, 8},
     {1, 59, 77, 182, 33, 31, 21},
     {1, 59, 251, 39, 57, 157, 27},
     {1, 59, 137, 28, 20, 26, 58},
@@ -2661,17 +2661,25 @@ static void draw_zork2_cues(unsigned room, const Targets *targets, unsigned focu
         if (room == 59 && focused == lid)
             focus_feature_box(lid, x - 3, y - 5, 10, 10, 2);
     }
+    if (room == 59 && (z_attr(137, ATTR_OPEN) || z_attr(109, ATTR_OPEN))) {
+        // The lock stays on the jamb in both door backgrounds.
+        fill(78, 53, 4, 4, RGB(112, 94, 66));
+        fill(79, 54, 2, 1, SHADOW);
+        fill(80, 55, 1, 2, SHADOW);
+    }
     if (room == 202 || room == 121 || room == 242 || room == 75 ||
         room == 95 || room == 142 || room == 185 || room == 226) {
         // Story text: global 58 = 0..4 reads dark, flickering dimly, dimly glowing, glowing,
         // glowing brightly; global 13 (passage opened) reads "glowing serenely".
         unsigned glow = z_global(13) ? 5 : (z_global(58) > 4 ? 4 : z_global(58));
         Color color = RGB(25 + glow * 32, 28 + glow * 30, 21 + glow * 20);
-        for (int y = 0; y < 5; y++) {
-            int half = y < 2 ? y + 1 : 5 - y;
-            fill(120 - half, 74 + y, half * 2, 1, color);
+        for (int y = -4; y <= 4; y++) {
+            int half = 8 - 2 * (y < 0 ? -y : y);
+            fill(120 - half, 76 + y, half * 2 + 1, 1, RGB(128, 148, 119));
+            if (half >= 2)
+                fill(121 - half, 76 + y, half * 2 - 1, 1, color);
         }
-        if (focused == 216) focus_feature_box(216, 113, 72, 14, 9, 2);
+        if (focused == 216) focus_feature_box(216, 110, 70, 21, 13, 2);
     }
     if (room == 106) draw_zork2_cage();
     if (room == 230 && (finale_stage == 0 || (finale_stage == 1 && finale_age < 64))) {
@@ -2880,6 +2888,21 @@ void draw_room_details(unsigned chapter, unsigned room, const Color *background,
     if (chapter == 0 && room == 224) draw_maintenance_water();
     if (chapter == 0) draw_zork1_boat_pov(room, targets, focused);
     draw_room_target_anchor(chapter, room, targets, focused);
+}
+
+void draw_puzzle_exit_ladder(void) {
+    // The wall-mounted ladder is below the rim on the right side of the shaft.
+    Color shadow = RGB(42, 27, 21);
+    scene_segment((ScenePoint){127, 56}, (ScenePoint){124, 88}, shadow);
+    scene_segment((ScenePoint){145, 62}, (ScenePoint){141, 90}, shadow);
+    for (int rung = 0; rung < 4; rung++) {
+        int y = 61 + rung * 8;
+        Color wood = RGB(157 - rung * 19, 111 - rung * 14, 68 - rung * 8);
+        scene_segment((ScenePoint){126 - rung, y + 1}, (ScenePoint){144 - rung, y + 5}, shadow);
+        scene_segment((ScenePoint){126 - rung, y}, (ScenePoint){144 - rung, y + 4}, wood);
+    }
+    scene_segment((ScenePoint){126, 55}, (ScenePoint){123, 87}, RGB(135, 90, 56));
+    scene_segment((ScenePoint){144, 61}, (ScenePoint){140, 90}, RGB(111, 73, 48));
 }
 
 void draw_z3_ending_cue(unsigned stage) {
