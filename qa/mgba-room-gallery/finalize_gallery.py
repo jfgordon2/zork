@@ -3,6 +3,7 @@
 import csv
 import hashlib
 import html
+import os
 import pathlib
 import struct
 from collections import defaultdict, Counter
@@ -145,7 +146,7 @@ def href(path):
 def trace_href(path):
     if not path:
         return ''
-    return html.escape('../../' + path, quote=True)
+    return html.escape(os.path.relpath(ROOT / path, GALLERY), quote=True)
 
 def card(game, room_id, group):
     # Prefer a verified route frame. For branch-only rooms use the verified
@@ -213,9 +214,10 @@ index = '''<!doctype html>
 header{position:sticky;top:0;background:#111714ee;border-bottom:1px solid var(--line);padding:14px clamp(16px,4vw,48px);z-index:2;backdrop-filter:blur(6px)}
 header h1{margin:0 0 8px;font-size:21px;color:var(--gold)}header p{margin:0;color:var(--dim)}nav{display:flex;gap:14px;flex-wrap:wrap;margin-top:8px}a{color:var(--gold)}input{background:var(--panel);border:1px solid var(--line);color:var(--text);padding:9px 12px;border-radius:5px;width:min(420px,90vw)}main{padding:18px clamp(12px,3vw,36px)}section{margin:28px 0 52px}h2{margin:0 0 14px;color:var(--gold)}h2 small{font-size:13px;color:var(--dim);font-weight:400;margin-left:8px}.rooms{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px}.room{background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:12px;min-width:0}.room h3{font-size:16px;margin:0 0 2px}.scene,.caption{font-size:12px;color:var(--dim);margin:2px 0 8px}.trace{margin-left:8px;font-size:11px}.screen img{display:block;width:100%;height:auto;image-rendering:pixelated;background:#000;border:1px solid #58634d}.caption{margin:6px 0 0}details{margin-top:8px;border-top:1px solid var(--line);padding-top:8px}summary{cursor:pointer;color:var(--gold);font-size:13px}.states{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px;margin-top:8px}figure{margin:0;min-width:0}figure img{width:100%;height:auto;image-rendering:pixelated;border:1px solid #58634d;display:block}figcaption{font-size:11px;color:var(--dim);margin:4px 0 8px}footer{color:var(--dim);padding:32px;text-align:center}code{color:#d4dfc8} .empty{padding:12px;color:var(--dim)}
 </style></head><body><header><h1>Zork Trilogy · mGBA room and state gallery</h1>
-<p>{len(rows)} native 240×160 screenshot records from the current cartridge, grouped by traced story room. Only frames verified against the emulator's live chapter and room ID are shown.</p>
+<p>SCREENSHOT_RECORD_COUNT native 240×160 screenshot records from the current cartridge, grouped by traced story room. Only frames verified against the emulator's live chapter and room ID are shown.</p>
 <input id="filter" type="search" placeholder="Filter rooms…"><nav><a href="#zork-i">Zork I</a><a href="#zork-ii">Zork II</a><a href="#zork-iii">Zork III</a><a href="manifest.csv">CSV manifest</a><a href="capture-results.csv">mGBA capture report</a><a href="route-gaps.md">Route gap report</a></nav></header><main>
 '''
+index = index.replace('SCREENSHOT_RECORD_COUNT', str(len(rows)))
 index += '\n'.join(sections)
 index += '''</main><footer>Each card links to the original mGBA PNG. The manifest records the save checkpoint and trace log used for it.</footer>
 <script>const filter=document.querySelector('#filter');filter.addEventListener('input',()=>{const q=filter.value.trim().toLowerCase();document.querySelectorAll('.room').forEach(card=>{card.hidden=!!q&&!card.dataset.search.includes(q);});});</script></body></html>'''

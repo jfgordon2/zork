@@ -4,6 +4,8 @@
 
 ![The Dam, Gazebo, Lake Shore, and Royal Puzzle as displayed in mGBA](docs/images/visual-update.png)
 
+[Browse the interactive mGBA room and state gallery](https://jfgordon2.github.io/zork/)
+
 [Exploration map and Great Cavern screenshots](docs/images/exploration-preview.png)
 
 [Alternate routes and room art in mGBA](docs/images/alternate-preview.png)
